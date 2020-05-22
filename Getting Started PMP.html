@@ -26,16 +26,24 @@
 
         function adjustSideBar() {
             const sidebar = document.getElementById("aha_sidebar");
-            const sbc = document.getElementById("sidebar_content");
             const titleHeight = document.getElementById("headerAHA_title").clientHeight;
             const footerHeight = document.getElementById("aha_footer").clientHeight;
-            const mainHeight = document.getElementById("main").clientHeight;
-            const sidebarMargin  = getStyleAsInt(sidebar, "margin-bottom") + getStyleAsInt(sidebar, "margin-top");
-            console.log(sidebarMargin)
-            let newHeight = window.innerHeight - titleHeight - footerHeight - sidebarMargin - 10;
-            newHeight =  window.innerHeight + titleHeight - footerHeight;
-            sidebar.style.height = "auto";
-            sbc.style.height  = sidebar.clientHeight +  "px";
+            var footerInView = document.getElementById("aha_footer").getBoundingClientRect();
+            // if (footerInView.bottom < window.innerHeight) {
+            //     let headerFooterHeight = titleHeight + footerHeight;
+            //     let visibleFooterHeight = window.innerHeight  - footerInView.top;
+            //     sidebar.style.height = "calc(100% - " + headerFooterHeight + "px)";
+            //
+            // }
+            // else {
+            //     console.log("not")
+            //     console.log();
+            //     sidebar.style.height = "calc(100% - " + titleHeight + "px)"
+            // }
+            sidebar.style.height = "calc(100% -  " + (Math.max(window.innerHeight - footerInView.top, 0)  +  titleHeight) + "px)"
+
+            // console.log(sidebar.style.height);
+            // console.log(footerInView.bottom);
         }
 
 
@@ -90,8 +98,8 @@
     </script>
 </head>
 
-<body  class="HolyGrail">
-<div id="headerAHA_title" class="aha_header HolyGrail-header">
+<body onload="adjustSideBar()" onresize="adjustSideBar()" ontoggle="adjustSideBar()"  onscroll="adjustSideBar()">
+<div id="headerAHA_title" class="aha_header">
     <div class="aha_header_logo_container">
         <img src='https://precision.heart.org/assets/images/aha-pmp-logo.png' alt='Drawing' id="aha_logo"
              style="width:140px; float:left;">
@@ -104,7 +112,8 @@
 </div>
 
 
-<div class="w3-sidebar w3-bar-block w3-card HolyGrail-nav" id="aha_sidebar">
+
+<div class="w3-sidebar w3-bar-block w3-card" id="aha_sidebar">
     <button class="w3-bar-item w3-button w3-large" onclick="w3_toggle()">
         <i class="fa fa-exchange-alt" style="font-size: larger;"></i>
     </button>
@@ -224,7 +233,7 @@
     </div>
 </div>
 
-<div class="HolyGrail-content">
+
 
     <div id="main" style="margin-left:22%;">
         <button type="button" class="collapsible" onclick="return collapse('overview_cont')">
@@ -505,7 +514,7 @@
         </div>
         <button type="button" class="collapsible" onclick="return collapse('user_guide_cont')">
             <div class="h2_div"><img alt="Drawing;"><a class="anchor" name="user_guide"></a>
-                <h2>Precision Medicine Platform User Guide<span class="collapse_tip" style="color:green;">Click to Expand/Collapse</span>
+                <h2>Precision Medicine Platform User Guide<span class="collapse_tip" style="color:green;">
                 </h2></div>
         </button>
         <div id="user_guide_cont" class="content" style="display:block;">
@@ -514,16 +523,14 @@
                 the Precision Medicine Platform (PMP)</i></p>
 
 
-            <button type="button" class="collapsible" onclick="return collapse('getData_cont')"><span
-                    class="collapse_tip">Click to Expand/Collapse</span>
+            <button type="button" class="collapsible" onclick="return collapse('getData_cont')">
                 <a class="anchor" name="getData"></a>
                 <h3>Get Data In and Out of the PMP <i class="fa fa-arrows-alt-v"></i></h3>
             </button>
             <div id="getData_cont" class="content">
                 <p>Please <a href="https://precision.heart.org/contact" target="_blank">contact us</a> if
                     at any point you are having trouble uploading data.</p>
-                <button type="button" class="collapsible" onclick="return collapse('upload_cont')"><span
-                        class="collapse_tip">Click to Expand/Collapse</span>
+                <button type="button" class="collapsible" onclick="return collapse('upload_cont')">
                     <h4>Upload Data to PMP <i class="fa fa-arrows-alt-v"></i></h4>
                 </button>
                 <div id="upload_cont" class="content" style="background-color:#f3f3f3; ">
@@ -543,8 +550,7 @@
                             Support</a>.
                     </p>
                 </div>
-                <button type="button" class="collapsible" onclick="return collapse('dataOut_cont')"><span
-                        class="collapse_tip">Click to Expand/Collapse</span>
+                <button type="button" class="collapsible" onclick="return collapse('dataOut_cont')">
                     <h4>Get Data Out of the PMP <i class="fa fa-arrows-alt-v"></i></h4>
                 </button>
                 <div id="dataOut_cont" class="content" style="background-color:#f3f3f3; ">
@@ -565,8 +571,7 @@
                             style="height:50%;" class="content"></p>
                 </div>
             </div>
-            <button type="button" class="collapsible" onclick="return collapse('access_cont')"><span
-                    class="collapse_tip">Click to Expand/Collapse</span>
+            <button type="button" class="collapsible" onclick="return collapse('access_cont')">
                 <a class="anchor" name="accessData"></a>
                 <h3>Access Data in the PMP <i class="fa fa-arrows-alt-v"></i></h3>
             </button>
@@ -577,8 +582,7 @@
                     downloading data directly and pulling/cloning data from repositories. Steps for accessing data from
                     download links, repositories, and BurstIQ are described below.
                 </p>
-                <button type="button" class="collapsible" onclick="return collapse('download_cont')"><span
-                        class="collapse_tip">Click to Expand/Collapse</span>
+                <button type="button" class="collapsible" onclick="return collapse('download_cont')">
                     <h4><b>Downloading Data Directly <i class="fa fa-arrows-alt-v"></i>
                     </b></h4>
                 </button>
@@ -597,8 +601,7 @@
                                 with Technical Support</a>.</p>
                     </ul>
                 </div>
-                <button type="button" class="collapsible" onclick="return collapse('repo_cont')"><span
-                        class="collapse_tip">Click to Expand/Collapse</span>
+                <button type="button" class="collapsible" onclick="return collapse('repo_cont')">
                     <h4><b>Pulling or Cloning Data from a Repository <i class="fa fa-arrows-alt-v"></i></b></h4>
                 </button>
                 <div id="repo_cont" class="content" style="background-color:#f3f3f3; ">
@@ -621,8 +624,7 @@
                     <p><span class="note">Tip:</span> Make sure to access the repository in your workspace when
                         setting up ssh keys. You cannot copy an ssh key out of the workspace</p>
                 </div>
-                <button type="button" class="collapsible" onclick="return collapse('burst_cont')"><span
-                        class="collapse_tip">Click to Expand/Collapse</span>
+                <button type="button" class="collapsible" onclick="return collapse('burst_cont')">
                     <h4><b>Accessing Data Through BurstIQ</b> <i class="fa fa-arrows-alt-v"></i></h4>
                 </button>
                 <div id="burst_cont" class="content" style="background-color:#f3f3f3; ">
@@ -673,8 +675,7 @@
                     </ul>
                 </div>
             </div>
-            <button type="button" class="collapsible" onclick="return collapse('share_cont')"><span
-                    class="collapse_tip">Click to Expand/Collapse</span>
+            <button type="button" class="collapsible" onclick="return collapse('share_cont')">
                 <a class="anchor" name="share"></a>
                 <h3>Sharing A Workspace <i class="fa fa-arrows-alt-v"></i></h3>
             </button>
@@ -699,8 +700,7 @@
                         style="width:40%; height:40%; border:0.1em solid #000000; display:inline-block; vertical-align:top; margin:2%">
                 </p>
             </div>
-            <button type="button" class="collapsible" onclick="return collapse('pause_cont')"><span
-                    class="collapse_tip">Click to Expand/Collapse</span>
+            <button type="button" class="collapsible" onclick="return collapse('pause_cont')">
                 <a class="anchor" name="pause"></a>
                 <h3>Starting and Stopping the Workspace <i class="fa fa-arrows-alt-v"></i></h3>
             </button>
@@ -715,8 +715,7 @@
                     EC2-CPU. For custom sizing options, please reach out to <a
                             href="https://precision.heart.org/tech-support" target="_blank">Technical Support</a>.</p>
             </div>
-            <button type="button" class="collapsible" onclick="return collapse('software_cont')"><span
-                    class="collapse_tip">Click to Expand/Collapse</span>
+            <button type="button" class="collapsible" onclick="return collapse('software_cont')">
                 <a class="anchor" name="software"></a>
                 <h3 style>Software and Functionality <i class="fa fa-arrows-alt-v"></i></h3>
             </button>
@@ -758,8 +757,7 @@
                     needs.</p>
                 <p><img src="images/workspace.png" alt="drawing;" style="width:90%; border:0.1em solid #000000;"></p>
             </div>
-            <button type="button" class="collapsible" onclick="return collapse('tutorial_cont')"><span
-                    class="collapse_tip">Click to Expand/Collapse</span>
+            <button type="button" class="collapsible" onclick="return collapse('tutorial_cont')">
                 <a class="anchor" name="tutorials"></a>
                 <h3 style>Tutorials and Examples <i class="fa fa-arrows-alt-v"></i></h3>
             </button>
@@ -780,8 +778,8 @@
             </div>
         </div>
     </div>
-</div>
-<footer id="aha_footer" class ="HolyGrail-footer" >
+<footer id="aha_footer">
+    <div id="#footer_border"></div>
     <p>The Precision Medicine Platform is a strategic initiative of the
         Heart Association's Institute for Precision Cardiovascular Medicine.
     </p>
@@ -807,7 +805,6 @@
                 "className": "affiliate_container  col-lg-5",
                 "style": "height:6rem;  padding-top:1.5rem;",
                 "label": "Powered by",
-                "border": "border-left:0.1rem solid #e3e3e3; height:6rem;"
 
             }
         ];
@@ -827,13 +824,10 @@
             labelCell.innerHTML = x.label;
             labelCell.className = "col-md-4 affiliate_text";
 
-
             const affiliateCell = document.createElement("div");
             affiliateCell.appendChild(labelCell);
             affiliateCell.appendChild(imgCell);
             affiliateCell.className = "row";
-            affiliateCell.style = x.border;
-
 
             const affiliateContainer = document.createElement("div");
             affiliateContainer.className = x.className;

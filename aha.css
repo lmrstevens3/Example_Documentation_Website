@@ -4,8 +4,10 @@
     width: 100%;
     top: 0;
     z-index: 2;
+    max-height: 12rem;
     background-color: #ffffff;
     border-bottom: 0.1rem solid #f3f3f3;
+    overflow: scroll;
     /*box-shadow: 1px 0 5px rgba(0, 0, 0, 0.5);*/
 }
 
@@ -24,21 +26,21 @@
 
 h1 {
     font-family: Arial, serif;
-    font-size: 2.75rem;
+    font-size: 2.25rem;
     margin: 0;
     text-align: center;
     font-weight: normal;
     color: #000000;
-    padding: 1% 10%;
+    padding: 0% 10%;
 }
 
 .header_date {
     text-align:center;
     color:#6D6E71;
-    font-size:1.375rem;
+    font-size:1.2rem;
     font-family:Arial, serif;
     font-style: italic;
-    padding: 0% 15%;
+    padding: 05px 10%;
 }
 
 .w3-card{
@@ -49,12 +51,15 @@ h1 {
     position: sticky;
     margin-top: 0;
     width: 22%;
+    z-index: 0;
     padding-left: .25rem;
     /*margin-bottom: 10px;*/
     background: #e9ecef none repeat scroll 0 0;
     /*border-right: 0.1rem solid #f3f3f3;*/
     /*box-shadow: 2px 0 2px rgba(0, 0, 0, 0.25);*/
-    overflow:scroll;
+    height: calc(100% - 10em);
+    overflow:auto;
+    /*height: 700px;*/
 }
 
 #aha_sidebar button {
@@ -97,7 +102,7 @@ h1 {
     background: #e9ecef none repeat scroll 0 0;
     width: 95%;
     padding-bottom: 1%;
-    overflow:scroll;
+    overflow:auto;
     /*height: 2000px;*/
 }
 
@@ -105,7 +110,7 @@ h1 {
     padding-left: 3%;
     padding-right: 1%;
     color: #6D6E71;
-    background: #e9ecef none repeat scroll 0 0;
+    /*background: #e9ecef none repeat scroll 0 0;*/
 
 }
 
@@ -123,7 +128,6 @@ h1 {
     Padding-left: 5px;
     line-height: 1.75;
 
-
 }
 
 #sidebar_content a {
@@ -136,10 +140,15 @@ h1 {
     color: #C10E21;
 }
 
+footer {
+    max-height:13rem;
+    overflow:auto;
+}
+
 #aha_footer {
-    border-top: 0.2em solid #e3e3e3;
-    z-index: 1;
-    height: 200px;
+    /*border-top: 0.2em solid #e3e3e3;*/
+    z-index: 0;
+    height: 12rem;
     position: relative;
     background-color: #e9ecef;
 }
@@ -161,7 +170,7 @@ h1 {
 .affiliate_container {
     background-color:#e9ecef;
     justify-content: center;
-    height:9rem;
+    height:8rem;
     border-bottom: 1px solid #e3e3e3;
 }
 
@@ -173,12 +182,7 @@ h1 {
 
 }
 
-#borderLeft {
-    border-left: 2px solid #f51c40;
-    position: absolute;
-    top: 50%;
-    bottom: 0;
-}
+
 
 .affiliate_img {
     padding: 0;
@@ -191,7 +195,7 @@ h1 {
 
 .h2_div {
     display: inline-block;
-    padding-top: 2px;
+    padding-top: 0px;
     padding-bottom: 0;
     width: 100%;
     background-color: #e9ecef;
@@ -204,9 +208,9 @@ h1 {
 }
 
 h2 {
-
     font-family: Arial, serif;
-    font-size: 2.25rem;
+    font-size: 2.0rem;
+    padding-top:1%;
     margin: 0.2em;
     text-align: left;
     font-weight: normal;
@@ -222,7 +226,7 @@ h2 {
 
 h3 {
     font-family: Arial, serif;
-    font-size: 1.75rem;
+    font-size: 1.7rem;
     text-align: left;
     font-weight: normal;
     color: #C10E21;
@@ -235,20 +239,18 @@ h3:hover {
 
 h4 {
     font-family: Arial, serif;
-    font-size: 1.375rem;
+    font-size: 1.35rem;
     font-weight: 600;
     text-align: left;
     color: #000000;
     margin: 1%;
 }
 
-h4:hover, h4 i.fa-arrows-alt-v:hover {
-    color: #6D6E71;
-}
+
 
 h5 {
     font-family: Arial, serif;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     text-align: left;
     color: #334CD5;
     margin: 1%;

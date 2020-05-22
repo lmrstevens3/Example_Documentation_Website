@@ -4,10 +4,10 @@
     width: 100%;
     top: 0;
     z-index: 2;
-    max-height: 12rem;
+    min-width: 400px;
     background-color: #ffffff;
     border-bottom: 0.1rem solid #f3f3f3;
-    overflow: scroll;
+    overflow: hidden;
     /*box-shadow: 1px 0 5px rgba(0, 0, 0, 0.5);*/
 }
 
@@ -31,7 +31,7 @@ h1 {
     text-align: center;
     font-weight: normal;
     color: #000000;
-    padding: 0% 10%;
+    padding: 0 10%;
 }
 
 .header_date {
@@ -57,9 +57,7 @@ h1 {
     background: #e9ecef none repeat scroll 0 0;
     /*border-right: 0.1rem solid #f3f3f3;*/
     /*box-shadow: 2px 0 2px rgba(0, 0, 0, 0.25);*/
-    height: calc(100% - 10em);
-    overflow:auto;
-    /*height: 700px;*/
+    height: 100%;
 }
 
 #aha_sidebar button {
@@ -102,8 +100,8 @@ h1 {
     background: #e9ecef none repeat scroll 0 0;
     width: 95%;
     padding-bottom: 1%;
+    margin-bottom: 2%;
     overflow:auto;
-    /*height: 2000px;*/
 }
 
 #toc {
@@ -138,11 +136,6 @@ h1 {
 
 #sidebar_content a:hover {
     color: #C10E21;
-}
-
-footer {
-    max-height:13rem;
-    overflow:auto;
 }
 
 #aha_footer {
@@ -195,7 +188,7 @@ footer {
 
 .h2_div {
     display: inline-block;
-    padding-top: 0px;
+    padding-top: 0;
     padding-bottom: 0;
     width: 100%;
     background-color: #e9ecef;

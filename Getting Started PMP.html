@@ -25,22 +25,14 @@
         }
 
         function adjustSideBar() {
-            const sidebar = document.getElementById("aha_sidebar");
+            const sidebar = document.getElementById("sidebar_content");
             const titleHeight = document.getElementById("headerAHA_title").clientHeight;
-            const footerHeight = document.getElementById("aha_footer").clientHeight;
-            var footerInView = document.getElementById("aha_footer").getBoundingClientRect();
-            // if (footerInView.bottom < window.innerHeight) {
-            //     let headerFooterHeight = titleHeight + footerHeight;
-            //     let visibleFooterHeight = window.innerHeight  - footerInView.top;
-            //     sidebar.style.height = "calc(100% - " + headerFooterHeight + "px)";
-            //
-            // }
-            // else {
-            //     console.log("not")
-            //     console.log();
-            //     sidebar.style.height = "calc(100% - " + titleHeight + "px)"
-            // }
-            sidebar.style.height = "calc(100% -  " + (Math.max(window.innerHeight - footerInView.top, 0)  +  titleHeight) + "px)"
+            const buttonHeight = document.getElementById("sidebarToggleButton").clientHeight;
+            const footerInView = document.getElementById("aha_footer").getBoundingClientRect();
+
+            sidebar.style.height = "calc(100% -  " +
+                (Math.max(window.innerHeight - footerInView.top, 0)  + buttonHeight +  titleHeight) +
+                "px)"
 
             // console.log(sidebar.style.height);
             // console.log(footerInView.bottom);
@@ -106,15 +98,14 @@
         <img src='https://precision.heart.org/sso/images/precision-medicine-platform-logo.png' alt='Drawing'
              id="pmp_logo">
     </div>
-
     <h1>Precision Medicine Platform (PMP) Documentation</h1>
-    <p class="header_date">Created: January 2020, Updated: May 2020</p>
+    <p class="header_date">Date: May 01, 2020 - Version 0.1</p>
 </div>
 
 
 
 <div class="w3-sidebar w3-bar-block w3-card" id="aha_sidebar">
-    <button class="w3-bar-item w3-button w3-large" onclick="w3_toggle()">
+    <button class="w3-bar-item w3-button w3-large" id="sidebarToggleButton" onclick="w3_toggle()">
         <i class="fa fa-exchange-alt" style="font-size: larger;"></i>
     </button>
     <div id="sidebar_content">
@@ -258,8 +249,7 @@
                 <li>Explore the capabilities of Precision Medicine Platform workspaces <a
                         href="https://precision.heart.org/workspace/about" target="_blank">here</a></li>
             </ul>
-            <button type="button" class="collapsible" onclick="return collapse('collaboration_cont')"><span
-                    class="collapse_tip">Click to Expand/Collapse</span>
+            <button type="button" class="collapsible" onclick="return collapse('collaboration_cont')">
                 <a class="anchor" name="collaboration"></a>
                 <h3>Collaboration <i
                         class="fa fa-arrows-alt-v"></i></h3>
@@ -277,8 +267,7 @@
                     responsibility to ensure collaborators have the appropriate data access approvals when
                     sharing.</i></p>
             </div>
-            <button type="button" class="collapsible" onclick="return collapse('pwr_compute_cont')"><span
-                    class="collapse_tip">Click to Expand/Collapse</span>
+            <button type="button" class="collapsible" onclick="return collapse('pwr_compute_cont')">
                 <a class="anchor" name="pwr_compute"></a>
                 <h3>Power Compute In the PMP <i
                         class="fa fa-arrows-alt-v"></i></h3>
@@ -317,12 +306,11 @@
                    target="_blank">AHA Patent, Intellectual Property and Technology Transfer Policy</a></p>
         </div>
         <button type="button" class="collapsible" onclick="return collapse('register_cont')">
-            <div class="h2_div"><img alt="Drawing;"><a class="anchor" name="register"></a>
+            <div class="h2_div"><img alt="Drawing; src=''"><a class="anchor" name="register"></a>
                 <h2>Registering and Requesting a Workspace</h2></div>
         </button>
         <div id="register_cont" class="content" style="display:block;">
-            <button type="button" class="collapsible" onclick="return collapse('sign_up_cont')"><span
-                    class="collapse_tip">Click to Expand/Collapse</span>
+            <button type="button" class="collapsible" onclick="return collapse('sign_up_cont')">
                 <a class="anchor" name="pmp_account"></a>
                 <h3>Registering for a PMP Account <i class="fa fa-arrows-alt-v"></i></h3>
             </button>
@@ -344,8 +332,7 @@
                 </ul>
                 <img src="images/login.png" alt="Drawing;" style="margin:1% 15%; width:60%;">
             </div>
-            <button type="button" class="collapsible" onclick="return collapse('request_cont')"><span
-                    class="collapse_tip">Click to Expand/Collapse</span>
+            <button type="button" class="collapsible" onclick="return collapse('request_cont')">
                 <a class="anchor" name="request_workspace"></a>
                 <h3>Requesting Data and/or a Workspace <i
                         class="fa fa-arrows-alt-v"></i></h3>
@@ -468,8 +455,7 @@
                 a specific research question. The basic search capability is free of charge to all registered
                 researchers.</p>
 
-            <button type="button" class="collapsible" onclick="return collapse('search_cont')"><span
-                    class="collapse_tip">Click to Expand/Collapse</span>
+            <button type="button" class="collapsible" onclick="return collapse('search_cont')">
                 <a class="anchor" name="search"></a><h4>Search Page Overview <i class="fa fa-arrows-alt-v"></i></h4>
             </button>
             <div id="search_cont" class="content" style="background-color:#f3f3f3;">

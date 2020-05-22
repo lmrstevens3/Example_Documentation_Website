@@ -1,0 +1,149 @@
+
+.collapsible {
+    cursor: pointer;
+    width: 100%;
+    border:#FFFFFF;
+    text-align: left;
+    padding:0;
+    background: transparent;
+    margin-block-start:.1rem;
+    display:inline-block;
+}
+
+.collapsible:hover {
+    /*background-color: #979797;
+    border-bottom: 0.15rem solid #E11127;*/
+    color:#E11127;
+}
+
+.collapsible:hover i.fa-arrows-alt-v {
+    background-color: transparent;
+    color: #E11127;
+}
+
+.collapsible.focus, .collapsible:focus {
+    outline: #b6c1fa solid 0.15em;
+    /*box-shadow: none;!important;*/
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.25);
+}
+
+
+
+.content {
+    padding-right:1rem;
+    padding-left:1rem;
+    margin-top: .1rem;
+    overflow: hidden;
+    display:  none;
+    font-family: Arial, serif;
+    font-size: 1.15rem;
+    text-align: left;
+    color: #000000;
+    line-height: 1.75;
+}
+
+.content p, li, ul li, ol li  {
+    font-family: Arial, serif;
+    font-size: 1.15rem;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: left;
+    color: #000000;
+    line-height: 1.75;
+}
+
+.content img {
+    border: 0.1em solid #000000;
+    width:75%;
+
+}
+
+.content .note{
+    line-height:1.75;
+    font-style:italic;
+    color: #334CD5;
+}
+
+#challenge_question {
+    padding: 0.25rem 2rem 0.25rem 2rem;
+    margin:2%;
+    font-style: italic;
+    font-size: 1.5rem;
+    font-weight:600;
+    font-family: Arial, serif;
+    background-color: #fadfe3;
+    border:0.1rem dotted #C10E21;
+    color: #404766;
+}
+
+a {
+    color: #3b55e6;
+}
+
+a:hover{
+    color: #C10E21;
+}
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -250px;
+    visibility: hidden;
+}
+
+/**
+ * 1. Avoid the IE 10-11 `min-height` bug.
+ * 2. Set `flex-shrink` to `0` to prevent some browsers from
+ *    letting these items shrink to smaller than their content's default
+ *    minimum size. See http://bit.ly/1Mn35US for details.
+ * 3. Use `%` instead of `vh` since `vh` is buggy in older mobile Safari.
+ */
+
+.HolyGrail {
+    display: flex;
+    height: 100%; /* 1, 3 */
+    flex-direction: column;
+}
+
+.HolyGrail-header,
+.HolyGrail-footer {
+    flex: none; /* 2 */
+}
+
+.HolyGrail-body {
+    display: flex;
+    flex: 1 0 auto; /* 2 */
+    flex-direction: column;
+    padding: var(--space);
+}
+
+.HolyGrail-content {
+    margin-top: var(--space);
+}
+
+.HolyGrail-nav {
+    order: -1;
+}
+
+.HolyGrail-nav,
+.HolyGrail-ads {
+    padding: 1em;
+    border-radius: 3px;
+    background: rgba(147, 128, 108, 0.1);
+}
+
+@media (--break-lg) {
+    .HolyGrail-body {
+        flex-direction: row;
+    }
+    .HolyGrail-content {
+        flex: 1;
+        padding: 0 var(--space-lg);
+        margin: 0;
+    }
+    .HolyGrail-nav, .HolyGrail-ads {
+        flex: 0 0 12em;
+    }
+}
+

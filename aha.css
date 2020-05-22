@@ -1,0 +1,262 @@
+.aha_header {
+    position: -webkit-sticky;
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+    background-color: #ffffff;
+    border-bottom: 0.1rem solid #f3f3f3;
+    /*box-shadow: 1px 0 5px rgba(0, 0, 0, 0.5);*/
+}
+
+.aha_header_logo_container {
+    margin: 1px;
+    padding: 2px 5% 1% 5%;
+    height: 7rem;
+}
+
+
+#pmp_logo {
+    width: 10rem;
+    float: right;
+    padding-top: 1.5%
+}
+
+h1 {
+    font-family: Arial, serif;
+    font-size: 2.75rem;
+    margin: 0;
+    text-align: center;
+    font-weight: normal;
+    color: #000000;
+    padding: 1% 10%;
+}
+
+.header_date {
+    text-align:center;
+    color:#6D6E71;
+    font-size:1.375rem;
+    font-family:Arial, serif;
+    font-style: italic;
+    padding: 0% 15%;
+}
+
+.w3-card{
+  box-shadow: none !important;
+}
+
+#aha_sidebar {
+    position: sticky;
+    margin-top: 0;
+    width: 22%;
+    padding-left: .25rem;
+    /*margin-bottom: 10px;*/
+    background: #e9ecef none repeat scroll 0 0;
+    /*border-right: 0.1rem solid #f3f3f3;*/
+    /*box-shadow: 2px 0 2px rgba(0, 0, 0, 0.25);*/
+    overflow:scroll;
+}
+
+#aha_sidebar button {
+    color: #C10E21;
+    font-size: 1.125rem;
+    font-weight: bold;
+    padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+    border: none;
+    background: #e9ecef;
+
+}
+
+
+#aha_sidebar button:hover {
+    outline: #6D6E71 dotted 1px;
+    box-shadow: none !important;
+
+}
+
+.sidebar_btn span {
+    padding-right: 0.5rem;
+    color: #C10E21;
+    background: #e9ecef;
+    border: none;
+    font-family: Arial, serif;
+    text-align: left;
+    float: left;
+}
+
+
+.sidebar_btn.focus, .sidebar_btn:focus, .toc_btn.focus, .toc_btn:focus {
+    outline: none;
+    box-shadow: none !important;
+}
+
+#sidebar_content {
+    padding-left: 1%;
+    padding-right: 1%;
+    color: #6D6E71;
+    background: #e9ecef none repeat scroll 0 0;
+    width: 95%;
+    padding-bottom: 1%;
+    overflow:scroll;
+    /*height: 2000px;*/
+}
+
+#toc {
+    padding-left: 3%;
+    padding-right: 1%;
+    color: #6D6E71;
+    background: #e9ecef none repeat scroll 0 0;
+
+}
+
+.toc_btn {
+    background-color: #e9ecef;
+    border: none;
+}
+
+
+#sidebar_content li,
+#sidebar_content ul,
+#sidebar_content ul li {
+    display: block;
+    list-style: outside none none !important;
+    Padding-left: 5px;
+    line-height: 1.75;
+
+
+}
+
+#sidebar_content a {
+    color: #6D6E71;
+    font-family: Arial, serif;
+    font-size: 95%;
+}
+
+#sidebar_content a:hover {
+    color: #C10E21;
+}
+
+#aha_footer {
+    border-top: 0.2em solid #e3e3e3;
+    z-index: 1;
+    height: 200px;
+    position: relative;
+    background-color: #e9ecef;
+}
+
+#aha_footer p {
+    margin: 2% 5%;
+    font-size: 1rem;
+    color: #6D6E71;
+    text-align: center;
+
+}
+
+#aha_footer_logos {
+    display: grid;
+    justify-content: space-around;
+    background-color: #e9ecef;
+}
+
+.affiliate_container {
+    background-color:#e9ecef;
+    justify-content: center;
+    height:9rem;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.affiliate_text {
+    color:#6D6E71;
+    text-align: center;
+    font-size: 95%;
+    padding: 1rem 0 0 1rem;
+
+}
+
+#borderLeft {
+    border-left: 2px solid #f51c40;
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+}
+
+.affiliate_img {
+    padding: 0;
+    vertical-align: middle;
+    text-align: center;
+
+}
+
+
+
+.h2_div {
+    display: inline-block;
+    padding-top: 2px;
+    padding-bottom: 0;
+    width: 100%;
+    background-color: #e9ecef;
+    border-top: 0.25rem solid #f3f3f3;
+    border-bottom: 0.25rem solid #f3f3f3;
+}
+
+.h2_div:hover {
+    background-color: #f8f8f8;
+}
+
+h2 {
+
+    font-family: Arial, serif;
+    font-size: 2.25rem;
+    margin: 0.2em;
+    text-align: left;
+    font-weight: normal;
+    color: #000000;
+
+}
+
+.h2_div img {
+    content: url("https://www.heart.org/-/media/foundation/metadata/aha_logo.png");
+    height: 50px;
+    float: left;
+}
+
+h3 {
+    font-family: Arial, serif;
+    font-size: 1.75rem;
+    text-align: left;
+    font-weight: normal;
+    color: #C10E21;
+    margin: 1%;
+}
+
+h3:hover {
+    color: #E11127;
+}
+
+h4 {
+    font-family: Arial, serif;
+    font-size: 1.375rem;
+    font-weight: 600;
+    text-align: left;
+    color: #000000;
+    margin: 1%;
+}
+
+h4:hover, h4 i.fa-arrows-alt-v:hover {
+    color: #6D6E71;
+}
+
+h5 {
+    font-family: Arial, serif;
+    font-size: 1.25rem;
+    text-align: left;
+    color: #334CD5;
+    margin: 1%;
+}
+
+i.fa-arrows-alt-v {
+    font-size: medium;
+    vertical-align: middle;
+    color: #d6d9dc;
+}
+

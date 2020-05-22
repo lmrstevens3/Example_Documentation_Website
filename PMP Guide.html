@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>AHA- COVID-19 Data Challenge</title>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="aha.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen"/>
+
+    <script type="text/javascript">
+        const hidden_width = "35px";
+        const visible_width = "22%";
+        const transition = 300;
+
+        function w3_toggle() {
+            const sidebar = document.getElementById("aha_sidebar");
+            const main = document.getElementById("main");
+            const sbc = document.getElementById("sidebar_content");
+
+            sidebar.style.transition = transition + "ms";
+            if (sidebar.isClosed) {
+                main.style.marginLeft = visible_width;
+                sidebar.style.width = visible_width;
+                setTimeout(function () {
+                    sbc.style.display = ""
+                }, transition);
+                sidebar.isClosed = false;
+            } else {
+                main.style.marginLeft = hidden_width;
+                sidebar.style.width = hidden_width;
+
+                sbc.style.display = "none";
+                sidebar.isClosed = true;
+            }
+        }
+
+        function toggle_content(id) {
+            const cont = document.getElementById(id);
+            cont.style.display = (cont.style.display != 'none' ? 'none' : '');
+        }
+
+        function toggle(id, x) {
+            toggle_content(id);
+            x.classList.toggle("fa-angle-down");
+            x.classList.toggle("fa-angle-right");
+        }
+
+        function collapse(id, leave_open) {
+
+            const content = document.getElementById(id);
+            if (content.style.display !== "block" || leave_open) {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+
+            }
+        }
+        function collapse_sub(id, leave_open, sub_id) {
+                collapse(id, leave_open);
+                collapse(sub_id);
+        }
+
+    </script>
+</head>
+
+<body>
+
+<div id="headerAHA_title" class="aha_header">
+    <div class="aha_header_logo_container">
+        <img src='https://precision.heart.org/assets/images/aha-pmp-logo.png' alt='Drawing' id="aha_logo"
+             style="width:140px; float:left;">
+        <img src='https://precision.heart.org/sso/images/precision-medicine-platform-logo.png' alt='Drawing'
+             id="pmp_logo">
+    </div>
+
+    <h1>Precision Medicine Platform User Guide</h1>
+</div>
+<div class="w3-sidebar w3-bar-block w3-card" id="aha_sidebar">
+    <button class="w3-bar-item w3-button w3-large" onclick="w3_toggle()">
+        <i class="fa fa-exchange-alt" style="font-size: larger;"></i>
+    </button>
+    <div id="sidebar_content">
+        <div id="toc">
+            <ul>
+                <li>
+                    <a href="#overview" onclick="return collapse('overview_cont', true)">Challenge Overview</a>
+                    <button class="toc_btn fa fa-angle-right"
+                            onclick="return toggle('toc_overview', this);"></button>
+                    <div id="toc_overview" style="display:none;">
+                        <ul>
+                            <li><a href="#objective" onclick="return collapse('overview_cont', true)">Objective</a></li>
+                            <li><a href="#dates" onclick="return collapse('overview_cont', true)">Dates</a></li>
+                            <li><a href="#background" onclick="return collapse_sub('overview_cont', true, 'background_cont')">Background</a></li>
+                            <li><a href="#prizes_evaluation" onclick="return collapse_sub('overview_cont', true, 'prize_cont')">Prizes and Evaluation</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#participate" onclick="return collapse('participate_cont', true)">How To Participate</a>
+                    <button class="toc_btn fa fa-angle-right"
+                            onclick="return toggle('toc_participate', this);"></button>
+                    <div id="toc_participate" style="display:none;">
+                        <ul>
+                            <li><a href="#pmp_account" onclick="return collapse('participate_cont', true)">PMP Account Creation</a></li>
+                            <li><a href="#challenge_registration" onclick="return collapse('participate_cont', true)">Challenge Registration</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#data" onclick="return collapse('data_cont', true)">Data</a>
+                    <button class="toc_btn fa fa-angle-right" onclick="return toggle('toc_data', this)"></button>
+                    <div id="toc_data" style="display:none;">
+                        <ul>
+                            <li><a href="#byod" onclick="return collapse('data_cont', true)">BYOD (Bring Your Own Data)</a></li>
+                            <li><a href="#public_data" onclick="return collapse('data_cont', true)">Public Datasets available</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#submission" onclick="return collapse('submission_cont', true)">Submission Details</a>
+                    <button class="toc_btn fa fa-angle-right" onclick="return toggle('toc_submission', this)"></button>
+                    <div id="toc_submission" style="display:none;">
+                        <ul>
+                            <li>
+                                <a href="#requirements" onclick="return collapse('submission_cont', true)">
+                                    Submission Requirements
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#submit" onclick="return collapse('submission_cont', true)">
+                                    Submitting Results
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#get_started" onclick="return collapse('get_started_cont', true)">Getting Started in the
+                        PMP </a>
+                    <button class="toc_btn fa fa-angle-right" onclick="return toggle('toc_started', this); "></button>
+                    <div id="toc_started" style="display:none;">
+                        <ul>
+                            <li><a href="#pmp_about" onclick="return collapse_sub('get_started_cont', true, 'about_cont')">About the PMP</a>
+                            </li>
+                            <li><a href="#getData" onclick="return collapse_sub('get_started_cont', true, 'getData_cont')">Get Data In and
+                                Out</a></li>
+                            <li><a href="#accessData" onclick="return collapse_sub('get_started_cont', true, 'access_cont')">Accessing Data</a>
+                            </li>
+                            <li><a href="#share" onclick="return collapse_sub('get_started_cont', true, 'share_cont')">Sharing A Workspace</a>
+                            </li>
+                            <li><a href="#pause" onclick="return collapse_sub('get_started_cont', true, 'pause_cont')">Starting and Stopping</a>
+                            </li>
+                            <li><a href="#software" onclick="return collapse_sub('get_started_cont', true, 'software_cont')">Software and
+                                Functionality</a></li>
+                            <li><a href="#tutorials" onclick="return collapse_sub('get_started_cont', true, 'tutorial_cont')">Tutorials and
+                                Examples</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                </li>
+            </ul>
+        </div>
+        <button class="sidebar_btn fa fa-angle-right"
+                onclick="return toggle('resources', this)" >
+            <span>Resources  </span>
+        </button>
+        <div id="resources" style="display:none;">
+            <ul>
+                <li>
+                    <a href="https://precision.heart.org/dataset-source-links/covid-19-data-challenge/documents/COVID%2019%20Data%20Challenge%20FAQ%205.11.2020%20FINAL.docx">
+                        Data Challenge FAQ</a></li>
+                <li><a href="https://precision.heart.org/workspace/about" target="_blank">About PMP Workspaces</a></li>
+                <li><a href="https://precision.heart.org/security-information" target="_blank">PMP Security</a></li>
+                <li><a href="https://precision.heart.org/contact" target="_blank">Contact Us</a></li>
+                <li><a href="https://precision.heart.org/technical-support" target="_blank">Technical Support</a>
+
+                <li><a href="https://www.burstiq.com/research-foundry/" target="_blank">BurstIQ Research Foundry</a>
+                </li>
+                <li><a href="https://developer.burstiq.com/login" target="_blank">BurstIQ API (requires account)</a>
+                </li>
+                <li><a href="https://precision.heart.org/jupyter_notebooks/about" target="_blank">Jupyter Notebooks
+                    Overview</a></li>
+                <li><a href="https://bookdown.org/yihui/rmarkdown/notebook.html" target="_blank">R Notebooks
+                    Overview</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div id="main" style="margin-left:22%;">
+    <button type="button" class="collapsible" onclick="return collapse('overview_cont')">
+        <div class="h2_div"><img alt="Drawing;"><a class="anchor" name="overview"></a>
+            <h2>Overview</h2>
+        </div>
+    </button>
+    <div id="overview_cont" class="content" style="display:block;">
+        <div id="challenge_question" class="content" style="display:block;">
+            How is the risk of COVID-19 impacted by other health conditions, health disparities, and/or social
+            determinants of health?
+        </div>
+        <button type="button" class="collapsible" onclick="return collapse('objective_cont')">
+            <a class="anchor" name="objective"></a>
+            <h3>Objective <i class="fa fa-arrows-alt-v"></i></h3>
+        </button>
+        <div id="objective_cont" class="content" style="display:block;">
+            <p>The objective of the AHA COVID-19 Data Challenge is to examine the relationships between COVID-19,
+                other health conditions, health disparities and/or social determinants of health.
+                Each participant of the challenge will be provided a free, HIPPA compliant and FedRAMP certified, secure
+                <a href="https://precision.heart.org/workspace" target="_blank">Precision Medicine Platform (PMP)
+                    workspace</a>
+                to conduct analyses. Participants may <a href="#byod">bring their own de-identified data</a>
+                and/or use the <a href="#public_data">existing datasets</a> we have made available on the
+                <a href="https://precision.heart.org" target="_blank">Precision Medicine Platform</a>.
+            </p>
+        </div>
+        <button type="button" class="collapsible" onclick="return collapse('dates_cont')">
+            <a class="anchor" name="dates"></a>
+            <h3 style>Dates <i class="fa fa-arrows-alt-v"></i></h3>
+        </button>
+        <div id="dates_cont" class="content" style="display:block;">
+            <h4>Stage 1:</h4>
+            <p>
+                <span class="note" style="padding-left:20px;"><b>Starts:</b></span> May 12, 2020
+                <br>
+                <span class="note" style="padding-left:20px;"><b>Ends:</b></span> July 12, 2020
+            </p>
+            <h4>Stage 2:</h4>
+            <p>
+                <span class="note" style="padding-left:20px;"><b>Starts:</b></span> September 1, 2020
+                <br>
+                <span class="note" style="padding-left:20px;"><b>Ends:</b></span> November 1, 2020
+            </p>
+        </div>
+        <button type="button" class="collapsible" onclick="return collapse('background_cont')">
+            <a class="anchor" name="background"></a>
+            <h3>Background <i class="fa fa-arrows-alt-v"></i></h3>
+        </button>
+        <div id="background_cont" class="content">
+            <p> The AHA Institute for Precision Cardiovascular Medicine seeks to better
+                understand the relationships between COVID-19, other health conditions, health disparities, and social
+                determinants of health. Health disparities include poverty, environmental threats, inadequate access to
+                health care, individual and behavioral factors and educational inequalities. Social determinants of
+                health include resources such as food supply, housing, economic and social relationships, education, and
+                health care.</p>
+            <p>The COVID-19 Data Challenge asks participants to use the <a href="https://precision.heart.org"
+                                                                           target="_blank">Precision Medicine
+                Platform (PMP)</a> to test the relationships between COVID-19, other health conditions, health
+                disparities and social determinants of health using <a href="#byod">their own data</a> and/or <a
+                        href="#public_data">data available on the Precision Medicine Platform</a>.</p>
+        </div>
+        <button type="button" class="collapsible" onclick="return collapse('prize_cont')">
+            <a class="anchor" name="prizes_evaluation"></a>
+            <h3>Prizes and Evaluation <i class="fa fa-arrows-alt-v"></i></h3>
+        </button>
+        <div id="prize_cont" class="content">
+            <h4>Challenge Prizes</h4>
+            <p>The AHA COVID-19 Data Challenge includes two stages. Stage 1 will take place from May 12 - July 12,
+                2020. The top six applicants based on peer review will each receive $5,000.
+                These six applicants will advance to the second stage of the AHA COVID-19 Data Challenge that will
+                take place from September 1 - November 1, 2020. The top applicant based on peer review of the second
+                stage of the AHA COVID-19 Data Challenge will
+                receive $15,000.</p>
+            <h4>Evaluation</h4>
+            <p>Challenges will be reviewed by a peer review committee that will evaluate:
+            <ul>
+                <li>The novel information learned from the analysis and findings that addresses the focus of the
+                    data
+                    challenge- the relationships between COVID-19, health disparities and social determinants of
+                    health
+                    <ul>
+                        <li>Findings or Results of the Data Analysis</li>
+                        <li>The data and data analysis methods that support the findings and the novel information
+                            learned
+                        </li>
+                    </ul>
+                </li>
+                <li>Overall impact of the findings and analysis on the relationships between COVID-19, other health
+                    conditions, health disparities and social determinants of health
+                </li>
+            </ul>
+            <h4>Submission</h4>
+            <p>Upon <a href="#challenge_registration">registration</a> for the data challenge, each participant/team
+                will be provided <a href="#pmp_about">a PMP workspace</a>, free of charge, to complete analyses for the
+                challenge. Results must be submitted prior to 5 p.m. Central on July 12, 2020 to be considered for the
+                data challenge. Details on submission requirements and how to submit results are provided in the
+                <a href="#background">submission section</a>. Information <a href="#pmp_about">about PMP
+                    workspaces</a> is provided in the <a href="#get_started"> Getting Started section</a>.
+            </p>
+        </div>
+    </div>
+    <button type="button" class="collapsible" onclick="return collapse('participate_cont')">
+        <div class="h2_div"><img alt="Drawing;"><a class="anchor" name="participate"></a>
+            <h2>How to Participate</h2></div>
+    </button>
+    <div id="participate_cont" class="content" onclick="return collapse('part_overview_cont')" style="display:block;">
+
+        <h5><i>Follow the steps below to get started and participate in the challenge:</i></h5>
+        <button type="button" class="collapsible" onclick="return collapse('sign_up_cont')">
+            <a class="anchor" name="pmp_account"></a><h4><b>1. Sign up for a PMP Account </b><i
+                class="fa fa-arrows-alt-v"></i></h4>
+        </button>
+        <div id="sign_up_cont" class="content" style="background-color:#f3f3f3; ">
+            <ul>
+                <li>If you have not done so already, <a href="https://precision.heart.org/sso/" target="_blank">sign
+                    up for a PMP Account</a> to get started
+                <li><span class="note">Individuals</span> participating in the challenge need to <a
+                        href="https://precision.heart.org/sso/" target="_blank">sign up</a> for a PMP account
+                    <i><u>AND</u></i> register for the challenge.
+                <li>Participants who are <span class="note">part of a team</span> wishing to participate in the
+                    challenge should have <span class="note"><b>ONE</b></span> representative member (e.g. the PI)
+                    register for the challenge and <span class="note"><b>EVERY</b></span> team member needs to
+                    <a href="https://precision.heart.org/sso/" target="_blank">sign up</a> for a PMP account
+                </li>
+            </ul>
+        </div>
+        <button type="button" class="collapsible" onclick="return collapse('register_cont')">
+            <a class="anchor" name="challenge_registration"></a><h4><b>2. Challenge Registration </b><i
+                class="fa fa-arrows-alt-v"></i></h4>
+        </button>
+        <div id="register_cont" class="content" style="background-color:#f3f3f3;">
+            <div><span class="note"><b>Note:</b></span> The Workspace request portion of the challenge
+                registration uses the standard workspace request form. As a result, some parts do not apply to
+                participants. Workspaces are available to COVID-19 Challenge participants free of charge from May 12
+                - July 12, 2020
+            </div>
+            <br>
+            <ul>
+                <li><b>To Begin Registration: </b>Register by clicking the <i>Join the COVID-19 Data Challenge</i>
+                    banner link under the <a
+                            href="https://precision.heart.org/search" target="_blank">Platform's Search Tab</a>
+                    <p><img src="images/challenge_banner_register_link.png" alt="drawing"
+                            style="width:90%; border:0.1em solid #000000;"></p>
+                </li>
+                <li><b>Complete the Form and Click Next- Workspace Details-</b>
+                    <ul>
+                        <li><span class="note">If you are an existing PMP user, please select your existing workspace, otherwise select <i>Create a New Workspace</i></span>
+                        </li>
+                        <li><span class="note">Select <i>NO</i> for AHA Grant Applicant Status</span></li>
+                        <li><span class="note">Do not change the default cluster selection unless you are familiar with AWS sizing (this can be changed later)</span>
+                        </li>
+                        <li><span
+                                class="note">Charges are waived for challenge participants, so please <i>agree to pay</i>. No billing information will be collected.</span>
+                        </li>
+                    </ul>
+                    <p><img src="images/request_workspace.png" alt="drawing"
+                            style="width:90%; border:0.1em solid #000000;"></p>
+                </li>
+                <li><b>Complete the Form and Click Next: Research Details-</b> This is a standard PMP workspace
+                    request form. Please fill out the Research Details section, by doing the following:
+                    <ul>
+                        <li><span
+                                class="note">Type <i>"Data Challenge"</i> for all sections that require text input</span>
+                        </li>
+                        <li><span class="note">Select <i>*any</i> of types of research</span></li>
+                        <li><span
+                                class="note">Select <i>*any of types of research and Disease Area(s) of Focus</i></span>
+                        </li>
+                        <li><span
+                                class="note">Select <i>NO</i> for default in research purpose section if unsure</span>
+                        </li>
+                    </ul>
+                    <p><img src="images/research_details.png" alt="drawing"
+                            style="width:90%; border:0.1em solid #000000;"></p>
+                </li>
+                <li><b>Complete the Form and Click Submit: Review-</b> Challenge participants will not be
+                    charged
+                    <ul>
+                        <li><span class="note">A confirmation notification will appear after you click Submit</span>
+                        </li>
+                    </ul>
+                    <p><img src="images/final_review_submit_request.png" alt="drawing"
+                            style="width:90%; border:0.1em solid #000000;"></p>
+                </li>
+            </ul>
+            <div><span style="font-size:1.25rem; color:#C10E21"><i class="fa fa-glass-cheers"></i>CHEERS! You are now registered on the PMP and the Data Challenge!</span>
+                <ul>
+                    <li>It can take up to 36 hours for a workspace to be provisioned</li>
+                    <li>You will receive an email notification when the workspace is available for use</li>
+                    <li>Check out the <a href="#get_started">Getting Started Section</a> when your workspace has
+                        been provisioned
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="collapsible" onclick="return collapse('data_cont')">
+        <div class="h2_div"><img alt="Drawing;"><a class="anchor" name="data"></a>
+            <h2>Data</h2></div>
+    </button>
+    <div id="data_cont" class="content" style="display:block;">
+        <h3><u>B</u>ring <u>Y</u>our <u>O</u>wn <u>D</u>ata <a class="anchor" name="byod"></a></h3>
+        <p>Participants may bring their own de-identified data sets to the PMP. Information on how to transfer data to
+            the platform is provided in the <a href="#getData">Get Data In and Out</a> section under Getting
+            Started in the PMP. </p>
+        <a class="anchor" name="public_data"></a>
+        <h3>Public Data Available <a class="anchor" name="public_data"></a></h3>
+        <p>As explained in the <a href="#get_started">Getting Started in the PMP</a> section, publicly available
+            data can be <a href="#accessData">accessed</a> in a variety of ways on the PMP, including downloading data
+            directly and pulling/cloning data from repositories. Additionally, BurstIQ's Research Foundry has
+            collected over 100 datasets, 13 of which are COVID-19, and made them accessible on the PMP.
+            A table of public datasets accessible in the PMP through BurstIQ's Research Foundry is listed <a
+                    href="HTML_only_BurstIQ_Public_Datasets_datatable_May_12_2020.html" target="_blank">here.</a>
+            Details on how to access datasets using BurstIQ are provided under <a href="#acessData">Getting Started in
+                the PMP</a> in the <a href="#accessData">Accessing Data</a> section.
+        </p>
+    </div>
+    <button type="button" class="collapsible" onclick="return collapse('submission_cont')">
+        <div class="h2_div"><img alt="Drawing;"><a class="anchor" name="submission"></a>
+            <h2>Submission Details</h2>
+        </div>
+    </button>
+    <div id="submission_cont" class="content" onclick="return collapse('sub_req_cont')" style="display:block;">
+        <button type="button" class="collapsible"><a class="anchor" name="requirements"></a>
+            <h3>Submission Requirements <i class="fa fa-arrows-alt-v"></i></h3>
+        </button>
+        <div id="sub_req_cont" class="content">
+            <p>The Precision Medicine Platform (PMP) provides a friendly web UI that allows users to access a secure,
+                cloud-based environment and contains a variety of standard software and packages such as Python and R.
+                The platform workspace leverages Jupyter and RStudio to allow users to create notebooks to document and
+                display results. Each participant must submit a notebook from their individual workspace that provides
+                the following:</p>
+            <ul>
+                <li>Full Name</li>
+                <li>Institution (if applicable)</li>
+                <li>Email Address</li>
+                <li>Phone Number</li>
+                <li>A 250-word description of the findings and how they can be applied</li>
+                <li>Description of data analysis and datasets used for establishing, testing, and validating
+                    models
+                </li>
+                <li>Figures or tables (if applicable)</li>
+            </ul>
+            <p><i>More information on Jupyter Notebooks can be found <a
+                    href="https://precision.heart.org/jupyter_notebooks/about" target="_blank">here</a>. More
+                information on R Notebooks can be found <a href="https://bookdown.org/yihui/rmarkdown/notebook.html"
+                                                           target="_blank">here</a>.</i>
+            </p>
+        </div>
+        <button type="button" class="collapsible" onclick="return collapse('submit_cont')">
+            <a class="anchor" name="submit"></a>
+            <h3>Submitting Results <i class="fa fa-arrows-alt-v"></i></h3>
+        </button>
+        <div id="submit_cont" class="content">
+            <h4>Submitting a Notebook </h4>
+            <p><i>Once you have completed your analysis and created a notebook, meeting the criteria outlined
+                above, follow the steps below to submit your notebook for review:</i>
+            <ul>
+                <li>The submitted notebook should be in HTML format. In Jupyter, follow these steps:
+                    <ul>
+                        <li>In the File Menu, selecting <i>Download as > HTML (.html)</i>. The HTML file will
+                            download to a temporary downloads folder
+                        </li>
+                        <li>Re-upload the HTML file to the workspace by clicking the <i>upload</i> icon in
+                            JupyterLab or clicking the <i>Upload</i> button on the Jupyter Home tab.
+                        </li>
+                    </ul>
+                </li>
+                <li>In the workspace, save the notebook in the /mnt/workspace/My_Notebooks directory this will sync the
+                    notebook with the
+                    <a href="https://precision.heart.org/workspace" target="_blank">workspace portal</a>.
+                </li>
+                <li>The notebook will be listed on the <a href="https://precision.heart.org/workspace"
+                                                          target="_blank">workspace portal</a> page. To the
+                    right of the notebook, click <i class="fa fa-share-square" aria-hidden="true"></i></li>
+                <li>Sharing the notebook creates a static link that will be used by the COVID-19 Data Challenge
+                    peer review team.
+                    <br>
+                    <span class="note" style="padding-left:10px; padding-right:10px;"><b>Note:</b></span>Only
+                    the information in the notebook will be visible to the peer review team. Therefore, it is imperative
+                    that you include everything necessary before sharing. If you make changes after sharing, you
+                    will have to re-share.</span>
+                </li>
+            </ul>
+            <h4>Additional Information </h4>
+            <ul>
+                <li>COVID-19 Data Challenge applicants have complimentary PMP workspace access between May 12 and July
+                    12, 2020
+                </li>
+                <li>It can take up to 36 hours to provision a workspace</li>
+                <li>PMP workspaces will be shut down at 5 p.m. Central on the last day of the data challenge,
+                    unless you decide to continue use on the PMP as a paying customer
+                </li>
+                <li>Data in the workspace will not be saved after the last day of the challenge, unless you decide to
+                    continue to use the PMP as a paying customer
+                </li>
+                <li>A PMP notebook must be shared prior to 5 p.m. Central on July 12, 2020 to be considered for the
+                    data challenge
+                </li>
+                <li>Go <a
+                        href="https://precision.heart.org/dataset-source-links/covid-19-data-challenge/documents/COVID%2019%20Data%20Challenge%20FAQ%205.11.2020%20FINAL.docx">here</a>
+                    to view the User Documentation for assistance with how to manage the workspace
+                </li>
+            </ul>
+        </div>
+    </div>
+    <button type="button" class="collapsible" onclick="return collapse('get_started_cont')">
+        <div class="h2_div"><img alt="Drawing;"><a class="anchor" name="get_started"></a>
+            <h2>Getting Started in the Precision Medicine Platform</h2></div>
+    </button>
+    <div id="get_started_cont" class="content" style="display:block;">
+        <p><span class="note"><b>Note:</b></span><i> If you haven't done so already, please <a
+                href="https://precision.heart.org/sso/" target="_blank"><b><u>register for an account</u></b></a> on
+            the Precision Medicine Platform (PMP)</i></p>
+        <button type="button" class="collapsible" onclick="return collapse('about_cont')">
+            <a class="anchor" name="pmp_about"></a>
+            <h3>About the Precision Medicine Platform <i class="fa fa-arrows-alt-v"></i></h3>
+        </button>
+        <div id='about_cont' class="content">
+            <h4>Overview</h4>
+            <p>The PMP is a secure HIPPA compliant and FedRAMP certified cloud-based ecosystem that facilitates data
+                sharing, collaboration, and power computing.
+                The PMP workspace is an interactive AWS cloud environment comprised of common tools and
+                software used in biomedical analyses that enables users to easily store data, collaborate, and
+                perform analyses while also having access to elastic power compute resources on demand.</p>
+            <ul>
+                <li>Learn more about the Precision Medicine Platform <a href="https://precision.heart.org/learn"
+                                                                        target="_blank">here</a></li>
+                <li>Explore the capabilities of Precision Medicine Platform workspaces <a
+                        href="https://precision.heart.org/workspace/about" target="_blank">here</a></li>
+            </ul>
+            <h4>Collaboration</h4>
+            <p>The platform facilitates collaboration and reproducibility by enabling users to share workspaces
+                and conduct analyses in a private, secure cloud environment.
+                Users can also collaborate through traditional development methods such as github.</p>
+            <p>Collaboration is made easy with the PMP because all data and analyses reside in a secure
+                workspace for which only the participant/team representative has access,
+                unless the participant/team representative chooses to collaborate with colleagues and <a
+                        href="#share">share</a> the workspace on the <a
+                        href="https://precision.heart.org/workspace" target="_blank">PMP workspace portal</a>.</p>
+            <p style="padding-left:30px;"><span class="note"><b>Note: </b></span><i>It is the participant's
+                responsibility to ensure collaborators have the appropriate data access approvals when
+                sharing.</i></p>
+            <h4>Power Compute In the PMP</h4>
+            <p>There are multiple ways to take advantage of power compute in the Precision Medicine Platform,
+                namely:</p>
+            <ul>
+                <li><b>EMR, Automatic Scaling through Spark</b>
+                    <ul>
+                        <li>Analyses that use spark based packages or software can leverage the EMR workspace
+                            auto-scaling cluster architecture to optimize performance
+                        </li>
+                    </ul>
+                </li>
+                <li><b>Elastic, High Performance Computing</b>
+                    <ul>
+                        <li>Analyses that need to optimize software through traditional parallel computing
+                            methods can leverage the EC2, GPU and CPU architecture options
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <p> Default workspace architectures are designed to fit the needs of most users, however architecture
+                sizes can be increased and customized as needed.
+                To increase compute resources in a workspace or get assistance with power computing on the PMP,
+                please <a href="https://precision.heart.org/contact" target="_blank">contact us</a>
+            </p>
+            <h4>Terms of Use</h4>
+            <p>Any inventions, intellectual property, or patents resulting from this funding are governed by the
+                <a href="https://professional.heart.org/professional/ResearchPrograms/AwardsPolicies/UCM_320256_Policies-Governing-All-Research-Awards.jsp"
+                   target="_blank">AHA Patent, Intellectual Property and Technology Transfer Policy</a></p>
+        </div>
+        <button type="button" class="collapsible" onclick="return collapse('getData_cont')">
+            <a class="anchor" name="getData"></a>
+            <h3>Get Data In and Out of the PMP <i class="fa fa-arrows-alt-v"></i></h3>
+        </button>
+        <div id="getData_cont" class="content">
+            <p>Please <a href="https://precision.heart.org/contact" target="_blank">contact us</a> if
+                at any point you are having trouble uploading data.</p>
+            <button type="button" class="collapsible" onclick="return collapse('upload_cont')">
+                <h4>Upload Data to PMP <i class="fa fa-arrows-alt-v"></i></h4>
+            </button>
+            <div id="upload_cont" class="content">
+                <h5><b>File Upload</b></h5>
+                <p>
+                    Files can be uploaded to the platform on the <a
+                        href="https://precision.heart.org/workspace" target_blank>workspace portal</a> page by
+                    clicking the <i class="fa fa-file-upload"></i> upload icon.
+                    Once the files are uploaded and you have launched your workspace, the files will be found in the
+                    folder labeled scratchbucket on the Jupyter home page (path: /mnt/workspace/scratchbucket/).</p>
+                <p><span class="note">Note: </span>The time it takes to upload data is dependent on the internet upload
+                    speed</p>
+                <h5><b>SFTP Transfer</b></h5>
+                <p>Should you have very large data files and need an SFTP set up to upload the data, please submit a
+                    request through <a href="https://precision.heart.org/technical-support" target="_blank">Technical
+                        Support</a>.
+                </p>
+            </div>
+            <button type="button" class="collapsible" onclick="return collapse('dataOut_cont')">
+                <h4>Get Data Out of the PMP <i class="fa fa-arrows-alt-v"></i></h4>
+            </button>
+            <div id="dataOut_cont" class="content">
+                <p>Data and Code within a workspace can be synced with the <a
+                        href="https://precision.heart.org/workspace" target="_blank">workspace portal</a> by moving it
+                    to the /mnt/workspace/My_Notebooks directory within the workspace. Files located in this directory
+                    will display under the My Notebooks and Data section of workspace portal.
+                    <br>
+                    <span class="note">Note:</span> Due to the secure nature of the workspace, certain files will not
+                    sync with the workspace portal. To extract this data, please file a ticket with <a
+                            href="https://precision.heart.org/technical-support" target="_blank">Technical Support</a>.</p>
+                <p><img src="https://precision.heart.org/assets/images/workspace.png" alt="drawing;"
+                        style="width:75%; height:50%; border:0.1em solid #000000"></p>
+            </div>
+        </div>
+        <button type="button" class="collapsible" onclick="return collapse('access_cont')">
+            <a class="anchor" name="accessData"></a>
+            <h3>Access Data in the PMP <i class="fa fa-arrows-alt-v"></i></h3>
+        </button>
+        <div id="access_cont" class="content">
+            <p>Please <a href="https://precision.heart.org/contact" target="_blank">contact us</a> if
+                at any point you are having trouble accessing data.</p>
+            <p>As mentioned, public data can be accessed in a variety of ways in a PMP workspace including
+                downloading data directly and pulling/cloning data from repositories. Steps for accessing data from
+                download links, repositories, and BurstIQ are described below.
+            </p>
+            <button type="button" class="collapsible" onclick="return collapse('download_cont')">
+                <h4><b>Downloading Data Directly <i class="fa fa-arrows-alt-v"></i>
+                </b></h4>
+            </button>
+            <div id="download_cont" class="content" style="background-color:#f3f3f3; ">
+                <p>Data can be downloaded in the workspace in the same fashion as your personal computer. Add a
+                    new tab in Chrome, navigate to the download link, and click download.</p>
+                <p><img src="images/download_data_PMP.png" alt="drawing"
+                        style="width:90%; border:0.1em solid #000000;"></p>
+                <ul>
+                    <li>This will download the data in a temporary downloads folder. Simply click <i>Upload</i>
+                        in Jupyter or Jupyter Lab to upload the downloaded files and save them to the workspace.
+                    </li>
+                    <p><span class="note">Note: </span> If you are having trouble accessing a certain link in
+                        the platform, please file a <a href="https://precision.heart.org/technical-support"
+                                                       target="_blank">ticket
+                            with Technical Support</a>.</p>
+                </ul>
+            </div>
+            <button type="button" class="collapsible" onclick="return collapse('repo_cont')">
+                <h4><b>Pulling or Cloning Data from a Repository <i class="fa fa-arrows-alt-v"></i></b></h4>
+            </button>
+            <div id="repo_cont" class="content" style="background-color:#f3f3f3; ">
+                <p>Using git repositories in the workspace functions the same way as it does on a personal computer.
+                    To pull data or clone a repository, simply go to the repository in the workspace (first tab on
+                    right shown below).</p>
+                <p><img src="images/clone_data_git_workspace.png" alt="drawing"
+                        style="width:90%; border:0.1em solid #000000;"></p>
+                <ul>
+                    <li>A terminal can be opened in the workspace through JupyterLab or by clicking New >
+                        Terminal in the Jupyter Home Tab
+                    </li>
+                    <li>Setting up an ssh key or using login credentials works as the same as with your personal
+                        computer.
+                    </li>
+                    <li>The example above is cloning the COVID-19 Csse_daily_reports repository from Johns
+                        Hopkins.
+                    </li>
+                </ul>
+                <p><span class="note">Tip:</span> Make sure to access the repository in your workspace when
+                    setting up ssh keys. You cannot copy an ssh key out of the workspace</p>
+            </div>
+            <button type="button" class="collapsible" onclick="return collapse('burst_cont')">
+                <h4><b>Accessing Data Through BurstIQ</b> <i class="fa fa-arrows-alt-v"></i></h4>
+            </button>
+            <div id="burst_cont" class="content" style="background-color:#f3f3f3; ">
+                <p>Research Foundry, hosted by BurstIQ, is a coalition of health-focused researchers,
+                    organizations, and innovators from all over the world. BurstIQ currently hosts over 100
+                    datasets (of which 13 are COVID-19) through block chain connections.
+                    As part of the COVID-19 Data Challenge, you can request access to Research Foundry and
+                    choose any number of datasets. Information on how to register with Research Foundry and access a
+                    list of publicly available data is detailed below:</p>
+                <ul>
+                    <li>To be able to access Research Foundry datasets, one must first register for a <a
+                            href="https://www.burstiq.com/research-foundry/#RFcontact" target="_blank">Research Foundry
+                        account</a>. Fill the form out and an email will be sent to you confirming your account.
+                    </li>
+                    <li>Research Foundry leverages Burst Chain to govern and provide data access. This is done
+                        by issuing users a private/public key pair that acts as a user's credentials when accessing
+                        data. Once you have created an account, login and configure your keys.
+                        <p><img src="images/burst_chain_key.png" alt="drawing"
+                                style="width:80%; border:0.1em solid #000000;"></p></li>
+                    <li>Make sure to save your PrivateID!! You will not be able to recover it if it is not
+                        saved, and you will need to get a new key
+                    </li>
+                    <li>After registering for an account, you will have access to the developer documentation
+                        and can begin learning how to pull data with BurstIQ
+                    </li>
+                    <ul>
+                        <li>Once you have created an account, click the <i class="fa fa-bars"></i> menu icon on
+                            the top right
+                        </li>
+                        <p>Select Research Foundry to view available datasets <img
+                                src="images/research_foundry_menu_item.png" alt="drawing"
+                                style="width:20%; border:0.1em solid #000000;"></p>
+                        <p>Select API documentation, then click on Docs to view Documentation, Videos, and
+                            Tutorials
+                            <img src="images/burst_api_menu_item.png" alt="drawing"
+                                 style="width:20%; border:0.1em solid #000000;">
+
+                        </p>
+                        <li>To access data through BurstIQ, one needs to use the burst API to provide their
+                            private ID, dataset ID, and a TQL query.
+                            Examples of how to do this are detailed on the API documentation page under
+                            Tutorials, Videos, and Research Foundry Datasets sections.
+                            Additionally, a Jupyter Notebook providing examples is provided in the PMP workspace
+                            under /mnt/workspace/Research_Foundry_examples
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+        <button type="button" class="collapsible" onclick="return collapse('share_cont')">
+            <a class="anchor" name="share"></a>
+            <h3>Sharing A Workspace <i class="fa fa-arrows-alt-v"></i></h3>
+        </button>
+        <div id="share_cont" class="content">
+            <p>The design of PMP workspaces is such that when a user is provisioned a workspace, no one except the user
+                has access (including the AHA). All code and data is housed behind a secure walled garden that cannot be
+                accessed by anyone other than the user. To facilitate collaboration and provide workspace access for
+                teams working on projects, the owner of a workspace can share their workspace with other people who have
+                a PMP account. Shared users can access all code and files in the workspace and it is a workspace owners
+                responsibility to ensure the new shared user has the appropriate data approvals prior to sharing the
+                workspace. To share a workspace with a user, click the <i class="fa fa-bars"></i> menu icon on the
+                <a href="https://precision.heart.org/workspace" target="_blank">workspace portal</a>. Enter the
+                email for the shared user on the PMP and set any desired restraints (e.g. allowing to share/publish
+                code or allowing to start/stop the workspace)
+            <p><img src="images/workspace_share_icon.png" alt="drawing;"
+                    style="width:15%; margin:2%; border:0.1em solid #000000; float:top;"><img
+                    src="images/share_workspace.png" alt="drawing;"
+                    style="width:40%; height:40%; border:0.1em solid #000000; display:inline-block; vertical-align:top; margin:2%">
+            </p>
+        </div>
+        <button type="button" class="collapsible" onclick="return collapse('pause_cont')">
+            <a class="anchor" name="pause"></a>
+            <h3>Starting and Stopping the Workspace <i class="fa fa-arrows-alt-v"></i></h3>
+        </button>
+        <div id="pause_cont" class="content">
+            <p>The AHA recommends pausing your workspace when it will not be in use for a few days or longer. This
+                preserves the overall resources needed to run and maintain a workspace and allows for updates to be
+                completed. A workspace can be paused by clicking the red pause button on the <a
+                        href="https://precision.heart.org/workspace" target="_blank">workspace portal</a>.
+                Additionally, users can change architectures and compute options when pausing and resuming.
+                When resuming, the user will be provided the opportunity to reconfigure the workspace - EMR, EC2-GPU, or
+                EC2-CPU. For custom sizing options, please reach out to <a
+                        href="https://precision.heart.org/tech-support" target="_blank">Technical Support</a>.</p>
+        </div>
+        <button type="button" class="collapsible" onclick="return collapse('software_cont')">
+            <a class="anchor" name="software"></a>
+            <h3 style>Software and Functionality <i class="fa fa-arrows-alt-v"></i></h3>
+        </button>
+        <div id="software_cont" class="content">
+            <h4>A Few Helpful Tips: </h4>
+            <ul>
+                <li>The username and password to RStudio is rstudio and workspace respecitvely</li>
+                <li>The directory where files are located is /mnt/workspace</li>
+                <li>The terminal can be accessed in JupyterLab or by clicking the <i>New</i> button in Jupyter</li>
+                <li>The internet is available in the workspace, just click a new tab in Chrome</li>
+                <li>To paste something inside the workspace, click the paste icon on the top menu bar. You can not copy
+                    out of the workspace due to security reasons.
+                </li>
+                <li>If screen is frozen or solid blue/black, click the 4 squares on the top menu bar</li>
+            </ul>
+
+            <h4>Pre-Installed Software</h4>
+            <p>PMP workspaces come with R, Python, Scala, and Spark pre-installed, as well as variety of other standard
+                packages and software used in clinical and biomedical analyses. These include machine learning and
+                statistical modeling packages such as Keras, TensorFlow, PyTorch, and Caret.
+                Common genetic packages available through Bioconductor as well as other common command-line tools. A
+                full list of packages and software available on the platform can be found <a
+                        href="https://precision.heart.org/workspace/about" target="_blank">here</a>.
+                The workspace leverages Jupyter, JupyterLab and RStudio to provide a UI-based environment for users
+                to conduct analyses. The ReadMe notebook on the Jupyter Home page (/mnt/workspace) provides information
+                regarding workspace usage, including trouble shooting instructions, software references, and tutorials.
+
+            </p>
+            <h4>Customizing the Workspace and Installing Software</h4>
+            <p>The workspace is also fully customizable. Licensed software, such as SAS and MATLAB, can be installed
+                for users with a license. Python and R based packages can easily be installed by users via pip and
+                install.packages respectively.
+                The workspace has a Red Hat Linux Operating System. Yum can be used to get, install, and manage
+                software packages. Users are granted root access to enable customization of workspaces based on user
+                needs.</p>
+            <p><img src="images/workspace.png" alt="drawing;" style="width:90%; border:0.1em solid #000000;"></p>
+        </div>
+        <button type="button" class="collapsible" onclick="return collapse('tutorial_cont')">
+            <a class="anchor" name="tutorials"></a>
+            <h3 style>Tutorials and Examples <i class="fa fa-arrows-alt-v"></i></h3>
+        </button>
+        <div id="tutorial_cont" class="content">
+            <p>A variety of tutorials and examples are available on the Platform. Available tutorials cover concepts
+                such as how to perform machine learning analyses with spark, how to conduct a GWAS analysis, or how to
+                install and use software.</p>
+            <p>The <i>ReadMe</i> notebook on the Jupyter Home Page (/mnt/workspace) of a workspace contains an overview
+                of the content available and the location for many of the tutorials available. Tutorials and
+                examples can be found in the jupyter_notebooks directory (/mnt/workspace/jupyter_notebooks) of the
+                workspace. Users can also request data science and support services for help with analyses and workspace
+                usage. For more information <a href="https://precision.heart.org/contact" target="_blank">contact
+                    us.</a>
+            </p>
+        </div>
+    </div>
+
+    <footer class="aha_footer">
+        <p>The AHA COVID-19 Data Challenge and the Precision Medicine Platform is a strategic initiative of the
+            Heart Association's Institute for Precision Cardiovascular Medicine.
+        </p>
+        <div id="aha_footer_logos"></div>
+        <script type="text/javascript">
+            const logos = document.getElementById("aha_footer_logos");
+            const allAffiliates = document.createElement("div");
+            allAffiliates.className = "row";
+            allAffiliates.style.overflow = "auto";
+            allAffiliates.style.padding = "2%";
+            logos.appendChild(allAffiliates);
+
+            const logosContent = [{
+                "img": "https://www.burstiq.com/wp-content/uploads/2015/02/burstIQ-logo-02-02.png",
+                "className": "affiliate_container  col-lg-4",
+                "style": "height:6rem; padding-top:1rem;",
+                "label": "Data provided by"
+            },
+            {
+                "img": "https://www.burstiq.com/wp-content/uploads/2020/03/hitachi-logo.png",
+                "className": "affiliate_container  col-lg-5",
+                "style": "height:8rem; padding-bottom: 2rem; padding-right: 1.5rem;",
+                "label": "Funding and support by",
+                "border": "border-left:0.1rem solid #e3e3e3; "
+            },
+            {
+                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1024px-Amazon_Web_Services_Logo.svg.png",
+                "className": "affiliate_container  col-lg-3",
+                "style": "height:6rem;  padding-top:1.5rem;",
+                "label": "Powered by",
+                "border": "border-left:0.1rem solid #e3e3e3; height:8rem;"
+
+            }
+            ];
+
+            logosContent.forEach(function (x) {
+                const img = document.createElement("img");
+                img.src = x.img;
+                img.alt = "Drawing";
+                img.style = x.style;
+                img.className = "affiliate_container_img"
+
+                const imgCell = document.createElement("div");
+                imgCell.appendChild(img);
+                imgCell.className =  "affiliate_img col-md-8";
+
+                const labelCell = document.createElement("div");
+                labelCell.innerHTML = x.label;
+                labelCell.className =  "col-md-4 affiliate_text";
+
+
+                const affiliateCell = document.createElement("div");
+                affiliateCell.appendChild(labelCell);
+                affiliateCell.appendChild(imgCell);
+                affiliateCell.className = "row";
+                affiliateCell.style = x.border;
+
+
+
+                const affiliateContainer = document.createElement("div");
+                affiliateContainer.className = x.className;
+                affiliateContainer.appendChild(affiliateCell);
+                allAffiliates.appendChild(affiliateContainer);
+            })
+        </script>
+    </footer>
+</div>
+</body>
+
+</html>

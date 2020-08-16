@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Docs-GWTG Data</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="../../../aha.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../../../style.css" type="text/css" media="screen"/>
+    <script type="text/javascript">
+        const hidden_width = "35px";
+        const visible_width = "30%";
+        const transition = 400;
+
+
+        function adjustSideBar() {
+            const sidebar = document.getElementById("sidebar_content");
+            const titleHeight = document.getElementById("headerAHA_title").clientHeight;
+            const buttonHeight = document.getElementById("sidebarToggleButton").clientHeight;
+            const footerInView = document.getElementById("aha_footer").getBoundingClientRect();
+
+            sidebar.style.height = "calc(100% -  " +
+                (Math.max(window.innerHeight - footerInView.top, 0) + buttonHeight + titleHeight) +
+                "px)"
+
+            // console.log(sidebar.style.height);
+            // console.log(footerInView.bottom);
+        }
+
+
+        function w3_toggle() {
+            const sidebar = document.getElementById("aha_sidebar");
+            const main = document.getElementById("main");
+            const sbc = document.getElementById("sidebar_content");
+            const sb_btn_spn = document.getElementById("define")
+
+            sidebar.style.transition = transition + "ms";
+            if (sidebar.isClosed) {
+                sb_btn_spn.innerText = "Define a Dataset";
+                main.style.marginLeft = visible_width;
+                sidebar.style.width = visible_width;
+
+                setTimeout(function () {
+                    sbc.style.display = ""
+                }, transition);
+                sidebar.isClosed = false;
+            } else {
+                sb_btn_spn.innerText = "";
+                main.style.marginLeft = hidden_width;
+                sidebar.style.width = hidden_width;
+
+                sbc.style.display = "none";
+                sidebar.isClosed = true;
+            }
+        }
+
+        function toggle_content(id) {
+            const cont = document.getElementById(id);
+            cont.style.display = (cont.style.display != 'none' ? 'none' : '');
+        }
+
+        function toggle(id, x) {
+            toggle_content(id);
+            x.classList.toggle("fa-angle-down");
+            x.classList.toggle("fa-angle-right");
+        }
+
+        function collapse(id, leave_open) {
+
+            const content = document.getElementById(id);
+            if (content.style.display !== "block" || leave_open) {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+
+            }
+        }
+
+        function collapse_sub(id, leave_open, sub_id) {
+            collapse(id, leave_open);
+            collapse(sub_id);
+        }
+
+    </script>
+</head>
+
+<body onload="adjustSideBar()" onresize="adjustSideBar()" ontoggle="adjustSideBar()" onscroll="adjustSideBar()">
+<div id="headerAHA_title" class="aha_header">
+    <div class="aha_header_logo_container">
+        <img src='https://precision.heart.org/assets/images/aha-pmp-logo.png' alt='Drawing' id="aha_logo"
+             style="width:140px; float:left;">
+        <a href="https://precision.heart.org/">
+            <img src='https://precision.heart.org/sso/images/precision-medicine-platform-logo.png' alt='Drawing' id="pmp_logo">
+        </a>
+    </div>
+</div>
+
+
+
+<div class="collapsible vertical-menu ">
+    <button class="sidebar_btn fa fa-angle-right"
+            onclick="return toggle('resources', this)">
+        <span>Resources</span>
+    </button>
+    <div id="resources" style="display:none; overflow: scroll;">
+        <a href="https://www.heart.org/en/professional/quality-improvement" target="_blank">GWTG</a>
+        <a href="../../../PMP_FAQ.html" target="_blank">PMP FAQ</a>
+        <a href="https://precision.heart.org/workspace/about" target="_blank">About PMP Workspaces</a>
+        <a href="https://precision.heart.org/security-information" target="_blank">PMP Security</a>
+        <a href="https://precision.heart.org/contact" target="_blank">Contact Us</a>
+        <a href="https://precision.heart.org/technical-support" target="_blank">Technical Support</a>
+        <a href="https://precision.heart.org/learn" target="_blank">Video Tutorials</a>
+        <a href="https://precision.heart.org/jupyter_notebooks/about" target="_blank">Jupyter Notebooks Overview</a>
+        <a href="https://bookdown.org/yihui/rmarkdown/notebook.html" target="_blank">R Notebooks Overview</a>
+        <a href="https://precision.heart.org/dataset-source-links/covid-19-data-challenge/documents/COVID%2019%20Data%20Challenge%20FAQ%205.11.2020%20FINAL.docx">
+                    Download User Guide <i class="fa fa-download" style="font-size:medium;"></i></a>
+    </div>
+
+    <button class="w3-bar-item w3-button w3-large" id="sidebarToggleButton" onclick="w3_toggle()">
+        <i class="fa fa-sliders-h" style="font-size: larger;"></i><span id = "define">Define a Dataset</span>
+    </button>
+    <div id="sidebar_content">
+        <h4>Date</h4>
+        <h5>Admit Date</h5>
+        <div style = "display:inline-block">
+            <label>From</label>
+            <input type="date" name="myDate" min="2020-03-04", max = "2020-04-12">
+        </div><div style = "display:inline-block">
+        <label>&nbsp;&nbsp;&nbsp;To</label>
+        <input type="date" name="myDate" min="2020-03-04", max = "2020-04-12">
+    </div>
+        <h5>Discharge Date</h5>
+        <div style = "display:inline-block">
+            <label>From</label>
+            <input type="date" name="myDate" min="2020-03-19", max = "2020-04-26">
+        </div><div style = "display:inline-block">
+        <label>&nbsp;&nbsp;&nbsp;To</label>
+        <input type="date" name="myDate" min="2020-03-19", max = "2020-04-26">
+    </div>
+        <br>
+        <div id="participant_criteria">
+            <h4>Participant Criteria</h4>
+        </div>
+        <div id="hospital_criteria">
+            <h4>hospital Criteria</h4>
+        </div>
+    </div>
+</div>
+
+<div id="main" style="margin-right:30%;">
+    <div style="display:inline-block;">
+        <h3>GWTG Registry Data Documentation</h3>
+        <p class="header_date" style="padding: 5px 0;">Date: July 01, 2020 - Version 0.1</p>
+    </div>
+    <div style="display:inline-block;">
+        <select class="browser-default custom-select">
+            <option selected><span style="border: 1px solid #0275d8; background-color:#0275d8">COVID-19</span></option>
+            <option value="Strk" style="border: 1px solid gold;  background-color:gold;">Stroke</option>
+            <option value="hf" style="border:1px solid #d9534f; background-color:#d9534f">Heart Failure</option>
+            <option value="cad" style ="border: 1px solid #C10E21;  background-color:#C10E21">CAD</option>
+        </select>
+    </div>
+</div>
+
+
+<span id=\"htmlwidget-bc1ce55c6b59624af4d5\" class="sparkline html-widget"></span><script type=\"application/json\" data-for=\"htmlwidget-bc1ce55c6b59624af4d5\">{\"x\":{\"values\":[null,null,14.9,11.3,12.6,12.9,12.2,14.7,13.1,9,null,12.1,15.3,null,null,14.2,15.2,12.3,null,9.4,15.1,12.6,15.5,11.1,16,13.3,8.8,13.6,7.2,null,10.3,15.8,null,null,11.1,11.4,null,13,10.7,null,15.1,null,null,14,10.9,8.6,15,null,9.1,14.3,13.2,12.9,12.5,null],\"options\":{\"type\":\"box\",\"chartRangeMin\":0,\"outlierLineColor\":\"black\",\"outlierFillColor\":\"red\",\"height\":30,\"width\":90},\"width\":90,\"height\":30},\"evals\":[],\"jsHooks\":[]}</script>
+
+
+<div id="app">
+    <footer id="aha-footer" class="l-footer"> </footer>
+    </div>
+    <!-- end #app-->
+    <script src="//static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js"></script>
+<!-- Activate header/footer plugin -->
+<script >
+    jQuery(function() {
+        //Bare bones
+        if(jQuery.prototype.ahaHeaderFooterSitecore) {
+            jQuery('#app').ahaHeaderFooterSitecore();
+        }
+    });
+</script>
+</body>
+</html>
+<!--
+<div class="container">
+    <h2>Simple Collapsible</h2>
+    <p>Click on the button to toggle between showing and hiding content.</p>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
+    <div id="demo" class="collapse">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+</div>-->

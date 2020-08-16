@@ -4,46 +4,74 @@
 <head>
     <meta charset="UTF-8">
     <title>AHA PMP - FAQ</title>
+    <!--    bootstrap and icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="aha.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="aha_pmp_footer.css" type="text/css" media="screen"/>
+    <!--    style sheets-->
+    <link rel="stylesheet" href="aha_pmp_header.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="aha_affiliate_footer.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="aha_styling.css" type="text/css" media="screen"/>
 
     <link rel="stylesheet" href="aha_faq.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="aha_search.css" type="text/html" media="screen"/>
+    <link rel="stylesheet" href="aha_search.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="pmp_doc_sites.css" type="text/css" media="screen"/>
 
+    <script type="text/javascript" src="toggle_collapse_functions.js"></script>
+    <script type="text/javascript" src="button_dropdown_functions.js"></script>
 
-    <script>
-        function toggle_content(id) {
-            const cont = document.getElementById(id);
-            cont.style.display = (cont.style.display !== 'none' ? 'none' : 'block');
-        }
-
-        function toggle_caret(id, caretId) {
-            toggle_content(id);
-            const caret = document.getElementById(caretId);
-            caret.classList.toggle("fa-caret-down");
-            caret.classList.toggle("fa-caret-right");
-            console.log(id);
-        }
-    </script>
 </head>
 <body>
-<div id="headerAHA_title" class="aha_header">
+<div class="aha_pmp_header">
     <div class="aha_header_logo_container">
-        <img src='https://precision.heart.org/assets/images/aha-pmp-logo.png' alt='Drawing' id="aha_logo"
-             style="width:140px; float:left;">
-        <img src='https://precision.heart.org/sso/images/precision-medicine-platform-logo.png' alt='Drawing'
-             id="pmp_logo">
+        <img src='https://precision.heart.org/assets/images/aha-pmp-logo.png' alt='Drawing' style="float:left;">
+        <a href="https://precision.heart.org/" target="_blank"><img
+                src='https://precision.heart.org/sso/images/precision-medicine-platform-logo.png' alt='Drawing'
+                style="float:right; padding-top: 1.5%"></a>
     </div>
-    <h1>FAQ</h1>
 </div>
-<div id="main" style="margin:4%">
-    <div class="top-middle-search">
+<div class="title-container">
+    <h1>Frequently Asked Questions (FAQ)</h1>
+</div>
+<div style="display:inline-block; margin:2% 30%;">
+    <div id="faq-category-dropdown" style="display:inline-block; text-align: center;">
+        <script>
+            const categoryDropdownContent = [
+                {
+                    "btntype": "dropdown",
+                    "className": "btn secondary-btn faq-nav-dropdown",
+                    "label": "FAQ Categories",
+                    "menu": [
+                        {
+                            "label": "Functionality",
+                            "link": "#faq-Functionality",
+                            "target": "_self",
+                        },
+                        {
+                            "label": "Data",
+                            "link": "#faq-Data",
+                            "target": "_self",
+                        },
+                        {
+                            "label": "General",
+                            "link": "#faq-General",
+                            "target": "_self",
+                        },
+                        {
+                            "label": "Credits",
+                            "link": "#faq-Credits",
+                            "target": "_self",
+                        }
+                    ]
+                }];
+            const cateogryDropdown = document.getElementById("faq-category-dropdown");
+            const cateogryDropdownBtn = createButtons(categoryDropdownContent);
+            cateogryDropdown.appendChild(cateogryDropdownBtn);
+        </script>
+    </div>
+    <div class="top-middle-search" style="display:inline-block">
         <div class="search">
             <input type="text" class="searchTerm" placeholder="Search...">
             <button type="submit" class="searchButton">
@@ -51,6 +79,9 @@
             </button>
         </div>
     </div>
+</div>
+<div id="main" style="margin:0 5% 2% 5%">
+
 </div>
 <script>
     const main  = document.getElementById("main");
@@ -144,51 +175,63 @@
 
     faqContent.forEach(function (x) {
         const categoryBtn = document.createElement("button");
+        const anchor = document.createElement("a");
         const btnContent = document.createElement("span");
         const categoryHeader = document.createElement("h2");
         const img = document.createElement("img");
+        const content_id = x.category.split(" ")[0];
+        const plusIcon = document.createElement("i");
+
         const questionsContent = document.createElement("div");
-        const contentId = x.category.split(" ")[0];
+
 
         img.alt = "drawing";
-        img.src = "https://www.heart.org/-/media/foundation/metadata/aha_logo.png";
-        categoryBtn.className = "collapsible section-header grey-header faq-header";
-        // categoryHeader.className = "faq-header";
+        categoryBtn.className = "collapsible";
+        btnContent.className = "section-header torch-header grey-header"
+        anchor.id = "faq-" + content_id;
+        plusIcon.className = "fas fa-plus";
+        plusIcon.id = content_id + "-plus";
+        categoryBtn.onclick = function() {toggle_plus(content_id, plusIcon.id)};
 
         questionsContent.className = "collapsible-content";
-        questionsContent.id = contentId;
+        questionsContent.id = content_id;
         questionsContent.style.display = "block";
-        categoryBtn.onclick = function() {toggle_content(contentId)};
 
         main.appendChild(categoryBtn);
+        categoryBtn.appendChild(anchor);
         categoryBtn.appendChild(btnContent);
         btnContent.appendChild(categoryHeader);
+
         categoryHeader.innerHTML = x.category;
+        categoryHeader.append(plusIcon);
         categoryHeader.appendChild(img);
 
 
         main.appendChild(questionsContent);
 
         let questionNum = 0;
-        x.questions.forEach((question) => {
+        x.questions.forEach((qa) => {
             questionNum = questionNum +  1;
             const qaContainer = document.createElement("div");
             const questionBtn = document.createElement("button");
-            const caret = document.createElement("span");
+            const question = document.createElement("p");
+            const caret = document.createElement("i");
             const answer = document.createElement("div");
             
-            answer.id = contentId + '-answer' + questionNum;
+            answer.id = content_id + '-answer' + questionNum;
             answer.className = "content faq-answer";
-            answer.innerText = question.a;
+            answer.innerText = qa.a;
             answer.style.display = "none";
 
             caret.className = "fa fa-caret-right";
-            caret.id= contentId + '-caret';
+            caret.id = content_id + '-caret' + questionNum;
             questionBtn.className ="collapsible faq-question";
             questionBtn.onclick = function() {toggle_caret(answer.id, caret.id)};
-  
-            questionBtn.appendChild(caret);
-            questionBtn.append(question.q);
+            qaContainer.className = "faq-container"
+
+            question.appendChild(caret);
+            question.append(qa.q)
+            questionBtn.appendChild(question);
             qaContainer.appendChild(questionBtn);
             qaContainer.appendChild(answer);
             questionsContent.appendChild(qaContainer);
@@ -196,65 +239,83 @@
     })
 </script>
 
+<div id="app">
+    <footer id="aha-footer" class="l-footer">
+        <div class="l-footer__section" style="height:100%;">
+            <div class="container container-fluid">
+                <div class="row">
+                    <span style="text-align: center; font-size: 1.375rem; padding:2%;">
+                        The Precision Medicine Platform is a strategic initiative of the American Heart Association's
+                        Institute for Precision Cardiovascular Medicine.
+                    </span>
 
-<footer id="pmp_footer_container">
-    <p>The Precision Medicine Platform is a strategic initiative of the
-        Heart Association's Institute for Precision Cardiovascular Medicine.
-    </p>
-    <div id="aha_affiliate_logos"></div>
+                </div>
+                <div id="aha_affiliate_logos"></div>
+                <script type="text/javascript">
+                    const affiliateDiv = document.getElementById("aha_affiliate_logos");
+                    const allAffiliates = document.createElement("div");
+                    allAffiliates.className = "row";
+                    allAffiliates.style.overflow = "auto";
+                    affiliateDiv.appendChild(allAffiliates);
 
-    <script type="text/javascript">
-        const affiliateDiv = document.getElementById("aha_affiliate_logos");
-        const allAffiliates = document.createElement("div");
-        allAffiliates.className = "row";
-        allAffiliates.style.overflow = "auto";
-        allAffiliates.style.padding = "2%";
-        affiliateDiv.appendChild(allAffiliates);
+                    const affiliatesContent = [
+                        {
+                            "img": "https://www.burstiq.com/wp-content/uploads/2020/03/hitachi-logo.png",
+                            "className": "affiliate_container  col-lg-7",
+                            "style": "height:7rem; padding-bottom: 0; padding-right: 1rem;",
+                            "label": "Supported by",
 
-        const affiliatesContent = [
-            {
-                "img": "https://www.burstiq.com/wp-content/uploads/2020/03/hitachi-logo.png",
-                "className": "affiliate_container  col-lg-7",
-                "style": "height:7rem; padding-bottom: 2rem; padding-right: 1.5rem;",
-                "label": "Supported by",
+                        },
+                        {
+                            "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1024px-Amazon_Web_Services_Logo.svg.png",
+                            "className": "affiliate_container  col-lg-5",
+                            "style": "height:5rem;  padding-top:1rem; padding-left: 1rem;",
+                            "label": "Powered by",
 
-            },
-            {
-                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1024px-Amazon_Web_Services_Logo.svg.png",
-                "className": "affiliate_container  col-lg-5",
-                "style": "height:5rem;  padding-top:1.5rem;",
-                "label": "Powered by",
+                        }
+                    ];
 
-            }
-        ];
+                    affiliatesContent.forEach(function (x) {
+                        const img = document.createElement("img");
+                        img.src = x.img;
+                        img.alt = "Drawing";
+                        img.style = x.style;
 
-        affiliatesContent.forEach(function (x) {
-            const img = document.createElement("img");
-            img.src = x.img;
-            img.alt = "Drawing";
-            img.style = x.style;
-            img.className = "affiliate_container_img"
+                        const imgCol = document.createElement("div");
+                        imgCol.appendChild(img);
+                        imgCol.className = "affiliate_img col-md-8";
 
-            const imgCol = document.createElement("div");
-            imgCol.appendChild(img);
-            imgCol.className = "affiliate_img col-md-8";
+                        const labelCol = document.createElement("div");
+                        labelCol.innerHTML = x.label;
+                        labelCol.className = "col-md-4 affiliate_text";
 
-            const labelCol = document.createElement("div");
-            labelCol.innerHTML = x.label;
-            labelCol.className = "col-md-4 affiliate_text";
+                        const affiliateContent = document.createElement("div");
+                        affiliateContent.appendChild(labelCol);
+                        affiliateContent.appendChild(imgCol);
+                        affiliateContent.className = "row";
 
-            const affiliateContent = document.createElement("div");
-            affiliateContent.appendChild(labelCol);
-            affiliateContent.appendChild(imgCol);
-            affiliateContent.className = "row";
+                        const affiliateContainer = document.createElement("div");
+                        affiliateContainer.className = x.className;
+                        affiliateContainer.appendChild(affiliateContent);
+                        allAffiliates.appendChild(affiliateContainer);
+                    })
+                </script>
+            </div>
+        </div>
 
-            const affiliateContainer = document.createElement("div");
-            affiliateContainer.className = x.className;
-            affiliateContainer.appendChild(affiliateContent);
-            allAffiliates.appendChild(affiliateContainer);
-        })
-    </script>
-</footer>
+    </footer>
+</div>
+<!-- end #app-->
+<script src="//static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js"></script>
+<!-- Activate header/footer plugin -->
+<script>
+    jQuery(function () {
+        //Bare bones
+        if (jQuery.prototype.ahaHeaderFooterSitecore) {
+            jQuery('#app').ahaHeaderFooterSitecore();
+        }
+    });
+</script>
 
 </body>
 </html>

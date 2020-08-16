@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="margin: 1% 2%;">
+    <form class="search" action="action_page.php">
+        <label>
+            <input type="text" placeholder="Search.." name="search">
+        </label>
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    <h1>Precision Medicine Platform (PMP) Documentation</h1>
+    <p class="header_date" style="padding:1% 30%;">Date: May 01, 2020 - Version 0.1</p>
+</div>
+<div id="main" style="margin:2%; display:grid;"></div>
+<script>
+    const main = document.getElementById("main");
+    const varCardContent = [
+                {
+                    "className": "card",
+                    //"style": "height:8rem; padding: 5rem; margin: 3rem; text-align:center;",
+                    "varID": "hgbadm",
+                    "Description": "Hemoglobin",
+                    //{"i": {"attributes" : {"class" : "fa fa-vial"}}, "text":"Labs: Admission"}
+                    "Category": "<i class=\"fa fa-vial\" title=\"Labs\"></i>",
+                    "Type": {
+                        "data type": "<i>&#xf3ce;</i> continuous",
+                        "value type":"decimal",
+                        "collection type": "raw collection",
+                        "quality": "as collected",
+                        "validation": "none"
+                            },
+                    "Missing": {"percent":"28%", "disclaimer":"None"},
+                    "Doc1": "<a  target=_blank href=\"AHA_COVID-CVD_Coding%20CRF_4.28.2020.pdf\">Collection Report Form</a>",
+                    "Doc2": "<a  target=_blank href=\"COVID-19%20Cardiovascular%20Registry_Coding%20Instructions_v2_5.20.2020.pdf\">Registry Codings and Definitions</a>",
+                    "table": "<table class = \"display\" style = \"font-size:14px;  border:solid .5px grey; float:left; border-spacing: 0; width:100%;\"><thead style = 'font-size:12px; text-align:left; font-style:italic;'><tr><th style = 'font-weight:normal; padding:2px;'> hgbadm Summary</th></tr></thead><tr  style = 'border:solid .5px grey;'><td><b>min</b>: 7.2</td></tr><tr  style = 'border:solid .5px grey;'><td><b>max</b>: 16</td></tr><tr  style = 'border:solid .5px grey;'><td><b>mean</b>: 12.572</td></tr><tr  style = 'border:solid .5px grey;'><td><b>SD</b>: 2.277</td></tr><tr  style = 'border:solid .5px grey;'><td><b>NA/NULL</b>: 15</td></tr><tr  style = 'border:solid .5px grey;'><td><b>N</b>: 39</table>",
+                    "Chart": "<span id=\"sparkline-htmlwidget-hgbadm\" class=\"sparkline html-widget\"></span>",
+                    "Chart_data": [{
+                        "x":
+                            {
+                                "values": [null, null, 14.9, 11.3, 12.6, 12.9, 12.2, 14.7, 13.1, 9, null, 12.1, 15.3, null, null, 14.2, 15.2, 12.3, null, 9.4, 15.1, 12.6, 15.5, 11.1, 16, 13.3, 8.8, 13.6, 7.2, null, 10.3, 15.8, null, null, 11.1, 11.4, null, 13, 10.7, null, 15.1, null, null, 14, 10.9, 8.6, 15, null, 9.1, 14.3, 13.2, 12.9, 12.5, null],
+                                "options":
+                                    {
+                                        "type": "line",
+                                        "outlierFillColor": "red",
+                                        "height": 180,
+                                        "width": 180
+                                    },
+                                "width": 180,
+                                "height": 180
+                            },
+                        "evals": [],
+                        "jsHooks": []
+                    }]
+                }]
+
+    const createVarCardContent = {
+        "createVarCard": "<h3>CREATE A DERIVED VARIABLE SOME STUFF</h3>"
+    }
+    function createRowDiv(){
+        const cardRow = document.createElement("div");
+        cardRow.className = "row";
+        cardRow.style.justifyContent = "space-around";
+        return(cardRow)
+    }
+
+    function createColDiv(colClass){
+        const carRowCol= document.createElement("div")
+        carRowCol.style.padding = "1%";
+        carRowCol.className = colClass;
+        return(carRowCol);
+    }
+
+    function  createHTMLSpan(jsonElementData, spanClass){
+        const spanElement = document.createElement("span");
+        spanElement.className = spanClass;
+        Object.keys(jsonElementData).forEach(function(key) {
+            //const element = document.createElement(key);
+            //element.attributes = jsonElementData[key].attributes;
+            spanElement.innerHTML = spanElement.innerHTML.concat(jsonElementData[key]);
+            spanElement.appendChild(element);
+        })
+    }
+
+    function createHTMLElement(jsonData) {
+        const parent_div = document.createElement("div");
+
+        Object.keys(jsonData).forEach(function (key) {
+            console.log(jsonData);
+            console.log(key);
+            const element = document.createElement(key);
+            if (jsonData[key].hasOwnProperty('attributes')) {
+                jsonData[key]['attributes'].forEach(function (attr, val) {
+                    console.log(attr);
+                    console.log(val);
+                    element.setAttribute(attr, val)
+                })
+                element.innerHTML = jsonData[key]['content'];
+            }
+            parent_div.appendChild(element);
+        })
+        return (parent_div)
+    }
+    function  createDivHTML(jsonData){
+        const content = document.createElement("div");
+        Object.keys(jsonData.button).forEach(function(key) {
+            const element = document.createElement(key);
+            if (jsonData[key].hasOwnProperty('attributes')) {
+                jsonData[key]['attributes'].forEach(function(attr, val) {
+                    element.setAttribute(attr, val)
+                })
+                element.innerHTML = jsonData[key];
+            }
+            div.appendChild(element);
+        })
+    }
+
+    function createVarDescriptionHeader(varDescriptionData){
+        let descriptionRow =  createRowDiv();
+        const descriptionContent = createHtmlSpan(descriptionData);
+        console.log(descriptionContent);
+        descriptionRow.appendChild(descriptionContent);
+        return(descriptionRow)
+    }
+
+    function createVarDocumentationRow(varID) {
+        colAttributes = [{
+            ID: {
+                className:"col-lg-2"
+            },
+            type:{
+                className:"col-lg-3"
+            },
+            missing: {
+                className:"col-lg-3"
+            },
+            spkln : {
+                className:"col-lg-3"
+            }
+        }]
+        const docRow = createRowDiv();
+        Object.keys(colAttributes).forEach(function(key) {
+            const colDiv = createColDiv(colAttributes[key].className)
+            colDiv.id = key+ "-col-" + varID
+            docRow.appendChild(colDiv)
+        })
+        return(docRow)
+    }
+
+    function createVariableCard(jsonVarData) {
+        const card = document.createElement("div");
+        const descriptionData = (({ Category, Description}) => ({ Category, Description}))(jsonVarData);
+        const descriptionHeader =  createVarDescriptionHeader(descriptionData;
+        const docContent = createVarDocumentationRow(jsonVarData.varID);
+        const idContent = document.getElementById()
+
+
+        Object.keys(jsonData).forEach(function(key) {
+            var value = jsonData[key];
+            // ...
+        });
+
+    }
+    function crateLabeledDivRows(jsonRowsData){
+        let rowsDiv = document.createElement("div");
+        Object.keys(jsonRowsData).forEach(function(key) {
+            let rowContainer = createRowDiv();
+            rowContainer.style.padding = "1%";
+
+            createLabeledDiv(key, jsonRowsData[key])
+
+            rowsDiv.appendChild(rowContainer);
+        })
+        return(rowsDiv)
+    }
+
+
+    // function to create labeled div elements for Var information,
+    // inputs: label: a string used as the label of the element
+    // inputs: label: html object for content corresponding to the label
+    function createLabeledDiv(label, content) {
+        let textContainer = document.createElement("div");
+        const labelP = document.createElement("p");
+        const contentDiv = document.createElement("div");
+
+        labelP.className = "content-label";
+        labelP.innerHTML = label;
+        contentDiv.innerHTML = content;
+
+        textContainer.appendChild(label);
+        textContainer.appendChild(content);
+
+        return(textContainer);
+    }
+
+
+    function createVarMissingGUI() {
+        const cardContainer = document.createElement("div");
+    }
+    function createVarSparkline() {
+        const cardContainer = document.createElement("div");
+    }
+    varCardContent.forEach(function (cardSet) {
+        const cardRow = document.createElement("div");
+        cardRow.className = "row";
+        cardRow.style.justifyContent = "space-around";
+        cardRow.style.margin = "1rem 10rem 3rem 10rem";
+        main.appendChild(cardRow);
+
+
+        cardSet.varCards.forEach(function (x) {
+            const cardContainer = document.createElement("div");
+            const card = document.createElement("div");
+            const cardButton = document.createElement("button");
+            const cardButtonLink = document.createElement("a")
+            const icon = document.createElement("i");
+            const label = document.createElement("h4");
+            const content = document.createElement("p");
+
+
+            cardContainer.style.padding = "1%";
+            cardContainer.className = "col-lg-6";
+            card.className = x.className;
+//card.style = x.style; "fa fa-chart-area"
+
+
+            icon.style.color = "#c10e21"; //className = "collapsible";
+            icon.className = x.icon;
+
+            label.innerHTML = x.label;
+
+            content.innerHTML = x.content;
+            card.appendChild(icon);
+            card.appendChild(label);
+            card.appendChild(content);
+
+            cardButtonLink.href = x.buttonLink;
+            cardButton.className = "primary-btn";
+            cardButton.innerHTML = x.buttonLabel;
+
+            cardRow.appendChild(cardContainer);
+            cardContainer.appendChild(card);
+            card.appendChild(icon);
+            card.appendChild(label);
+            card.appendChild(content);
+            cardButtonLink.appendChild(cardButton);
+            card.appendChild(cardButtonLink);
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AHA PMP Docs-Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="aha.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen"/>
+</head>
+<body>
+<div id="headerAHA_title" class="aha_header">
+    <div class="aha_header_logo_container">
+        <img src='https://precision.heart.org/assets/images/aha-pmp-logo.png' alt='Drawing' id="aha_logo"
+             style="width:140px; float:left;">
+        <a href="https://precision.heart.org/"><img src='https://precision.heart.org/sso/images/precision-medicine-platform-logo.png' alt='Drawing'
+                                                    id="pmp_logo"></a>
+    </div>
+</div>
+
+<div style="margin: 1% 2%;">
+    <div class="top-middle-search">
+        <div class="search">
+            <input type="text" class="searchTerm" placeholder="Search...">
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </div>
+    <h1>Precision Medicine Platform (PMP) Documentation</h1>
+    <p class="header_date" style="padding:1% 30%;">Date: May 01, 2020 - Version 0.1</p>
+</div>
+<div id="main" style="margin:2%; display:grid; "></div>
+
+
+<script>
+    // const main  = document.getElementById("main");
+    const homeCardContent = [{
+        "mainCard":[
+            {
+                "icon": "fa fa-running fa-4x",
+                "className": "card main-docs-home",
+                //"style": "height:8rem; padding: 5rem; margin: 3rem; text-align:center;",
+                "label": "<br>Getting Started",
+                "content": "<br>New to the Precision Medicine Platform? Check out the getting started guide for overall information about the PMP, " +
+                    "registration, and how to request a PMP workspace and available data.",
+                "buttonLabel": "Get Started",
+                "buttonLink": "Getting Started PMP.html"
+
+            },
+            {
+                "icon": "fa fa-book-open fa-4x",
+                "className": "card main-docs-home",
+                //"style": "height:6rem;  padding-top:1.5rem;",
+                "label": "<br>User Guide",
+                "content": "<br>The PMP user guide provides information for using a PMP workspace, " +
+                    "including functionality as well as how to collaborate and take advantage power computing.",
+                "btnContent": [
+                    {
+                        "className": "primary-btn",
+                        "label": "To the User Guide",
+                        "link": "Getting Started PMP.html"
+                    }]
+            }
+        ],
+        "smallCard":[
+            {
+                "className": "card small-docs-home",
+                "style": "padding:1.25rem;",
+                "header": "<img src=\"https://www.heart.org/-/media/foundation/metadata/aha_logo.png\" alt=\"drawing;\" style=\"width:15%;\">Can't Wait to Start?",
+                "btnContent": [
+                    {
+                        "className": "primary-btn",
+                        "label": "Register Now",
+                        "link": "https://precision.heart.org/sso/"
+                    }
+                ]
+            },
+            {
+                "className": "card small-docs-home",
+                "style": "padding:1.25rem;",
+                "label": "<img src=\"https://www.heart.org/-/media/foundation/metadata/aha_logo.png\" alt=\"drawing;\" style=\"width:15%;\">Have a Question?",
+                "btnContent": [
+                    {
+                        "btntype": "link",
+                        "class": "primary-btn",
+                        "label": "FAQ",
+                        "link": "PMP_FAQ.html"
+                    },
+                    {
+                        "btntype": "dropdown",
+                        "class": "btn primary-btn dropdown-toggle",
+                        "label": "Contact",
+                        "menu": [
+                            {
+                                "label": "Contact Us (account, data, and general inquiries)",
+                                "link": "https://precision.heart.org/contact"
+                            },
+                            {
+                                "label": "Technical Support (installation, workspace issues)",
+                                "link": "https://precision.heart.org/technical-support"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]}
+    ];
+
+    function createLinkedButton(buttonClassName, label, link) {
+        const button = document.createElement("button");
+        const buttonLink = document.createElement("a");
+
+        button.className = buttonClassName;
+        buttonLink.href = link;
+        buttonLink.innerHTML = label;
+
+        button.appendChild(buttonLink)
+        return(button)
+    }
+
+    function createLinkList(links) {
+        const list = document.createElement("ul")
+        links.forEach(function (a) {
+            const link = document.createElement("a");
+            link.href = a.link;
+            link.innerHTML = a.label;
+            list.appendChild(link);
+        })
+        return(list)
+    }
+
+    function createDropdown(dropdownBtnClassName, label, dropdownMenu) {
+        const dropdownDiv = document.createElement("div");
+        const button = document.createElement("button");
+        const caret = document.createElement("span");
+        const menu = createLinkList(dropdownMenu);
+
+        dropdownDiv.className = "dropdown";
+
+        button.className = dropdownBtnClassName;
+        button.type = "button";
+        button.setAttribute("data-toggle", "dropdown");
+        caret.className = "caret";
+        button.innerHTML= label;
+
+        button.appendChild(caret);
+        dropdownDiv.appendChild(button);
+        dropdownDiv.appendChild(menu);
+        return(dropdownDiv)
+    }
+
+    function createButton(btnContent){
+        let btn;
+        // if(btnContent.btntype === "dropdown") {
+        //     btn = createLinkedButton(btnContent.class, btnContent.link, btnContent.label);
+        // }
+        if(btnContent.btntype === "link") {
+            btn = createDropdown(btnContent.class, btnContent.label, btnContent.menu);
+        }
+        return(btn)
+    }
+
+    function createButtonsMenu(btnsContent) {
+        const btnList = document.createElement("ul");
+        btnsContent.forEach(btnContent => {
+            const item = document.createElement("li");
+            const btn = createButton(btnContent);
+            btnList.append(item);
+            item.append(btn);
+        })
+        return(btnList);
+    }
+
+    function createCardBtns(btnContents){
+        const cardButtonsDiv = document.createElement("div");
+        let btns;
+        if(btnContents.length === 1) {
+            btns = createButton(btnContents);
+        }
+        else {
+            btns = createButtonsMenu(btnContents);
+        }
+        cardButtonsDiv.appendChild(btns);
+        return(cardButtonsDiv)
+    }
+
+    // functions to create card from json object
+    // cardClassName is the class for the card
+    function createCard(cardContent, cardClassName) {
+        const card = document.createElement("div");
+        const content = document.createElement("div");
+        const icon = document.createElement("i");
+        const header = document.createElement("h3");
+        const text = document.createElement("p");
+        // const cardBtns = createCardBtns(cardContent["btnContent"]);
+
+        card.className = cardContent.className;
+
+        icon.className = cardContent.icon;
+        header.appendChild(icon);
+        header.append(cardContent.header);
+        text.innerHTML = cardContent.content
+
+        content.appendChild(header)
+        content.appendChild(text);
+        card.appendChild(content);
+        // card.appendChild(cardBtns);
+        console.log(cardContent);
+        return(card)
+    }
+
+    // function to create rows of cards from json object
+    // parentElement is variable of parent element the card should be appended to
+    function createCards(cardsContent, parentElement, cardContainerClassName) {
+        console.log(cardsContent)
+        Object.values(cardsContent).forEach(cardContent => {
+            const cardContainer = document.createElement("div");
+            const card = createCard(cardContent, cardClassName);
+            console.log(cardContent);
+            card.className = cardContent.className;
+            cardContainer.className = cardContainerClassName;
+
+            parentElement.appendChild(cardContainer);
+            cardContainer.appendChild(card);
+        })
+        return(parentElement)
+    }
+
+    function createRowDiv(rowClass){
+        const rowDiv=  document.createElement("div");
+        rowDiv.className = rowClass;
+        rowDiv.style.justifyContent = "space-around";
+        rowDiv.style.margin = "1rem 5rem 3rem 5rem";
+        return(rowDiv)
+    }
+
+
+    const main = document.getElementById("main");
+    const mainCardRow = createRowDiv("row docs-home-cards");
+    const smallCardRow = createRowDiv("row docs-home-cards");
+    console.log(homeCardContent[0]['mainCard']);
+    const mainCards = createCards(homeCardContent[0]['mainCard'], mainCardRow, "col-lg-6");
+    const smallCards = createCards(homeCardContent[0]['smallCard'], smallCardRow, "col-lg-6");
+
+
+
+    main.append(mainCardRow);
+    main.append(smallCardRow);
+    mainCardRow.appendChild(mainCards);
+    smallCardRow.appendChild(smallCards);
+
+
+    // cardContent.forEach(function (cardSet) {
+    //     const cardRow=  document.createElement("div");
+    //     cardRow.className = "row";
+    //     cardRow.style.justifyContent = "space-around";
+    //     cardRow.style.margin = "1rem 5rem 3rem 5rem";
+    //
+    //     cardSet.mainCard.forEach(function (x) {
+    //         const cardContainer = document.createElement("div");
+    //         const card = document.createElement("div");
+    //         const cardButton = document.createElement("button");
+    //         const cardButtonLink = document.createElement("a")
+    //         const icon = document.createElement("i");
+    //         const label = document.createElement("h4");
+    //         const content = document.createElement("p");
+    //
+    //
+    //         cardContainer.style.padding = "1%";
+    //         cardContainer.className = "col-lg-6";
+    //         card.className = x.className;
+    //         //card.style = x.style;
+    //
+    //
+    //         icon.style.color = "#c10e21"; //className = "collapsible";
+    //         icon.className = x.icon;
+    //
+    //         label.innerHTML = x.label;
+    //
+    //         content.innerHTML = x.content
+    //
+    //         cardButtonLink.href = x.buttonLink;
+    //         cardButton.className = "primary-btn";
+    //         cardButton.innerHTML = x.buttonLabel;
+    //
+    //         cardRow.appendChild(cardContainer);
+    //         cardContainer.appendChild(card);
+    //         card.appendChild(icon);
+    //         card.appendChild(label);
+    //         card.appendChild(content);
+    //         cardButtonLink.appendChild(cardButton);
+    //         card.appendChild(cardButtonLink);
+    //     })
+    //
+    //     cardSet.smallCard.forEach(function (x) {
+    //         const cardContainer = document.createElement("div");
+    //         const card = document.createElement("div");
+    //         const label = document.createElement("h4");
+    //         const content = document.createElement("span");
+    //
+    //         cardContainer.style.padding = "1%";
+    //         cardContainer.className = "col-lg-6";
+    //         card.className = x.className;
+    //         card.style = x.style;
+    //
+    //         label.className = "heart_torch_header";
+    //         label.innerHTML = x.label;
+    //         label.appendChild(content);
+    //
+    //         content.innerHTML = x.content
+    //
+    //         cardRow.appendChild(cardContainer);
+    //         cardContainer.appendChild(card);
+    //         card.appendChild(label);
+    //
+    //     })
+    //
+    // })
+</script>
+<div id="app">
+    <footer id="aha-footer" class="l-footer"></footer>
+</div>
+<!-- end #app-->
+<script src="//static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js"></script>
+<!-- Activate header/footer plugin -->
+<script>
+    jQuery(function () {
+        //Bare bones
+        if (jQuery.prototype.ahaHeaderFooterSitecore) {
+            jQuery('#app').ahaHeaderFooterSitecore();
+        }
+    });
+</script>
+</body>
+</html>

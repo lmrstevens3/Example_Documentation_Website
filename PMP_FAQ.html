@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AHA PMP - FAQ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="aha.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="aha_pmp_footer.css" type="text/css" media="screen"/>
+
+    <link rel="stylesheet" href="aha_faq.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="aha_search.css" type="text/html" media="screen"/>
+    <link rel="stylesheet" href="pmp_doc_sites.css" type="text/css" media="screen"/>
+
+
+    <script>
+        function toggle_content(id) {
+            const cont = document.getElementById(id);
+            cont.style.display = (cont.style.display !== 'none' ? 'none' : 'block');
+        }
+
+        function toggle_caret(id, caretId) {
+            toggle_content(id);
+            const caret = document.getElementById(caretId);
+            caret.classList.toggle("fa-caret-down");
+            caret.classList.toggle("fa-caret-right");
+            console.log(id);
+        }
+    </script>
+</head>
+<body>
+<div id="headerAHA_title" class="aha_header">
+    <div class="aha_header_logo_container">
+        <img src='https://precision.heart.org/assets/images/aha-pmp-logo.png' alt='Drawing' id="aha_logo"
+             style="width:140px; float:left;">
+        <img src='https://precision.heart.org/sso/images/precision-medicine-platform-logo.png' alt='Drawing'
+             id="pmp_logo">
+    </div>
+    <h1>FAQ</h1>
+</div>
+<div id="main" style="margin:4%">
+    <div class="top-middle-search">
+        <div class="search">
+            <input type="text" class="searchTerm" placeholder="Search...">
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    const main  = document.getElementById("main");
+    const faqContent = [{
+        "category": "Functionality",
+        "questions": [
+            {
+                "q": "Can I access my workspace outside of the US?",
+                "a": "Yes, if you have internet access, you are able to access the PMP."
+            },
+            {
+                "q": "Why am I not able to use the AWS Marketplace as I do with my university AWS infrastructure?",
+                "a": "The PMP is built using Hadoop and Jupyter framework as an easier transition to move to the cloud. Because of the design and security decisions, not all the offerings on AWS Marketplace are available within the workspace. "
+            },
+            {
+                "q": "Can I use SAS or other licensed products in conjunction with the PMP?",
+                "a": "Yes, however, you must have an active license for the tool prior to loading it on the platform.  Go to Technical Support for assistance loading tools; when completing the form, include details of the type of software you want to upload onto your workspace, including your active license."
+            },
+            {
+                "q": "Is there anything I need to do to prepare myself and my work to go on to the cloud?",
+                "a": "We recommend familiarizing yourself with R and Python and consider converting your files into the Parquet format, although Parquet is not a required format."
+            },
+            {
+                "q": "I know nothing about Jupyter Notebooks.  Do you provide training on how to use the notebooks?",
+                "a": "No, however, there are many resources online that can help you get up to speed on how to use Jupyter Notebooks.  Go here to look at the various tutorial videos online and this link takes you to the official Jupyter Notebooks site with detailed user documentation."
+            },
+            {
+                    "q":"I normally use the Terminal, does the PMP have a Terminal mode?",
+                    "a":"Yes! You can access the Terminal through Jupyterlab or by clicking the New button on the top right corner of Jupyter and selecting Terminal on the drop down"
+            }
+        ]},
+        {
+        "category": "Data",
+        "questions": [
+                {
+                    "q":"What types of data are allowed on the PMP?",
+                    "a":"There are no restrictions to the type of data you load onto the PMP, however, only de-identified data is allowed on the PMP.  No PHI or PII data is to be loaded on to the PMP."
+                },
+                {
+                    "q":"Are there limits to the amounts of data I can upload onto the workspace?",
+                    "a":"No, the only limitations will be with your internet connection and the security timeout of one hour.  " +
+                        "Should you have a really large dataset, please reach out to us via Technical Support (About -> Technical Support) and an SFTP can be set up for a one time use."
+                },
+                {
+                    "q":"How does the system know if the people I share my workspace with meet the appropriate access requirements for each dataset?",
+                    "a":"Currently the system does not provide this function.  It is up to the workspace owner to ensure that the people you are sharing the data with meet the proper access requirements.  " +
+                        "However, if your workspace has access to a Private/Protected dataset, when you click on the Submit button to share access to your workspace, a formal request to the DAC will be initiated via the DUOS.  " +
+                        "Access to the workspace will only be provided upon approval by the DAC. (2020 Functionality)"
+                },
+                {
+                    "q": "I still don’t understand what data harmonization is and why it is necessary, can you provide me with an example of this?",
+                    "a": "Yes! Data harmonization looks at how data is represented in a dataset to find commonly used variables and then reassigns those variables to a ‘more common’ label.  The goal of harmonization is to make more datasets interoperable and available for researchers.  " +
+                        "An example of this is how a person’s sex could be listed as Male or Female or M and F, however the ‘more common’ label for a person’s sex is Male and Female.  If the dataset uses M and F as the labels, the data harmonization process would change these to Male and Female and then make note of the change.  " +
+                        "By harmonizing the data within datasets, researchers can pull data from multiple datasets and be confident that the terms used to label variables and the variables themselves are consistent across datasets.   "
+                }
+            ]},
+            {
+        "category": "General Questions",
+        "questions": [
+                {
+                    "q":"What exactly is the cloud?",
+                    "a":"The cloud is a network of remote servers hosted on the internet and used to store, manage, and process data in place of local servers and personal computers. " +
+                        "This technology allows us to work on large, complex datasets in a much faster time span than was previously possible with conventional computing."
+                },
+                {
+                    "q":"How is the AHA Precision Medicine Platform different from what my university provides me for my computational requirements?",
+                    "a":"The PMP does not rely on local servers managed by a university.  " +
+                        "The PMP uses Amazon Web Services (AWS) to provide its users an on-demand secure cloud services platform " +
+                        "– a virtual cluster of computers – offering compute power, database storage, content delivery and other functionality to help institutions scale and grow their research exponentially faster than they might on their own.  " +
+                        "This provides users access to large-scale computing capacity quickly and inexpensively without the need to schedule or coordinate access as one might at an institution."
+                },
+                {
+                    "q":"Why isn’t the PMP on the list of approved repositories for the AHA Open Science Policy?",
+                    "a":"Not only do you need to register as a user of the PMP to gain access to data, some of the PMP datasets require approval for use/access, hence, the PMP does not meet the guidelines of an ‘Open Data’ repository where everyone has access to the data.  "
+                }
+            ]},
+            {
+        "category": "Credits <span style=\"font-size:80%\">(Grantees Only)</span>",
+        "questions":[
+                {
+                    "q":"Can I keep my unspent credits after my award ends?",
+                    "a":"In some situations, a grantee will be allowed to continue to use the PMP after their award ends, if this should happen, use of available credits is allowed."
+                },
+                {
+                    "q":"Do I have to pay for the workspace after my award is over?",
+                    "a":"Should you want to continue to use the PMP after your grant has ended you would need to switch to a paying user.  " +
+                        "Depending on the situation, the AHA may be able to offer discounted pricing to aid researchers in the continuation of their work on the PMP."
+                }
+            ]}
+    ];
+
+    faqContent.forEach(function (x) {
+        const categoryBtn = document.createElement("button");
+        const btnContent = document.createElement("span");
+        const categoryHeader = document.createElement("h2");
+        const img = document.createElement("img");
+        const questionsContent = document.createElement("div");
+        const contentId = x.category.split(" ")[0];
+
+        img.alt = "drawing";
+        img.src = "https://www.heart.org/-/media/foundation/metadata/aha_logo.png";
+        categoryBtn.className = "collapsible section-header grey-header faq-header";
+        // categoryHeader.className = "faq-header";
+
+        questionsContent.className = "collapsible-content";
+        questionsContent.id = contentId;
+        questionsContent.style.display = "block";
+        categoryBtn.onclick = function() {toggle_content(contentId)};
+
+        main.appendChild(categoryBtn);
+        categoryBtn.appendChild(btnContent);
+        btnContent.appendChild(categoryHeader);
+        categoryHeader.innerHTML = x.category;
+        categoryHeader.appendChild(img);
+
+
+        main.appendChild(questionsContent);
+
+        let questionNum = 0;
+        x.questions.forEach((question) => {
+            questionNum = questionNum +  1;
+            const qaContainer = document.createElement("div");
+            const questionBtn = document.createElement("button");
+            const caret = document.createElement("span");
+            const answer = document.createElement("div");
+            
+            answer.id = contentId + '-answer' + questionNum;
+            answer.className = "content faq-answer";
+            answer.innerText = question.a;
+            answer.style.display = "none";
+
+            caret.className = "fa fa-caret-right";
+            caret.id= contentId + '-caret';
+            questionBtn.className ="collapsible faq-question";
+            questionBtn.onclick = function() {toggle_caret(answer.id, caret.id)};
+  
+            questionBtn.appendChild(caret);
+            questionBtn.append(question.q);
+            qaContainer.appendChild(questionBtn);
+            qaContainer.appendChild(answer);
+            questionsContent.appendChild(qaContainer);
+        });
+    })
+</script>
+
+
+<footer id="pmp_footer_container">
+    <p>The Precision Medicine Platform is a strategic initiative of the
+        Heart Association's Institute for Precision Cardiovascular Medicine.
+    </p>
+    <div id="aha_affiliate_logos"></div>
+
+    <script type="text/javascript">
+        const affiliateDiv = document.getElementById("aha_affiliate_logos");
+        const allAffiliates = document.createElement("div");
+        allAffiliates.className = "row";
+        allAffiliates.style.overflow = "auto";
+        allAffiliates.style.padding = "2%";
+        affiliateDiv.appendChild(allAffiliates);
+
+        const affiliatesContent = [
+            {
+                "img": "https://www.burstiq.com/wp-content/uploads/2020/03/hitachi-logo.png",
+                "className": "affiliate_container  col-lg-7",
+                "style": "height:7rem; padding-bottom: 2rem; padding-right: 1.5rem;",
+                "label": "Supported by",
+
+            },
+            {
+                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1024px-Amazon_Web_Services_Logo.svg.png",
+                "className": "affiliate_container  col-lg-5",
+                "style": "height:5rem;  padding-top:1.5rem;",
+                "label": "Powered by",
+
+            }
+        ];
+
+        affiliatesContent.forEach(function (x) {
+            const img = document.createElement("img");
+            img.src = x.img;
+            img.alt = "Drawing";
+            img.style = x.style;
+            img.className = "affiliate_container_img"
+
+            const imgCol = document.createElement("div");
+            imgCol.appendChild(img);
+            imgCol.className = "affiliate_img col-md-8";
+
+            const labelCol = document.createElement("div");
+            labelCol.innerHTML = x.label;
+            labelCol.className = "col-md-4 affiliate_text";
+
+            const affiliateContent = document.createElement("div");
+            affiliateContent.appendChild(labelCol);
+            affiliateContent.appendChild(imgCol);
+            affiliateContent.className = "row";
+
+            const affiliateContainer = document.createElement("div");
+            affiliateContainer.className = x.className;
+            affiliateContainer.appendChild(affiliateContent);
+            allAffiliates.appendChild(affiliateContainer);
+        })
+    </script>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+/*.heart_torch_header {*/
+/*    display: inline-block;*/
+/*    padding-top: .2em;*/
+/*    padding-bottom: 0;*/
+/*    width: 100%;*/
+/*    vertical-align: middle;*/
+/*}*/
+
+/*.faq {*/
+/*    margin-block-start: 1%;*/
+/*    padding-Left:1%;*/
+/*}*/
+.faq-question  {
+    font-family: Montserrat,Helvetica Neue,Arial,sans-serif;
+    font-size: 1.1rem;
+    text-align: left;
+    display: inline-block;
+    margin-left: 1%;
+    color: #000000;
+    width: 95%;
+    padding-top: 0;
+    child-align: top;
+    vertical-align: center;
+}
+
+.faq-question span.fa-caret-right:hover, .faq-question span.fa-caret-down:hover {
+    background-color: transparent;
+    color: #C10E21;
+}
+
+.faq-question span.fa-caret-down, .faq-question span.fa-caret-right  {
+    color:#3b55e6;
+    font-size: larger;
+    float:top;
+    vertical-align: top;
+}
+
+.faq-answer {
+    font-family: Montserrat,Helvetica Neue,Arial,sans-serif;
+    font-size: 1.1rem;
+    text-align: left;
+    color: #6D6E71;
+    margin: 2px;
+    padding-left:2%;
+    /*display: none;*/
+}
+
+
+.faqText:hover {
+    color:#C10E21;
+}
+
+
+.faq-header {
+    display: inline-block;
+    /*padding-top: 2px;*/
+    padding-bottom: 0;
+    margin-bottom: 0;
+    width: 100%;
+    background-color: #e9ecef;
+    border-bottom: 0.1rem solid #C10E21;
+    text-align: left;
+    vertical-align: middle;
+    margin-block-start: 2px;
+    margin-block-end: 2px;
+}
+
+.faq-header:hover {
+    background-color: #e9ecef;
+}
+
+.faq-header img {
+    content: url("https://www.heart.org/-/media/foundation/metadata/aha_logo.png");
+    height: 50px;
+    float: left;
+    padding-bottom: 5px;
+}
+
+/*OLD faq*/
+/*.faqText {*/
+/*    font-family: Arial, serif;*/
+/*    font-size: 1.1rem;*/
+/*    text-align: left;*/
+/*    color: #6D6E71;*/
+/*    margin: 2px;*/
+/*}*/
+
+/*.faqTextAnswer {*/
+/*    font-family: Arial, serif;*/
+/*    font-size: 1.1rem;*/
+/*    padding-left:4%;*/
+/*    text-align: left;*/
+/*    color: #6D6E71;*/
+/*    margin: 2px;*/
+/*}*/
+
+/*.faqText:hover {*/
+/*    color:#C10E21;*/
+/*}*/
+
+
+/*.faqCat_div {*/
+/*    display: inline-block;*/
+/*    padding-top: 2px;*/
+/*    padding-bottom: 0;*/
+/*    width: 100%;*/
+/*    text-size:70%;*/
+/*    background-color: #e9ecef;*/
+/*    border-bottom: 0.1rem solid #C10E21;*/
+/*    vertical-align: middle;*/
+/*    margin-block-start: 1%;*/
+/*    margin-block-end: 1%;*/
+/*}*/
+
+/*.faqCat_div:hover {*/
+/*    background-color: #e9ecef;*/
+/*}*/
+
+/*.faqCat_div img {*/
+/*    content: url("https://www.heart.org/-/media/foundation/metadata/aha_logo.png");*/
+/*    height: 50px;*/
+/*    float: left;*/
+/*    padding-bottom: 5px;*/
+/*}*/

@@ -1,3 +1,4 @@
+
 .aha_header {
     position: -webkit-sticky;
     position: sticky;
@@ -13,8 +14,8 @@
 
 .aha_header_logo_container {
     margin: 1px;
-    padding: 2px 5% 1% 5%;
-    height: 7rem;
+    padding: 2px 2% 0 2%;
+    height: 5rem;
 }
 
 
@@ -26,11 +27,11 @@
 
 h1 {
     font-family: Arial, serif;
-    font-size: 2.25rem;
+    font-size: 2.75rem;
     margin: 0;
     text-align: center;
     font-weight: normal;
-    color: #000000;
+    color: #404766;
     padding: 0 10%;
 }
 
@@ -40,7 +41,6 @@ h1 {
     font-size:1.2rem;
     font-family:Arial, serif;
     font-style: italic;
-    padding: 05px 10%;
 }
 
 .w3-card{
@@ -50,13 +50,14 @@ h1 {
 #aha_sidebar {
     position: sticky;
     margin-top: 0;
-    width: 22%;
-    z-index: 0;
+    margin-left:1rem;
+    width: 15rem;
+    z-index: 1;
     padding-left: .25rem;
     /*margin-bottom: 10px;*/
     background: #e9ecef none repeat scroll 0 0;
     /*border-right: 0.1rem solid #f3f3f3;*/
-    /*box-shadow: 2px 0 2px rgba(0, 0, 0, 0.25);*/
+    box-shadow: 1px 0 1px rgba(0, 0, 0, 0.25);
     height: 100%;
 }
 
@@ -70,12 +71,11 @@ h1 {
 
 }
 
-
 #aha_sidebar button:hover {
     outline: #6D6E71 dotted 1px;
     box-shadow: none !important;
-
 }
+
 
 .sidebar_btn span {
     padding-right: 0.5rem;
@@ -83,6 +83,7 @@ h1 {
     background: #e9ecef;
     border: none;
     font-family: Arial, serif;
+    font-size: 1.3rem;
     text-align: left;
     float: left;
 }
@@ -125,7 +126,6 @@ h1 {
     list-style: outside none none !important;
     Padding-left: 5px;
     line-height: 1.75;
-
 }
 
 #sidebar_content a {
@@ -138,55 +138,27 @@ h1 {
     color: #C10E21;
 }
 
-#aha_footer {
-    /*border-top: 0.2em solid #e3e3e3;*/
-    z-index: 0;
-    height: 12rem;
+html {
     position: relative;
-    background-color: #e9ecef;
+    min-height: 100%;
 }
 
-#aha_footer p {
-    margin: 2% 5%;
-    font-size: 1rem;
-    color: #6D6E71;
-    text-align: center;
-
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 12rem;
+    width: 100%;
+    /*overflow: hidden;*/
 }
 
-#aha_footer_logos {
-    display: grid;
-    justify-content: space-around;
-    background-color: #e9ecef;
-}
-
-.affiliate_container {
-    background-color:#e9ecef;
-    justify-content: center;
-    height:8rem;
-    border-bottom: 1px solid #e3e3e3;
-}
-
-.affiliate_text {
-    color:#6D6E71;
-    text-align: center;
-    font-size: 95%;
-    padding: 1rem 0 0 1rem;
-
+body {
+    margin-bottom: 15rem;
 }
 
 
 
-.affiliate_img {
-    padding: 0;
-    vertical-align: middle;
-    text-align: center;
-
-}
-
-
-
-.h2_div {
+.ahaTorchHeader {
     display: inline-block;
     padding-top: 0;
     padding-bottom: 0;
@@ -196,11 +168,11 @@ h1 {
     border-bottom: 0.25rem solid #f3f3f3;
 }
 
-.h2_div:hover {
+.ahaTorchHeader:hover {
     background-color: #f8f8f8;
 }
 
-h2 {
+.ahaTorchHeader h2 {
     font-family: Arial, serif;
     font-size: 2.0rem;
     padding-top:1%;
@@ -211,14 +183,14 @@ h2 {
 
 }
 
-.h2_div img {
+.ahaTorchHeader img {
     content: url("https://www.heart.org/-/media/foundation/metadata/aha_logo.png");
     height: 50px;
     float: left;
 }
 
 h3 {
-    font-family: Arial, serif;
+    font-family: Montserrat,Helvetica Neue,Arial,sans-serif;
     font-size: 1.7rem;
     text-align: left;
     font-weight: normal;
@@ -226,12 +198,9 @@ h3 {
     margin: 1%;
 }
 
-h3:hover {
-    color: #E11127;
-}
 
 h4 {
-    font-family: Arial, serif;
+    font-family: Montserrat,Helvetica Neue,Arial,sans-serif;
     font-size: 1.35rem;
     font-weight: 600;
     text-align: left;
@@ -242,7 +211,7 @@ h4 {
 
 
 h5 {
-    font-family: Arial, serif;
+    font-family: Montserrat,Helvetica Neue,Arial,sans-serif;
     font-size: 1.2rem;
     text-align: left;
     color: #334CD5;

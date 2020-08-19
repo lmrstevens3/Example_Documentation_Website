@@ -7,8 +7,8 @@ vcs.xml
 .DS_Store
 images/.DS_Store
 
-PMP-dataset-documentation/GWTG-data-resources/COVID19-data-resource/variable_documentation_R/.Rproj.user
-PMP-dataset-documentation/GWTG-data-resources/COVID19-data-resource/variable_documentation_R/.Rapp.history
-PMP-dataset-documentation/GWTG-data-resources/COVID19-data-resource/variable_documentation_R/.Rhistory
-PMP-dataset-documentation/GWTG-data-resources/COVID19-data-resource/variable_documentation_R/R.Rproj
-/PMP-dataset-documentation/GWTG-data-resources/COVID19-data-resource/COVID19_files/analysis_manuscript_guidelines/.ipynb_checkpoints/ahacovid19cvd_analysis_guidelines-checkpoint.ipynb
+AHA-COVID19-CVD-GWTG/variable_documentation_R/.Rproj.user
+AHA-COVID19-CVD-GWTG/variable_documentation_R/.Rapp.history
+AHA-COVID19-CVD-GWTG/variable_documentation_R/.Rhistory
+AHA-COVID19-CVD-GWTG/variable_documentation_R/R.Rproj
+/AHA-COVID19-CVD-GWTG/COVID19_files/analysis_manuscript_guidelines/.ipynb_checkpoints/ahacovid19cvd_analysis_guidelines-checkpoint.ipynb

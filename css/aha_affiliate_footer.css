@@ -1,0 +1,38 @@
+
+/*#pmp_footer {*/
+/*    border-top: 0.2em solid #e3e3e3;*/
+/*    z-index: 0;*/
+/*    height: 12rem;*/
+/*    position: relative;*/
+/*    !*background-color: #ffffff;*!*/
+/*    padding-top:2%;*/
+/*    margin-bottom: 5%*/
+/*}*/
+
+
+#aha_affiliate_logos {
+    display: grid;
+    justify-content: space-around;
+
+}
+
+.affiliate_container {
+    justify-content: center;
+    height:6rem;
+}
+
+.affiliate_text {
+    color:#6D6E71;
+    text-align: center;
+    font-size: 1.125rem;
+    padding: 1rem 0 0 1rem;
+
+}
+
+.affiliate_img {
+    padding: 0;
+    vertical-align: middle;
+    text-align: center;
+
+}
+

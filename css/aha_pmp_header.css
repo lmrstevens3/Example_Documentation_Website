@@ -1,0 +1,23 @@
+.aha_pmp_header {
+    position: -webkit-sticky;
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+    min-width: 400px;
+    background-color: #ffffff;
+    border-bottom: 0.1rem solid #f3f3f3;
+    overflow: hidden;
+    /*box-shadow: 1px 0 5px rgba(0, 0, 0, 0.5);*/
+}
+
+.aha_header_logo_container {
+    margin: 1px;
+    padding: 1% 2%;
+    height: 7rem;
+}
+
+.aha_header_logo_container img {
+    width:140px;
+}
+

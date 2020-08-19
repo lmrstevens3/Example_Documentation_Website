@@ -1,0 +1,78 @@
+<div id="footer-container">
+    <div id="app">
+        <footer id="aha-footer" class="l-footer">
+            <div class="l-footer__section" style="height:100%;">
+                <div class="container container-fluid">
+                    <div id=aha_affiliate_text class="row">
+                    <span style="text-align:center; font-size: 1.2rem; margin-left:15%; margin-right: 15%; padding-bottom:2%;">
+                        The Precision Medicine Platform is a strategic initiative of the American Heart Association's Institute for
+                        Precision Cardiovascular Medicine.
+                    </span>
+
+                    </div>
+                    <div id="aha_affiliate_logos"></div>
+                    <script type="text/javascript">
+                        const affiliateDiv = document.getElementById("aha_affiliate_logos");
+                        const allAffiliates = document.createElement("div");
+                        allAffiliates.className = "row";
+                        allAffiliates.style.overflow = "auto";
+                        affiliateDiv.appendChild(allAffiliates);
+
+                        const affiliatesContent = [
+                            {
+                                "img": "https://www.burstiq.com/wp-content/uploads/2020/03/hitachi-logo.png",
+                                "className": "affiliate_container  col-lg-7",
+                                "style": "height:7rem; padding-bottom: 0; padding-right: 1rem;",
+                                "label": "Supported by",
+
+                            },
+                            {
+                                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1024px-Amazon_Web_Services_Logo.svg.png",
+                                "className": "affiliate_container  col-lg-5",
+                                "style": "height:5rem;  padding-top:1rem; padding-left: 1rem;",
+                                "label": "Powered by",
+
+                            }
+                        ];
+
+                        affiliatesContent.forEach(function (x) {
+                            const img = document.createElement("img");
+                            img.src = x.img;
+                            img.alt = "Drawing";
+                            img.style = x.style;
+
+                            const imgCol = document.createElement("div");
+                            imgCol.appendChild(img);
+                            imgCol.className = "affiliate_img col-md-8";
+
+                            const labelCol = document.createElement("div");
+                            labelCol.innerHTML = x.label;
+                            labelCol.className = "col-md-4 affiliate_text";
+
+                            const affiliateContent = document.createElement("div");
+                            affiliateContent.appendChild(labelCol);
+                            affiliateContent.appendChild(imgCol);
+                            affiliateContent.className = "row";
+
+                            const affiliateContainer = document.createElement("div");
+                            affiliateContainer.className = x.className;
+                            affiliateContainer.appendChild(affiliateContent);
+                            allAffiliates.appendChild(affiliateContainer);
+                        })
+                    </script>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- end #app-->
+    <script src="//static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js"></script>
+    <!-- Activate header/footer plugin -->
+    <script>
+        jQuery(function () {
+            //Bare bones
+            if (jQuery.prototype.ahaHeaderFooterSitecore) {
+                jQuery('#app').ahaHeaderFooterSitecore();
+            }
+        });
+    </script>
+</div>

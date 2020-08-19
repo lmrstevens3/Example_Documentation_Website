@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>AHA PMP Docs</title>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="../css/aha.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../css/main-pmp-docs.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../css/side_bar.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen"/>
+
+    <link rel="stylesheet" href="../css/aha_pmp_header.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../css/aha_affiliate_footer.css" type="text/css" media="screen"/>
+
+
+    <script type="text/javascript" src="../js/toggle_collapse_functions.js"></script>
+    <script type="text/javascript" src="../js/button_dropdown_functions.js"></script>
+
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js"></script>
+    <script>
+        $(document).ready(() => {
+            // console.log('ready');
+            $('.aha_pmp_header').load('../components/aha_pmp_header.html');
+        });
+        $.get("../components/aha_pmp_footer.html", function (data) {
+            $("#footer-container").replaceWith(data);
+        });
+    </script>
+    <script type="text/javascript">
+        const hidden_width = "3rem";
+        const visible_width = "13rem";
+        const transition = 400;
+
+        function w3_toggle() {
+            const sidebar = document.getElementById("collapsible_sidebar");
+            const main = document.getElementById("main");
+            const sbc = document.getElementById("sidebar_content");
+            sidebar.style.transition = transition + "ms";
+            if (sidebar.isClosed) {
+                main.style.marginLeft = visible_width;
+                sidebar.style.width = visible_width;
+                setTimeout(function () {
+                    sbc.style.display = ""
+                }, transition);
+                sidebar.isClosed = false;
+            } else {
+                main.style.marginLeft = hidden_width;
+                sidebar.style.width = hidden_width;
+
+                sbc.style.display = "none";
+                sidebar.isClosed = true;
+            }
+        }
+
+        function adjustSideBar() {
+            const main = document.getElementById("main");
+            const sidebar = document.getElementById("sidebar_content");
+            const titleHeight = document.getElementsByClassName("aha_pmp_header").clientHeight;
+            const buttonHeight = document.getElementById("sidebarToggleButton").clientHeight;
+            const footerInView = document.getElementById("footer-container").getBoundingClientRect();
+
+            sidebar.style.height = "calc(100% -  " +
+                (Math.max(window.innerHeight - footerInView.top, 0) + buttonHeight + titleHeight) +
+                "px)"
+
+            //main.style.minHeight = sidebar.style.height;
+            // console.log(sidebar.style.height);
+            // console.log(footerInView.bottom);
+        }
+    </script>
+</head>
+
+<body onload="adjustSideBar()" onresize="adjustSideBar()" ontoggle="adjustSideBar()" onscroll="adjustSideBar()">
+
+<div class="aha_pmp_header"></div>
+
+
+<div class="w3-sidebar w3-bar-block" id="collapsible_sidebar">
+    <button class="w3-bar-item w3-button w3-large" id="sidebarToggleButton" onclick="w3_toggle()">
+        <i class="fa fa-exchange-alt" style="font-size: larger;"></i>
+    </button>
+    <div id="sidebar_content">
+        <div id="toc">
+            <div id="toc_started" style="display: block; overflow:scroll;">
+            <ul>
+                <li>
+                    <a href="#overview" onclick="return collapse('overview_cont', true)">Overview</a>
+                    <button class="toc_btn" onclick="return toggle_angle('toc_overview', 'angle_overview');">
+                        <i id="angle_overview" class="fa fa-angle-right"></i>
+                    </button>
+                    <div id="toc_overview" style="display:none;">
+                        <ul>
+                            <li><a href="#collaboration"
+                                   onclick="return collapse_sub('overview_cont', true, 'collaboration_cont')">Collaboration</a>
+                            </li>
+                            <li><a href="#pwr_compute"
+                                   onclick="return collapse_sub('overview_cont', true, 'pwr_compute_cont')">Power
+                                Computing</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#register" onclick="return collapse('register_cont', true)">Workspaces</a>
+                    <button class="toc_btn" onclick="return toggle_angle('toc_register', 'angle_register');">
+                        <i id="angle_register" class="fa fa-angle-right"></i>
+                    </button>
+                    <div id="toc_register" style="display:none;">
+                        <ul>
+                            <li><a href="#pmp_account"
+                                   onclick="return collapse_sub('register_cont', true, 'sign_up_cont')">Account
+                                Creation</a></li>
+                            <li><a href="#request_workspace"
+                                   onclick="return collapse_sub('register_cont', true, 'request_cont')">
+                                Workspace Request</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#data" onclick="return collapse('data_cont', true)">Data</a>
+                    <button class="toc_btn" onclick="return toggle_angle('toc_data', 'angle_data');">
+                        <i id="angle_data" class="fa fa-angle-right"></i></button>
+                    <div id="toc_data" style="display:none;">
+                        <ul>
+                            <li><a href="#byod" onclick="return collapse('data_cont', true)">BYOD (Bring Your Own
+                                Data)</a></li>
+                            <li><a href="#search"
+                                   onclick="return collapse_sub('data_cont', true, 'search_overview_cont')">Search</a>
+                            </li>
+                            <li><a href="#pmp_data" onclick="return collapse_sub('data_cont', true, 'pmp_data_cont')">PMP
+                                Datasets</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul>
+
+        </div>
+        <button class="sidebar_btn fa fa-angle-right"
+                onclick="return toggle_angle('resources', this)">
+            <span>Resources  </span>
+        </button>
+        <div id="resources" style="display:none; overflow: scroll;">
+            <ul>
+                <li>
+                    <a href="https://precision.heart.org/dataset-source-links/covid-19-data-challenge/documents/COVID%2019%20Data%20Challenge%20FAQ%205.11.2020%20FINAL.docx">
+                        Download User Guide <i class="fa fa-download" style="font-size:medium;"></i></a></li>
+                <li><a href="PMP_FAQ.html" target="_blank">FAQ</a></li>
+                <li><a href="https://precision.heart.org/workspace/about" target="_blank">About PMP Workspaces</a></li>
+                <li><a href="https://precision.heart.org/security-information" target="_blank">PMP Security</a></li>
+                <li><a href="https://precision.heart.org/contact" target="_blank">Contact Us</a></li>
+                <li><a href="https://precision.heart.org/technical-support" target="_blank">Technical Support</a>
+                <li><a href="https://precision.heart.org/learn" target="_blank">Video Tutorials</a></li>
+                <li><a href="https://precision.heart.org/jupyter_notebooks/about" target="_blank">Jupyter Notebooks
+                    Overview</a></li>
+                <li><a href="https://bookdown.org/yihui/rmarkdown/notebook.html" target="_blank">R Notebooks
+                    Overview</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div id="main" style="margin-left:15rem;">
+    <div id="get_started_cont" class="content" style="display:block;">
+    <button type="button" class="collapsible" onclick="return collapse('overview_cont')">
+     <span class="section-header red-header grey-header">   <a class="anchor" name="overview"></a>
+         <h3>Platform Overview <i class="fa fa-arrows-alt-v"></i></h3></span>
+    </button>
+    <div id="overview_cont" class="content" style="display:block;">
+        <p>The Institute's Precision Medicine Platform (PMP) is a cloud-based technology solution that enables the
+            medical research community to accelerate biomedical breakthroughs by providing streamlined access to diverse
+            datasets, a community vetted framework for data harmonization and management, power computing, and
+            <a href="https://precision.heart.org/security-information" target="_blank">secure</a> HIPPA compliant and
+            FedRAMP certified workspace environments equipped with state of the art tools for data analysis, and
+            collaboration capabilities for both internal and global teams. Amazon Web Services (AWS) provides the cloud
+            computing capabilities and Hitachi Vantara provides the ongoing software development and managed services
+            under the leadership of The Institute.
+        </p>
+        <ul>
+            <li>Learn more about the Precision Medicine Platform <a href="https://precision.heart.org/learn"
+                                                                    target="_blank">here</a></li>
+            <li>Explore the capabilities of Precision Medicine Platform workspaces <a
+                    href="https://precision.heart.org/workspace/about" target="_blank">here</a></li>
+        </ul>
+        <h4>Terms of Use</h4>
+        <p>Please refer to the <a href="https://precision.heart.org/tos" target="_blank">Terms of Service</a> when
+            using a
+            PMP workspace. Any inventions, intellectual property, or patents resulting from AHA funding (e.g.
+            grants, data challenges) are governed by the
+            <a href="https://professional.heart.org/professional/ResearchPrograms/AwardsPolicies/UCM_320256_Policies-Governing-All-Research-Awards.jsp"
+               target="_blank">AHA Patent, Intellectual Property and Technology Transfer Policy</a></p>
+        <button type="button" class="collapsible" onclick="return collapse('collaboration_cont')">
+            <a class="anchor" name="collaboration"></a>
+            <h4>Collaboration <i
+                    class="fa fa-arrows-alt-v"></i></h4>
+        </button>
+        <div id="collaboration_cont" class="content" >
+            <p>The platform facilitates collaboration and reproducibility by enabling users to share workspaces
+                and conduct analyses in a private, secure cloud environment.
+                Users can also collaborate through traditional development methods such as github.</p>
+            <p>Collaboration is made easy with the PMP because all data and analyses reside in a secure
+                workspace for which only the participant/team representative has access,
+                unless the participant/team representative chooses to collaborate with colleagues and <a
+                        href="#share">share</a> the workspace on the <a
+                        href="https://precision.heart.org/workspace" target="_blank">PMP workspace portal</a>.</p>
+            <p style="padding-left:30px;"><i><span class="note"><b>Note: </b></span>It is the participant's
+                responsibility to ensure collaborators have the appropriate data access approvals when
+                sharing.</i></p>
+        </div>
+        <button type="button" class="collapsible" onclick="return collapse('pwr_compute_cont')">
+                <span><a class="anchor" name="pwr_compute"></a>
+                <h4>Power Compute In the PMP <i
+                        class="fa fa-arrows-alt-v"></i></h4></span>
+        </button>
+        <div id="pwr_compute_cont" class="content" >
+            <p>There are multiple ways to take advantage of power compute in the Precision Medicine Platform,
+                namely:</p>
+            <ul>
+                <li><b>EMR, Automatic Scaling through Spark</b>
+                    <ul>
+                        <li>Analyses that use spark based packages or software can leverage the EMR workspace
+                            auto-scaling cluster architecture to optimize performance
+                        </li>
+                    </ul>
+                </li>
+                <li><b>Elastic, High Performance Computing</b>
+                    <ul>
+                        <li>Analyses that need to optimize software through traditional parallel computing
+                            methods can leverage the EC2, GPU and CPU architecture options
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <p> Default workspace architectures are designed to fit the needs of most users, however architecture
+                sizes can be increased and customized as needed.
+                To increase compute resources in a workspace or get assistance with power computing on the PMP,
+                please <a href="https://precision.heart.org/contact" target="_blank">contact us</a>
+            </p>
+        </div>
+
+    </div>
+    <button type="button" class="collapsible" onclick="return collapse('register_cont')">
+        <!--suppress HtmlUnknownTag -->
+        <span class="section-header red-header grey-header"> <a class="anchor" name="register"></a>
+            <h3>Get a PMP Workspace <i class="fa fa-arrows-alt-v"></i></h3></span>
+    </button>
+    <div id="register_cont" class="content" style="display:block;">
+        <button type="button" class="collapsible" onclick="return collapse('sign_up_cont')">
+            <a class="anchor" name="pmp_account"></a>
+            <h4>Registering for a PMP Account <i class="fa fa-arrows-alt-v"></i></h4>
+        </button>
+        <div id="sign_up_cont" class="content" style="background-color:#f3f3f3;">
+        <span class="content">A new user must <a href="https://precision.heart.org/sso/" target="_blank">Register</a> prior to being given
+            access to the PMP.
+            Fill out the form to create a free, PMP account.</span>
+            <ul>
+                <li>The password must have at least 12 characters, to include one upper-case, one
+                    lower-case, one number, and one special character.
+                </li>
+                <li>Both the email address and password are case sensitive. Once the form is completed click on
+                    Register.
+                </li>
+                <li>The system will send an email with a code to the email address used in the registration process
+                    for verification.
+                    Follow the instructions within the email to finalize the registration process.
+                </li>
+            </ul>
+            <img src="images/login.png" alt="Drawing;" style="margin:1% 15%; width:60%;">
+        </div>
+        <button type="button" class="collapsible" onclick="return collapse('request_cont')">
+            <a class="anchor" name="request_workspace"></a>
+            <h4>Requesting Data and/or a Workspace <i
+                    class="fa fa-arrows-alt-v"></i></h4>
+        </button>
+        <div id="request_cont" class="content" style="background-color:#f3f3f3;">
+            <p>
+            <p>After successfully registering, click on the Sign In page and use your new login
+                credentials to sign into the portal. Remember, the email address and password are case sensitive.
+                Upon signing in the first time, you will be taken to the Search page to begin the process of
+                requesting a workspace.
+                <i><span class="note"><b>Note:</b></span> Should you leave the session idle for more than 20 minutes,
+                it will time out.</i></p>
+            <p>A registered user can request a workspace, click the <i>request a workspace</i> button at the bottom
+                of the
+                <a href="https://precision.heart.org/search" target="_blank">search page</a>. Datasets listed on the
+                search page
+                can be requested at any time, including prior to requesting a workspace. Simply check the box next
+                to a dataset in the
+                list at the bottom of the search page and click the <i>Request a Workspace</i> button to proceed.
+                More information on the
+                PMP datasets, as well as how to use the search page to identify datasets of interest is provided in
+                the
+                <a href="#search">search section</a>.<img src="images/request_workspace_button.png" alt="Drawing"
+                                                          style="margin:1% 1%; width:17%;"></p>
+
+            <p>After clicking request a workspace, you will be asked to agree to the Terms of Service, to
+                select the computational architecture needed (can be changed as needed later), and to indicate the
+                amount of
+                data you expect to bring on to the platform. Click Next and, if you are a single-payer, you'll need
+                to
+                complete the billing information. Click Submit. AHA Grant Applicants are to complete the grant
+                application
+                related fields as well as the billing information, however, applicants and grantees will not be
+                charged usage
+                fees as these are included in your AHA grant.</p>
+            <ul>
+                <li><span class="note">Once you have requested a workspace, you can request data to be added to your workspace
+                through the same process by selecting your existing workspace in the menu dropdown at the top (not shown in image below).</span>
+                </li>
+                <li><span class="note">Do not change the default cluster selection unless you are familiar with AWS sizing (this can be changed later)</span>
+                </li>
+            </ul>
+            <p><img src="images/request_workspace.png" alt="drawing" style="margin:1% 10%;"></p>
+            <p>To request access to a dataset along with a workspace, check the box to the left of the dataset(s)
+                and then click
+                on Request a Workspace at the bottom of the Search page. After completion of the form below, you
+                will be taken to
+                the Research Details portion of the consent process when a chosen dataset is locked (private) and
+                therefore
+                approval is required prior to the release of the dataset. </p>
+            <ul>
+                <li><b>Research Details</b></li>
+                <ul>
+                    <li>Research User Statement (RUS): a RUS is a brief description of the applicant's proposed
+                        use of the dataset(s). The RUS will be reviewed by all parties responsible for data covered
+                        by the Data Access
+                        Request.The RUS should be one or two paragraphs in length and include research objectives,
+                        the study design, and an
+                        analysis plan. Please include the phenotypic characteristics that will be tested for
+                        association with genetic
+                        variants. If you are requesting multiple datasets, please describe how you will use each of
+                        them.
+                    </li>
+                    <li>Non-Technical Summary: Describe the RUS using layman's terms, suitable for understanding by
+                        the general public.
+                    </li>
+                    <li>Type of Research: Provide additional comments as needed and indicate the type of research by
+                        choosing from:
+                    </li>
+                    <ul>
+                        <li>Disease-related studies</li>
+                        <li>Methods development and validation studies</li>
+                        <li>Controls</li>
+                        <li>Population structure or normal variations studies</li>
+                    </ul>
+                    <li>Disease Area(s) of Focus: choose from the drop-down menu
+                        the disease area(s) your study focuses on.
+                    </li>
+                </ul>
+                <li><b>Research Purpose</b>: A list of Yes/No questions are presented. Respond by clicking in the
+                    appropriate box.
+                </li>
+                <li><b>Attestation Statement</b>: Review the statements in this section and check the box to the
+                    left of the "I attest to the following."
+                </li>
+            </ul>
+            <p>From there you are taken to the final page of the form, and if you are <i>single-payer</i>, you will
+                be asked to provide your billing
+                address as the last step of the process before you click on Submit.</p>
+
+            <div><span style="font-size:1.5rem; color:#C10E21"><i class="fa fa-smile"></i> Once you are registered, please note the following: </span>
+                <ul>
+                    <li>It can take up to 36 hours for a workspace to be provisioned</li>
+                    <li>You will receive an email notification when the workspace is available for use</li>
+                    <li>Check out the <a href="#user_guide">PMP User Guide</a> when your workspace has
+                        been provisioned
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="collapsible" onclick="return collapse('data_cont')">
+       <span class="section-header red-header grey-header"> <a class="anchor" name="data"></a>
+           <h3>Data <i class="fa fa-arrows-alt-v"></i></h3></span>
+    </button>
+    <div id="data_cont" class="content" style="display:block;">
+        <h4><u>B</u>ring <u>Y</u>our <u>O</u>wn <u>D</u>ata <a class="anchor" name="byod"></a></h4>
+        <p>Users may bring their own de-identified data sets to the PMP. Additionally, publicly available data can
+            be accessed in
+            a variety of ways on the PMP, including downloading data directly and pulling/cloning data from
+            repositories.
+            Information on how to transfer data to the platform is provided in the <i>Get Data In and Out</i> and
+            the
+            <i>Access Data in the PMP sections</i> of the <a href="#user_guide">PMP User Guide</a>.</p>
+        <h4>PMP Datasets and the Search Page<a class="anchor" name="search"></a></h4>
+        <p> A variety of protected datasets and preprocessed, public datasets are available for request through the
+            <a href="https://precision.heart.org/search" target="_blank">Search page</a>. The PMP enables registered
+            users
+            to search across the datasets stored in the platform in order to determine the data needed to address
+            a specific research question. The basic search capability is free of charge to all registered
+            researchers.</p>
+
+        <button type="button" class="collapsible" onclick="return collapse('search_cont')">
+            <a class="anchor" name="search"></a><h4>Search Page Overview <i class="fa fa-arrows-alt-v"></i></h4>
+        </button>
+        <div id="search_cont" class="content" style="background-color:#f3f3f3;">
+            <p>The PMP <a href="https://precision.heart.org/search" target="_blank">Search page</a> acts as a data
+                marketplace
+                and is designed to aid researchers in finding the datasets they need to conduct research, perform
+                analyses or build
+                analytic pipelines and tools. The layout consists of ring charts in the center, participant
+                characteristic filters on
+                the left, and the corresponding available datasets at the bottom of the page. The ring charts
+                represent the total number of
+                participants, by characteristic, that are searchable in the datasets listed at the bottom of the
+                screen. The
+                Notebook link next to each dataset can be used to understand the science behind the data, associated
+                publications, information about
+                the data contributor, how to access extra documentation, how each variable is harmonized, and the
+                distribution and
+                summary statistics of all the variables available in the dataset.</p>
+            <p><img src="images/search.png" alt="Drawing" style="margin:1% 10%;"></p>
+        </div>
+        <button type="button" class="collapsible" onclick="return collapse('pmp_data_cont')">
+            <span class="section-header red-header grey-header"><a name="pmp_data"></a>
+                <h4>Protected vs. Public Data <i class="fa fa-arrows-alt-v"></i></h4></span>
+        </button>
+        <div id="pmp_data_cont" class="content" style="background-color:#f3f3f3;">
+            <p>The lock icons in the Type column indicates if the dataset is public or private; the data contributor
+                of private
+                datasets must approve access via a formal request process. The AHA serves as a trusted third party
+                to ensure data
+                security and privacy by facilitating the exchange between the data user and the data contributor.
+                The process is
+                streamlined through the Data Use Oversight System (DUOS) that allows users to request access to
+                multiple private
+                datasets at one time. DUOS is a semi-automated management service for compliant secondary use of
+                human genomics data.
+                The system ensures that researchers using genomics data honor these restrictions. DUOS interfaces
+                with the various
+                data access committees (DAC) to evaluate data access requests requiring manual review.</p>
+            <p><img src="images/pmp_dataset_search.png" alt="Drawing" style="margin:1% 10%;"></p>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div id="footer-container"></div>
+
+</body>
+</html>

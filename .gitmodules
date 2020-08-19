@@ -1,5 +1,5 @@
-[submodule "PMP-dataset-documentation/GWTG-data-resources/COVID19-data-resource/data_documentation_usage_files/COVID19"]
-	path = PMP-dataset-documentation/GWTG-data-resources/COVID19-data-resource/data_documentation_usage_files/COVID19
+[submodule "AHA-COVID19-CVD-GWTG/COVID19_files"]
+	path = AHA-COVID19-CVD-GWTG/COVID19_files
 	ssh = git@github.com:AHALauraStevens/COVID19.git
 	url = https://github.com/AHALauraStevens/COVID19.git
 

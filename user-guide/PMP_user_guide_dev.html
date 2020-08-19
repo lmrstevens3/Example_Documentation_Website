@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>AHA PMP Docs</title>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="css/side_bar.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/aha_styling.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/aha_search.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/aha_navbar.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/aha_pmp_header.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/aha_affiliate_footer.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="pmp_doc_sites.css" type="text/css" media="screen"/>
+
+
+    <script type="text/javascript" src="toggle_collapse_functions.js"></script>
+    <script type="text/javascript" src="button_dropdown_functions.js"></script>
+
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js"></script>
+    <script>
+        $(document).ready(() => {
+            // console.log('ready');
+            $('.aha_pmp_header').load('aha_pmp_header.html');
+        });
+        $.get("aha_pmp_footer.html", function (data) {
+            $("#footer-container").replaceWith(data);
+        });
+    </script>
+
+    <script type="text/javascript">
+        const hidden_width = "3.5rem";
+        const visible_width = "15rem";
+        const transition = 400;
+
+        function w3_toggle() {
+            const sidebar = document.getElementById("collapsible_sidebar");
+            const main = document.getElementById("main");
+            const sbc = document.getElementById("sidebar_content");
+            sidebar.style.transition = transition + "ms";
+            if (sidebar.isClosed) {
+                main.style.marginLeft = visible_width;
+                sidebar.style.width = visible_width;
+                setTimeout(function () {
+                    sbc.style.display = ""
+                }, transition);
+                sidebar.isClosed = false;
+            } else {
+                main.style.marginLeft = hidden_width;
+                sidebar.style.width = hidden_width;
+
+                sbc.style.display = "none";
+                sidebar.isClosed = true;
+            }
+        }
+
+        function adjustSideBar() {
+            // const main = document.getElementById("main");
+            const sidebar = document.getElementById("sidebar_content");
+            const titleHeight = document.getElementsByClassName("aha_pmp_header").clientHeight;
+            const buttonHeight = document.getElementsByClassName("sidebarToggleButton").clientHeight;
+            const footerInView = document.getElementById("app").getBoundingClientRect();
+
+            sidebar.style.height = "calc(100% -  " +
+                (Math.max(window.innerHeight - footerInView.top, 0) + buttonHeight + titleHeight) +
+                "px)"
+
+            //main.style.minHeight = sidebar.style.height;
+            // console.log(sidebar.style.height);
+            // console.log(footerInView.bottom);
+        }
+    </script>
+</head>
+
+<body onload="adjustSideBar()" onresize="adjustSideBar()" ontoggle="adjustSideBar()" onscroll="adjustSideBar()">
+<div class="aha_pmp_header"></div>
+
+<div class="w3-sidebar w3-bar-block" id="collapsible_sidebar">
+    <button class="w3-bar-item w3-button w3-large" id="sidebarToggleButton" onclick="w3_toggle()">
+        <i class="fa fa-exchange-alt" style="font-size: larger;"></i>
+    </button>
+    <div id="sidebar_content">
+        <div id="toc">
+            <ul>
+<!--                <li>-->
+<!--            <button class="sidebar_btn fa fa-angle-down"-->
+<!--                    onclick="return toggle_angle('toc_started', this)">-->
+<!--                <span><a href="#get_started"-->
+<!--                         onclick="return collapse('get_started_cont', true)">Getting Started </a></span>-->
+<!--            </button>-->
+<!--            <div id="toc_started" style="display: block; overflow:scroll;">-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <a href="#overview" onclick="return collapse('overview_cont', true)">PMP Overview</a>-->
+<!--                    <button class="toc_btn fa fa-angle-right"-->
+<!--                            onclick="return toggle_angle('toc_overview', this);"></button>-->
+<!--                    <div id="toc_overview" style="display:none;">-->
+<!--                        <ul>-->
+<!--                            <li><a href="#collaboration"-->
+<!--                                   onclick="return collapse_sub('overview_cont', true, 'collaboration_cont')">Collaboration</a>-->
+<!--                            </li>-->
+<!--                            <li><a href="#pwr_compute"-->
+<!--                                   onclick="return collapse_sub('overview_cont', true, 'pwr_compute_cont')">Power-->
+<!--                                Computing</a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a href="#register" onclick="return collapse('register_cont', true)">Get a PMP-->
+<!--                        Workspace</a>-->
+<!--                    <button class="toc_btn fa fa-angle-right"-->
+<!--                            onclick="return toggle_angle('toc_register', this);"></button>-->
+<!--                    <div id="toc_register" style="display:none;">-->
+<!--                        <ul>-->
+<!--                            <li><a href="#pmp_account"-->
+<!--                                   onclick="return collapse_sub('register_cont', true, 'sign_up_cont')">PMP Account-->
+<!--                                Creation</a></li>-->
+<!--                            <li><a href="#request_workspace"-->
+<!--                                   onclick="return collapse_sub('register_cont', true, 'request_cont')">-->
+<!--                                Requesting Data/Workspace</a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a href="#data" onclick="return collapse('data_cont', true)">Data</a>-->
+<!--                    <button class="toc_btn fa fa-angle-right" onclick="return toggle_angle('toc_data', this)"></button>-->
+<!--                    <div id="toc_data" style="display:none;">-->
+<!--                        <ul>-->
+<!--                            <li><a href="#byod" onclick="return collapse('data_cont', true)">BYOD (Bring Your Own-->
+<!--                                Data)</a></li>-->
+<!--                            <li><a href="#search"-->
+<!--                                   onclick="return collapse_sub('data_cont', true, 'search_overview_cont')">Search</a>-->
+<!--                            </li>-->
+<!--                            <li><a href="#pmp_data" onclick="return collapse_sub('data_cont', true, 'pmp_data_cont')">PMP-->
+<!--                                Datasets</a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </li><li>-->
+<!--            <button class="sidebar_btn fa fa-angle-down"-->
+<!--                    onclick="return toggle_angle('toc_guide', this)">-->
+<!--                <span><a href="#user_guide"-->
+<!--                         onclick="return collapse('user_guide_cont', true)">PMP User Guide </a></span>-->
+<!--            </button>-->
+            <div id="toc_guide" style="display:block;">
+                <ul>
+                    <li><a href="#workspace_portal"
+                           onclick="return collapse_sub('user_guide_cont', true, 'portal_cont')">The Workspace Portal
+                        </a>
+                    </li>
+                    <li><a href="#getData"
+                           onclick="return collapse_sub('user_guide_cont', true, 'getData_cont')">Get Data In
+                        and
+                        Out</a></li>
+                    <li><a href="#accessData"
+                           onclick="return collapse_sub('user_guide_cont', true, 'access_cont')">Accessing
+                        Data</a>
+                    </li>
+                    <li><a href="#share" onclick="return collapse_sub('user_guide_cont', true, 'share_cont')">Sharing
+                        A Workspace</a>
+                    </li>
+                    <li><a href="#pause" onclick="return collapse_sub('user_guide_cont', true, 'pause_cont')">Starting
+                        and Stopping</a>
+                    </li>
+                    <li><a href="#software"
+                           onclick="return collapse_sub('user_guide_cont', true, 'software_cont')">Software and
+                        Functionality</a></li>
+                    <li><a href="#tutorials"
+                           onclick="return collapse_sub('user_guide_cont', true, 'tutorial_cont')">Tutorials
+                        and
+                        Examples</a></li>
+                </ul>
+            </div>
+    </li>
+            </ul>
+        </div>
+        <button class="sidebar_btn fa fa-angle-right"
+                onclick="return toggle_angle('resources', this)">
+            <span>Resources  </span>
+        </button>
+        <div id="resources" style="display:none; overflow: scroll;">
+            <ul>
+                <li>
+                    <a href="https://precision.heart.org/dataset-source-links/covid-19-data-challenge/documents/COVID%2019%20Data%20Challenge%20FAQ%205.11.2020%20FINAL.docx">
+                        Download User Guide <i class="fa fa-download" style="font-size:medium;"></i></a></li>
+                <li><a href="PMP_FAQ.html" target="_blank">FAQ</a></li>
+                <li><a href="https://precision.heart.org/workspace/about" target="_blank">About PMP Workspaces</a></li>
+                <li><a href="https://precision.heart.org/security-information" target="_blank">PMP Security</a></li>
+                <li><a href="https://precision.heart.org/contact" target="_blank">Contact Us</a></li>
+                <li><a href="https://precision.heart.org/technical-support" target="_blank">Technical Support</a>
+                <li><a href="https://precision.heart.org/learn" target="_blank">Video Tutorials</a></li>
+                <li><a href="https://precision.heart.org/jupyter_notebooks/about" target="_blank">Jupyter Notebooks
+                    Overview</a></li>
+                <li><a href="https://bookdown.org/yihui/rmarkdown/notebook.html" target="_blank">R Notebooks
+                    Overview</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="title-container" style="margin-top:3%;">
+    <h1>Precision Medicine Platform (PMP) Documentation</h1>
+    <h1><i>PMP User Guide</i></h1>
+    <h3>Date: May 01, 2020 - Version 0.1</h3>
+</div>
+<div id="main" style="margin-left:17rem;">
+    <div id="data-transfer-access" class="row container-fluid" style="padding:0">
+        <div class="col-lg-3">
+            <div style="text-align:center; padding:2%;">
+                <h2>Transferring and Accessing Data</h2>
+                <img src="images/data_transfer.png" alt="drawing" style="height:50%; width:50%;">
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <button class="collapsible" onclick="return toggle_plus('intro-content', 'intro-plus')">
+                <a class="section-header red-header" href="#">
+                    <h2><i class="fa fa-running" style="font-size: larger"></i>Getting Started</h2>
+                    <i id="intro-plus" class="fas fa-plus" style="float:right;"></i>
+                </a>
+            </button>
+            <div id="intro-content" class="collapsible-content" style="display:block; margin:5%;">
+                <h4>About the AHA COVID19 CVD Registry Data</h4>
+                <p>The COVID19 CVD Registry is a voluntary quality improvement registry, powered by AHA's Get With the
+                    Guidelines<sup>&#174</sup>.
+                </p>
+                <p>This data was collected from <span style="background-color: yellow">x hospitals and comprises x patient records</span> Upon collection, hospitals are
+                    provided detailed data <a href="COVID19_files/documentation/ahacovid19cvd_registry_collection_instructions.pdf" target="_blank">abstraction instructions.</a>
+                    In-form and post collection data quality checks are performed to ensure accurate data entry, flagging and preventing
+                    records from saving when a value is not within expected range.
+                </p>
+                <p>The registry entry criteria instruct hospitals to enter all patients >=18 years old who are hospitalized
+                    with an active COVID-19 infection.Hospitals are directed to start data entry with their first hospitalized
+                    patient with a COVID-19 diagnosis and continue with abstraction in consecutive discharge order until current.
+                </p>
+                <p>Additional information and documentation regarding the registry data, quality checks, data usage, as well as guidelines
+                    for analysis and publication are provided in the workspace as well as on this site.
+                </p>
+                <h4>Root Directory and COVID-19 CVD Data Location</h4>
+                <ul>
+                    <li>The COVID-19 Registry Data is located in <code>/mnt/workspace/GWTG/COVID-19</code></li>
+                    <li>The root path in the workspace is <code>/mnt/workspace</code>. This is the default directory for the
+                        Jupyter Home Page JupyterLab, R Studio and SAS Studio.
+                    </li>
+                </ul>
+                <h4>Software</h4>
+                <ul>
+                    <li>The workspace is <b>fully customizable</b> and tools such as
+                        <a href ='https://precision.heart.org/contact'>SAS and MATLAB are available</a>.
+                    </li>
+                    <li><b>R Studio, Jupyter Notebook, JupyterLab, and SAS Studio (if requested)</b> are available as tabs when a workspace
+                        is launched. The terminal and a variety of languages including R, Python, bash, and SAS (license required) can
+                        be accessed through Jupyter and JupyterLab.
+                    </li>
+                    <li>A comprehensive list of pre-installed packages and software available can be found on the
+                        <a href="https://precision.heart.org/workspace/about" target="_blank">About Workspaces</a> page.</li>
+                </ul>
+            </div>
+            <button class="collapsible" onclick="return toggle_plus('intro-content2', 'intro-plus2')">
+                <a class="section-header red-header" href="#">
+                    <h2><i class="fa fa-running" style="font-size: larger"></i>Getting Started</h2>
+                    <i id="intro-plus2" class="fas fa-plus" style="float:right; padding-top:2%; padding-right:1%"></i>
+                </a>
+            </button>
+            <div id="intro-content2" class="collapsible-content" style="display:block;">
+                <h4>About the AHA COVID19 CVD Registry Data</h4>
+                <p>The COVID19 CVD Registry is a voluntary quality improvement registry, powered by AHA's Get With the
+                    Guidelines<sup>&#174</sup>.
+                </p>
+                <p>This data was collected from <span style="background-color: yellow">x hospitals and comprises x patient records</span> Upon collection, hospitals are
+                    provided detailed data <a href="COVID19_files/documentation/ahacovid19cvd_registry_collection_instructions.pdf" target="_blank">abstraction instructions.</a>
+                    In-form and post collection data quality checks are performed to ensure accurate data entry, flagging and preventing
+                    records from saving when a value is not within expected range.
+                </p>
+                <p>The registry entry criteria instruct hospitals to enter all patients >=18 years old who are hospitalized
+                    with an active COVID-19 infection.Hospitals are directed to start data entry with their first hospitalized
+                    patient with a COVID-19 diagnosis and continue with abstraction in consecutive discharge order until current.
+                </p>
+                <p>Additional information and documentation regarding the registry data, quality checks, data usage, as well as guidelines
+                    for analysis and publication are provided in the workspace as well as on this site.
+                </p>
+                <h4>Root Directory and COVID-19 CVD Data Location</h4>
+                <ul>
+                    <li>The COVID-19 Registry Data is located in <code>/mnt/workspace/GWTG/COVID-19</code></li>
+                    <li>The root path in the workspace is <code>/mnt/workspace</code>. This is the default directory for the
+                        Jupyter Home Page JupyterLab, R Studio and SAS Studio.
+                    </li>
+                </ul>
+                <h4>Software</h4>
+                <ul>
+                    <li>The workspace is <b>fully customizable</b> and tools such as
+                        <a href ='https://precision.heart.org/contact'>SAS and MATLAB are available</a>.
+                    </li>
+                    <li><b>R Studio, Jupyter Notebook, JupyterLab, and SAS Studio (if requested)</b> are available as tabs when a workspace
+                        is launched. The terminal and a variety of languages including R, Python, bash, and SAS (license required) can
+                        be accessed through Jupyter and JupyterLab.
+                    </li>
+                    <li>A comprehensive list of pre-installed packages and software available can be found on the
+                        <a href="https://precision.heart.org/workspace/about" target="_blank">About Workspaces</a> page.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<!--    <button type="button" class="collapsible" onclick="return collapse('user_guide_cont')">-->
+<!--        <div class="h2_div"><img alt="Drawing;"><a class="anchor" name="user_guide"></a>-->
+<!--            <h2>Precision Medicine Platform User Guide</h2></div>-->
+<!--    </button>-->
+    <div id="user_guide_cont" class="collapsible-content" style="display:block;">
+        <p><i><span class="note"><b>Note:</b></span> If you haven't done so already, please <a
+                href="https://precision.heart.org/sso/" target="_blank"><b><u>register for an account</u></b></a> on
+            the Precision Medicine Platform (PMP)</i></p>
+            <button type="button" class="collapsible" onclick="return collapse('getData_cont')">
+                <a class="anchor" name="getData"></a>
+                <h3>Get Data In and Out of the PMP <i class="fa fa-arrows-alt-v"></i></h3>
+            </button>
+            <div id="getData_cont" class="collapsible-content"  style="display:block;">
+                <p><i>Please <a href="https://precision.heart.org/contact" target="_blank">contact us</a> if
+                    at any point you are having trouble uploading data.</i></p>
+                <button type="button" class="collapsible" onclick="return collapse('upload_cont')">
+                    <h4>Upload Data to PMP <i class="fa fa-arrows-alt-v"></i></h4>
+                </button>
+                <div id="upload_cont" class="collapsible-content" style="background-color:#f3f3f3; ">
+                    <h5><b>File Upload</b></h5>
+                    <p>
+                        Files can be uploaded to the platform on the <a
+                            href="https://precision.heart.org/workspace" target_blank>workspace portal</a> page by
+                        clicking the <i class="fa fa-file-upload"></i> upload icon.
+                        Once the files are uploaded and you have launched your workspace, the files will be found in the
+                        folder labeled scratchbucket on the Jupyter home page (path: /mnt/workspace/scratchbucket/).</p>
+                    <p><i><span class="note">Note: </span>The time it takes to upload data is dependent on the internet
+                        upload speed</i></p>
+                    <h5><b>SFTP Transfer</b></h5>
+                    <p>Should you have very large data files and need an SFTP set up to upload the data, please submit a
+                        request through <a href="https://precision.heart.org/technical-support" target="_blank">Technical
+                            Support</a>.
+                    </p>
+                </div>
+                <button type="button" class="collapsible" onclick="return collapse('dataOut_cont')">
+                    <h4>Get Data Out of the PMP <i class="fa fa-arrows-alt-v"></i></h4>
+                </button>
+                <div id="dataOut_cont" class="collapsible-content" style="background-color:#f3f3f3; ">
+                        Data and Code within a workspace can be synced with the <a
+                            href="https://precision.heart.org/workspace" target="_blank">workspace portal</a> by moving
+                        it to the /mnt/workspace/My_Notebooks directory within the workspace. Files located in this
+                        directory will display under the My Notebooks and Data section of workspace portal.
+                        <br>
+                        <i><span class="note">Note:</span> Due to the secure nature of the workspace, certain files will
+                            not sync with the workspace portal. To extract this data, please file a ticket with
+                        <a href="https://precision.heart.org/technical-support" target="_blank">Technical Support</a>.</i>
+                    </p>
+                    <p><img src="https://precision.heart.org/assets/images/workspace.png" alt="drawing;"
+                            style="height:50%;" class="collapsible-content"></p>
+                </div>
+            </div>
+            <button type="button" class="collapsible" onclick="return collapse('access_cont')">
+                <a class="anchor" name="accessData"></a>
+                <h3>Access Data in the PMP <i class="fa fa-arrows-alt-v"></i></h3>
+            </button>
+            <div id="access_cont" class="collapsible-content" style="display:block;">
+                <p><i>Please <a href="https://precision.heart.org/contact" target="_blank">contact us</a> if
+                    at any point you are having trouble accessing data.</i></p>
+                <ul>
+                    <li>As mentioned, public data can be accessed in a variety of ways in a PMP workspace including
+                        downloading data directly and pulling/cloning data from repositories. Steps for accessing data
+                        from download links and repositories are described below.
+                    </li>
+                    <li>Datasets requested through the search page can be provided to users in a variety of ways. Upon
+                        approval of a dataset, an email will be sent explaining how to access the data and where it is
+                        located as well as the location of any resources available relating to the dataset approved,
+                        such as documentation or tutorials.
+                    </li>
+                </ul>
+                <button type="button" class="collapsible" onclick="return collapse('download_cont')">
+                    <h4><b>Downloading Data Directly <i class="fa fa-arrows-alt-v"></i>
+                    </b></h4>
+                </button>
+                <div id="download_cont" class="collapsible-content" style="background-color:#f3f3f3; ">
+                    <p>Data can be downloaded in the workspace in the same fashion as your personal computer. Add a
+                        new tab in Chrome, navigate to the download link, and click download.</p>
+                    <p><img src="images/download_data_PMP.png" alt="drawing"
+                            style="width:90%; border:0.1em solid #000000;"></p>
+                    <ul>
+                        <li>This will download the data in a temporary downloads folder. Simply click <i>Upload</i>
+                            in Jupyter or Jupyter Lab to upload the downloaded files and save them to the workspace.
+                        </li>
+                        <p><i><span class="note">Note: </span> If you are having trouble accessing a certain link in
+                            the platform, please file a <a href="https://precision.heart.org/technical-support"
+                                                           target="_blank">ticket
+                                with Technical Support</a>.</i></p>
+                    </ul>
+                </div>
+                <button type="button" class="collapsible" onclick="return collapse('repo_cont')">
+                    <h4><b>Pulling or Cloning Data from a Repository <i class="fa fa-arrows-alt-v"></i></b></h4>
+                </button>
+                <div id="repo_cont" class="collapsible-content" style="background-color:#f3f3f3; ">
+                    <p>Using git repositories in the workspace functions the same way as it does on a personal computer.
+                        To pull data or clone a repository, simply go to the repository in the workspace (first tab on
+                        right shown below).</p>
+                    <p><img src="images/clone_data_git_workspace.png" alt="drawing"
+                            style="width:90%; border:0.1em solid #000000;"></p>
+                    <ul>
+                        <li>A terminal can be opened in the workspace through JupyterLab or by clicking New >
+                            Terminal in the Jupyter Home Tab
+                        </li>
+                        <li>Setting up an ssh key or using login credentials works as the same as with your personal
+                            computer.
+                        </li>
+                        <li>The example above is cloning the COVID-19 Csse_daily_reports repository from Johns
+                            Hopkins.
+                        </li>
+                    </ul>
+                    <p><i><span class="note">Tip:</span> Make sure to access the repository in your workspace when
+                        setting up ssh keys. You cannot copy an ssh key out of the workspace</i></p>
+                </div>
+            </div>
+        <button type="button" class="collapsible" onclick="return collapse('workspace_portal_cont')">
+            <a class="anchor" name="workspace_portal"></a>
+            <h3>The Workspace Portal Page <i class="fa fa-arrows-alt-v"></i></h3>
+        </button>
+        <div id="workspace_portal_cont" class="collapsible-content" style="display:block;">
+            <p>The Precision Medicine Platform Workspace consists of two parts, the <a
+                    href="https://precision.heart.org/workspace" target="_blank">workspace portal</a> (image on the
+                left),
+                and the cloud-based virtual environment that is used for computing (image on the right). The portal is a
+                webpage that acts as in interface between the user and the
+                workspace virtual environment, and allows users to control workspace settings. The top box of the portal
+                provides account information, as well as a list of users who the
+                workspace is shared with. The Notebook's & Data section allows users to extract data out of the
+                workspace to download and share.
+            </p>
+            <div style="padding-bottom:5rem;">
+                <img src="https://precision.heart.org/assets/images/workspace.png" alt="drawing;"
+                 style=" width: 37%; float:left;">
+                <img src="images/workspace.png" alt="drawing;"
+                 style=" width: 57%; display:inline-block; float:right;">
+            </div>
+            <button type="button" class="collapsible" onclick="return collapse('workspace_name_cont')">
+                <a class="anchor" name="workspace_name"></a>
+                <h4>Naming A Workspace <i class="fa fa-arrows-alt-v"></i></h4>
+            </button>
+            <div id="workspace_name_cont" class="collapsible-content" style="background-color:#f3f3f3; margin-top:2%;">
+                <p>Update Workspace Name: When the workspace is provisioned, the name of the workspace is the workspace
+                    owner’s User ID (which is normally their email address). To update the workspace name, click on the
+                    name and complete the form in the pop-up.
+                </p>
+                <img src="images/workspace%20name.png" alt="drawing" style="width:60%; border:0.1em solid #000000; float:top;">
+            </div>
+            <button type="button" class="collapsible" onclick="return collapse('menu_portal_cont')">
+                <a class="anchor" name="menu_workspace_portal"></a>
+                <h4>Configuration and Account Information <i class="fa fa-arrows-alt-v"></i></h4>
+            </button>
+            <div id="menu_portal_cont" class="collapsible-content" style="background-color:#f3f3f3; ">
+                <p>
+                    The <i class="fa fa-bars"></i> menu icon on the top right of the second box of the workspace portal
+                    enables the owner to share the workspace with others,
+                    which is further detailed in the section below, as well as provides information about the workspace.
+                </p>
+                <p>
+                    Config allows the user to determine if the billing history is to be displayed on the workspace
+                    landing page. Only Paying customers will have this option. The Details options provides information
+                    about the current computational architecture set up in the workspace. A workspace architecture can
+                    be changed, by pausing a workspace, resuming, and selecting the desired option upon start.
+                </p>
+                <img src="images/share_config_details.png" alt="drawing"
+                     style="width:20%; border:0.1em solid #000000; float:top;">
+                <img src="images/workspace%20Details.png" , alt="drawing"
+                     style="width:60%; border:0.1em solid #000000; display:inline-block; vertical-align:top; margin:2%">
+            </div>
+            <button type="button" class="collapsible" onclick="return collapse('share_cont')">
+                <a class="anchor" name="share"></a>
+                <h4>Sharing A Workspace <i class="fa fa-arrows-alt-v"></i></h4>
+            </button>
+            <div id="share_cont" class="collapsible-content" style="background-color:#f3f3f3; ">
+                <p>The design of PMP workspaces is such that when a user is provisioned a workspace, no one except the
+                    user
+                    has access (including the AHA). All code and data is housed behind a secure walled garden that
+                    cannot be
+                    accessed by anyone other than the user. To facilitate collaboration and provide workspace access for
+                    teams working on projects, the owner of a workspace can share their workspace with other people who
+                    have
+                    a PMP account. Shared users can access all code and files in the workspace and it is a workspace
+                    owners
+                    responsibility to ensure the new shared user has the appropriate data approvals prior to sharing the
+                    workspace. To share a workspace with a user, click the <i class="fa fa-bars"></i> menu icon on the
+                    <a href="https://precision.heart.org/workspace" target="_blank">workspace portal</a>. Enter the
+                    email for the shared user on the PMP and set any desired restraints (e.g. allowing to share/publish
+                    code or allowing to start/stop the workspace)
+                <p><img src="images/workspace_share_icon.png" alt="drawing;"
+                        style="width:15%; margin:2%; border:0.1em solid #000000; float:top;"><img
+                        src="images/share_workspace.png" alt="drawing;"
+                        style="width:40%; height:40%; border:0.1em solid #000000; display:inline-block; vertical-align:top; margin:2%">
+                </p>
+            </div>
+            <button type="button" class="collapsible" onclick="return collapse('pause_cont')">
+                <a class="anchor" name="pause"></a>
+                <h4>Starting and Stopping the Workspace <i class="fa fa-arrows-alt-v"></i></h4>
+            </button>
+            <div id="pause_cont" class="collapsible-content" style="background-color:#f3f3f3; ">
+                <p>The AHA recommends pausing your workspace when it will not be in use for a few days or longer. This
+                    preserves the overall resources needed to run and maintain a workspace and allows for updates to be
+                    completed. A workspace can be paused by clicking the red pause button on the <a
+                            href="https://precision.heart.org/workspace" target="_blank">workspace portal</a>.
+                    Additionally, users can change architectures and compute options when pausing and resuming.
+                    When resuming, the user will be provided the opportunity to reconfigure the workspace - EMR,
+                    EC2-GPU, or
+                    EC2-CPU. For custom sizing options, please reach out to <a
+                            href="https://precision.heart.org/tech-support" target="_blank">Technical Support</a>.</p>
+            </div>
+        </div>
+        <button type="button" class="collapsible" onclick="return collapse('workspace_env_cont')">
+            <a class="anchor" name="workspace_env"></a>
+            <h3>The Workspace Cloud Environment <i class="fa fa-arrows-alt-v"></i></h3>
+        </button>
+        <div id="workspace_env_cont" class="collapsible-content" style="display:block;">
+            <button type="button" class="collapsible" onclick="return collapse('software_cont')">
+                <a class="anchor" name="software"></a>
+                <h4 style>Software and Functionality <i class="fa fa-arrows-alt-v"></i></h4>
+            </button>
+            <div id="software_cont" class="collapsible-content" style="background-color:#f3f3f3;">
+                <h4>A Few Helpful Tips: </h4>
+                <ul>
+                    <li>The username and password to RStudio is rstudio and workspace respecitvely</li>
+                    <li>The directory where files are located is /mnt/workspace</li>
+                    <li>The terminal can be accessed in JupyterLab or by clicking the <i>New</i> button in Jupyter</li>
+                    <li>The internet is available in the workspace, just click a new tab in Chrome</li>
+                    <li>To paste something inside the workspace, click the paste icon on the top menu bar. You can not
+                        copy
+                        out of the workspace due to security reasons.
+                    </li>
+                    <li>If screen is frozen or solid blue/black, click the 4 squares on the top menu bar</li>
+                </ul>
+
+                <h4>Pre-Installed Software</h4>
+                <p>PMP workspaces come with R, Python, Scala, and Spark pre-installed, as well as variety of other
+                    standard
+                    packages and software used in clinical and biomedical analyses. These include machine learning and
+                    statistical modeling packages such as Keras, TensorFlow, PyTorch, and Caret.
+                    Common genetic packages available through Bioconductor as well as other common command-line tools. A
+                    full list of packages and software available on the platform can be found <a
+                            href="https://precision.heart.org/workspace/about" target="_blank">here</a>.
+                    The workspace leverages Jupyter, JupyterLab and RStudio to provide a UI-based environment for users
+                    to conduct analyses. The ReadMe notebook on the Jupyter Home page (/mnt/workspace) provides
+                    information
+                    regarding workspace usage, including trouble shooting instructions, software references, and
+                    tutorials.
+
+                </p>
+                <h4>Customizing the Workspace and Installing Software</h4>
+                <p>The workspace is also fully customizable. Licensed software, such as SAS and MATLAB, can be installed
+                    for users with a license. Python and R based packages can easily be installed by users via pip and
+                    install.packages respectively.
+                    The workspace has a Red Hat Linux Operating System. Yum can be used to get, install, and manage
+                    software packages. Users are granted root access to enable customization of workspaces based on user
+                    needs.</p>
+                <p><img src="images/workspace.png" alt="drawing;" style="width:90%; border:0.1em solid #000000;"></p>
+            </div>
+            <button type="button" class="collapsible" onclick="return collapse('tutorial_cont')">
+                <span><a class="anchor" name="tutorials"></a>
+                <h4 style>Tutorials and Examples <i class="fa fa-arrows-alt-v"></i></h4></span>
+            </button>
+            <div id="tutorial_cont" class="collapsible-content" style="background-color:#f3f3f3;">
+                <p>A variety of tutorials and examples are available on the Platform. Available tutorials cover concepts
+                    such as how to perform machine learning analyses with spark, how to conduct a GWAS analysis, or how
+                    to
+                    install and use software.</p>
+                <p>The <i>ReadMe</i> notebook on the Jupyter Home Page (/mnt/workspace) of a workspace contains an
+                    overview of the content available and the location for many of the tutorials available. Tutorials
+                    and examples can be found in the jupyter_notebooks directory (/mnt/workspace/jupyter_notebooks) of
+                    the workspace. Users can also request data science and support services for help with analyses and
+                    workspace usage. For more information, <a href="https://precision.heart.org/contact" target="_blank">
+                        contact us.</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="footer-container"></div>
+</body>
+</html>

@@ -1,14 +1,10 @@
-div.title-container {
-    height:20rem;
-    margin-top:6%;
-}
 
 #intro {
     border: 1px solid rgba(149,14,33,.125);
     border-radius: .25rem;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2%;
-    font-size: 1.2em;
+    margin: 0;
+    /*font-size: 1.2em;*/
 }
 
 #intro h4 {
@@ -17,28 +13,19 @@ div.title-container {
     color: #000000;
     font-weight: bold;
     margin-bottom:0;
-    /*margin: 1% 1% 0 2%;*/
+    font-size:1.25rem;
 }
 
-#intro p {
-    padding-left: 20px;
-}
-
-.collapsible-content {
-    margin-left:1%;
-    margin-right:5%;
-    overflow: scroll;
-    display:  none;
-}
 
 .data-doc-cards {
     justify-content: space-around;
-    margin: 2rem 1px;
+    margin: 1rem 0;
+    width:100%;
+    /*padding-left: 1%;*/
     height: 100%;
     overflow: scroll;
     align-content: center;
     background: url("../AHA-COVID19-CVD-GWTG/images/molecules_data_sm.png") repeat-y;
-    min-width:65rem;
 }
 
 .data-doc-cards .card-content {

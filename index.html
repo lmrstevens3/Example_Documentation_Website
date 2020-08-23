@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AHA PMP Docs-Home</title>
+    <title>PMP Docs-Home</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="css/aha_pmp_header.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="css/aha_affiliate_footer.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="css/aha_styling.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="css/aha_search.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="css/main-pmp-docs.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/cards.css" type="text/css" media="screen"/>
+
 
     <script type="text/javascript" src="js/button_dropdown_functions.js"></script>
     <script type="text/javascript" src="js/card_functions.js"></script>
@@ -33,7 +36,7 @@
 <body>
 <div class="aha_pmp_header"></div>
 
-<div class="title-container" style="padding-top:2%; height:25rem;">
+<div class="title-container" style="padding-top:10%;">
     <div class="top-right-search" >
         <button class="search-btn"><i class="fa fa-search"></i> Full Menu</button>
     </div>
@@ -41,7 +44,7 @@
     <h3>Date: May 01, 2020 - Version 0.1</h3>
 </div>
 
-<div id="main" style="margin:2%; display:grid; "></div>
+<div id="main" style="margin:2%; display:grid;"></div>
 
 <a href ="getting-started/index.html"></a>
 <script>
@@ -69,33 +72,27 @@
                 "cardClassName": "card docs-home-card",
                 "contentClassName": "card-content home-main-card",
                 "header": "User Guide",
-                "content": "The PMP user guide is a \"how-to\" for using a PMP workspace, " +
-                    "and includes examples, tutorials, and usage information.",
+                "content": "The PMP user guide includes usage information and tutorials, and acts as a \"how-to\" for the " +
+                    "Precision Medicine Platform.",
                 "btnContent": [
                     {
                         "btntype": "link",
                         "className": "btn primary-btn",
                         "label": "To the User Guide",
                         "link": "user-guide/index.html"
-                    },
-                    {
-                        "btntype": "link",
-                        "className": "btn primary-btn",
-                        "label": "Tutorials",
-                        "link": "user-guide/index.html#tutorials"
                     }]
             },
             {
                 "icon": "fa fa-database fa-4x",
                 "cardClassName": "card docs-home-card",
                 "contentClassName": "card-content home-main-card",
-                "header": "PMP Dataset Resources",
-                "content": "Working with a PMP Dataset? Find documentation, useage and code examples, and more.",
+                "header": "Data Resources",
+                "content": "Working with a PMP Dataset? Find documentation, usage, code examples, and more.",
                 "btnContent": [
                     {
                         "btntype": "dropdown",
-                        "className": "btn primary-btn dropdown-toggle",
-                        "label": "Dataset Resources ",
+                        "className": "btn primary-btn",
+                        "label": "PMP Data Resources ",
                         "menu": [
                             {
                                 "label": "AHA COVID-19 Registry (GWTG)",
@@ -110,7 +107,7 @@
             {
                 "cardClassName": "card docs-home-card",
                 "contentClassName": "card-content home-sm-card",
-                "header": "<img src=\"https://www.heart.org/-/media/foundation/metadata/aha_logo.png\" alt=\"drawing;\" style=\"width:12%; padding-bottom: 10px;\">Can't Wait to Start?",
+                "header": "<img src=\"https://www.heart.org/-/media/foundation/metadata/aha_logo.png\" alt=\"drawing;\" style=\"width:20%; padding-bottom: 10px;\">Can't Wait to Start?",
                 "btnContent": [
                     {
                         "btntype": "link",
@@ -123,7 +120,7 @@
             {
                 "cardClassName": "card docs-home-card",
                 "contentClassName": "card-content home-sm-card",
-                "header": "<img src=\"https://www.heart.org/-/media/foundation/metadata/aha_logo.png\" alt=\"drawing;\" style=\"width:12%; padding-bottom: 10px;\">Have A Question?",
+                "header": "<img src=\"https://www.heart.org/-/media/foundation/metadata/aha_logo.png\" alt=\"drawing;\" style=\"width:20%; padding-bottom: 10px;\">Have A Question?",
                 "btnContent": [{
                         "btntype": "link",
                         "className": "btn primary-btn",
@@ -132,7 +129,7 @@
                     },
                     {
                         "btntype": "dropdown",
-                        "className": "btn primary-btn dropdown-toggle",
+                        "className": "btn primary-btn",
                         "label": "Contact ",
                         "menu": [
                             {
@@ -151,13 +148,13 @@
             {
                 "cardClassName": "card docs-home-card",
                 "contentClassName": "card-content home-sm-card",
-                "header": "<img src=\"https://www.heart.org/-/media/foundation/metadata/aha_logo.png\" alt=\"drawing;\" style=\"width:12%; padding-bottom: 10px;\">Need Dataset Access?",
+                "header": "<img src=\"https://www.heart.org/-/media/foundation/metadata/aha_logo.png\" alt=\"drawing;\" style=\"width:20%; padding-bottom: 10px;\">Analyzing Data?",
                 "btnContent": [
                     {
                         "btntype": "link",
                         "className": "btn primary-btn",
-                        "label": "Search PMP Datasets",
-                        "link": "https://precision.heart.org/search/"
+                        "label": "Tutorials",
+                        "link": "user-guide/index.html#tutorials"
                     }]
             }
         ]}];

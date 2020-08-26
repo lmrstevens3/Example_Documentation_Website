@@ -103,3 +103,10 @@ h2 .fa-plus, h2 .fa-minus {
     display:inline-block;
     width:auto;
 }
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -150px;
+    visibility: hidden;
+}

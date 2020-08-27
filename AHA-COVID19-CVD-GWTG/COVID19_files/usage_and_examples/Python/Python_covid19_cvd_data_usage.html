@@ -13123,7 +13123,7 @@ div#notebook {
 <script>
 $( document ).ready(function(){
 
-            var cfg = {"base_numbering": 1, "nav_menu": {"height": "501px", "width": "668px"}, "number_sections": false, "sideBar": true, "skip_h1_title": false, "title_cell": "Table of Contents", "title_sidebar": "Contents", "toc_cell": true, "toc_position": {"height": "467px", "left": "0px", "right": "1095px", "top": "107px", "width": "260px"}, "toc_section_display": false, "toc_window_display": true};
+            var cfg = {"base_numbering": 1, "nav_menu": {"height": "501px", "width": "668px"}, "number_sections": false, "sideBar": true, "skip_h1_title": false, "title_cell": "Table of Contents", "title_sidebar": "Contents", "toc_cell": false, "toc_position": {"height": "467px", "left": "0px", "right": "1095px", "top": "107px", "width": "260px"}, "toc_section_display": false, "toc_window_display": true};
 
             // fire the main function with these parameters
             require(['nbextensions/toc2/toc2'], function (toc2) {
@@ -13160,14 +13160,6 @@ $( document ).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><h1>Table of Contents<span class="tocSkip"></span></h1></p>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Introduction-and-Software" data-toc-modified-id="Introduction-and-Software-1"><span style="width: 50% ; color: #c10e21 ; border-bottom: 0.25rem solid #f3f3f3">Introduction and Software</span></a></span><ul class="toc-item"><li><ul class="toc-item"><li><span><a href="#Software" data-toc-modified-id="Software-1.0.1">Software</a></span></li><li><span><a href="#Package-Installation" data-toc-modified-id="Package-Installation-1.0.2">Package Installation</a></span></li><li><span><a href="#Importing-Packages" data-toc-modified-id="Importing-Packages-1.0.3">Importing Packages</a></span></li></ul></li></ul></li><li><span><a href="#Load-and-View-Data" data-toc-modified-id="Load-and-View-Data-2"><span style="width: 50% ; color: #c10e21 ; border-bottom: 0.25rem solid #f3f3f3">Load and View Data</span></a></span><ul class="toc-item"><li><ul class="toc-item"><li><span><a href="#Loading-SAS-files-in-Python" data-toc-modified-id="Loading-SAS-files-in-Python-2.0.1">Loading SAS files in Python</a></span></li><li><span><a href="#Viewing-the-data" data-toc-modified-id="Viewing-the-data-2.0.2">Viewing the data</a></span></li></ul></li></ul></li><li><span><a href="#Tables-and-Summary-Statistics" data-toc-modified-id="Tables-and-Summary-Statistics-3"><span style="width: 50% ; color: #c10e21 ; border-bottom: 0.25rem solid #f3f3f3">Tables and Summary Statistics</span></a></span><ul class="toc-item"><li><ul class="toc-item"><li><span><a href="#Tables-and-Frequencies" data-toc-modified-id="Tables-and-Frequencies-3.0.1">Tables and Frequencies</a></span></li><li><span><a href="#Summary-Statistics" data-toc-modified-id="Summary-Statistics-3.0.2">Summary Statistics</a></span></li></ul></li></ul></li><li><span><a href="#Need-Help?" data-toc-modified-id="Need-Help?-4"><span style="width: 50% ; color: #c10e21 ; border-bottom: 0.25rem solid #f3f3f3">Need Help?</span></a></span><ul class="toc-item"><li><ul class="toc-item"><li><span><a href="#Internet-access-in-a-PMP-workspace" data-toc-modified-id="Internet-access-in-a-PMP-workspace-4.0.1">Internet access in a PMP workspace</a></span></li><li><span><a href="#Billing,-Data,-or-Analysis-Questions?" data-toc-modified-id="Billing,-Data,-or-Analysis-Questions?-4.0.2">Billing, Data, or Analysis Questions?</a></span></li><li><span><a href="#Technical-Questions-or-Issues?" data-toc-modified-id="Technical-Questions-or-Issues?-4.0.3">Technical Questions or Issues?</a></span></li></ul></li></ul></li><li><span><a href="#References" data-toc-modified-id="References-5"><span style="width: 50% ; color: #c10e21 ; border-bottom: 0.25rem solid #f3f3f3">References</span></a></span><ul class="toc-item"><li><ul class="toc-item"><li><span><a href="#Helpful-Python-Packages" data-toc-modified-id="Helpful-Python-Packages-5.0.1">Helpful Python Packages</a></span></li><li><span><a href="#Python-Tutorials" data-toc-modified-id="Python-Tutorials-5.0.2">Python Tutorials</a></span></li><li><span><a href="#Academic-Publications-and-Guidelines" data-toc-modified-id="Academic-Publications-and-Guidelines-5.0.3">Academic Publications and Guidelines</a></span></li></ul></li></ul></li></ul></div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Introduction-and-Software"><span style="width:50%; color:#C10E21; border-bottom:0.25rem  solid #f3f3f3;">Introduction and Software</span><a class="anchor-link" href="#Introduction-and-Software">&#182;</a></h1>
 </div>
 </div>
@@ -13175,7 +13167,7 @@ $( document ).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This notebook walks through loading, viewing and summarizing a GWTG dataset comprised of a sas7bdat data file and a sas7bcat formats file. The Tables and Summary statistics section provides a brief introduction for how to calculate frequencies and distribution statistics for categorical and continuous variables respectively.</p>
+<p>This notebook walks through loading, viewing and summarizing a GWTG dataset comprised of a sas7bdat data file and a sas7bcat formats file. The Tables and Summary statistics section provides a brief introduction for how to calculate frequencies and distribution statistics for categorical and continuous variables, respectively.</p>
 
 </div>
 </div>
@@ -13184,7 +13176,7 @@ $( document ).ready(function(){
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Software">Software<a class="anchor-link" href="#Software">&#182;</a></h3><p>This tutorial is completed in Python. All imported packages used in this tutorial are listed and installed in the sections below. Packages used in this tutorial as well as additional packages that are useful for tabulating and summarizing data are listed in the <a href="#References">References Section</a>.</p>
-<h3 id="Package-Installation">Package Installation<a class="anchor-link" href="#Package-Installation">&#182;</a></h3><p>The following packages are used for this tutorial. The pandas package is installed as a default in the workspace. A reference for installing pandas can be accessed <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html#installing-from-pypi">here</a>
+<h3 id="Package-Installation">Package Installation<a class="anchor-link" href="#Package-Installation">&#182;</a></h3><p>The following packages are used for this tutorial. The pandas package is installed as a default in the workspace. A reference for installing pandas can be accessed <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html#installing-from-pypi">here</a>.
 Packages only need to be installed once. After initial installation, the cell below can be skipped or commented out (using "#").</p>
 
 </div>
@@ -13192,7 +13184,7 @@ Packages only need to be installed once. After initial installation, the cell be
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span>%%bash
@@ -13203,18 +13195,47 @@ sudo python3 -m pip install pyreadstat
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Collecting researchpy
+  Downloading researchpy-0.2.3-py3-none-any.whl (10 kB)
+Requirement already satisfied: statsmodels in /usr/local/lib64/python3.7/site-packages (from researchpy) (0.10.2)
+Requirement already satisfied: scipy in /usr/local/lib64/python3.7/site-packages (from researchpy) (1.4.1)
+Requirement already satisfied: numpy in /usr/local/lib64/python3.7/site-packages (from researchpy) (1.16.4)
+Requirement already satisfied: pandas in /usr/local/lib64/python3.7/site-packages (from researchpy) (0.25.3)
+Requirement already satisfied: patsy&gt;=0.4.0 in /usr/local/lib/python3.7/site-packages (from statsmodels-&gt;researchpy) (0.5.1)
+Requirement already satisfied: python-dateutil&gt;=2.6.1 in /usr/local/lib/python3.7/site-packages (from pandas-&gt;researchpy) (2.8.1)
+Requirement already satisfied: pytz&gt;=2017.2 in /usr/local/lib/python3.7/site-packages (from pandas-&gt;researchpy) (2019.3)
+Requirement already satisfied: six in /usr/local/lib/python3.7/site-packages (from patsy&gt;=0.4.0-&gt;statsmodels-&gt;researchpy) (1.15.0)
+Installing collected packages: researchpy
+Successfully installed researchpy-0.2.3
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Importing-Packages">Importing Packages<a class="anchor-link" href="#Importing-Packages">&#182;</a></h3><p>Once all packages have been installed they can be used through the import command. The code below imports all packages for the tutorial.</p>
+<h3 id="Importing-Packages">Importing Packages<a class="anchor-link" href="#Importing-Packages">&#182;</a></h3><p>Once all packages have been installed, they can be used through the import command. The code below imports all packages for the tutorial.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13237,24 +13258,24 @@ sudo python3 -m pip install pyreadstat
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The root directory path in the workspace is <code>/mnt/workspace</code>, and is the directory for the files listed under the Jupyter Home tab as well as the default working directory for Jupyter, JupyterLab, R Studio,and SAS Studio.</p>
-<p><strong>AHA COVID-19 CVD Registry Powered by Get With the Guidelines Data</strong></p>
+<p><strong>AHA COVID-19 CVD Registry Powered by Get With the Guidelines® Data</strong></p>
 <p>The data, documentation, and usage examples are available in the following workspace folders:</p>
 <ul>
 <li><strong>Data:</strong> <code>/mnt/workspace/GWTG/COVID19/data</code> (includes data and format sas files)</li>
 <li><strong>Documentation:</strong> <code>/mnt/workspace/GWTG/COVID19/documentation</code>.</li>
 </ul>
-<p>For a more indepth introduction to the data, check the <a href="Website">COVID-19 CVD Registry Researcher Resource</a>. The Explore and Discover section of this website can be used to review all documentation and explore variables available. The website is bookmarked in the favorites bar above.</p>
+<p>For a more in-depth introduction to the data, check the <a href="https://precision.heart.org/documentation/AHA-COVID19-CVD-GWTG/index.html">COVID-19 CVD Registry Researcher Resource</a>. The Explore and Discover section of this website can be used to review all documentation and explore variables available. The website is bookmarked in the favorites bar above.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataFile</span> <span class="o">=</span> <span class="s2">&quot;/mnt/workspace/GWTG/COVID19/data/covid19_cvd_data_jul20.sas7bdat&quot;</span>
-<span class="n">formatsFile</span> <span class="o">=</span> <span class="s2">&quot;/mnt/workspace/GWTG/COVID19/data/covid19_cvd_formats_jul20.sas7bcat&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataFile</span> <span class="o">=</span> <span class="s1">&#39;/mnt/workspace/GWTG/COVID19/data/covid19_cvd_final_aug20.sas7bdat&#39;</span>
+<span class="n">formatsFile</span> <span class="o">=</span> <span class="s1">&#39;/mnt/workspace/GWTG/COVID19/data/R_Python_windows_formats.sas7bcat&#39;</span>
 </pre></div>
 
     </div>
@@ -13265,15 +13286,15 @@ sudo python3 -m pip install pyreadstat
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Loading-SAS-files-in-Python">Loading SAS files in Python<a class="anchor-link" href="#Loading-SAS-files-in-Python">&#182;</a></h3><p>The <code>pyreadstat</code> package can load both the sas data (sas7b<u>**d**</u>at) and sas formats (sas7b<u>**c**</u>at) files, as shown below. The <code>pyreadstat_sas7bdat()</code> command loads a list containing the data as a data frame and stores the  metadata in a metadata format object which is a structure similar to a json object or python dictionary. Categorical variables in the data are loaded as the datatype "Category" with values stored as character strings.</p>
-<p><strong><em>NOTE:</em></strong> <em>Alternatively, the <code>pd.read_sas()</code> command from the pandas package can be used to load only the data file (sas7b<u>**d**</u>at) and will load the data numerically by default, and will also allow the user to specify if variables should be the datatype "category", using the <code>astype("category")</code> method, if desired.</em></p>
+<h3 id="Loading-SAS-files-in-Python">Loading SAS files in Python<a class="anchor-link" href="#Loading-SAS-files-in-Python">&#182;</a></h3><p>The <code>pyreadstat</code> package can load both the sas data (sas7b<u><b>d</b></u>at) and sas formats (sas7b<u><b>c</b></u>at) files, as shown below. The <code>pyreadstat_sas7bdat()</code> command loads a list containing the data as a data frame and stores the  metadata in a metadata format object which is a structure similar to a json object or python dictionary. Categorical variables in the data are loaded as the datatype "Category" with values stored as character strings.</p>
+<p><strong><em>NOTE:</em></strong> <em>Alternatively, the <code>pd.read_sas()</code> command from the pandas package can be used to load only the data file (sas7b<u><b>d</b></u>at) and will load the data numerically by default, and will also allow the user to specify if variables should be the datatype "category", using the <code>astype("category")</code> method, if desired.</em></p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">,</span> <span class="n">meta</span> <span class="o">=</span> <span class="n">pyreadstat</span><span class="o">.</span><span class="n">read_sas7bdat</span><span class="p">(</span><span class="n">dataFile</span><span class="p">,</span> <span class="n">catalog_file</span><span class="o">=</span><span class="n">formatsFile</span><span class="p">,</span> <span class="n">formats_as_category</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -13318,7 +13339,7 @@ sudo python3 -m pip install pyreadstat
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -13334,7 +13355,7 @@ sudo python3 -m pip install pyreadstat
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -13368,7 +13389,6 @@ sudo python3 -m pip install pyreadstat
       <th>HOMELESS</th>
       <th>PSOURCE_01</th>
       <th>...</th>
-      <th>SUBQLMWHLWDOSDT</th>
       <th>SUBQLMWHTHRPDOSDT</th>
       <th>SUBQUFHDT</th>
       <th>SUSVENARRDT</th>
@@ -13378,6 +13398,7 @@ sudo python3 -m pip install pyreadstat
       <th>VVECMOSTP</th>
       <th>VVECMOSTRT</th>
       <th>WARFARINDT</th>
+      <th>GENDERi</th>
     </tr>
   </thead>
   <tbody>
@@ -13385,125 +13406,125 @@ sudo python3 -m pip install pyreadstat
       <th>0</th>
       <td>PT0000001</td>
       <td>1.0</td>
+      <td>2 = No</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>23.0</td>
+      <td>2.0</td>
+      <td>0 = Date Only</td>
       <td>NaN</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>0.0</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>-6.0</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>1 = Female</td>
     </tr>
     <tr>
       <th>1</th>
       <td>PT0000002</td>
       <td>2.0</td>
-      <td>1 = Yes</td>
-      <td>2 = Full Dose Enoxaparin</td>
-      <td>1 = Date and Time</td>
+      <td>2 = No</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>23.0</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>1 = Date and Time</td>
+      <td>0 = Date Only</td>
       <td>NaN</td>
       <td>0.0</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>-10.0</td>
-      <td>NaN</td>
+      <td>-2.0</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>0 = Male</td>
     </tr>
     <tr>
       <th>2</th>
       <td>PT0000003</td>
       <td>3.0</td>
-      <td>1 = Yes</td>
-      <td>6 = Sub-Q Unfractionated Heparin</td>
-      <td>1 = Date and Time</td>
+      <td>2 = No</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>23.0</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>1 = Date and Time</td>
-      <td>1.0</td>
+      <td>0 = Date Only</td>
+      <td>NaN</td>
       <td>0.0</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>-3.0</td>
-      <td>NaN</td>
+      <td>-7.0</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>0 = Male</td>
     </tr>
     <tr>
       <th>3</th>
       <td>PT0000004</td>
       <td>4.0</td>
-      <td>1 = Yes</td>
-      <td>2 = Full Dose Enoxaparin</td>
-      <td>1 = Date and Time</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1 = Date and Time</td>
+      <td>2 = No</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>23.0</td>
+      <td>2.0</td>
+      <td>0 = Date Only</td>
       <td>NaN</td>
       <td>0.0</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>-3.0</td>
-      <td>NaN</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>1 = Female</td>
     </tr>
     <tr>
       <th>4</th>
       <td>PT0000005</td>
       <td>5.0</td>
-      <td>2 = No</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>1 = Yes</td>
+      <td>5 = SCD</td>
+      <td>0 = Date Only</td>
+      <td>23.0</td>
       <td>1.0</td>
-      <td>2.0</td>
-      <td>1 = Date and Time</td>
+      <td>0 = Date Only</td>
       <td>NaN</td>
       <td>1.0</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>5.416667</td>
-      <td>-12.0</td>
+      <td>-2.0</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>0 = Male</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 1428 columns</p>
+<p>5 rows × 431 columns</p>
 </div>
 </div>
 
@@ -13515,16 +13536,14 @@ sudo python3 -m pip install pyreadstat
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#pd.set_option(&#39;display.max_rows&#39;, None)</span>
-<span class="c1">#pd.set_option(&#39;display.max_colwidth&#39;, 2000)</span>
-
-<span class="c1">#To display the column names with the format labels from the metadata contents.</span>
-<span class="n">df_variable_values</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">meta</span><span class="o">.</span><span class="n">variable_to_label</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
-<span class="n">df_variable_values</span> <span class="o">=</span> <span class="n">df_variable_values</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;Column Names&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;Format&#39;</span><span class="p">})</span>
-<span class="n">df_variable_values</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#To display the column names with the descriptions and format labels from the metadata contents.</span>
+<span class="n">df_variable_descriptions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">meta</span><span class="o">.</span><span class="n">column_names_to_labels</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;Column Names&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;Description&#39;</span><span class="p">})</span>
+<span class="n">df_variable_values</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">meta</span><span class="o">.</span><span class="n">variable_to_label</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;Column Names&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;Format&#39;</span><span class="p">})</span>
+<span class="n">df_contents</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_variable_descriptions</span><span class="p">,</span> <span class="n">df_variable_values</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s2">&quot;Column Names&quot;</span><span class="p">)</span>
+<span class="n">df_contents</span>
 </pre></div>
 
     </div>
@@ -13537,7 +13556,7 @@ sudo python3 -m pip install pyreadstat
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[5]:</div>
+    <div class="prompt output_prompt">Out[36]:</div>
 
 
 
@@ -13561,68 +13580,80 @@ sudo python3 -m pip install pyreadstat
     <tr style="text-align: right;">
       <th></th>
       <th>Column Names</th>
+      <th>Description</th>
       <th>Format</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>ANTCOGDVTPRO</td>
-      <td>ANTCOGDVTPRO</td>
+      <td>RCRDNUM</td>
+      <td>Record ID</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>ANTICOAGDVT</td>
-      <td>ANTICOAGDVT</td>
+      <td>CASE_ID</td>
+      <td>Admin: Site (facility) Case ID</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>ANTICOAGDVTDT_PRC</td>
-      <td>DTPRECISION</td>
+      <td>ANTCOGDVTPRO</td>
+      <td>Anticoagulation: During this hospitalization, ...</td>
+      <td>ANTCOGDVTPRO</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>SEX</td>
-      <td>SEX</td>
+      <td>ANTICOAGDVT</td>
+      <td>Anticoagulation: During this hospitalization, ...</td>
+      <td>ANTICOAGDVT</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>DOB_PRC</td>
+      <td>ANTICOAGDVTDT_PRC</td>
+      <td>Anticoagulation: During this hospitalization, ...</td>
       <td>DTPRECISION</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
       <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>723</th>
-      <td>SLCRPU_50</td>
-      <td>SLCRPU</td>
+      <th>426</th>
+      <td>TOCZMBDT</td>
+      <td>Studyday of Medications: During this hospitali...</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>724</th>
-      <td>SLPROCLCTNU_50</td>
-      <td>SLPROCLCTNU</td>
+      <th>427</th>
+      <td>VVECMOSTP</td>
+      <td>Studyday of Hospitalization: Pulmonary / Criti...</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>725</th>
-      <td>SLIL6U_50</td>
-      <td>SLIL6U</td>
+      <th>428</th>
+      <td>VVECMOSTRT</td>
+      <td>Studyday of Hospitalization: Pulmonary / Criti...</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>726</th>
-      <td>SLSCRUADM_50</td>
-      <td>SLSCRUADM</td>
+      <th>429</th>
+      <td>WARFARINDT</td>
+      <td>Studyday of Anticoagulation: During this hospi...</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>727</th>
-      <td>SLDDMERU_50</td>
-      <td>SLDDMERU</td>
+      <th>430</th>
+      <td>GENDERi</td>
+      <td>None</td>
+      <td>GENDER1F</td>
     </tr>
   </tbody>
 </table>
-<p>728 rows × 2 columns</p>
+<p>431 rows × 3 columns</p>
 </div>
 </div>
 
@@ -13634,7 +13665,7 @@ sudo python3 -m pip install pyreadstat
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># To display the coding values with the format labels. </span>
@@ -13653,7 +13684,7 @@ sudo python3 -m pip install pyreadstat
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[6]:</div>
+    <div class="prompt output_prompt">Out[37]:</div>
 
 
 
@@ -13712,33 +13743,33 @@ sudo python3 -m pip install pyreadstat
       <td>...</td>
     </tr>
     <tr>
-      <th>104</th>
-      <td>PATMANICU</td>
-      <td>{nan: '. = Missing', 1.0: '1 = Yes', 2.0: '2 =...</td>
-    </tr>
-    <tr>
-      <th>105</th>
+      <th>109</th>
       <td>RITOLOPVR</td>
       <td>{nan: '. = Missing', 1.0: '1 = Yes', 2.0: '2 =...</td>
     </tr>
     <tr>
-      <th>106</th>
-      <td>SLTROPUADM</td>
-      <td>{nan: '. = Missing', 1.0: '1 = ng/mL', 2.0: '2...</td>
+      <th>110</th>
+      <td>SCRUADM</td>
+      <td>{nan: '. = Missing', 1.0: '1 = mg/dL', 2.0: '2...</td>
     </tr>
     <tr>
-      <th>107</th>
-      <td>SUBQUFH</td>
+      <th>111</th>
+      <td>SLIL6U</td>
+      <td>{nan: '. = Missing', 1.0: '1 = pg/mL', 2.0: '2...</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>TOCZMB</td>
       <td>{nan: '. = Missing', 1.0: '1 = Yes', 2.0: '2 =...</td>
     </tr>
     <tr>
-      <th>108</th>
-      <td>WBCUADM</td>
-      <td>{nan: '. = Missing', 1.0: '1 = K/uL', 2.0: '2 ...</td>
+      <th>113</th>
+      <td>GENDER1F</td>
+      <td>{0.0: '0 = Male', 1.0: '1 = Female', nan: '.= ...</td>
     </tr>
   </tbody>
 </table>
-<p>109 rows × 2 columns</p>
+<p>114 rows × 2 columns</p>
 </div>
 </div>
 
@@ -13750,7 +13781,7 @@ sudo python3 -m pip install pyreadstat
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_data_types</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Data Type&#39;</span><span class="p">})</span>
@@ -13767,7 +13798,7 @@ sudo python3 -m pip install pyreadstat
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -13819,10 +13850,6 @@ sudo python3 -m pip install pyreadstat
       <td>...</td>
     </tr>
     <tr>
-      <th>TMPPERPACEDT</th>
-      <td>float64</td>
-    </tr>
-    <tr>
       <th>TOCZMBDT</th>
       <td>float64</td>
     </tr>
@@ -13838,9 +13865,13 @@ sudo python3 -m pip install pyreadstat
       <th>WARFARINDT</th>
       <td>float64</td>
     </tr>
+    <tr>
+      <th>GENDERi</th>
+      <td>category</td>
+    </tr>
   </tbody>
 </table>
-<p>1428 rows × 1 columns</p>
+<p>431 rows × 1 columns</p>
 </div>
 </div>
 
@@ -13867,14 +13898,14 @@ sudo python3 -m pip install pyreadstat
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Getting the counts of one or multiple variables is easy in Python with the <code>value_counts</code> function.  The <code>value_counts()</code> function will create a set of counts. This function can be used to get counts of categorical variables in the data, as shown in the code below, which makes a table of the number of patients by <code>METHDIAG</code> variable. You could set the <code>dropna</code> value as needed if you want to display the counts for the null values or if you don't want to show for the null values by setting it to either True or False.</p>
+<p>Getting the counts of one or multiple variables is easy in Python with the <code>value_counts</code> function.  The <code>value_counts()</code> function will create a set of counts. This function can be used to get counts of categorical variables in the data, as shown in the code below, which makes a table of the number of patients by <code>METHDIAG</code> variable. You could set the <code>dropna</code> can be used to include or exclude null values by setting to True or False.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#create table</span>
@@ -13892,7 +13923,7 @@ sudo python3 -m pip install pyreadstat
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[17]:</div>
 
 
 
@@ -13921,19 +13952,19 @@ sudo python3 -m pip install pyreadstat
   <tbody>
     <tr>
       <th>1 = RT-PCR Test</th>
-      <td>4825</td>
-    </tr>
-    <tr>
-      <th>NaN</th>
-      <td>1622</td>
+      <td>8200</td>
     </tr>
     <tr>
       <th>2 = Clinical Diagnosis using Hospital Specific Criteria</th>
-      <td>489</td>
+      <td>666</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>51</td>
     </tr>
     <tr>
       <th>3 = IgM antibody test</th>
-      <td>1</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
@@ -13957,7 +13988,7 @@ sudo python3 -m pip install pyreadstat
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">AGEi</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -13973,15 +14004,15 @@ sudo python3 -m pip install pyreadstat
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[14]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>count    6892.000000
-mean       61.194283
-std        17.890810
+<pre>count    8920.000000
+mean       61.430717
+std        17.493943
 min        18.000000
 25%        49.000000
 50%        62.000000
@@ -14003,7 +14034,7 @@ Name: AGEi, dtype: float64</pre>
 <li>Google and other useful programming sites including git and stack overflow are available in the workspace. Simply add a tab on by clicking the + on the blue, browser bar above.</li>
 </ul>
 <h3 id="Billing,-Data,-or-Analysis-Questions?">Billing, Data, or Analysis Questions?<a class="anchor-link" href="#Billing,-Data,-or-Analysis-Questions?">&#182;</a></h3><ul>
-<li>If you have questions about your account, billing, the GWTG data, or would like to request analysis help from the AHA Data Science Team, please files a ticket with the data team by selecting <a href="https://precision.heart.org/contact">Contact Us</a> on the PMP portal under the About tab.</li>
+<li>If you have questions about your account, billing, the GWTG data, or would like to request analysis help from the AHA Data Science Team, please file a ticket with the data team by selecting <a href="https://precision.heart.org/contact">Contact Us</a> on the PMP portal under the About tab.</li>
 </ul>
 <h3 id="Technical-Questions-or-Issues?">Technical Questions or Issues?<a class="anchor-link" href="#Technical-Questions-or-Issues?">&#182;</a></h3><ul>
 <li>If you are having technical trouble installing software or packages, using the workspace or software in the workspace,  please file a ticket with support by selecting <a href="https://precision.heart.org/technical-support">technical support</a> on the PMP portal under the About tab.  </li>

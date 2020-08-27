@@ -109,16 +109,20 @@
                 "a": "The PMP is built using Hadoop and Jupyter framework as an easier transition to move to the cloud. Because of the design and security decisions, not all the offerings on AWS Marketplace are available within the workspace. "
             },
             {
-                "q": "Can I use SAS or other licensed products in conjunction with the PMP?",
-                "a": "Yes, however, you must have an active license for the tool prior to loading it on the platform.  Go to Technical Support for assistance loading tools; when completing the form, include details of the type of software you want to upload onto your workspace, including your active license."
+                "q": "Can I use licensed products in conjunction with the PMP?",
+                "a": "Yes, however, you must have an active license for the tool prior to loading it on the platform. " +
+                    "File a ticket with <a href='https://precision.heart.org/technical-support' target='_blank'>Technical Support</a> " +
+                    "for assistance loading tools; when completing the form, include details of the type of software you want to upload onto your workspace, including your active license."
             },
             {
                 "q": "Is there anything I need to do to prepare myself and my work to go on to the cloud?",
                 "a": "We recommend familiarizing yourself with R and Python and consider converting your files into the Parquet format, although Parquet is not a required format."
             },
             {
-                "q": "I know nothing about Jupyter Notebooks.  Do you provide training on how to use the notebooks?",
-                "a": "No, however, there are many resources online that can help you get up to speed on how to use Jupyter Notebooks.  Go here to look at the various tutorial videos online and this link takes you to the official Jupyter Notebooks site with detailed user documentation."
+                "q": "I know nothing about Jupyter Notebooks. Do you provide training on how to use the notebooks?",
+                "a": "No, however, a tutorial for getting started with Jupyter in the workspace is available" +
+                    " <a href='https://precision.heart.org/jupyter_notebooks/about' target='_blank'>here</a>, " +
+                    "and all Jupyter Notebook Documentation can be found <a href='https://https://jupyter.org/documentation' target='_blank'>here.</a>"
             },
             {
                     "q":"I normally use the Terminal, does the PMP have a Terminal mode?",
@@ -201,9 +205,10 @@
         categoryBtn.className = "collapsible";
         btnContent.className = "section-header torch-header grey-header"
         anchor.id = "faq-" + content_id;
+        anchor.className = "faq-anchor";
         plusIcon.className = "fas fa-plus";
         plusIcon.id = content_id + "-plus";
-        categoryBtn.onclick = function() {toggle_plus(content_id, plusIcon.id)};
+        categoryBtn.onclick = function() {toggle(content_id, plusIcon.id)};
 
         questionsContent.className = "collapsible-content";
         questionsContent.id = content_id;
@@ -226,7 +231,8 @@
             questionNum = questionNum +  1;
             const qaContainer = document.createElement("div");
             const questionBtn = document.createElement("button");
-            const question = document.createElement("p");
+            const questionText = document.createElement("span");
+            const question = document.createElement("a");
             const caret = document.createElement("i");
             const answer = document.createElement("div");
             
@@ -242,7 +248,8 @@
             qaContainer.className = "faq-container"
 
             question.appendChild(caret);
-            question.append(qa.q)
+            questionText.append(qa.q);
+            question.appendChild(questionText);
             questionBtn.appendChild(question);
             qaContainer.appendChild(questionBtn);
             qaContainer.appendChild(answer);

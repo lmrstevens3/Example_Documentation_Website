@@ -4,14 +4,14 @@ install.packages('haven')
 
 library(haven)
 
-dataFile <- '/mnt/workspace/GWTG/COVID19/data/covid19_cvd_data_jul20.sas7bdat'
-formatsFile <- '/mnt/workspace/GWTG/COVID19/data/covid19_cvd_formats_jul20.sas7bcat'
+dataFile = '/mnt/workspace/GWTG/COVID19/data/covid19_cvd_final_aug20.sas7bdat'
+formatsFile = '/mnt/workspace/GWTG/COVID19/data/R_Python_windows_formats.sas7bcat'
 
 df <- read_sas(dataFile, formatsFile)
 
 head(df, n = 10) #set n = 10, to show 10 rows
 
-colnames(df[, 1422:1428]) #display last 6 column names
+colnames(df[, 423:429]) #display last 6 column names
 
 str(df[,c(1:3, 6:8, 10)]) #show structure of columns 1-3, 6-8, and 10
 

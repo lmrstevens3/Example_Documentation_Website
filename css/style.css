@@ -1,21 +1,4 @@
 
-.collapsible {
-    cursor: pointer;
-    width: 100%;
-    border:#FFFFFF;
-    text-align: left;
-    padding:0;
-    background: transparent;
-    margin-block-start:0.1rem;
-    margin-block-end:0.1rem;
-    display:inline-block;
-}
-
-
-.collapsible:hover .h2_div {
-    /*background-color: #979797;*/
-    border-bottom: 0.15rem solid #E11127;
-}
 
 .collapsible:hover h3 {
     /*background-color: #979797;*/
@@ -40,95 +23,8 @@
     color: #C10E21;
 }
 
-/*.fa-caret-down {*/
-/*    color:#3b55e6;*/
-/*    font-size: large;*/
-/*    vertical-align: middle;*/
-/*}*/
-
-/*.fa-caret-right {*/
-/*    color:#3b55e6;*/
-/*    font-size: large;*/
-/*    vertical-align: middle;*/
-/*}*/
-
-.collapsible:hover h6 {
-    text-decoration: underline;
-    text-decoration-color: #C10E21;
-    color:#C10E21;
-}
 
 
-.collapsible.focus, .collapsible:focus {
-    outline: #b6c1fa solid 0.15em;
-    /*box-shadow: none;!important;*/
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-}
-
-
-.content {
-    padding-right:1rem;
-    padding-left:1rem;
-    margin-top: .1rem;
-    overflow: hidden;
-    display:  none;
-    font-size: 1.15rem;
-    text-align: left;
-    color: #000000;
-    line-height: 1.75;
-}
-
-
-.content p, li, ul li, ol li  {
-    font-family: Arial, serif;
-    font-size: 1.15rem;
-    margin-left: 2%;
-    margin-right: 2%;
-    text-align: left;
-    color: #000000;
-    line-height: 1.75;
-}
-
-.content img {
-    border: 0.1em solid #000000;
-    width:75%;
-
-}
-
-.content .note{
-    line-height:1.75;
-    font-style:italic;
-    font-weight: bold;
-    color: #334CD5;
-}
-
-.card {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    text-align:center;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(149,14,33,.125);
-    border-radius: .25rem;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
-    padding:7%;
-    height:100%;
-}
-
-.card h4 {
-    font-family: Arial, serif;
-    font-size: 1.35rem;
-    font-weight: 600;
-    text-align: center;
-    color: #000000;
-    margin: 1%;
-
-}
 
 
 

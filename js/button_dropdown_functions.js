@@ -60,13 +60,9 @@ function createButton(btnContent){
 
 function createButtons(btnsContent) {
     const btnDiv = document.createElement("div");
-    btnDiv.style.marginTop = "1%";
-    btnDiv.style.marginBottom = "1%";
-
     btnsContent.forEach(btnContent => {
-        const item = document.createElement("span");
-        item.style.type = 'button';
-        item.style.padding = "0.5rem";
+        const item = document.createElement("div");
+        item.className= "btns-menu";
         const btn = createButton(btnContent);
         btnDiv.append(item);
         item.append(btn);

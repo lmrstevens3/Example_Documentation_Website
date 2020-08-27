@@ -7,9 +7,11 @@
 
     <!--    bootstrap and icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
     <!--    style sheets-->
     <link rel="stylesheet" href="../css/aha_styling.css" type="text/css" media="screen"/>
@@ -18,8 +20,10 @@
     <link rel="stylesheet" href="../css/aha_affiliate_footer.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="../css/main-pmp-docs.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="../css/main-pmp-datasets.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../css/cards.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../css/collapsible_content.css" type="text/css" media="screen"/>
 
-    <script type="text/javascript" src="../js/toggle_collapse_functions.js"></script>
+    <script type="text/javascript" src="../js/toggle_functions.js"></script>
     <script type="text/javascript" src="../js/button_dropdown_functions.js"></script>
     <script type="text/javascript" src="../js/card_functions.js"></script>
 
@@ -29,6 +33,7 @@
         $(document).ready(() => {
             // console.log('ready');
             $('.aha_pmp_header').load('../components/aha_pmp_header.html');
+            $('.workspace-passwords').load('../components/workspace_passwords.html');
         });
         $.get("../components/aha_pmp_footer.html", function (data) {
             $("#footer-container").replaceWith(data);
@@ -39,16 +44,16 @@
 <body>
 <div class="aha_pmp_header"></div>
 
-<div class="title-container">
+<div class="title-container" style="padding:5%">
     <h1>Data Resources</h1>
     <h2><i>AHA COVID-19 CVD Registry Data and the Precision Medicine Platform (PMP)</i></h2>
     <h3>August 01, 2020 - Version 0.1</h3>
 </div>
-<div id="main" style="margin:1% 2%; display:grid;">
+<div id="main" style="margin:1% 2%;">
     <div class="top-right-search" >
         <button class="search-btn"><i class="fa fa-search"></i> Full Menu</button>
     </div>
-    <div id="intro-quick-links" style="margin-top:0; margin-bottom:2%">
+    <div id="intro-quick-links" style="margin-top:0; margin-bottom:1%">
         <span style="color:#6D6E71; font-size:14px; margin-bottom: 1px;">Quick Links</span>
         <script>
             const quickLinkContent= [
@@ -64,7 +69,7 @@
                     "label": "COVID19 Data Usage",
                     "menu": [
                         {
-                            "label": "<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRVcNyhl7_YDgrhzMwhnnacFoG5iMV5VuL74w&usqp=CAU' alt='drawing' style='width:17%; vertical-align:middle; padding-right:5px; padding-bottom: 5px;'>  R",
+                            "label": "<img src='https://www.r-project.org/logo/Rlogo.png' alt='drawing' style='width:17%; vertical-align:middle; padding-right:5px; padding-bottom: 5px;'>  R",
                             "link": "COVID19_files/usage_and_examples/R/R_covid19_cvd_data_usage.html",
                             "target": "_blank"
                         },
@@ -74,7 +79,7 @@
                             "target": "_blank"
                         },
                         {
-                            "label": "<img src='https://symbols.getvecta.com/stencil_95/22_sas-icon.37a49ec52c.png' alt='drawing' style='width:15%; vertical-align:middle; padding-right:5px; padding-bottom: 5px;'> SAS",
+                            "label": "<img src='https://www.automateexcel.com/excel/wp-content/uploads/2018/04/icon-shortcuts-sas.png' alt='drawing' style='width:15%; vertical-align:middle; padding-right:5px; padding-bottom: 5px;'> SAS",
                             "link": "COVID19_files/usage_and_examples/SAS/SAS_covid19_cvd_data_usage.html",
                             "target": "_blank"
                         }
@@ -94,16 +99,16 @@
                 },
                 {
                     "btntype": "dropdown",
-                    "className": "btn secondary-btn dropdown-toggle",
+                    "className": "btn secondary-btn",
                     "label": "Contact ",
                     "menu": [
                         {
-                            "label": "Contact Us (account, data, analyses)",
+                            "label": "Contact Us",
                             "link": "https://precision.heart.org/contact",
                             "target": "_blank"
                         },
                         {
-                            "label": "Technical Support (software, workspaces)",
+                            "label": "Technical Support",
                             "link": "https://precision.heart.org/technical-support",
                             "target": "_blank"
                         }
@@ -115,29 +120,24 @@
         </script>
     </div>
     <div id="intro">
-        <button class="collapsible" onclick="return toggle_plus('intro-content', 'intro-plus')">
-            <a class="section-header red-header" href="#">
+        <button class="collapsible" onclick="return toggle('intro-content', 'intro-plus')">
+            <span class="section-header red-header" href="#">
                 <h2><i class="fa fa-running" style="font-size: larger"></i>Getting Started</h2>
-                <i id="intro-plus" class="fas fa-plus" style="float:right; padding-top:2%; padding-right:1%"></i>
-            </a>
+                <i id="intro-plus" class="fas fa-minus"></i>
+            </span>
         </button>
-        <div id="intro-content" class="collapsible-content" style="display:block;">
+        <div id="intro-content" class="collapsible-content" style="display:block; padding:1%;">
             <h4>About the AHA COVID19 CVD Registry Data</h4>
-            <p>The COVID19 CVD Registry is a voluntary quality improvement registry, powered by AHA's Get With the
-                Guidelines<sup>&#174</sup>.
-            </p>
-            <p>This data was collected from <span style="background-color: yellow">x hospitals and comprises x patient records</span> Upon collection, hospitals are
-                provided detailed data <a href="COVID19_files/documentation/ahacovid19cvd_registry_collection_instructions.pdf" target="_blank">abstraction instructions.</a>
-                In-form and post collection data quality checks are performed to ensure accurate data entry, flagging and preventing
-                records from saving when a value is not within expected range.
-            </p>
-            <p>The registry entry criteria instruct hospitals to enter all patients >=18 years old who are hospitalized
-                with an active COVID-19 infection.Hospitals are directed to start data entry with their first hospitalized
-                patient with a COVID-19 diagnosis and continue with abstraction in consecutive discharge order until current.
-            </p>
-            <p>Additional information and documentation regarding the registry data, quality checks, data usage, as well as guidelines
-                for analysis and publication are provided in the workspace as well as on this site.
-            </p>
+            <ul>
+                <li>The COVID19 CVD Registry is a voluntary quality improvement registry, powered by AHA's Get With the
+                    Guidelines<sup>&#174</sup>. Information and documentation regarding the registry data, quality checks,
+                    data usage, as well as guidelines for analysis and publication are provided in the workspace as well as on this site.
+                </li>
+                <li>This data was collected from <b>88 hospitals and is comprised of 8920 records and 431 measures.</b> The
+                    registry entry criteria instruct hospitals to enter all patients >=18 years old who are hospitalized
+                    with an active COVID-19 infection.
+                </li>
+            </ul>
             <h4>Root Directory and COVID-19 CVD Data Location</h4>
             <ul>
                 <li>The COVID-19 Registry Data is located in <code>/mnt/workspace/GWTG/COVID-19</code></li>
@@ -147,19 +147,22 @@
             </ul>
             <h4>Software</h4>
             <ul>
-                <li>The workspace is <b>fully customizable</b> and tools such as SAS and MATLAB are available
-                    <a href ='https://precision.heart.org/contact'>upon request</a>.
+                <li>The workspace is <b>fully customizable</b> and tools such as MATLAB are available
+                    <a href ='https://precision.heart.org/contact'>upon request</a>. <b>R Studio, Jupyter Notebook, JupyterLab, and SAS Studio</b> are available as tabs when a workspace
+                    is launched.
                 </li>
-                <li><b>R Studio, Jupyter Notebook, JupyterLab, and SAS Studio (if requested)</b> are available as tabs when a workspace
-                    is launched. The terminal and a variety of languages including R, Python, bash, and SAS (license required) can
-                    be accessed through Jupyter and JupyterLab.
-                </li>
-                <li>A comprehensive list of pre-installed packages and software can be found on the
+                <li>The terminal and a variety of languages including R, Python, bash, and SAS can
+                    be accessed through Jupyter and JupyterLab. A comprehensive list of pre-installed packages and software can be found on the
                     <a href="https://precision.heart.org/workspace/about" target="_blank">About Workspaces</a> page.</li>
+                </li>
+                <li>R and SAS require a log in
+                    <button id="passwords-plus" class="fa fa-angle-down" onclick="toggle('workspace-passwords', 'passwords-plus')"></button>
+                    <div class="workspace-passwords" style="display:block;"></div>
+                </li>
             </ul>
         </div>
     </div>
-    <div id="cards-header-row" class="row container-fluid" style="padding:0">
+    <div id="cards-header-row" class="row container-fluid" style="padding:1%">
         <div class="col-lg-6">
             <div class="section-header red-header grey-header shadowed-header">
                 <i class="fa fa-book-open fa-2x"></i><h2>Data and Documentation</h2>
@@ -253,7 +256,7 @@
                 "icon": "fa fa-laptop-code",
                 "header": "Data Usage",
                 "content": "The COVID CVD registry data is available as sas files " +
-                    "in the GWTG/COVID19/data folder. Examples for how to load and use the data in SAS, R, and Python are available in" +
+                    "in the <code>GWTG/COVID19/data</code> folder. Examples for how to load and use the data in SAS, R, and Python are available in" +
                     "the usage_and_examples folder and can also be accessed using the button below.",
                 "btnContent": [
                     {
@@ -271,7 +274,7 @@
                     {
                         "btntype": "link",
                         "className": "btn primary-btn",
-                        "label": "<img src='https://symbols.getvecta.com/stencil_95/22_sas-icon.37a49ec52c.png' alt='drawing' style='width:30px; vertical-align:middle; padding-right:5px;'>SAS",
+                        "label": "<img src='https://www.automateexcel.com/excel/wp-content/uploads/2018/04/icon-shortcuts-sas.png' alt='drawing' style='width:30px; vertical-align:middle; padding-right:5px;'>SAS",
                         "link": "COVID19_files/usage_and_examples/SAS/SAS_covid19_cvd_data_usage.html"
                     }]
             },
@@ -295,13 +298,13 @@
                     },
                     {
                         "btntype": "link",
-                        "className": "btn primary-btn dropdown-toggle",
+                        "className": "btn primary-btn",
                         "label": "Manuscript Guide",
                         "link": "COVID19_files/analysis_manuscript_guidelines/AHA_COVID-19_Registry_Author_Reference_Guide.pdf"
                     },
                     {
                         "btntype": "link",
-                        "className": "btn primary-btn dropdown-toggle",
+                        "className": "btn primary-btn",
                         "label": "NDA-DUA",
                         "link": "COVID19_files/analysis_manuscript_guidelines/AHA_GWTG_COVID-19_PMP_NDA-DUA.pdf"
                     }

@@ -4,11 +4,9 @@ h1, h2, h3, h4, h5, h6 {
     font-weight:  normal;
 }
 
-
 h6 {
     color: #6D6E71;
 }
-
 
 a {
     color: #3b55e6;
@@ -19,28 +17,40 @@ a:hover{
     color:#334CD5;
 }
 
- p ul li a {
-    overflow: hidden;
+p, ul li, ol li  {
     font-family: Montserrat,Helvetica Neue,Arial,sans-serif;
+    font-size: 1.1rem;
+    margin: 1%;
     text-align: left;
+    color: #000000;
     line-height: 1.5;
 }
 
-code {
-    padding: 2px 4px;
-    font-size: 90%;
-    color: #c7254e;
-    background-color: #f9f2f4;
-    border-radius: 4px;
+.header-banner {
+    background-color:#FFFFFF;
+    width:100%;
+    padding: 1%;
+    color: #C10E21;
+    vertical-align: middle;
+    font-size: 1.2rem;
+    text-align:center;
+    border-top: 1px solid #C10E21;
+    border-bottom: 1px solid #C10E21;
+}
+.header-banner .primary-btn {
+    margin-left:15px;
+    font-size: 1.2rem;
 }
 
+
 /*Buttons*/
-.primary-btn, .dropdown .primary-btn {
+.primary-btn {
     border: 1px solid #C10E21;
     background-color: #C10E21;
-    color: #FFF;
     border-radius: 15rem;
     padding: 2px 15px;
+    font-size: 16px;
+    color: #FFF;
     text-decoration: none;
     font-family: Montserrat,Helvetica Neue,Arial,sans-serif;
 }
@@ -64,7 +74,7 @@ code {
 }
 
 .primary-btn a, .primary-btn ul, .primary-btn i.fa-caret-down {
-    font-size: 16px;
+    /*font-size: 16px;*/
     color: #FFF;
 }
 
@@ -85,14 +95,14 @@ code {
     color: #C10E21;
 }
 .dropdown-menu {
-    padding-left:7px;
+    padding:10px;
 }
-
 
 .dropdown-menu li a {
     margin:1%;
     font-family: Montserrat, Helvetica Neue, Arial, sans-serif;
     color: #6D6E71;
+    white-space:nowrap;
 }
 
 .secondary-btn  {
@@ -127,11 +137,6 @@ code {
     border: .15rem solid #E11127;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 }
-
-/*.secondary-btn span.fa:hover {*/
-/*    background-color: transparent;*/
-/*    color: #E11127;*/
-/*}*/
 
 .secondary-btn li a:hover {
     border-bottom: 2px solid #e9ecef;

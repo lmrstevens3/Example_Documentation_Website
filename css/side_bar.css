@@ -6,24 +6,27 @@
 
 #collapsible_sidebar {
     position: sticky;
-    margin-top: 0px;
-    width: 15rem;
-    z-index: 0;
+    margin-top: 0;
+    top:12rem;
+    width: 16rem;
+    z-index: 1;
     padding-left: .2rem;
     background: #e9ecef  repeat-y;
     border-right: 1px solid rgba(149, 7, 27, 0.12);
     border-radius: .25rem;
-    box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 0 0 rgba(0, 0, 0, 0.25);
     height: 100%;
+    overflow: scroll;
+    margin-bottom:5rem;
+
 }
 
 #collapsible_sidebar button {
     color: #C10E21;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: bold;
     padding: 0.5rem;
     border: none;
-    /*background: #e9ecef;*/
     background: transparent;
 
 }
@@ -34,18 +37,19 @@
     box-shadow: none !important;
 }
 
-.sidebar_btn i {}
+
 
 .sidebar_btn span {
     padding-right: 0.5rem;
     color: #C10E21;
-    /*background: #e9ecef url('../getting-started/images/molecules_data_sm.png') repeat-y;*/
     background:transparent none repeat scroll 0 0;
     border: none;
     font-family: Montserrat,Helvetica Neue,Arial,sans-serif;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     text-align: left;
     float: left;
+    white-space: nowrap;
+    overflow: scroll;
 }
 
 
@@ -58,24 +62,19 @@
     padding-left: 1%;
     padding-right: 1%;
     color: #6D6E71;
-    /*background: #e9ecef none repeat scroll 0 0;*/
-    background:transparent none repeat scroll 0 0;
     width: 95%;
-    padding-bottom: 1%;
-    margin-bottom: 2%;
-    overflow:auto;
+    padding-bottom: 2%;
+    margin-bottom: 5rem;
+    overflow:scroll;
 }
 
 #toc {
     padding-left: 1rem;
     padding-right: 1%;
     color: #6D6E71;
-    /*background: #e9ecef none repeat scroll 0 0;*/
-    background:transparent none repeat scroll 0 0;
 }
 
 .toc_btn {
-    /*background-color: #e9ecef;*/
     background:transparent none repeat scroll 0 0;
     border: none;
 }
@@ -88,13 +87,17 @@
     list-style: outside none none !important;
     Padding-left: 5px;
     line-height: 1.75;
+    white-space: nowrap;
+    /*overflow: scroll;*/
 
 }
 
 #sidebar_content a {
     color: #6D6E71;
-    font-family: Arial, serif;
-    font-size: 1.2em;
+    font-family: Montserrat,Helvetica Neue,Arial,sans-serif;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: scroll;
 }
 
 #sidebar_content a:hover {

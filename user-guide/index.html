@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PMP User Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="../css/aha_styling.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../css/search.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../css/aha_navbar.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../css/main-pmp-docs.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../css/headers.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../css/side_bar.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../css/collapsible.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../css/cards.css" type="text/css" media="screen"/>
+
+    <link rel="stylesheet" href="../css/aha_pmp_header.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../css/aha_affiliate_footer.css" type="text/css" media="screen"/>
+
+    <script type="text/javascript" src="../js/toggle_functions.js"></script>
+    <script type="text/javascript" src="../js/button_dropdown_functions.js"></script>
+    <script type="text/javascript" src="../js/side_bar_functions.js"></script>
+
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js"></script>
+    <script>
+        $(document).ready(() => {
+            // console.log('ready');
+            $('.aha_pmp_header').load('../components/aha_pmp_header.html');
+            $('.workspace-passwords').load('../components/workspace_passwords.html');
+            $('.pmp-docs-navbar').load('../components/navbar.html');
+        });
+        $.get("../components/aha_pmp_footer.html", function (data) {
+            $("#footer-container").replaceWith(data);
+        });
+
+    </script>
+
+</head>
+
+<body onload="adjustSideBar(); adjust_footer()" onresize="adjustSideBar()" ontoggle="adjustSideBar()" onscroll="adjustSideBar()">
+
+<div class="aha_pmp_header"></div>
+<div class="pmp-docs-navbar"></div>
+<div class="w3-sidebar w3-bar-block" id="collapsible_sidebar">
+    <button class="w3-bar-item w3-button w3-large" id="sidebarToggleButton" onclick="sidebar_toggle()">
+        <i class="fa fa-exchange-alt" style="font-size: larger; text-align:right; display:inline-block;"></i>
+    </button>
+    <div id="sidebar_content">
+        <div id="toc">
+            <ul>
+                <li><a href="#transfer" onclick="return toggle('transfer_cont', 'transfer_plus', true)">Transfer Files</a>
+                    <button class="toc_btn" onclick="return toggle('toc-transfer', 'transfer-angle');">
+                        <i id="transfer-angle" class="fa fa-angle-down"></i>
+                    </button>
+                    <div id="toc-transfer" style="display:block;">
+                        <ul>
+                            <li><a href="#upload"
+                                   onclick="return toggle_sub('transfer_cont', 'transfer_plus', true, 'upload_cont','upload_caret')">
+                                Upload Files</a></li>
+                            <li><a href="#dataOut"
+                                   onclick="return toggle_sub('transfer_cont', 'transfer_plus', true, 'dataOut_cont', 'dataOut_caret')">
+                                Get Files Out</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#accessData" onclick="return toggle('access_cont', 'access_plus', true)">Accessing Data</a>
+                    <button class="toc_btn" onclick="return toggle('toc-access', 'access-angle');">
+                        <i id="access-angle" class="fa fa-angle-down"></i>
+                    </button>
+                    <div id="toc-access" style="display:block;">
+                        <ul>
+                            <li><a href="#download"
+                                   onclick="return toggle_sub('access_cont', 'access_plus', true, 'download_cont','download_caret')">
+                                Public Download</a></li>
+                            <li><a href="#repo"
+                                   onclick="return toggle_sub('access_cont', 'access_plus', true, 'repo_cont', 'repo_caret')">
+                                Repositories</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#workspace_portal"
+                       onclick="return toggle('workspace_portal_cont', 'workspace_portal_plus', true)">Workspace Portal</a>
+                    <button class="toc_btn" onclick="return toggle('toc-portal', 'portal-angle');">
+                        <i id="portal-angle" class="fa fa-angle-down"></i>
+                    </button>
+                    <div id="toc-portal" style="display:block;">
+                        <ul>
+                            <li><a href="#workspace_name"
+                                   onclick="return toggle_sub('workspace_portal_cont', 'workspace_portal_plus', true, 'workspace_name_cont', 'workspace_name_caret')">
+                                Name a Workspace</a></li>
+                            <li><a href="#portal_menu"
+                                   onclick="return toggle_sub('workspace_portal_cont', 'workspace_portal_plus', true, 'portal_menu_cont','portal_menu_caret')">
+                                Share and Configure</a></li>
+                            <li><a href="#pause"
+                                   onclick="return toggle_sub('workspace_portal_cont', 'workspace_portal_plus', true, 'pause_cont', 'pause_caret')">
+                                Start and Stop</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#workspace_env" onclick="return toggle('workspace_env_cont', 'workspace_env_plus', true)">PMP Workspace</a>
+                    <button class="toc_btn" onclick="return toggle('toc-workspace-env', 'workspace-env-angle');">
+                        <i id="workspace-env-angle" class="fa fa-angle-down"></i>
+                    </button>
+                    <div id="toc-workspace-env" style="display:block;">
+                        <ul>
+                            <li><a href="#software"
+                                   onclick="return toggle_sub('workspace_env_cont', 'workspace_env_plus', true, 'software_cont','software_caret')">
+                                Software</a></li>
+                            <li><a href="#tutorials"
+                                   onclick="return toggle_sub('workspace_env_cont', 'workspace_env_plus', true, 'tutorials_cont', 'tutorials_caret')">
+                                Tutorials</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div id="main" class="main-sidebar main-nav">
+    <div class="title-container">
+        <h1>Precision Medicine Platform User Guide</h1>
+        <h4>Date: August 01, 2020 - Version 0.1</h4>
+    </div>
+    <div class="header-banner">
+        <i>If you do not have a PMP account, please register</i>
+        <button type="button" class="btn primary-btn">
+            <a href="https://precision.heart.org/sso/" target="_blank">Register Now</a>
+        </button>
+    </div>
+    <div class="content" style="display:block;">
+        <p>The Precision Medicine Platform Workspace consists of two parts, the <a
+                href="https://precision.heart.org/workspace" target="_blank">workspace portal</a> (image on the
+            left), and the cloud-based virtual environment that is used for computing (image on the right). <p>
+        The portal is a webpage that acts as in interface between the user and the workspace virtual environment,
+        and allows users to control workspace settings. The workspace environment is a cloud-based compute environment
+        for analytics.
+        <p>
+            <img src="https://precision.heart.org/assets/images/workspace.png" alt="drawing;"
+                 style=" width: 38%; float:left; height:100%;">
+            <img src="images/workspace.png" alt="drawing;"
+                 style=" width: 58%; display:inline-block; float:right;">
+        </p>
+    </div>
+    <button type="button" class="collapsible" onclick="return toggle('transfer_cont', 'transfer_plus')">
+        <a class="anchor" id="transfer"></a>
+        <a class="section-header red-header grey-header">
+            <h2>Transfer Files In and Out of the PMP </h2><i id="transfer_plus" class="fas fa-minus"></i>
+        </a>
+    </button>
+    <div id="transfer_cont" class="content" style="display:block;">
+        <p><i>Please file a ticket with <a href="https://precision.heart.org/technical-support" target="_blank">Technical Support</a>
+            if at any point you are having trouble uploading data.</i></p>
+        <button type="button" class="collapsible" onclick="return toggle('upload_cont', 'upload_caret')">
+            <a id='upload' class="anchor"></a>
+            <a class="section-header">
+                <h3>Upload to PMP <i id="upload_caret" class="fa fa-caret-right"></i></h3>
+            </a>
+        </button>
+        <div id="upload_cont" class="content" style="background-color:#f3f3f3; ">
+            <h5><b>File Upload</b></h5>
+            <p>
+                Files can be uploaded to the platform on the <a
+                    href="https://precision.heart.org/workspace" target="_blank">workspace portal</a> page by
+                clicking the <i class="fa fa-file-upload"></i> upload icon.
+                Once the files are uploaded and you have launched your workspace, the files will be found in the
+                folder labeled scratchbucket on the Jupyter home page (path: <code>/mnt/workspace/scratchbucket/</code>).</p>
+            <p><i><span class="note">Note: </span>The time it takes to upload data is dependent on the internet
+                upload speed</i></p>
+            <h5><b>SFTP Transfer</b></h5>
+            <p>Should you have very large data files and need an SFTP set up to upload the data, please submit a
+                request through <a href="https://precision.heart.org/technical-support" target="_blank">Technical
+                    Support</a>.
+            </p>
+        </div>
+        <button type="button" class="collapsible" onclick="return toggle('dataOut_cont', 'dataOut_caret')">
+            <a id='dataOut' class="anchor"></a>
+            <a class="section-header">
+                <h3>Get Files Out of the PMP <i id='dataOut_caret' class="fa fa-caret-right"></i></h3>
+            </a>
+        </button>
+        <div id="dataOut_cont" class="content" style="background-color:#f3f3f3; ">
+            <p>
+                Data and Code within a workspace can be synced with the <a
+                    href="https://precision.heart.org/workspace" target="_blank">workspace portal</a> by moving
+                it to the <code>/mnt/workspace/My_Notebooks</code> directory within the workspace. Files located in this
+                directory will display under the My Notebooks and Data section of workspace portal.
+                <br>
+                <i><span class="note">Note:</span> Due to the secure nature of the workspace, certain files will
+                    not sync with the workspace portal. To extract this data, please file a ticket with
+                <a href="https://precision.heart.org/technical-support" target="_blank">Technical Support</a>.</i>
+            </p>
+            <p><img src="https://precision.heart.org/assets/images/workspace.png" alt="drawing;"
+                    style="height:50%;" class="content"></p>
+        </div>
+    </div>
+    <button type="button" class="collapsible" onclick="return toggle('access_cont','access_plus')">
+        <a class="anchor" id="accessData"></a>
+        <a id="access" class="section-header red-header grey-header">
+            <h2>Access Data in the PMP </h2><i id="access_plus" class="fas fa-minus"></i>
+        </a>
+    </button>
+    <div id="access_cont" class="content" style="display:block;">
+        <p><i>Please file a ticket with <a href="https://precision.heart.org/technical-support" target="_blank">Technical Support</a>
+            if at any point you are having trouble accessing data.</i></p>
+        <ul>
+            <li>Publicly available data can be accessed in a variety of ways in a PMP workspace including
+                downloading data directly and pulling/cloning data from repositories. Steps for accessing data
+                from download links and repositories are described below.
+            </li>
+            <li>Datasets requested through the search page can be provided to users in a variety of ways. Upon
+                approval of a dataset, an email will be sent explaining how to access the data and where it is
+                located as well as the location of any resources available relating to the dataset approved,
+                such as documentation or tutorials.
+            </li>
+        </ul>
+        <button type="button" class="collapsible" onclick="return toggle('download_cont', 'download_caret')">
+            <a id='download' class="anchor"></a>
+            <a class="section-header">
+                <h3>Downloading Data Directly <i id="download_caret" class="fa fa-caret-right"></i></h3>
+            </a>
+        </button>
+        <div id="download_cont" class="content" style="background-color:#f3f3f3; ">
+            <p>Data can be downloaded in the workspace in the same fashion as your personal computer. Add a
+                new tab in Chrome, navigate to the download link, and click download.</p>
+            <p><img src="images/download_data_PMP.png" alt="drawing"
+                    style="width:90%; border:0.1em solid #000000;"></p>
+            <ul>
+                <li>This will download the data in a temporary downloads folder. Simply click <i>Upload</i>
+                    in Jupyter or Jupyter Lab to upload the downloaded files and save them to the workspace.
+                </li>
+            </ul>
+            <p><i><span class="note">Note: </span> If you are having trouble accessing a certain link in
+                the platform, please file a ticket with
+                <a href="https://precision.heart.org/technical-support" target="_blank">Technical Support</a>.</i>
+            </p>
+        </div>
+        <button type="button" class="collapsible" onclick="return toggle('repo_cont', 'repo_caret')">
+            <a id='repo' class="anchor"></a>
+            <a class="section-header">
+                <h3>Pulling or Cloning Data from a Repository<i id='repo_caret'  class="fa fa-caret-right"></i></h3>
+            </a>
+        </button>
+        <div id="repo_cont" class="content" style="background-color:#f3f3f3; ">
+            <p>Using git repositories in the workspace functions the same way as it does on a personal computer.
+                To pull data or clone a repository, simply go to the repository in the workspace (first tab on
+                right shown below).</p>
+            <p><img src="images/clone_data_git_workspace.png" alt="drawing"
+                    style="width:90%; border:0.1em solid #000000;"></p>
+            <ul>
+                <li>A terminal can be opened in the workspace through JupyterLab or by clicking New >
+                    Terminal in the Jupyter Home Tab
+                </li>
+                <li>Using login credentials or and ssh key works the same as with your personal
+                    computer.
+                </li>
+                <li>The example above is cloning the COVID-19 Csse_daily_reports repository from Johns
+                    Hopkins.
+                </li>
+            </ul>
+            <p><i><span class="note">Tip:</span> Make sure to access the repository in your workspace when
+                setting up ssh keys. You cannot copy an ssh key out of the workspace</i></p>
+        </div>
+    </div>
+    <button type="button" class="collapsible" onclick="return toggle('workspace_portal_cont', 'workspace_portal_plus')">
+        <a class="anchor" id="workspace_portal"></a>
+        <a class="section-header red-header grey-header">
+            <h2>The Workspace Portal Page </h2><i id="workspace_portal_plus" class="fas fa-minus"></i>
+        </a>
+    </button>
+    <div id="workspace_portal_cont" class="content" style="display:block;">
+        <button style="margin-top:1rem" type="button" class="collapsible" onclick="return toggle('workspace_name_cont', 'workspace_name_caret')">
+            <a class="anchor" id="workspace_name"></a>
+            <a class="section-header">
+                <h3>Naming A Workspace <i id='workspace_name_caret' class="fa fa-caret-right"></i></h3>
+            </a>
+        </button>
+        <div id="workspace_name_cont" class="content" style="background-color:#f3f3f3; margin-top:2%;">
+            <p>Update Workspace Name: When the workspace is provisioned, the name of the workspace is the workspace
+                owner's User ID (which is normally their email address). To update the workspace name, click on the
+                name and complete the form in the pop-up.
+            </p>
+            <img src="images/workspace%20name.png" alt="drawing" style="width:30%; border:0.1em solid #000000; float:top;">
+        </div>
+        <button type="button" class="collapsible" onclick="return toggle('portal_menu_cont', 'portal_menu_caret')">
+            <a class="anchor" id="portal_menu"></a>
+            <a class="section-header">
+                <h3>Sharing and Configuring a Workspace <i id='portal_menu_caret' class="fa fa-caret-right"></i></h3>
+            </a>
+        </button>
+        <div id="portal_menu_cont" class="content" style="background-color:#f3f3f3; ">
+            <p>
+                The <i class="fa fa-bars"></i> menu icon on the top right of the second box of the
+                <a href="https://precision.heart.org/workspace" target="_blank">workspace portal</a>
+                enables the owner to share the workspace with others, which is further detailed in the section below,
+                as well as provides information about the workspace.
+            </p>
+            <ul>
+                <li>
+                    Config allows the user to determine if the billing history is to be displayed on the workspace
+                    landing page. Only Paying customers will have this option.
+                </li>
+                <li>
+                    The Details options provides information about the current computational architecture set up in the
+                    workspace. A workspace architecture can be changed by pausing a workspace, resuming, and selecting
+                    the desired option upon start.
+                </li>
+                <li>
+                    The design of PMP workspaces is such that when a user is provisioned a workspace, no one except the
+                    user has access (including the AHA). All code and data is housed behind a secure walled garden that
+                    cannot be accessed by anyone other than the user. To provide workspace access for
+                    teams working on projects, the owner of a workspace can share their workspace with other people who
+                    have a PMP account.
+                    <ul>
+                        <li>Shared users can access all code and files in the workspace and it is a workspace
+                            owner's responsibility to ensure the new shared user has the appropriate data approvals prior to sharing the
+                            workspace.
+                        </li>
+                        <li>
+                            To share a workspace with a user, click share and enter the email for the shared user on the PMP
+                            and set any desired restraints (e.g. allowing to share/publish code or allowing to start/stop the workspace)
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <img src="images/share_config_details.png" alt="drawing"
+                 style="width:10%; border:0.1em solid #000000; float:top;">
+            <img src="images/workspace%20Details.png" alt="drawing"
+                 style="width:25%; border:0.1em solid #000000; display:inline-block; vertical-align:top; margin:2%">
+            <img src="images/share_workspace.png" alt="drawing;"
+                 style="width:30%; border:0.1em solid #000000; display:inline-block; vertical-align:top; margin:2%">
+        </div>
+        <button type="button" class="collapsible" onclick="return toggle('pause_cont', 'pause_caret')">
+            <a class="anchor" id="pause"></a>
+            <a class="section-header">
+                <h3>Starting and Stopping the Workspace <i id='pause_caret' class="fa fa-caret-right"></i></h3>
+            </a>
+        </button>
+        <div id="pause_cont" class="content" style="background-color:#f3f3f3; ">
+            <p>The AHA recommends pausing your workspace when it will not be in use for a few days or longer. This
+                preserves the overall resources needed to run and maintain a workspace and allows for updates to be
+                completed. A workspace can be paused by clicking the red pause button on the
+                <a href="https://precision.heart.org/workspace" target="_blank">workspace portal</a>.
+                Additionally, users can change architectures and compute options when pausing and resuming.
+                When resuming, the user will be provided the opportunity to set the workspace operating system
+                (linux or windows) and set configurations (EMR, EC2-GPU, or EC2-CPU). For custom sizing options,
+                please reach out to <a href="https://precision.heart.org/tech-support" target="_blank">Technical Support</a>.
+            </p>
+        </div>
+        <img src="https://precision.heart.org/assets/images/workspace.png" alt="drawing;" style="width:75%">
+    </div>
+    <button type="button" class="collapsible" onclick="return toggle('workspace_env_cont', 'workspace_env_plus')">
+        <a class="anchor" id="workspace_env"></a>
+        <a class="section-header red-header grey-header">
+            <h2>The Workspace Cloud Environment </h2><i id='workspace_env_plus' class="fas fa-minus"></i>
+        </a>
+    </button>
+    <div id="workspace_env_cont" class="content" style="display:block;">
+        <button type="button" class="collapsible" onclick="return toggle('software_cont', 'software_caret')">
+            <a class="anchor" id="software"></a>
+            <a class="section-header">
+                <h3 style>Software and Functionality <i id='software_caret' class="fa fa-caret-right"></i></h3>
+            </a>
+        </button>
+        <div id="software_cont" class="content" style="background-color:#f3f3f3;">
+            <h4>Helpful Tips: </h4>
+            <ul>
+                <li>The directory where files are located is <code>/mnt/workspace</code></li>
+                <li>The terminal can be accessed in JupyterLab or by clicking the <i>New</i> button in Jupyter</li>
+                <li>The internet is available in the workspace, just click a new tab in Chrome</li>
+                <li>To paste something inside the workspace, click the paste icon on the top menu bar. You can not
+                    copy
+                    out of the workspace due to security reasons.
+                </li>
+                <li>If screen is frozen or solid blue/black, click the 4 squares on the top menu bar</li>
+            </ul>
+            <h4>Root Directory and COVID-19 CVD Data Location</h4>
+            <ul>
+                <li>The COVID-19 Registry Data is located in <code>/mnt/workspace/GWTG/COVID-19</code></li>
+                <li>The root path in the workspace is <code>/mnt/workspace</code>. This is the default directory for the
+                    Jupyter Home Page JupyterLab, R Studio and SAS Studio.
+                </li>
+            </ul>
+            <h4>Software</h4>
+            <ul>
+                <li>The workspace is <b>fully customizable</b> and tools such as MATLAB are available
+                    <a href ='https://precision.heart.org/contact'>upon request</a>.
+                </li>
+                <li><b>R Studio, Jupyter Notebook, JupyterLab, and SAS Studio</b> are available as tabs when a workspace
+                    is launched. The terminal and a variety of languages including R, Python, bash, and SAS can
+                    be accessed through Jupyter and JupyterLab.
+                </li>
+                <li>Python and R based packages can easily be installed by users via pip and
+                    install.packages respectively.
+                </li>
+                <li>The workspace has a Red Hat Linux Operating System. Yum can be used to get, install, and manage
+                    software installation and packages. Users are granted root access to enable customization based on user needs.
+                </li>
+                <li>R and SAS require a log in
+                    <button id="passwords-plus" class="fa fa-angle-down" onclick="toggle('workspace-passwords', 'passwords-plus')"></button>
+                    <div class="workspace-passwords" style="display:block;"></div>
+                </li>
+                <li>A comprehensive list of pre-installed packages and software can be found on the
+                    <a href="https://precision.heart.org/workspace/about" target="_blank">About Workspaces</a> page.</li>
+                <li>The ReadMe notebook on the Jupyter Home page <code>/mnt/workspace</code> provides
+                    information regarding workspace usage, including trouble shooting instructions, software references, and
+                    tutorials.
+                </li>
+            </ul>
+        </div>
+        <button type="button" class="collapsible" onclick="return toggle('tutorials_cont', 'tutorials_caret')">
+            <a class="anchor" id="tutorials"></a>
+            <a class="section-header">
+                <h3 style>Tutorials and Examples <i id="tutorials_caret" class="fa fa-caret-right"></i></h3>
+            </a>
+        </button>
+        <div id="tutorials_cont" class="content" style="background-color:#f3f3f3;">
+            <p>A variety of tutorials and examples are available on the Platform. Available tutorials cover concepts
+                such as how to perform machine learning analyses with spark, how to conduct a GWAS analysis, or how
+                to install and use software.</p>
+            <p>The <i>ReadMe</i> notebook on the Jupyter Home Page (<code>/mnt/workspace</code>) of a workspace contains an
+                overview of the content available and the location for many of the tutorials available. Tutorials
+                and examples can be found in the jupyter_notebooks directory (<code>/mnt/workspace/jupyter_notebooks</code>) of
+                the workspace. Users can also request data science and support services for help with analyses and
+                workspace usage. For more information, <a href="https://precision.heart.org/contact" target="_blank">
+                    contact us.</a>
+            </p>
+        </div>
+        <img src="images/workspace.png" alt="drawing;" style="width:80%;">
+    </div>
+</div>
+<div id="footer-container"></div>
+
+</body>
+</html>

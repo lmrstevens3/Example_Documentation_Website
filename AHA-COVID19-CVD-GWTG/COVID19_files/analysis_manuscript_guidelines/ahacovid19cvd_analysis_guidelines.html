@@ -13146,8 +13146,12 @@ $( document ).ready(function(){
 <li><strong><code>Combined</code>:</strong> variables that have been added to the registry separately (ex. serial labs collected over time) and combine later.</li>
 <li><strong><code>Merged</code>:</strong> variables that have been added from additional, outside, datasets or registries (ex. American Hospital Association database)</li>
 </ul>
-<h3 id="Records--admission-ID,-Patient-ID,-and-Hospital-ID">Records- admission ID, Patient ID, and Hospital ID<a class="anchor-link" href="#Records--admission-ID,-Patient-ID,-and-Hospital-ID">&#182;</a></h3><p>The records (or rows/samples) in the data are hospital admission records, which means a patient in the dataset can have multiple records if admitted more than once. The <code>PATIENT_ID</code> variable identifies which records belong to which patients and the <code>RECORD_ID</code> variable identifies the hospital admission record.</p>
-<h5 id="Patient-ID,-and-Hospital-ID">Patient ID, and Hospital ID<a class="anchor-link" href="#Patient-ID,-and-Hospital-ID">&#182;</a></h5><p>The Record_ID variable identifies the hospital admission record. The <code>PATIENT_ID</code> variable can be used to identify patients in the data and can be used to identify patient with multiple admissions. The <code>SRC_FAC_ID</code> variable can be used to identify hospitals in the data and can be used when clustering by hospital.</p>
+<h3 id="Records--admission-ID,-Patient-ID,-and-Hospital-ID">Records- admission ID, Patient ID, and Hospital ID<a class="anchor-link" href="#Records--admission-ID,-Patient-ID,-and-Hospital-ID">&#182;</a></h3><p>The records (or rows/samples) in the data are hospital admission records, which means a patient in the dataset can have multiple records if admitted more than once. The identifiers below should be used in analyses. Please refer to <a href="#Identifiers">Identifiers</a> in the Derived Variables sections for additional information.</p>
+<ul>
+<li>The <code>PATIENT_ID</code> variable is a unique identifier for patients in the data</li>
+<li>The <code>RECORD_ID</code> variable is unique identifier for the hospital admission records. </li>
+<li>The <code>SRC_FAC_ID</code> variable is the unique identifier for hospitals in the data</li>
+</ul>
 
 </div>
 </div>
@@ -13193,7 +13197,18 @@ $( document ).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Derived-Variables"><span style="width:50%; color:#C10E21; border-bottom:0.25rem  solid #f3f3f3;">Derived Variables</span><a class="anchor-link" href="#Derived-Variables">&#182;</a></h1><h2 id="Variables-Derived-to-have-Consistent-Units">Variables Derived to have Consistent Units<a class="anchor-link" href="#Variables-Derived-to-have-Consistent-Units">&#182;</a></h2><p>The following derived variables have been calculated or derived to ensure consistent units. <strong>It is recommend these variables are used in analyses.</strong></p>
+<h1 id="Derived-Variables"><span style="width:50%; color:#C10E21; border-bottom:0.25rem  solid #f3f3f3;">Derived Variables</span><a class="anchor-link" href="#Derived-Variables">&#182;</a></h1><h2 id="Identifiers">Identifiers<a class="anchor-link" href="#Identifiers">&#182;</a></h2><h5 id="Unique-Identifiers">Unique Identifiers<a class="anchor-link" href="#Unique-Identifiers">&#182;</a></h5><p>The following variables are unique identifiers and can be used to identify patients, records, or hospitals in the data.</p>
+<ul>
+<li><code>RECORD_ID</code> and <code>RCRDNUM</code>: Unique identifier for admission records. RECORD_ID is a universal Identifier. </li>
+<li><code>PATIENT_ID</code>: Unique identifier for patients. Please review the <a href="#Analyses-by-Patient-vs.-Admission">Analyses by Patient vs. Admission</a> in the Analysis Recommendations section before creating a unique patient cohort for analyses. </li>
+<li><code>SRC_FAC_ID</code> variable is the unique identifier for hospitals in the data, and should be used when clustering by hospital. Please review the <a href="#Hosptial-Clustering">Hosptial Clustering</a> in the Analysis Recommendations section when performing hospital clustering.</li>
+</ul>
+<h5 id="Hospital-Level-Identifiers">Hospital Level Identifiers<a class="anchor-link" href="#Hospital-Level-Identifiers">&#182;</a></h5><p>The following identifiers are unique to a hospital in the data. The same identifier can be used at multiple hospitals</p>
+<ul>
+<li><code>SUBJID</code>: Identifier for patients at a hospital site. This ID is not unique and there is a possibility for the same number to be used at multiple facilities when its not the same patient. SUBJID and SRC_FAC_ID can be used to identify a readmission at a single hospital but <strong><em>NOT</em></strong> across hospitals.</li>
+<li><code>CASE_ID</code>: Sequential Number assigned to the admission records when entered at a hospital. IT is unique for the hospital site but not the registry. </li>
+</ul>
+<h2 id="Variables-Derived-to-have-Consistent-Units">Variables Derived to have Consistent Units<a class="anchor-link" href="#Variables-Derived-to-have-Consistent-Units">&#182;</a></h2><p>The following derived variables have been calculated or derived to ensure consistent units. <strong>It is recommend these variables are used in analyses</strong></p>
 <ul>
 <li><code>AGEi</code> Demographics: Age (18-110) [D]</li>
 <li><code>HEIGHTi</code> Hospitalization: Vitals (Admission): Height (127-227 cm) [D]</li>
@@ -13220,7 +13235,7 @@ $( document ).ready(function(){
 </ul>
 </li>
 </ul>
-<h2 id="Date-Variables-(&quot;Studyday&quot;-variables)">Date Variables ("Studyday" variables)<a class="anchor-link" href="#Date-Variables-(&quot;Studyday&quot;-variables)">&#182;</a></h2><p>De-identified, derived date variables typically have the "Studyday" tag in the description and end in "DT" or "DATE" (<code>ex. ANCHORDT</code>). These variables are de-identified date variables from the raw registry data, where the anchor date, or baseline (day 0) is hospital admission date. All derived dates are in the context of the Admission date (0) + day. For example:</p>
+<h2 id="Date-Variables-(Studyday-variables)">Date Variables (Studyday variables)<a class="anchor-link" href="#Date-Variables-(Studyday-variables)">&#182;</a></h2><p>De-identified, derived date variables typically have the "Studyday" tag in the description and end in "DT" or "DATE" (<code>ex. ANCHORDT</code>). These variables are de-identified date variables from the raw registry data, where the anchor date, or baseline (day 0) is hospital admission date. All derived dates are in the context of the Admission date (0) + day. For example:</p>
 <p>Patient A, admitted to the hospital on 03-01-2020 at 00:00:00, transferred to the ICU on 03-10-2020 at 00:00:00, and discharged on 03-20-2020 at 00:00:00 will have the following values for admit date (<code>ANCHORDT</code>), ICU transfer date (<code>PATMANICUDT</code>), and discharge date (<code>DISCDATE</code>).</p>
 <ul>
 <li><code>ANCHORDT = 0</code></li>
@@ -13255,6 +13270,18 @@ DSCHSTAT = 8 - Not Documented or Unable to Determine (UTD)
 <h5 id="Death-+-Hospice:-Presumed-Mortality">Death + Hospice: Presumed Mortality<a class="anchor-link" href="#Death-+-Hospice:-Presumed-Mortality">&#182;</a></h5><p>If investigators want to combine hospice and mortality into a single outcome, the logic below should be used.</p>
 <ul>
 <li><code>DSCHSTAT = 2 - Hospice, 3 - Hospice - Health Care Facility, or 6 - Expired</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Analysis-Recommendations"><span style="width:50%; color:#C10E21; border-bottom:0.25rem  solid #f3f3f3;">Analysis Recommendations</span><a class="anchor-link" href="#Analysis-Recommendations">&#182;</a></h1><h2 id="Analyses-by-Patient-vs.-Admission">Analyses by Patient vs. Admission<a class="anchor-link" href="#Analyses-by-Patient-vs.-Admission">&#182;</a></h2><p>Generally, it is recommended to <strong><em>not distinguish patient readmissions in analyses</em></strong> and that each record is treated as a stand alone. It is possible to track readmissions at a single site using the <code>SUBJID</code> and <code>SRC_FAC_ID</code> variables, however this is not used consistently across hospitals and readmissions can not be tracked between hosptials. It is <strong>strongly recommended</strong> that analyses considering a unique patient cohort should perform the analysis by admission rather than by patient. <strong>If absolutely necessary, PLEASE consult your assigned mentor</strong> regarding strategies for defining a unique patient cohort.</p>
+<h2 id="Hosptial-Clustering">Hosptial Clustering<a class="anchor-link" href="#Hosptial-Clustering">&#182;</a></h2><ul>
+<li>In hosptial level analyses, it is recommended that records from hospitals with less than 10 admission records are eliminated. </li>
+<li>Generally, records from hospitals with a limited number of admission records are <strong><em>NOT</em></strong> eliminated.   </li>
 </ul>
 
 </div>

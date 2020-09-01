@@ -1,0 +1,71 @@
+/*header styling */
+.section-header {
+    font-family: Montserrat,Helvetica Neue,Arial,sans-serif;
+    text-align: left;
+    display:inline-block;
+    width:100%;
+    padding: 1% 1% 0 1%;
+}
+
+.section-header h2, .section-header  h3 {
+    display:inline-block;
+}
+
+.section-header h3 {
+    color:#000000;
+}
+
+.section-header i, .collapsible i {
+    margin-right:0.5em;
+    margin-left: 0.5em;
+    display:inline-block;
+}
+
+h2 .fa-plus, h2 .fa-minus {
+    float:right;
+    padding-top:1%;
+    padding-right:1%;
+    display:inline-block;
+}
+
+/*.section-header:hover  {*/
+/*    border-bottom: 2px solid #E11127;*/
+/*    text-decoration-line: underline;*/
+/*}*/
+
+
+.collapsible .section-header:hover a, .collapsible .section-header:hover i,
+.collapsible .section-header:hover h2, .collapsible .section-header:hover h3 {
+    color: #E11127;
+}
+
+
+.red-header, .collapsible .red-header:focus, .collapsible .red-header:hover {
+    color:#C10E21;
+    border-bottom: 2px solid #6D6E71;
+    padding:5px 10px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1)
+}
+
+.grey-header {
+    border-bottom: 2px solid #C10E21;
+    border-radius: .25rem;
+    background-color: #e9ecef;
+    border-top: 0.1rem solid #f3f3f3;
+    width:100%;
+}
+
+.torch-header, .torch-header a, .torch-header h2 {
+    display: inline-block;
+    padding-bottom: 0;
+    width: 100%;
+    line-height: 2;
+    margin:0;
+    color: #000000;
+}
+
+.torch-header h2 img {
+    content: url("https://www.heart.org/-/media/foundation/metadata/aha_logo.png");
+    height: 50px;
+    float: left;
+}

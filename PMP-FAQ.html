@@ -6,94 +6,94 @@
     <title>AHA PMP - FAQ</title>
     <!--    bootstrap and icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!--    style sheets-->
     <link rel="stylesheet" href="css/aha_pmp_header.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/aha_navbar.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="css/aha_affiliate_footer.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="css/aha_styling.css" type="text/css" media="screen"/>
 
     <link rel="stylesheet" href="css/aha_faq.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="css/aha_search.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/search.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="css/main-pmp-docs.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/headers.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/collapsible.css" type="text/css" media="screen"/>
 
-    <script type="text/javascript" src="js/toggle_collapse_functions.js"></script>
-    <script type="text/javascript" src="js/button_dropdown_functions.js"></script>
+
+    <script type="text/javascript" src="../js/toggle_functions.js"></script>
+    <script type="text/javascript" src="../js/button_dropdown_functions.js"></script>
 
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script src="//static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js"></script>
     <script>
         $(document).ready(() => {
             // console.log('ready');
-            $('.aha_pmp_header').load('components/aha_pmp_header.html');
+            $('.aha_pmp_header').load('../components/aha_pmp_header.html');
+            $('.pmp-docs-navbar').load('../components/navbar.html');
         });
-        $.get("components/aha_pmp_footer.html", function (data) {
+        $.get("../components/aha_pmp_footer.html", function (data) {
             $("#footer-container").replaceWith(data);
         });
     </script>
 
 </head>
 <body>
-<div class="aha_pmp_header">
-    <div class="aha_header_logo_container">
-        <img src='https://precision.heart.org/assets/images/aha-pmp-logo.png' alt='Drawing' style="float:left;">
-        <a href="https://precision.heart.org/" target="_blank"><img
-                src='https://precision.heart.org/sso/images/precision-medicine-platform-logo.png' alt='Drawing'
-                style="float:right; padding-top: 1.5%"></a>
-    </div>
-</div>
-<div class="title-container">
+<div class="aha_pmp_header"></div>
+<div class="pmp-docs-navbar"></div>
+<div class="title-container main-nav" style="height:5rem; padding:1%;">
     <h1>Frequently Asked Questions (FAQ)</h1>
 </div>
-<div style="display:inline-block; margin:2% 30%;">
-    <div id="faq-category-dropdown" style="display:inline-block; text-align: center;">
-        <script>
-            const categoryDropdownContent = [
-                {
-                    "btntype": "dropdown",
-                    "className": "btn secondary-btn faq-nav-dropdown",
-                    "label": "FAQ Categories",
-                    "menu": [
-                        {
-                            "label": "Functionality",
-                            "link": "#faq-Functionality",
-                            "target": "_self",
-                        },
-                        {
-                            "label": "Data",
-                            "link": "#faq-Data",
-                            "target": "_self",
-                        },
-                        {
-                            "label": "General",
-                            "link": "#faq-General",
-                            "target": "_self",
-                        },
-                        {
-                            "label": "Credits",
-                            "link": "#faq-Credits",
-                            "target": "_self",
-                        }
-                    ]
-                }];
-            const cateogryDropdown = document.getElementById("faq-category-dropdown");
-            const cateogryDropdownBtn = createButtons(categoryDropdownContent);
-            cateogryDropdown.appendChild(cateogryDropdownBtn);
-        </script>
-    </div>
-    <div class="top-middle-search" style="display:inline-block">
-        <div class="search">
-            <input type="text" class="searchTerm" placeholder="Search...">
-            <button type="submit" class="searchButton">
-                <i class="fa fa-search"></i>
-            </button>
+<div id="main" class="main-nav" style="margin:0 5% 2% 5%">
+
+    <div style="display:inline-block; margin:2% 30%;">
+        <div id="faq-category-dropdown" style="display:inline-block; text-align: center;">
+            <script>
+                const categoryDropdownContent = [
+                    {
+                        "btntype": "dropdown",
+                        "className": "btn secondary-btn faq-nav-dropdown",
+                        "label": "FAQ Categories",
+                        "menu": [
+                            {
+                                "label": "Functionality",
+                                "link": "#faq-Functionality",
+                                "target": "_self",
+                            },
+                            {
+                                "label": "Data",
+                                "link": "#faq-Data",
+                                "target": "_self",
+                            },
+                            {
+                                "label": "General",
+                                "link": "#faq-General",
+                                "target": "_self",
+                            },
+                            {
+                                "label": "Credits",
+                                "link": "#faq-Credits",
+                                "target": "_self",
+                            }
+                        ]
+                    }];
+                const cateogryDropdown = document.getElementById("faq-category-dropdown");
+                const cateogryDropdownBtn = createButtons(categoryDropdownContent);
+                cateogryDropdown.appendChild(cateogryDropdownBtn);
+            </script>
+        </div>
+        <div class="top-middle-search" style="vertical-align:center; display:inline-block">
+            <div class="search">
+                <input type="text" class="searchTerm" placeholder="Search...">
+                <button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
         </div>
     </div>
-</div>
-<div id="main" style="margin:0 5% 2% 5%">
-
 </div>
 <script>
     const main  = document.getElementById("main");
@@ -192,8 +192,8 @@
     faqContent.forEach(function (x) {
         const categoryBtn = document.createElement("button");
         const anchor = document.createElement("a");
-        const btnContent = document.createElement("span");
-        const categoryHeader = document.createElement("h2");
+        const headerContent = document.createElement("span");
+        const header = document.createElement("h2");
         const img = document.createElement("img");
         const content_id = x.category.split(" ")[0];
         const plusIcon = document.createElement("i");
@@ -202,8 +202,9 @@
 
 
         img.alt = "drawing";
+        // img.src = "https://www.heart.org/-/media/foundation/metadata/aha_logo.png";
         categoryBtn.className = "collapsible";
-        btnContent.className = "section-header torch-header grey-header"
+        headerContent.className = "torch-header section-header grey-header"
         anchor.id = "faq-" + content_id;
         anchor.className = "faq-anchor";
         plusIcon.className = "fas fa-plus";
@@ -216,12 +217,14 @@
 
         main.appendChild(categoryBtn);
         categoryBtn.appendChild(anchor);
-        categoryBtn.appendChild(btnContent);
-        btnContent.appendChild(categoryHeader);
+        categoryBtn.appendChild(headerContent);
+        headerContent.appendChild(header);
 
-        categoryHeader.innerHTML = x.category;
-        categoryHeader.append(plusIcon);
-        categoryHeader.appendChild(img);
+
+        header.innerHTML = x.category;
+        header.append(img);
+        header.append(plusIcon);
+
 
 
         main.appendChild(questionsContent);
@@ -244,7 +247,7 @@
             caret.className = "fa fa-caret-right";
             caret.id = content_id + '-caret' + questionNum;
             questionBtn.className ="collapsible faq-question";
-            questionBtn.onclick = function() {toggle_caret(answer.id, caret.id)};
+            questionBtn.onclick = function() {toggle(answer.id, caret.id)};
             qaContainer.className = "faq-container"
 
             question.appendChild(caret);

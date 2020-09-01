@@ -36,13 +36,13 @@
 .card-content p, .card-content li {
     font-family: Montserrat,Helvetica Neue,Arial,sans-serif;
     font-weight: normal;
-    /*font-size: 16px;*/
+    font-size: 1.1rem;
     text-align: left;
     color: #000000;
-    line-height: 1.75;
+    line-height: 1.5;
 }
 .card-content p {
-    margin: 3%;
+    margin: 10% 2%;
 }
 
 .docs-home-card {

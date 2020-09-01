@@ -12,8 +12,9 @@
 
     <link rel="stylesheet" href="css/aha_pmp_header.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="css/aha_affiliate_footer.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/aha_navbar.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="css/aha_styling.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="css/aha_search.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/search.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="css/main-pmp-docs.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="css/cards.css" type="text/css" media="screen"/>
 
@@ -26,25 +27,30 @@
     <script>
         $(document).ready(() => {
             $('.aha_pmp_header').load('components/aha_pmp_header.html');
+            $('.pmp-docs-navbar').load('components/navbar.html');
+            $("#user-guide-nav").attr("href", "user-guide/index.html");
         });
         $.get("components/aha_pmp_footer.html", function (data) {
             $("#footer-container").replaceWith(data);
         });
+        // const guide = document.getElementById('');
+        // guide.href = guide.href.replace('../', '');
+        // console.log(guide);
+
     </script>
 
 </head>
 <body>
 <div class="aha_pmp_header"></div>
-
-<div class="title-container" style="padding-top:10%;">
-    <div class="top-right-search" >
-        <button class="search-btn"><i class="fa fa-search"></i> Full Menu</button>
-    </div>
+<div class="pmp-docs-navbar"></div>
+<div class="title-container main-nav" style="padding-top:1%;">
     <h1>Precision Medicine Platform (PMP) Documentation</h1>
     <h3>Date: May 01, 2020 - Version 0.1</h3>
 </div>
 
-<div id="main" style="margin:2%; display:grid;"></div>
+<div id="main" style="margin:2%; display:grid;">
+
+</div>
 
 <a href ="getting-started/index.html"></a>
 <script>
@@ -55,8 +61,8 @@
                 "cardClassName": "card docs-home-card",
                 "contentClassName": "card-content home-main-card",
                 "header": "Getting Started",
-                "content": "New to the Precision Medicine Platform? Check out the getting started guide to learn about the PMP, " +
-                    "registering, accessing data, and requesting a workspace.",
+                "content": "New to the Precision Medicine Platform? Check out the getting started guide to learn how to, " +
+                    "register, access data, and request a workspace.",
                 "btnContent": [
                     {
                         "btntype": "link",
@@ -89,10 +95,11 @@
                 "header": "Data Resources",
                 "content": "Working with a PMP Dataset? Find documentation, usage, code examples, and more.",
                 "btnContent": [
+
                     {
                         "btntype": "dropdown",
                         "className": "btn primary-btn",
-                        "label": "PMP Data Resources ",
+                        "label": "Data Resources ",
                         "menu": [
                             {
                                 "label": "AHA COVID-19 Registry (GWTG)",
@@ -133,12 +140,12 @@
                         "label": "Contact ",
                         "menu": [
                             {
-                                "label": "Contact Us (account, data, analyses)",
+                                "label": "Contact Us",
                                 "link": "https://precision.heart.org/contact",
                                 "target": "_blank"
                             },
                             {
-                                "label": "Technical Support (software, workspaces)",
+                                "label": "Technical Support",
                                 "link": "https://precision.heart.org/technical-support",
                                 "target": "_blank"
                             }

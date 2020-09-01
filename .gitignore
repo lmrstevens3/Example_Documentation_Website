@@ -5,7 +5,7 @@ vcs.xml
 .idea/
 
 .DS_Store
-images/.DS_Store
+user-guide/.DS_Store
 .ipynb_checkpoints/
 
 AHA-COVID19-CVD-GWTG/variable_documentation_R/.Rproj.user

@@ -12,8 +12,8 @@ function toggle_content(id, leave_open) {
 
 
 function toggle_sub(id, icon_id, leave_open, sub_id,  sub_icon_id) {
-    toggle(id, leave_open);
-    toggle_content(sub_id, sub_icon_id);
+    toggle_content(id, leave_open);
+    toggle(sub_id, sub_icon_id);
 }
 
 function toggle(id, icon_id, leave_open) {

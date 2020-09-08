@@ -1,0 +1,269 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CodePipeline for the aha-pmp-documentation
+Parameters:
+  ProjectName:
+    Description: Name of the Project
+    Type: String
+    Default: aha-pmp-documentation
+  S3Bucket:
+    Description: S3 Bucket, which will hold the documentation
+    Type: String
+    Default: aha-pmp-dev-documentation
+  ArtifactBucket:
+    Description: S3 Bucket, which will hold the artifacts
+    Type: String
+    Default: aha-artifacts
+  RepositoryAccount:
+    Description: AWS AccountNumber where code-commit repo present
+    Type: Number
+    Default: 373885588876
+  RepositoryAccountAssumeRole:
+    Description: Assume Role name for RepositoryAccount
+    Type: String
+    Default: aha-control-dev-crossaccount-role-CrossAccountRole-ZP0JZ6TDYO32
+  DeployAccountNumber:
+    Description: AWS AccountNumber where files will be deployed
+    Type: Number
+    Default: 373885588876
+  DeployAccountAssumeRole:
+    Description: Assume Role name for dev
+    Type: String
+    Default: aha-control-dev-crossaccount-role-CrossAccountRole-ZP0JZ6TDYO32
+  BranchName:
+    Description: Name of the branch being built and deployed
+    Type: String
+    Default: develop
+  CMKARN:
+    Description: ARN of the KMS CMK creates in Control account
+    Type: String
+    Default: arn:aws:kms:us-east-1:528475722557:key/0310c265-4168-492e-b362-aa9c38d6a3fb
+Resources:
+
+  BuildProjectRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub ${BranchName}-${ProjectName}-CodeBuildRole
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          -
+            Effect: Allow
+            Principal:
+              Service:
+                - codebuild.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Path: /
+      Policies:
+        - PolicyName: !Sub ${BranchName}-${ProjectName}-CodeBuildPolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:GetBucketPolicy
+                  - s3:GetObject
+                  - s3:ListBucket
+                Resource:
+                  - !Join ['',['arn:aws:s3:::',!Ref S3Bucket, '/*']]
+                  - !Join ['',['arn:aws:s3:::',!Ref S3Bucket]]
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:GetBucketPolicy
+                  - s3:GetObject
+                  - s3:ListBucket
+                Resource:
+                  - !Join ['',['arn:aws:s3:::',!Ref ArtifactBucket, '/*']]
+                  - !Join ['',['arn:aws:s3:::',!Ref ArtifactBucket]]
+              - Effect: Allow
+                Action:
+                  - kms:*
+                Resource: !Ref CMKARN
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: arn:aws:logs:*:*:*
+  DeployDocumentation:
+    Type: AWS::CodeBuild::Project
+    Properties:
+      Name: !Sub ${BranchName}-${ProjectName}-deploy
+      Description: !Ref ProjectName
+      ServiceRole: !GetAtt BuildProjectRole.Arn
+      Artifacts:
+        Type: CODEPIPELINE
+      Environment:
+        Type: linuxContainer
+        ComputeType: BUILD_GENERAL1_SMALL
+        Image: aws/codebuild/nodejs:10.14.1
+        EnvironmentVariables:
+          - Name: S3Bucket
+            Value: !Ref S3Bucket
+          - Name: BranchName
+            Value: !Ref BranchName
+          - Name: DeployAccountNumber
+            Value: !Ref DeployAccountNumber
+          - Name: DeployAccountAssumeRole
+            Value: !Ref DeployAccountAssumeRole
+      Source:
+        Type: CODEPIPELINE
+        BuildSpec: |
+          version: 0.2
+          phases:
+            install:
+              commands:
+                - echo "Executing Install"
+                - echo "Completed Install"
+            build:
+              commands:
+                - echo "Executing Build"
+                - echo "DeployAccountNumber $DeployAccountNumber"
+                - echo "DeployAccountAssumeRole $DeployAccountAssumeRole"
+                - role_arn="arn:aws:iam::$DeployAccountNumber:role/$DeployAccountAssumeRole"
+                - echo "Assume Role Arn $role_arn"
+                - RESPONSE=$(aws sts assume-role --role-arn $role_arn --role-session-name 'aha-pmp-documentation')
+                - export AWS_ACCESS_KEY_ID=$(echo $RESPONSE | jq -r '.Credentials.AccessKeyId')
+                - export AWS_SECRET_ACCESS_KEY=$(echo $RESPONSE | jq -r '.Credentials.SecretAccessKey')
+                - export AWS_SESSION_TOKEN=$(echo $RESPONSE | jq -r '.Credentials.SessionToken')
+                - aws sts get-caller-identity
+                - aws s3 sync . s3://$S3Bucket --delete --exclude='*.git*' --exclude='ReadMe.md' --exclude='pipeline.yml'
+                - echo Completed Build
+      
+      TimeoutInMinutes: 30
+      Tags:
+        - Key: Name
+          Value: !Ref ProjectName
+
+  PipeLineRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub ${BranchName}-${ProjectName}-codepipeline-role
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          -
+            Effect: Allow
+            Principal:
+              Service:
+                - codepipeline.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Path: /
+      Policies:
+        - PolicyName: !Sub ${BranchName}-${ProjectName}-codepipeline-policy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - codepipeline:*
+                  - iam:ListRoles
+                  - cloudformation:Describe*
+                  - cloudFormation:List*
+                  - codecommit:List*
+                  - codecommit:Get*
+                  - codecommit:GitPull
+                  - codecommit:UploadArchive
+                  - codecommit:CancelUploadArchive
+                  - codebuild:BatchGetBuilds
+                  - codebuild:StartBuild
+                  - cloudformation:CreateStack
+                  - cloudformation:DeleteStack
+                  - cloudformation:DescribeStacks
+                  - cloudformation:UpdateStack
+                  - cloudformation:CreateChangeSet
+                  - cloudformation:DeleteChangeSet
+                  - cloudformation:DescribeChangeSet
+                  - cloudformation:ExecuteChangeSet
+                  - cloudformation:SetStackPolicy
+                  - cloudformation:ValidateTemplate
+                  - iam:PassRole
+                  - s3:ListAllMyBuckets
+                  - s3:GetBucketLocation
+                Resource:
+                  - "*"
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:GetBucketPolicy
+                  - s3:GetObject
+                  - s3:ListBucket
+                Resource:
+                  - !Join ['',['arn:aws:s3:::',!Ref S3Bucket, '/*']]
+                  - !Join ['',['arn:aws:s3:::',!Ref S3Bucket]]
+              - Effect: Allow
+                Action:
+                  - kms:Decrypt
+                Resource: !Ref CMKARN
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:GetBucketPolicy
+                  - s3:GetObject
+                  - s3:ListBucket
+                Resource:
+                  - !Join ['',['arn:aws:s3:::',!Ref ArtifactBucket, '/*']]
+                  - !Join ['',['arn:aws:s3:::',!Ref ArtifactBucket]]
+  PipelineAssumRolePolicy:
+    Type: AWS::IAM::Policy
+    DependsOn: PipeLineRole
+    Properties:
+      PolicyName: !Sub ${BranchName}-${ProjectName}-assumrole-policy
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          -
+            Effect: Allow
+            Action: sts:AssumeRole
+            Resource:
+              - !Sub arn:aws:iam::${DeployAccountNumber}:role/${DeployAccountAssumeRole}
+              - !Sub arn:aws:iam::${RepositoryAccount}:role/${RepositoryAccountAssumeRole}
+      Roles:
+        - !Ref PipeLineRole
+        - !Ref BuildProjectRole
+  Pipeline:
+    Type: AWS::CodePipeline::Pipeline
+    DependsOn: PipelineAssumRolePolicy
+    Properties:
+      RoleArn: !GetAtt PipeLineRole.Arn
+      Name: !Ref AWS::StackName
+      Stages:
+        - Name: Source
+          Actions:
+            - Name: aha-pmp-documentation
+              ActionTypeId:
+                Category: Source
+                Owner: AWS
+                Version: 1
+                Provider: CodeCommit
+              Configuration:
+                RepositoryName: !Ref ProjectName
+                BranchName: !Ref BranchName
+              OutputArtifacts:
+                - Name: SourceArtifact
+              RunOrder: 1
+              RoleArn: !Sub arn:aws:iam::${RepositoryAccount}:role/${RepositoryAccountAssumeRole}
+        -
+          Name: Deploy
+          Actions:
+            - Name: deploy-aha-pmp-documentation
+              ActionTypeId:
+                Category: Build
+                Owner: AWS
+                Version: 1
+                Provider: CodeBuild
+              Configuration:
+                ProjectName: !Ref DeployDocumentation
+              RunOrder: 1
+              InputArtifacts:
+                - Name: SourceArtifact
+
+      ArtifactStore:
+        Type: S3
+        Location: !Ref ArtifactBucket
+        EncryptionKey:
+          Id: !Ref CMKARN
+          Type: KMS

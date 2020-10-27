@@ -35,7 +35,7 @@
             // console.log('ready');
             $('.aha_pmp_header').load('../components/aha_pmp_header.html');
             $('.workspace-passwords').load('../components/workspace_passwords.html');
-            $('.pmp-docs-navbar').load('../components/navbar.html');
+            $('.pmp-docs-navbar').load('../components/pmp_docs_navbar.html');
         });
         $.get("../components/aha_pmp_footer.html", function (data) {
             $("#footer-container").replaceWith(data);
@@ -125,19 +125,20 @@
     </div>
 </div>
 
-
 <div id="main" class="main-sidebar main-nav">
-    <div class="title-container">
-        <h1>Precision Medicine Platform User Guide</h1>
-        <h4>Date: August 01, 2020 - Version 0.1</h4>
-    </div>
+<!--    <div class="title-container">-->
+<!--        <h1>Precision Medicine Platform User Guide</h1>-->
+<!--        <h4>Date: August 01, 2020 - Version 0.1</h4>-->
+<!--    </div>-->
     <div class="header-banner">
         <i>If you do not have a PMP account, please register</i>
         <button type="button" class="btn primary-btn">
             <a href="https://precision.heart.org/sso/" target="_blank">Register Now</a>
         </button>
+
     </div>
     <div class="content" style="display:block;">
+        <h3>Overview</h3>
         <p>The Precision Medicine Platform Workspace consists of two parts, the <a
                 href="https://precision.heart.org/workspace" target="_blank">workspace portal</a> (image on the
             left), and the cloud-based virtual environment that is used for computing (image on the right). <p>

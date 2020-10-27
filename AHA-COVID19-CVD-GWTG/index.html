@@ -38,7 +38,7 @@
             // console.log('ready');
             $('.aha_pmp_header').load('../components/aha_pmp_header.html');
             $('.workspace-passwords').load('../components/workspace_passwords.html');
-            $('.pmp-docs-navbar').load('../components/navbar.html');
+            $('.pmp-docs-navbar').load('../components/pmp_docs_navbar.html');
 
         });
         $.get("../components/aha_pmp_footer.html", function (data) {
@@ -50,8 +50,7 @@
 <body>
 <div class="aha_pmp_header"></div>
 <div class="pmp-docs-navbar"></div>
-<div class="title-container">
-    <h1>Data Resources</h1>
+<div class="title-container" style="margin-top:5%;">
     <h2><i>AHA COVID-19 CVD Registry Data and the Precision Medicine Platform (PMP)</i></h2>
     <h4>August 01, 2020 - Version 0.1</h4>
 </div>
@@ -178,7 +177,7 @@
     <div id="cards-header-row" class="row container-fluid" style="padding:1%">
         <div class="col-lg-6">
             <div class="section-header red-header grey-header shadowed-header">
-                <i class="fa fa-book-open fa-2x"></i><h2>Data and Documentation</h2>
+                <i class="fa fa-book-open fa-2x"></i><h2>Data Documentation</h2>
             </div>
             <div id="docCards"></div>
         </div>
@@ -200,7 +199,7 @@
             "cardClassName": "card data-doc-cards",
             "contentClassName": "card-content",
             "icon": "fa fa-search-location",
-            "header": "Explore and Discover",
+            "header": "Data  Exploration",
             "content": "Interactively explore all variables in the data and their accompanying documentation.",
             "btnContent": [{
                 "btntype": "link",
@@ -214,7 +213,7 @@
                 "cardClassName": "card data-doc-cards",
                 "contentClassName": "card-content",
                 "icon": "fa fa-file-invoice",
-                "header":"Dictionaries and Coding Manuals",
+                "header":"Dictionaries and Coding",
                 "content": "PDFs describing variable definitions, formats, and coding are in the " +
                     "<code>GWTG/COVID19/documentation</code> folder within the workspace and can also be viewed using the " +
                     "<i>Documentation Files</i> dropdown below. The documentation contained in these files is also available " +
@@ -239,7 +238,7 @@
                 "cardClassName": "card data-doc-cards",
                 "contentClassName": "card-content",
                 "icon": "fa fa-notes-medical",
-                "header":"Registry Design and Protocols",
+                "header":"Registry Collection",
                 "content": "The <code>covid19_cvd_registry_collection_instructions</code> pdf contains " +
                     "registry data collection criterion, definitions, and protocols for entry and collected measures. " +
                     "This file can is also available in the <code>GWTG/COVID19/documentation</code> workspace folder.",
@@ -247,7 +246,7 @@
                     {
                         "btntype": "link",
                         "className": "btn primary-btn",
-                        "label": "Registry Design/Protocol",
+                        "label": "Collection Instructions",
                         "link": "COVID19_files/documentation/ahacovid19cvd_registry_collection_instructions.pdf"
                     },
                     {
@@ -268,9 +267,9 @@
                 "contentClassName": "card-content",
                 "icon": "fa fa-laptop-code",
                 "header": "Data Usage",
-                "content": "The COVID CVD registry data is available as sas files " +
-                    "in the <code>GWTG/COVID19/data</code> folder. Examples for how to load and use the data in SAS, R, and Python are available in" +
-                    "the usage_and_examples folder and can also be accessed using the button below.",
+                "content": "The COVID CVD registry data is available in the <code>GWTG/COVID19/data</code> folder. " +
+                    "Examples for how to load and use the data in SAS, R, and Python are available in " +
+                    "the <code>GWTG/COVID19/usage_and_examples</code> folder and can also be accessed via the buttons below.",
                 "btnContent": [
                     {
                         "btntype": "link",

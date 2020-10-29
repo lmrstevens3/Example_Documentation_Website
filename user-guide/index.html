@@ -31,7 +31,7 @@
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script src="//static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js"></script>
     <script>
-        $(document).ready(() => {
+        jQuery(function($) {
             // console.log('ready');
             $('.aha_pmp_header').load('../components/aha_pmp_header.html');
             $('.workspace-passwords').load('../components/workspace_passwords.html');
@@ -56,6 +56,8 @@
     <div id="sidebar_content">
         <div id="toc">
             <ul>
+                <li><a href="#design" onclick="return toggle('design_cont', 'design_plus', true)">Workspace Design</a>
+
                 <li><a href="#transfer" onclick="return toggle('transfer_cont', 'transfer_plus', true)">Transfer Files</a>
                     <button class="toc_btn" onclick="return toggle('toc-transfer', 'transfer-angle');">
                         <i id="transfer-angle" class="fa fa-angle-down"></i>
@@ -137,14 +139,75 @@
         </button>
 
     </div>
-    <div class="content" style="display:block;">
-        <h3>Overview</h3>
+    <div id="quick-links" style="margin-top:0; margin-bottom:1%">
+        <span style="color:#6D6E71; font-size:14px; margin-bottom: 1px; padding-left: 3px;">Quick Links</span>
+        <script>
+            const quickLinkContent= [
+                {
+                    "btntype": "link",
+                    "className": "btn secondary-btn",
+                    "label": "Software and Passwords",
+                    "link": "#software",
+                    "onclick": "toggle_sub('workspace_env_cont', 'workspace_env_plus', true, 'software_cont','software_caret')",
+                    "target": "_self"
+                },
+                {
+                    "btntype": "link",
+                    "className": "btn secondary-btn",
+                    "label": "Upload Files to PMP",
+                    "link": "#upload",
+                    "onclick": "toggle_sub('transfer_cont', 'transfer_plus', true, 'upload_cont','upload_caret')",
+                    "target": "_self"
+                },
+                {
+                    "btntype": "link",
+                    "className": "btn secondary-btn",
+                    "label": "Get Files out of PMP",
+                    "link": "#dataOut",
+                    "onclick": "toggle_sub('transfer_cont', 'transfer_plus', true, 'dataOut_cont', 'dataOut_caret')",
+                    "target": "_self"
+                },
+                {
+                    "btntype": "link",
+                    "className": "btn secondary-btn ",
+                    "label": "FAQ",
+                    "link": "../PMP-FAQ.html"
+                },
+                {
+                    "btntype": "dropdown",
+                    "className": "btn secondary-btn",
+                    "label": "Contact ",
+                    "menu": [
+                        {
+                            "label": "Contact Us",
+                            "link": "https://precision.heart.org/contact",
+                            "target": "_blank"
+                        },
+                        {
+                            "label": "Technical Support",
+                            "link": "https://precision.heart.org/technical-support",
+                            "target": "_blank"
+                        }
+                    ]
+                }];
+            const quickLinksDiv = document.getElementById("quick-links");
+            const quickLinkBtns = createButtons(quickLinkContent);
+            quickLinksDiv.appendChild(quickLinkBtns);
+        </script>
+    </div>
+    <button type="button" class="collapsible" onclick="return toggle('design_cont', 'design_plus')">
+        <a class="anchor" id="design"></a>
+        <a class="section-header red-header grey-header">
+            <h2>Workspace Design</h2><i id='design_plus' class="fas fa-minus"></i>
+        </a>
+    </button>
+    <div id="design_cont" class="content" style="display:block;">
         <p>The Precision Medicine Platform Workspace consists of two parts, the <a
                 href="https://precision.heart.org/workspace" target="_blank">workspace portal</a> (image on the
             left), and the cloud-based virtual environment that is used for computing (image on the right). <p>
         The portal is a webpage that acts as in interface between the user and the workspace virtual environment,
         and allows users to control workspace settings. The workspace environment is a cloud-based compute environment
-        for analytics.
+        for analytics powered by Amazon Web Services and Supported by Hitachi Vantara.
         <p>
             <img src="https://precision.heart.org/assets/images/workspace.png" alt="drawing;"
                  style=" width: 38%; float:left; height:100%;">
@@ -164,7 +227,7 @@
         <button type="button" class="collapsible" onclick="return toggle('upload_cont', 'upload_caret')">
             <a id='upload' class="anchor"></a>
             <a class="section-header">
-                <h3>Upload to PMP <i id="upload_caret" class="fa fa-caret-right"></i></h3>
+                <h3>Upload Files to the PMP <i id="upload_caret" class="fa fa-caret-right"></i></h3>
             </a>
         </button>
         <div id="upload_cont" class="content" style="background-color:#f3f3f3; ">
@@ -384,9 +447,8 @@
                 </li>
                 <li>If screen is frozen or solid blue/black, click the 4 squares on the top menu bar</li>
             </ul>
-            <h4>Root Directory and COVID-19 CVD Data Location</h4>
+            <h4>Root Directory File Location</h4>
             <ul>
-                <li>The COVID-19 Registry Data is located in <code>/mnt/workspace/GWTG/COVID-19</code></li>
                 <li>The root path in the workspace is <code>/mnt/workspace</code>. This is the default directory for the
                     Jupyter Home Page JupyterLab, R Studio and SAS Studio.
                 </li>

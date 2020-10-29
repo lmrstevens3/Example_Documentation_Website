@@ -17,31 +17,4 @@
 }
 
 
-.data-doc-cards {
-    justify-content: space-around;
-    margin: 1rem 0;
-    width:100%;
-    /*padding-left: 1%;*/
-    height: 100%;
-    overflow: scroll;
-    align-content: center;
-    background: url("../AHA-COVID19-CVD-GWTG/images/molecules_data_sm.png") repeat-y;
-}
 
-.data-doc-cards .card-content {
-    text-align: left;
-    font-size: 1.2em;
-    padding-left:50px;
-}
-
-.data-doc-cards i.fa {
-    margin-right:0.5em;
-    vertical-align: middle;
-    color:#C10E21;
-    font-size:xx-large;
-}
-
-.data-doc-cards h3, .data-doc-cards i.fa {
-    display:inline-block;
-    color: #C10E21;
-}

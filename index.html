@@ -9,7 +9,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 
 
@@ -28,10 +27,10 @@
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script src="//static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js"></script>
     <script>
-        $(document).ready(() => {
+        jQuery(function($) {
             $('.aha_pmp_header').load('components/aha_pmp_header.html');
             $('.pmp-docs-navbar').load('components/pmp_docs_navbar.html');
-            //$('.pmp-navbar').load('components/pmp_navbar.html');
+            // $('.pmp-navbar').load('components/pmp_navbar.html');
         });
         $.get("components/aha_pmp_footer.html", function (data) {
             $("#footer-container").replaceWith(data);
@@ -62,8 +61,8 @@
                 "cardClassName": "card docs-home-card",
                 "contentClassName": "card-content docs-home-main-card",
                 "header": "Getting Started",
-                "content": "New to the Precision Medicine Platform? Check out the getting started guide to learn how to, " +
-                    "register, access data, and request a workspace.",
+                "content": "New to the Precision Medicine Platform? Learn how to, " +
+                    "register, access data, and get a workspace.",
                 "btnContent": [
                     {
                         "btntype": "link",
@@ -79,7 +78,7 @@
                 "cardClassName": "card docs-home-card",
                 "contentClassName": "card-content docs-home-main-card",
                 "header": "User Guide",
-                "content": "The PMP user guide includes usage information and tutorials, and acts as a \"how-to\" for the " +
+                "content": "The PMP user guide includes usage information, and acts as a \"how-to\" for the " +
                     "Precision Medicine Platform.",
                 "btnContent": [
                     {

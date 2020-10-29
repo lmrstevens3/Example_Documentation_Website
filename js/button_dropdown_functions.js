@@ -1,12 +1,12 @@
-function createLinkedButton(buttonClassName, label, link) {
+function createLinkedButton(buttonClassName, label, link, onclick = null, target) {
     const button = document.createElement("button");
     const buttonLink = document.createElement("a");
 
     button.className = buttonClassName;
     buttonLink.href = link;
-    buttonLink.target = "_blank";
+    buttonLink.target = target;
+    buttonLink.setAttribute('onclick', onclick)
     buttonLink.innerHTML = label;
-
     button.appendChild(buttonLink)
     return(button)
 }
@@ -39,8 +39,9 @@ function createLinkList(links, listClassName) {
         const listItem = document.createElement("li");
         const link = document.createElement("a");
         link.href = a.link;
-        link.innerHTML = a.label;
         link.target = a.target;
+        link.innerHTML = a.label;
+        link.onclick = a.onclick;
         listItem.appendChild(link);
         list.appendChild(listItem);
     })
@@ -50,7 +51,8 @@ function createLinkList(links, listClassName) {
 function createButton(btnContent){
     let btn;
     if(btnContent.btntype === "link") {
-        btn = createLinkedButton(btnContent.className, btnContent.label, btnContent.link);
+        btnContent.target = (typeof btnContent.target !== 'undefined') ?  btnContent.target : "_blank"
+        btn = createLinkedButton(btnContent.className, btnContent.label, btnContent.link, btnContent.onclick, btnContent.target);
     }
     if(btnContent.btntype === "dropdown") {
         btn = createDropdown(btnContent.className, btnContent.label, btnContent.menu);

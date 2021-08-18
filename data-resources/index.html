@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PMP Data Resources</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="/documentation/css/aha_pmp_header.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_affiliate_footer.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_navbar.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_styling.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/search.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/main-pmp-docs.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/cards.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/headers.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/collapsible.css" type="text/css" media="screen"/>
+
+
+    <script type="text/javascript" src="/documentation/js/button_dropdown_functions.js"></script>
+    <script type="text/javascript" src="/documentation/js/card_functions.js"></script>
+    <script type="text/javascript" src="/documentation/js/toggle_functions.js"></script>
+
+
+    <script>
+        jQuery(function($) {
+            $('.aha_pmp_header').load('/documentation/components/aha_pmp_header.html');
+            $('.pmp-docs-navbar').load('/documentation/components/pmp_docs_navbar.html');
+            // $('.pmp-navbar').load('components/pmp_navbar.html');
+        });
+        $.get("/documentation/components/aha_pmp_footer.html", function (data) {
+            $("#footer-container").replaceWith(data);
+        });
+    </script>
+    <link rel="stylesheet" href="/documentation/css/aha_styling.css">
+
+
+</head>
+<body>
+<div class="aha_pmp_header"></div>
+<!--<div class="pmp-navbar"></div>-->
+<div class="pmp-docs-navbar"></div>
+
+
+<div id="main" class="main-nav" style="margin:5% 2%;">
+
+<!--    <button type="button" class="collapsible" onclick="return toggle('gwtgCards', 'gwtg_angle')">-->
+<!--        <a class="section-header red-header">-->
+<!--            <h3 style="border-bottom: #979797 1px solid;">Research Goes Red | Project Baseline <i id="gwtg_angle" class="fa fa-angle-down"></i></h3>-->
+<!--        </a>-->
+<!--    </button>-->
+    <h2 style="border-top: #979797 1px solid; width: 90%; padding:1%; color:#C10E21;">Get With The Guidelines</h2>
+    <div id="gwtgCards"></div>
+<!--    <button type="button" class="collapsible" onclick="return toggle('rgrCards', 'rgr_angle')">-->
+<!--        <a class="section-header">-->
+<!--            <h3>Upload Files to the PMP <i id="rgr_angle" class="fa fa-angle-down"></i></h3>-->
+<!--        </a>-->
+<!--    </button>-->
+    <button type="button" class="collapsible" onclick="return toggle('rgrCards', 'rgr_angle')" style="display:block">
+        <h2 style="border-top: #979797 1px solid; width: 90%; padding:1%; color:#C10E21; text-align: left;" >
+            <i id="rgr_angle" class="fa fa-angle-double-down"></i>Research Goes Red | Project Baseline
+        </h2>
+    </button>
+    <div id="rgrCards"></div>
+
+</div>
+<script>
+    const rgrCardsContent = [
+        {
+            "cardClassName": "card",
+            "contentClassName": "card-content card", //height: 100%;
+            "link": "/documentation/data-resources/AHA-RGR/index.html",
+            "content": "<img style='padding: 7% 2%; border: 0.5em solid #b3b3b3;' src ='https://lh3.googleusercontent.com/hc4Vk0q5VuFTcXqZ0gm1lPHkn9DX0J7KDRliIR36vn4-a6r6sJvs4q0oih7AJk_H3t0SeDoV0Gui5qcZvG8V9bJDrKQFKZqJo5Fz=w2048-rw-v1' alt='RGR-VPB logo'>"
+        }
+    ]
+    const gwtgCardsContent = [
+        //{ 'header': "<span>Get With The Guidelines &174;<i class='fa fa-angle-down'></i></span>",
+        // 'datasets_content': [
+            {
+                "cardClassName": "card",
+                "contentClassName": "card", //height: 100%;
+                "link": "/documentation/data-resources/AHA-COVID19-CVD-GWTG/index.html",
+                "content": "<img style='border:none; padding:21% 2%;' src ='images/AHA_COVID-19_LOGO_CMYK.jpg' alt='COVID19 GWTG logo'></span>"
+            },
+            {
+                "cardClassName": "card",
+                "contentClassName": "card-content card", ////
+                "link": "/documentation/data-resources/AHA-GWTG-Resus/index.html",
+                "content": "<img src ='https://www.heart.org/-/media/images/professional/quality-improvement/qi-program-logos/get-with-the-guidelines-resus-program-logo-box.jpg?h=293&la=en&mw=440&w=440&hash=6DF67594808E49932F658009374A881F048886F5' alt='GWTG Resus logo'>"
+            },
+            {
+                "cardClassName": "card",
+                "contentClassName": "card inactive",
+                "link": "#",
+                "content": "<img src='https://www.heart.org/-/media/images/professional/quality-improvement/qi-program-logos/get-with-the-guidelines-hf-program-logo-box.jpg?h=293&la=en&mw=440&w=440&hash=94B81A9BC6A24473C17278CA6431F5ADD442040C' alt='GWTG HF logo'>",
+                "warningMsg": "<div class='coming-soon'>Coming soon</div>"
+            },
+            {
+                "cardClassName": "card",
+                "contentClassName": "card",
+                "link": "#",
+                "content": "<img style='height:100%' src='https://www.heart.org/-/media/images/professional/quality-improvement/qi-program-logos/get-with-the-guidelines-cad-program-logo-box.jpg?h=293&la=en&mw=440&w=440&hash=DD760660E6E6BAD6C29E1B0527062DFF4E7284ED' alt='GWTG CAD logo'>"
+            }
+        // ]}
+    ];
+
+    const gwtgdiv = document.getElementById("gwtgCards");
+    const gwtgCardRow = createRowDiv("dataset-card-set");
+    createCards(gwtgCardsContent, gwtgCardRow);
+    gwtgdiv.appendChild(gwtgCardRow);
+    const rgrdiv = document.getElementById("rgrCards");
+    const rgrCardRow = createRowDiv("dataset-card-set collapsible-content");
+    createCards(rgrCardsContent, rgrCardRow);
+    rgrdiv.appendChild(rgrCardRow);
+</script>
+<!--<script>-->
+<!--    faqContent.forEach(function (x) {-->
+<!--        const categoryBtn = document.createElement("button");-->
+<!--        const anchor = document.createElement("a");-->
+<!--        const headerContent = document.createElement("span");-->
+<!--        const header = document.createElement("h2");-->
+<!--        const img = document.createElement("img");-->
+<!--        const content_id = x.category.split(" ")[0];-->
+<!--        const plusIcon = document.createElement("i");-->
+
+<!--        const questionsContent = document.createElement("div");-->
+
+
+<!--        img.alt = "drawing";-->
+<!--        // img.src = "https://www.heart.org/-/media/foundation/metadata/aha_logo.png";-->
+<!--        categoryBtn.className = "collapsible";-->
+<!--        headerContent.className = "torch-header section-header grey-header"-->
+<!--        anchor.id = "faq-" + content_id;-->
+<!--        anchor.className = "faq-anchor";-->
+<!--        plusIcon.className = "fas fa-plus";-->
+<!--        plusIcon.id = content_id + "-plus";-->
+<!--        categoryBtn.onclick = function() {toggle(content_id, plusIcon.id)};-->
+
+<!--        questionsContent.className = "collapsible-content";-->
+<!--        questionsContent.id = content_id;-->
+<!--        questionsContent.style.display = "block";-->
+
+<!--        main.appendChild(categoryBtn);-->
+<!--        categoryBtn.appendChild(anchor);-->
+<!--        categoryBtn.appendChild(headerContent);-->
+<!--        headerContent.appendChild(header);-->
+
+
+<!--        header.innerHTML = x.category;-->
+<!--        header.append(img);-->
+<!--        header.append(plusIcon);-->
+
+
+
+<!--        main.appendChild(questionsContent);v-->
+<!--</script>-->
+
+<div id="footer-container"></div>
+</body>
+</html>

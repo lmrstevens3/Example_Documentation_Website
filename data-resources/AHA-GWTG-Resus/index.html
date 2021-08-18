@@ -14,34 +14,32 @@
 
 
     <!--    style sheets-->
-    <link rel="stylesheet" href="../css/aha_styling.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="../css/search.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="../css/aha_navbar.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="../css/main-pmp-docs.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="../css/headers.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="../css/side_bar.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="../css/collapsible.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="../css/cards.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="../css/main-pmp-datasets.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_styling.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/search.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_navbar.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/main-pmp-docs.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/headers.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/side_bar.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/collapsible.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/cards.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/main-pmp-datasets.css" type="text/css" media="screen"/>
 
-    <link rel="stylesheet" href="../css/aha_pmp_header.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="../css/aha_affiliate_footer.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_pmp_header.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_affiliate_footer.css" type="text/css" media="screen"/>
 
-    <script type="text/javascript" src="../js/toggle_functions.js"></script>
-    <script type="text/javascript" src="../js/button_dropdown_functions.js"></script>
-    <script type="text/javascript" src="../js/card_functions.js"></script>
+    <script type="text/javascript" src="/documentation/js/toggle_functions.js"></script>
+    <script type="text/javascript" src="/documentation/js/button_dropdown_functions.js"></script>
+    <script type="text/javascript" src="/documentation/js/card_functions.js"></script>
 
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script src="//static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js"></script>
     <script>
         jQuery(function($) {
-            // console.log('ready');
-            $('.aha_pmp_header').load('../components/aha_pmp_header.html');
-            $('.workspace-passwords').load('../components/workspace_passwords.html');
-            $('.pmp-docs-navbar').load('../components/pmp_docs_navbar.html');
-
+            $('.aha_pmp_header').load('/documentation/components/aha_pmp_header.html');
+            $('.pmp-docs-navbar').load('/documentation/components/pmp_docs_navbar.html');
+            // $('.pmp-navbar').load('components/pmp_navbar.html');
         });
-        $.get("../components/aha_pmp_footer.html", function (data) {
+        $.get("/documentation/components/aha_pmp_footer.html", function (data) {
             $("#footer-container").replaceWith(data);
         });
     </script>
@@ -50,13 +48,10 @@
 <body>
 <div class="aha_pmp_header"></div>
 <div class="pmp-docs-navbar"></div>
-<div class="title-container" style="margin-top:5%;">
-    <h2><i>AHA COVID-19 CVD Registry Data and the Precision Medicine Platform (PMP)</i></h2>
-    <h4>August 01, 2020 - Version 0.1</h4>
-</div>
+
 <div id="main" class="main-nav" style="margin:1% 2%;">
 
-    <div id="quick-links" style="margin-top:0; margin-bottom:1%">
+    <div id="quick-links" style="margin-top:6%; margin-bottom:0">
         <span style="color:#6D6E71; font-size:14px; margin-bottom: 1px;">Quick Links</span>
         <script>
             const quickLinkContent= [
@@ -92,19 +87,19 @@
                     "btntype": "link",
                     "className": "btn secondary-btn",
                     "label": "Upload Files to PMP",
-                    "link": "../user-guide/index.html#transfer"
+                    "link": "/documentation/user-guide/index.html#transfer"
                 },
                 {
                     "btntype": "link",
                     "className": "btn secondary-btn",
                     "label": "Get Files out of PMP",
-                    "link": "../user-guide/index.html#transfer"
+                    "link": "/documentation/user-guide/index.html#transfer"
                 },
                 {
                     "btntype": "link",
                     "className": "btn secondary-btn ",
                     "label": "FAQ",
-                    "link": "../PMP-FAQ.html"
+                    "link": "/documentation/PMP-FAQ.html"
                 },
                 {
                     "btntype": "dropdown",
@@ -128,44 +123,54 @@
             quickLinksDiv.appendChild(quickLinkBtns);
         </script>
     </div>
+    <div id="registry-logo-info" class="row container-fluid" style="padding:2% 0">
+        <div class="col-lg-4" style="padding:1% 2%;">
+            <img alt="AHA-Resus-logo" src="https://www.heart.org/-/media/images/professional/quality-improvement/qi-program-logos/get-with-the-guidelines-resus-program-logo-box.jpg?h=293&la=en&mw=440&w=440&hash=6DF67594808E49932F658009374A881F048886F5" class="img-fluid" style="max-height:325px;">
+        </div>
+        <div class="col-lg-8" style="padding: 1% 2%;">
+            <div style="margin-left:1%;">
+                <h4>About the GWTG<sup>&#174</sup> Resuscitation Registry Data</h4>
+                <p>The Get With the Guidelines<sup>&#174</sup> Resuscitation Registry is a voluntary quality improvement registry. Information and documentation regarding the registry data,
+                    data usage are provided in the workspace as well as on this site. <span style="background-color: yellow;">SOMETHING ABOUT ADULT vs. PEDIATRIC? CPA vs. MET? </span>
+                </p>
+                <p>This data was collected from <span style="background-color: yellow;"><b>XXX hospitals TIME?? and is comprised of 451,792 records and 317 measures.</b></span> The
+                    registry entry criteria instruct hospitals to enter all patients who meet the following:
+                <ol>
+                    <li>Experience a cardiopulmonary resuscitation event, defined as either pulselessness or a pulse with inadequate
+                        perfusion requiring Chest compressions and/or Defibrillation of ventricular fibrillation or pulseless ventricular tachycardia.</li>
+                    <li>The event elicits EITHER a hospital-wide (e.g., for general inpatient area) or unit-based (ICU, ED, OR, PACU,
+                        delivery room, etc.) emergency response by acute care facility personnel.</li>
+                </ol>
+                </p>
+                <p><span style="background-color: yellow;">Dates of latest release and update notes/notifications?</span></p>
+            </div>
+        </div>
+    </div>
     <div id="intro">
         <button class="collapsible" onclick="return toggle('intro-content', 'intro-plus')">
             <a class="section-header red-header" href="#">
-                <h2><i class="fa fa-running" style="font-size: larger"></i>Getting Started</h2>
+                <h2><i class="fa fa-running" style="font-size: larger"></i>Getting Started with GWTG<sup>&#174</sup> Data in the PMP</h2>
                 <i id="intro-plus" class="fas fa-plus"></i>
             </a>
         </button>
         <div id="intro-content" class="content" style="padding:1%;">
-            <h4>About the AHA COVID19 CVD Registry Data</h4>
+            <h4>About the GWTG<sup>&#174</sup> Resuscitation Registry Data</h4>
+            <h4>Root Directory and Resus Data Location</h4>
             <ul>
-                <li>The COVID19 CVD Registry is a voluntary quality improvement registry, powered by AHA's Get With the
-                    Guidelines<sup>&#174</sup>. Information and documentation regarding the registry data, quality checks,
-                    data usage, as well as guidelines for analysis and publication are provided in the workspace as well as on this site.
-                </li>
-                <li>This data was collected from <b>88 hospitals and is comprised of 8920 records and 431 measures.</b> The
-                    registry entry criteria instruct hospitals to enter all patients >=18 years old who are hospitalized
-                    with an active COVID-19 infection.
-                </li>
-            </ul>
-            <h4>Root Directory and COVID-19 CVD Data Location</h4>
-            <ul>
-                <li>The COVID-19 Registry Data is located in <code>/mnt/workspace/GWTG/COVID-19</code></li>
+                <li>The Resus Registry Data is located in <code>/mnt/workspace/GWTG/Resus</code></li>
                 <li>The root path in the workspace is <code>/mnt/workspace</code>. This is the default directory for the
                     Jupyter Home Page JupyterLab, R Studio and SAS Studio.
                 </li>
             </ul>
             <h4>Software</h4>
             <ul>
-                <li>The <a href="../user-guide/index.html#transfer" target="_blank">Transfer Data Section of the PMP User-Guide</a>
+                <li>The <a href="/documentation/user-guide/index.html#transfer" target="_blank">Transfer Data Section of the PMP User-Guide</a>
                     provides information regarding uploading files to the workspace or getting files out of the workspace.
-                </li>
-                <li>The workspace is <b>fully customizable</b> and tools such as MATLAB are available
-                    <a href ='https://precision.heart.org/contact'>upon request</a>. <b>R Studio, Jupyter Notebook, JupyterLab, and SAS Studio</b> are available as tabs when a workspace
-                    is launched.
                 </li>
                 <li>The terminal and a variety of languages including R, Python, bash, and SAS can
                     be accessed through Jupyter and JupyterLab. A comprehensive list of pre-installed packages and software can be found on the
-                    <a href="https://precision.heart.org/workspace/about" target="_blank">About Workspaces</a> page.
+                    <a href="https://precision.heart.org/workspace/about" target="_blank">About Workspaces</a> page. The workspace is <b>fully customizable</b> and tools such as MATLAB are available
+                    <a href ='https://precision.heart.org/contact'>upon request</a>.
                 </li>
                 <li>R and SAS require a log in
                     <button id="passwords-plus" class="fa fa-angle-down" onclick="toggle('workspace-passwords', 'passwords-plus')"></button>
@@ -195,41 +200,42 @@
     const usageCardsDiv = document.getElementById("usageCards");
 
     const docCardsContent = {
-        "row_1": {
-            "cardClassName": "card data-doc-cards",
-            "contentClassName": "card-content",
-            "icon": "fa fa-search-location",
-            "header": "Data  Exploration",
-            "content": "Interactively explore all variables in the data and their accompanying documentation.",
-            "btnContent": [{
-                "btntype": "link",
-                "className": "btn primary-btn",
-                "label": "Explore COVID19 Data",
-                "link": "search-data-documentation.html"
-            }]
-        },
+        // "row_1": {
+        //     "cardClassName": "card data-doc-cards",
+        //     "contentClassName": "card-content",
+        //     "icon": "fa fa-search-location",
+        //     "header": "Data  Exploration",
+        //     "content": "Interactively explore all variables in the data and their accompanying documentation.",
+        //     "btnContent": [{
+        //         "btntype": "link",
+        //         "className": "btn primary-btn",
+        //         "label": "Explore Resus Data",
+        //         "link": "search-data-documentation.html"
+        //     }]
+        // },
         "row_2":
             {
                 "cardClassName": "card data-doc-cards",
                 "contentClassName": "card-content",
                 "icon": "fa fa-file-invoice",
                 "header":"Dictionaries and Coding",
-                "content": "PDFs describing variable definitions, formats, and coding are in the " +
-                    "<code>GWTG/COVID19/documentation</code> folder within the workspace and can also be viewed using the " +
-                    "<i>Documentation Files</i> dropdown below. The documentation contained in these files is also available " +
-                    "using the <a href='variable_documentation_R/covid_Documentation_DTdatatable_example.html' target='_blank'>Explore and Discover website</a> described above.",
+                "content": "<p>PDFs describing variable definitions, formats, and coding are in the " +
+                    "<code>GWTG/Resus/V12_08-20/documentation</code> folder within the workspace and can also be viewed using the " +
+                    "buttons below.</p>",
+                    // "The documentation contained in these files is also available " +
+                    // "using the <a href='variable_documentation_R/covid_Documentation_DTdatatable_example.html' target='_blank'>Explore and Discover website</a> described above.",
                 "btnContent": [
                     {
                         "btntype": "link",
                         "className": "btn primary-btn",
                         "label": "Data Dictionary",
-                        "link": "COVID19_files/documentation/aug20ahacovid19cvd_data_dictionary.pdf"
+                        "link": "Resus_files/documentation/V12_gwtgresus_cpa_adult_data_dictionary.pdf"
                     },
                     {
                         "btntype": "link",
                         "className": "btn primary-btn",
                         "label": "Coding Manual",
-                        "link": "COVID19_files/documentation/aug20ahacovid19cvd_coding_manual.pdf"
+                        "link": "Resus_files/documentation/V12_gwtgresus_cpa_adult_coding.rtf"
                     }
                 ]
             },
@@ -239,15 +245,15 @@
                 "contentClassName": "card-content",
                 "icon": "fa fa-notes-medical",
                 "header":"Registry Collection",
-                "content": "The <code>covid19_cvd_registry_collection_instructions</code> pdf contains " +
+                "content": "<p>The <code>covid19_cvd_registry_collection_instructions</code> pdf contains " +
                     "registry data collection criterion, definitions, and protocols for entry and collected measures. " +
-                    "This file can is also available in the <code>GWTG/COVID19/documentation</code> workspace folder.",
+                    "This file can is also available in the <code>GWTG/Resus/V12_08-20/documentation</code> workspace folder.</p>",
                 "btnContent": [
                     {
                         "btntype": "link",
                         "className": "btn primary-btn",
                         "label": "Collection Instructions",
-                        "link": "COVID19_files/documentation/ahacovid19cvd_registry_collection_instructions.pdf"
+                        "link": "Resus_files/documentation/V12_gwtgresus_cpa_adult_collection_instructions.pdf"
                     },
                     {
                         "cardClassName": "card data-doc-cards",
@@ -255,7 +261,7 @@
                         "btntype": "link",
                         "className": "btn primary-btn",
                         "label": "Collection Form",
-                        "link": "COVID19_files/documentation/ahacovid19cvd_coded_collection_form.pdf"
+                        "link": "Resus_files/documentation/V12_gwtgresus_cpa_adult_collection_form.pdf"
                     }
                 ]
             }
@@ -267,9 +273,9 @@
                 "contentClassName": "card-content",
                 "icon": "fa fa-laptop-code",
                 "header": "Data Usage",
-                "content": "The COVID CVD registry data is available in the <code>GWTG/COVID19/data</code> folder. " +
+                "content": "<p>The COVID CVD registry data is available in the <code>GWTG/Resus/V12_08-20/data</code> folder. " +
                     "Examples for how to load and use the data in SAS, R, and Python are available in " +
-                    "the <code>GWTG/COVID19/usage_and_examples</code> folder and can also be accessed via the buttons below.",
+                    "the <code>GWTG/Resus/V12_08-20/usage_and_examples</code> folder and can also be accessed via the buttons below.</p>",
                 "btnContent": [
                     {
                         "btntype": "link",
@@ -290,38 +296,38 @@
                         "link": "COVID19_files/usage_and_examples/SAS/SAS_covid19_cvd_data_usage.html"
                     }]
             },
-        "row_2":
-            {
-                "cardClassName": "card data-doc-cards",
-                "contentClassName": "card-content",
-                "icon": "fa fa-lightbulb",
-                "header":"Tips and Guidelines",
-                "content": "The Analysis Guide includes common criteria and filters " +
-                    "to apply when using the COVID Registry data in analyses. You will also find general guidelines " +
-                    "regarding quality checks and missing values. The Manuscript Guide and NDA-DUA contains" +
-                    " guidelines and recommendations for data use and authorship. In the workspace, guideline files are " +
-                    "available in <code>GWTG/COVID19/analysis_manuscript_guidelines</code>.",
-                "btnContent": [
-                    {
-                        "btntype": "link",
-                        "className": "btn primary-btn",
-                        "label": "Analysis Guide",
-                        "link": "COVID19_files/analysis_manuscript_guidelines/ahacovid19cvd_analysis_guidelines.html"
-                    },
-                    {
-                        "btntype": "link",
-                        "className": "btn primary-btn",
-                        "label": "Manuscript Guide",
-                        "link": "COVID19_files/analysis_manuscript_guidelines/AHA_COVID-19_Registry_Author_Reference_Guide.pdf"
-                    },
-                    {
-                        "btntype": "link",
-                        "className": "btn primary-btn",
-                        "label": "NDA-DUA",
-                        "link": "COVID19_files/analysis_manuscript_guidelines/AHA_GWTG_COVID-19_PMP_NDA-DUA.pdf"
-                    }
-                ]
-            },
+        // "row_2":
+        //     {
+        //         "cardClassName": "card data-doc-cards",
+        //         "contentClassName": "card-content",
+        //         "icon": "fa fa-lightbulb",
+        //         "header":"Tips and Guidelines",
+        //         "content": "The Analysis Guide includes common criteria and filters " +
+        //             "to apply when using the COVID Registry data in analyses. You will also find general guidelines " +
+        //             "regarding quality checks and missing values. The Manuscript Guide and NDA-DUA contains" +
+        //             " guidelines and recommendations for data use and authorship. In the workspace, guideline files are " +
+        //             "available in <code>GWTG/COVID19/analysis_manuscript_guidelines</code>.",
+        //         "btnContent": [
+        //             {
+        //                 "btntype": "link",
+        //                 "className": "btn primary-btn",
+        //                 "label": "Analysis Guide",
+        //                 "link": "COVID19_files/analysis_manuscript_guidelines/ahacovid19cvd_analysis_guidelines.html"
+        //             },
+        //             {
+        //                 "btntype": "link",
+        //                 "className": "btn primary-btn",
+        //                 "label": "Manuscript Guide",
+        //                 "link": "COVID19_files/analysis_manuscript_guidelines/AHA_COVID-19_Registry_Author_Reference_Guide.pdf"
+        //             },
+        //             {
+        //                 "btntype": "link",
+        //                 "className": "btn primary-btn",
+        //                 "label": "NDA-DUA",
+        //                 "link": "COVID19_files/analysis_manuscript_guidelines/AHA_GWTG_COVID-19_PMP_NDA-DUA.pdf"
+        //             }
+        //         ]
+        //     },
         "row_3":
             {
                 "cardClassName": "card data-doc-cards",
@@ -329,25 +335,25 @@
                 "icon": "fa fa-question-circle ",
                 "header": "Need Help?",
                 "content":
-                    "<ul>" +
+                    "<p><ul>" +
                     "<li>For PMP questions, check out the FAQ and PMP User Guide</li>" +
                     "<li>For technical problems or installation issues, file a ticket with " +
                     "<a href ='https://precision.heart.org/technical-support'>Technical Support</a></li>" +
                     "<li>For data questions, account questions, and additional PMP or analysis support, please " +
-                    "<a href ='https://precision.heart.org/contact'>Contact Us</li>." +
-                    "</ul>",
+                    "<a href ='https://precision.heart.org/contact'>Contact Us.</li>" +
+                    "</ul></p>",
                 "btnContent": [
                     {
                         "btntype": "link",
                         "className": "btn primary-btn",
                         "label": "PMP FAQ",
-                        "link": "../PMP-FAQ.html"
+                        "link": "/documentation/PMP-FAQ.html"
                     },
                     {
                         "btntype": "link",
                         "className": "btn primary-btn",
                         "label": "PMP User Guide",
-                        "link": "../user-guide/index.html"
+                        "link": "/documentation/user-guide/index.html"
                     }
                 ]
             }

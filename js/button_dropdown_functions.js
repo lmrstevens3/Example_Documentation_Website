@@ -1,3 +1,46 @@
+function createCollapsibleButton(collapsibleBtnContent, btnClassName = "collapsible", idCollapsibleContent) {
+    const btn = document.createElement("button");
+    btn.className = "collapsible";
+    if (typeof collapsibleBtnContent.anchor !== 'undefined') {
+        anchor = createAnchor(collapsibleBtnContent['anchorContent']);
+        btn.appendChild(anchor)
+    }
+
+
+    const innerContent = document.createElement("span");
+    const header = document.createElement("h2");
+    const img = document.createElement("img");
+
+    const plusIcon = document.createElement("i");
+
+    const questionsContent = document.createElement("div");
+
+
+
+
+
+
+
+    plusIcon.className = "fas fa-plus";
+    plusIcon.id = content_id + "-plus";
+    categoryBtn.onclick = function() {toggle(content_id, plusIcon.id)};
+
+    questionsContent.className = "collapsible-content";
+    questionsContent.id = content_id;
+    questionsContent.style.display = "block";
+}
+
+function createAnchor(anchorContent) {
+    const anchor = document.createElement("a");
+    anchor.id = anchorContent.id;
+    if (typeof className !== 'undefined') {
+        anchor.className = anchorContent.id;
+    }
+    return(anchor)
+}
+
+
+
 function createLinkedButton(buttonClassName, label, link, onclick = null, target) {
     const button = document.createElement("button");
     const buttonLink = document.createElement("a");

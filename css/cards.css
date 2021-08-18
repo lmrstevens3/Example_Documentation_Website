@@ -1,4 +1,25 @@
 
+
+.dataset-card-set {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: space-between;
+    margin: 3%;
+}
+
+
+
+.dataset-card-set .card {
+    flex: 0 0 calc(33% - 0.5em);
+    align-self: stretch;
+    max-height: 400px;
+    max-width: 400px;
+}
+
+
+
+
 /*cards */
 .card {
     position: relative;
@@ -10,20 +31,29 @@
     word-wrap: break-word;
     background-clip: border-box;
     border: 1px solid rgba(149, 7, 27, 0.12);
-    border-radius: .25rem;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-    height: 100%;
+    border-radius: 0;
+}
+div.coming-soon {
+    display: none;
 }
 
-.card-content {
-    margin: 1% 2%;
+.inactive div.coming-soon {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.75);
+    display: flex;
 }
+
+
+
 
 .card h2, .card h3 {
     font-family: Montserrat,Helvetica Neue,Arial,sans-serif;
     line-height: 1.2;
     font-weight: 600;
-    margin-top: 2%;
+    margin: 2% 0;
 }
 
 
@@ -36,18 +66,27 @@
     line-height: 1.5;
 }
 .card-content p {
-    margin:5%;
+    margin:8%;
 }
 
 .docs-home-card {
     text-align:center;
     justify-content: space-around;
-    margin:0.5rem;
+    margin:0.5em;
+    width:100%;
+    border-radius: .25rem;
+    border: 1px solid rgba(149, 7, 27, 0.12);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .docs-home-main-card {
     /*height:35rem;*/
     padding-top:5%;
+    margin:3% 2%;
+}
+
+.docs-home-sm-card div {
+    margin-bottom:2%;
 }
 
 .docs-home-main-card i.fa {
@@ -57,29 +96,32 @@
 
 .docs-home-sm-card h3 {
     font-size: 1.5rem;
-    margin: 0;
-    padding:1%;
+
 }
 
 .data-doc-cards {
     justify-content: space-around;
     margin: 1rem 0;
-    width:100%;
-    /*padding-left: 1%;*/
+    /*width:100%;*/
+    /*!*padding-left: 1%;*!*/
     height: 100%;
     overflow: scroll;
     align-content: center;
-    background: url("../AHA-COVID19-CVD-GWTG/images/molecules_data_sm.png") repeat-y;
+    background: url("/documentation/data-resources/images/molecules_data_sm.png") repeat-y;
+    padding-left:60px;
+    border: 1px solid rgba(149, 7, 27, 0.12);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .data-doc-cards .card-content {
     text-align: left;
     font-size: 1.2em;
-    padding-left:50px;
+    margin: 5% 2%;
+
 }
 
 .data-doc-cards i.fa {
-    margin: 0 0.5em 0.25em 0.5em;
+    margin: 0 0.25em 0.25em .25em;
     vertical-align: center;
     color:#C10E21;
     font-size:xx-large;
@@ -88,4 +130,5 @@
 .data-doc-cards h3, .data-doc-cards i.fa {
     display:inline-block;
     color: #C10E21;
+    margin-left: 0.25em;
 }

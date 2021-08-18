@@ -12,32 +12,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="../css/aha_styling.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="../css/search.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="../css/aha_navbar.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="../css/main-pmp-docs.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="../css/headers.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="../css/side_bar.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="../css/collapsible.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="../css/cards.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_styling.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/search.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_navbar.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/main-pmp-docs.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/headers.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/side_bar.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/collapsible.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/cards.css" type="text/css" media="screen"/>
 
-    <link rel="stylesheet" href="../css/aha_pmp_header.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="../css/aha_affiliate_footer.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_pmp_header.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_affiliate_footer.css" type="text/css" media="screen"/>
 
-    <script type="text/javascript" src="../js/toggle_functions.js"></script>
-    <script type="text/javascript" src="../js/button_dropdown_functions.js"></script>
-    <script type="text/javascript" src="../js/side_bar_functions.js"></script>
+    <script type="text/javascript" src="/documentation/js/toggle_functions.js"></script>
+    <script type="text/javascript" src="/documentation/js/button_dropdown_functions.js"></script>
+    <script type="text/javascript" src="/documentation/js/side_bar_functions.js"></script>
 
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script src="//static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js"></script>
     <script>
         jQuery(function($) {
             // console.log('ready');
-            $('.aha_pmp_header').load('../components/aha_pmp_header.html');
-            $('.workspace-passwords').load('../components/workspace_passwords.html');
-            $('.pmp-docs-navbar').load('../components/pmp_docs_navbar.html');
+            $('.aha_pmp_header').load('/documentation/components/aha_pmp_header.html');
+            $('.workspace-passwords').load('/documentation/components/workspace_passwords.html');
+            $('.pmp-docs-navbar').load('/documentation/components/pmp_docs_navbar.html');
         });
-        $.get("../components/aha_pmp_footer.html", function (data) {
+        $.get("/documentation/components/aha_pmp_footer.html", function (data) {
             $("#footer-container").replaceWith(data);
         });
 
@@ -133,7 +133,7 @@
 <!--        <h4>Date: August 01, 2020 - Version 0.1</h4>-->
 <!--    </div>-->
     <div class="header-banner">
-        <i>If you do not have a PMP account, please register</i>
+        <i>If you do not have a PMP account, please register.</i>
         <button type="button" class="btn primary-btn">
             <a href="https://precision.heart.org/sso/" target="_blank">Register Now</a>
         </button>
@@ -171,7 +171,7 @@
                     "btntype": "link",
                     "className": "btn secondary-btn ",
                     "label": "FAQ",
-                    "link": "../PMP-FAQ.html"
+                    "link": "/documentation/PMP-FAQ.html"
                 },
                 {
                     "btntype": "dropdown",

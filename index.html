@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <title>PMP Docs-Home</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -24,8 +25,7 @@
     <script type="text/javascript" src="js/button_dropdown_functions.js"></script>
     <script type="text/javascript" src="js/card_functions.js"></script>
 
-    <script src="//code.jquery.com/jquery.min.js"></script>
-    <script src="//static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js"></script>
+
     <script>
         jQuery(function($) {
             $('.aha_pmp_header').load('components/aha_pmp_header.html');
@@ -61,14 +61,15 @@
                 "cardClassName": "card docs-home-card",
                 "contentClassName": "card-content docs-home-main-card",
                 "header": "Getting Started",
-                "content": "New to the Precision Medicine Platform? Learn how to, " +
-                    "register, access data, and get a workspace.",
+                "content": "<p>New to the Precision Medicine Platform? Learn how to, " +
+                    "register, access data, and get a workspace.</p>",
                 "btnContent": [
                     {
                         "btntype": "link",
                         "className": "btn primary-btn",
                         "label": "Get Started",
-                        "link": "getting-started/index.html"
+                        "link": "getting-started/index.html",
+                        "target" : "_self"
                     }]
 
 
@@ -78,14 +79,15 @@
                 "cardClassName": "card docs-home-card",
                 "contentClassName": "card-content docs-home-main-card",
                 "header": "User Guide",
-                "content": "The PMP user guide includes usage information, and acts as a \"how-to\" for the " +
-                    "Precision Medicine Platform.",
+                "content": "<p>The PMP user guide includes usage information, and acts as a \"how-to\" for the " +
+                    "Precision Medicine Platform.</p>",
                 "btnContent": [
                     {
                         "btntype": "link",
                         "className": "btn primary-btn",
                         "label": "To the User Guide",
-                        "link": "user-guide/index.html"
+                        "link": "user-guide/index.html",
+                        "target" : "_self"
                     }]
             },
             {
@@ -93,27 +95,22 @@
                 "cardClassName": "card docs-home-card",
                 "contentClassName": "card-content docs-home-main-card",
                 "header": "Data Resources",
-                "content": "Working with a PMP Dataset? Find documentation, usage, code examples, and more.",
+                "content": "<p>Working with a PMP Dataset? Find documentation, usage, code examples, and more.</p>",
                 "btnContent": [
 
                     {
-                        "btntype": "dropdown",
+                        "btntype": "link",
                         "className": "btn primary-btn",
-                        "label": "Data Resources ",
-                        "menu": [
-                            {
-                                "label": "AHA COVID-19 Registry (GWTG)",
-                                "link": "AHA-COVID19-CVD-GWTG/index.html",
-                                "target": "_blank"
-                            }
-                        ]
+                        "label": "To Data Resources ",
+                        "link": "data-resources/index.html",
+                        "target" : "_self"
                     }]
             }
         ],
         "smallCard":[
             {
                 "cardClassName": "card docs-home-card",
-                "contentClassName": "card-content doc-home-sm-card",
+                "contentClassName": "card-content docs-home-sm-card",
                 "header": "<img src=\"https://www.heart.org/-/media/foundation/metadata/aha_logo.png\" alt=\"drawing;\" style=\"width:20%; padding-bottom: 10px;\">Can't Wait to Start?",
                 "btnContent": [
                     {
@@ -126,13 +123,14 @@
             },
             {
                 "cardClassName": "card docs-home-card",
-                "contentClassName": "card-content doc-home-sm-card",
+                "contentClassName": "card-content docs-home-sm-card",
                 "header": "<img src=\"https://www.heart.org/-/media/foundation/metadata/aha_logo.png\" alt=\"drawing;\" style=\"width:20%; padding-bottom: 10px;\">Questions?",
                 "btnContent": [{
                         "btntype": "link",
                         "className": "btn primary-btn",
                         "label": "FAQ",
-                        "link": "PMP-FAQ.html"
+                        "link": "PMP-FAQ.html",
+                        "target" : "_self"
                     },
                     {
                         "btntype": "dropdown",
@@ -154,21 +152,22 @@
             },
             {
                 "cardClassName": "card docs-home-card",
-                "contentClassName": "card-content doc-home-sm-card",
+                "contentClassName": "card-content docs-home-sm-card",
                 "header": "<img src=\"https://www.heart.org/-/media/foundation/metadata/aha_logo.png\" alt=\"drawing;\" style=\"width:20%; padding-bottom: 10px;\">Analyzing Data?",
                 "btnContent": [
                     {
                         "btntype": "link",
                         "className": "btn primary-btn",
                         "label": "Tutorials",
-                        "link": "user-guide/index.html#tutorials"
+                        "link": "user-guide/index.html#tutorials",
+                        "target" : "_self"
                     }]
             }
         ]}];
 
     const main = document.getElementById("main");
-    const mainCardRow = createRowDiv("row docs-home-card");
-    const smallCardRow = createRowDiv("row docs-home-card");
+    const mainCardRow = createRowDiv("row");
+    const smallCardRow = createRowDiv("row");
     createCards(homeCardContent[0]['mainCard'], mainCardRow, "col-lg-4");
     createCards(homeCardContent[0]['smallCard'], smallCardRow, "col-lg-4");
 

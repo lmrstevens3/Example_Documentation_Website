@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RGR Data Dictionary</title>
+
+    <!--    bootstrap and icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.min.css"> -->
+    <link rel="stylesheet" href="/documentation/css/clusterize.css" type="text/css" media="screen"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-base.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.min.js"></script>
+
+    <!--    styling  -->
+    <link rel="stylesheet" href="/documentation/css/aha_faq.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_styling.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/search.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_navbar.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/main-pmp-docs.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/headers.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/side_bar.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/collapsible.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/cards.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/main-pmp-datasets.css" type="text/css" media="screen"/>
+
+    <link rel="stylesheet" href="/documentation/css/aha_pmp_header.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_affiliate_footer.css" type="text/css" media="screen"/>
+    
+
+    <!--    toggle/button functions -->
+    <script type="text/javascript" src="/documentation/js/toggle_functions.js"></script>
+    <script type="text/javascript" src="/documentation/js/button_dropdown_functions.js"></script>
+
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js"></script>
+    <script>
+        jQuery(function($) {
+            // console.log('ready');
+            $('.aha_pmp_header').load('/documentation/components/aha_pmp_header.html');
+            $('.workspace-passwords').load('/documentation/components/workspace_passwords.html');
+            $('.pmp-docs-navbar').load('/documentation/components/pmp_navbar.html');
+
+        });
+        $.get("/documentation/components/aha_pmp_footer.html", function (data) {
+            $("#footer-container").replaceWith(data);
+        });
+    </script>
+    
+</head>
+<body>
+<div class="aha_pmp_header"></div>
+<div class="pmp-docs-navbar"></div>
+<div class="title-container main-nav" style="padding:1%;">
+    <h1>RGR Data Dictionary</h1>
+</div>
+<div id="main" class="main-nav" style="margin:0 5% 2% 5%">
+
+    <!--        Dropdown button to jump to categories and search (search bar currently not working) -->
+    <div style="display:inline-block; margin:2% 30%;">
+        <div id="faq-category-dropdown" style="display:inline-block; text-align: center;">
+            <script>
+                const categoryDropdownContent = [
+                    {
+                        "btntype": "dropdown",
+                        "className": "btn secondary-btn faq-nav-dropdown",
+                        "label": "Variable Categories",
+                        "menu": [
+                            {
+                                "label": "Admin",
+                                "link": "#var-admin",
+                                "target": "_self",
+                            },
+                            // {
+                            //     "label": "Admission",
+                            //     "link": "#var-admission",
+                            //     "target": "_self",
+                            // },
+                            // {
+                            //     "label": "AdmLabs",
+                            //     "link": "#var-admlabs",
+                            //     "target": "_self",
+                            // },
+                            // {
+                            //     "label": "Medications",
+                            //     "link": "#var-medications",
+                            //     "target": "_self",
+                            // },
+                            {
+                                "label": "Identifier",
+                                "link": "#var-identifier",
+                                "target": "_self",
+                            },
+                            // {
+                            //     "label": "Hospitalization",
+                            //     "link": "#var-hospitalization",
+                            //     "target": "_self",
+                            // },
+                            {
+                                "label": "Demographics",
+                                "link": "#var-demographics",
+                                "target": "_self",
+                            },
+                            {
+                                "label": "Ungrouped",
+                                "link": "#var-ungrouped",
+                                "target": "_self",
+                            }
+                        ]
+                    }];
+                const cateogryDropdown = document.getElementById("faq-category-dropdown");
+                const cateogryDropdownBtn = createButtons(categoryDropdownContent);
+                cateogryDropdown.appendChild(cateogryDropdownBtn);
+            </script>
+        </div>
+        <div class="top-middle-search" style="vertical-align:center; display:inline-block">
+            <div class="search">
+                <input type="text" class="searchTerm" placeholder="Search...">
+                <button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // parse the data from the csv file
+    const data_parse = Papa.parse('./rgr_files/data/rgr_test_var_stats.csv', {
+        // after parsing is complete, call the build_data_dict() function
+        complete: function(results) {
+            console.log('Parse complete')
+            build_data_dict(results.data);
+        },
+        download: true,
+        header: true,
+        error: (error, file) => {
+            console.log('Error while parsing:', error, file);
+        },
+    });
+
+    // function to build the data dict, plot dict, and collapsibles 
+    const build_data_dict = function (data) {
+        console.log('raw data: ', data);
+        console.log("Building Data Dict");
+        // generate a list of all variable names
+        var var_names = [];
+        for (let i = 0; i < data.length; i++){
+        var_names[i] = data[i]["var"];
+        };
+
+        // generate array of unique variable names
+        var uniq_var_names = Array.from(new Set(var_names));
+        // console.log('uniq_var_names: ', uniq_var_names);
+
+        // init both dicts
+        var data_dict = {};
+        var plot_dict = {};
+        for (let i = 0; i < uniq_var_names.length; i++) {
+        data_dict[uniq_var_names[i]] = {}
+        };
+
+        // generate a dict mapping the var_name to the statistics
+        for (let i = 0; i < data.length; i++){
+        let var_name = data[i]["var"];
+        // append the stats to the variable name in the data_dict
+        data_dict[var_name][data[i]["measure"]] = data[i]["value"];
+        };
+        // console.log(data_dict);
+
+        // sanity check: get the length of each dict corresponding to the variable
+        console.log(Object.keys(data_dict).length);
+        let dict_len = {};
+        for (let key in data_dict) {
+            if (typeof dict_len[Object.keys(data_dict[key]).length] === 'number') {
+                dict_len[Object.keys(data_dict[key]).length] += 1;
+            } else {
+                dict_len[Object.keys(data_dict[key]).length] = 1;
+            };
+        };
+        console.log('dict_len: ', dict_len);
+        console.log("Data Dict Finished");
+        console.log('Data Dict: ', data_dict);
+
+        // build the dict containing plot data
+        console.log("Building Plot Dict")
+        // Need to first determine the type of plot to be generated. (maybe by checking the number of keys in the dict?)
+        // Then need to pass the in the correct format for the data (maybe return the data, with a string indicating the type of plot)
+        // Need to determine whether to process the string as a date or as a number (regex check for any '/', or maybe if the vairable ends in 'DT')
+        // In case of bar plot, need to transform the dict into a list of lists (also need to regex the count and separate it from the percentage)
+        // In case of boxplot, need to transform the dict keys into AnyChart key syntax
+        for (let i = 0; i < uniq_var_names.length; i++){
+            let var_name = uniq_var_names[i]
+            plot_dict[var_name] = {};
+
+            // identify plot type
+            let plot_type = "N/A"
+            if (Object.keys(data_dict[var_name]).length === 12) {
+                plot_type = "box";
+            } else {
+                plot_type = "bar";
+            };
+            plot_dict[var_name]["plot_type"] = plot_type;
+            
+            // init the plot_data object
+            var plot_data = [];
+
+            // in case of bar plot, transform the dict into a list of lists (also use regex to separate the counts and the percentage)
+            if (plot_type === "bar") {
+                for (const [key, value] of Object.entries(data_dict[var_name])) {
+                    const regex_count = /(.+ )/g;
+                    const value_match = value.match(regex_count);
+                    plot_data.push([key, parseFloat(value_match[0])]);
+                };
+            }
+            // in case of box plot, transform the dict keys into AnyChart key syntax
+            else if (plot_type === "box") {
+                // check whether the data is a date or a float
+                var data_type = "N/A";
+                const regex_date = /(..)$/g;
+                const var_match = var_name.match(regex_date);
+                if (var_match[0] === "DT") {
+                    data_type = "date";
+                } else {
+                    data_type = "number";
+                };
+
+                // populate the entry
+                if (data_type === "number") {
+                    plot_data[0] = {};
+                    plot_data[0]["x"] = var_name;
+                    plot_data[0]["q1"] = parseFloat(data_dict[var_name]["Q1"]);
+                    plot_data[0]["q3"] = parseFloat(data_dict[var_name]["Q3"]);
+                    plot_data[0]["median"] = parseFloat(data_dict[var_name]["median"]);
+                    plot_data[0]["low"] = parseFloat(data_dict[var_name]["min"]);
+                    plot_data[0]["high"] = parseFloat(data_dict[var_name]["max"]);
+                } else if (data_type === "date") {
+                    plot_data[0] = {};
+                    plot_data[0]["x"] = var_name;
+                    plot_data[0]["q1"] = Date.parse(data_dict[var_name]["Q1"]);
+                    plot_data[0]["q3"] = Date.parse(data_dict[var_name]["Q3"]);
+                    plot_data[0]["median"] = Date.parse(data_dict[var_name]["median"]);
+                    plot_data[0]["low"] = Date.parse(data_dict[var_name]["min"]);
+                    plot_data[0]["high"] = Date.parse(data_dict[var_name]["max"]);
+                };
+            };
+            // return the data
+            plot_dict[var_name]["plot_data"] = plot_data;
+        };
+        console.log("Plot Dict: ", plot_dict);
+
+        // slice the array for testing purposes
+        // uniq_var_names_temp_1 = uniq_var_names.slice(0, 5);
+        // uniq_var_names_temp_2 = uniq_var_names.slice(Math.max(uniq_var_names.length - 50, 0), -40);
+        // uniq_var_names = uniq_var_names_temp_1.concat(uniq_var_names_temp_2);
+        console.log("uniq_var_names: ", uniq_var_names);
+
+        // build out the collapsibles for each variable
+        const main  = document.getElementById("main");
+        uniq_var_names.forEach(function (x) {
+            // console.log('x: ', x);
+            // console.log('data_dict[x]: ', data_dict[x]);
+            // console.log('plot_dict[x]: ', plot_dict[x]);
+            const categoryBtn = document.createElement("button");
+            const anchor = document.createElement("a");
+            const headerContent = document.createElement("span");
+            const header = document.createElement("h2");
+            const img = document.createElement("img");
+            const content_id = x;
+            const plusIcon = document.createElement("i");
+
+            // create a div for the variable content
+            const varContent = document.createElement("div");
+            // create a div for the documentation links
+            const docContent = document.createElement("div");
+            // create a div for the data table
+            const dataContent = document.createElement("div");
+            // create a div for the plot
+            const plotContent = document.createElement("div");
+
+            img.alt = "drawing";
+            // img.src = "https://www.heart.org/-/media/foundation/metadata/aha_logo.png";
+            categoryBtn.className = "collapsible";
+            headerContent.className = "torch-header section-header grey-header"
+            anchor.id = "var-" + content_id;
+            anchor.className = "var-anchor";
+            plusIcon.className = "fas fa-plus";
+            plusIcon.id = content_id + "-plus";
+            categoryBtn.onclick = function() {toggle(content_id, plusIcon.id)};
+
+            varContent.className = "collapsible-content";
+            varContent.id = content_id;
+            varContent.style.display = "block";
+
+            // init the documentation collapsible
+            docContent.className = "collapsible-content";
+            docContent.id = content_id + "-doc";
+            docContent.style.display = "block";
+            //init the table collapsible
+            dataContent.className = "collapsible-content";
+            dataContent.id = content_id + "-data";
+            dataContent.style.display = "block";
+            // init the plot collapsible
+            plotContent.className = "collapsible-content";
+            plotContent.id = content_id + "-plot";
+            plotContent.style.display = "block";
+
+            // content in the header
+            main.appendChild(categoryBtn);
+            categoryBtn.appendChild(anchor);
+            categoryBtn.appendChild(headerContent);
+            headerContent.appendChild(header);
+            header.innerHTML = x;
+            // header.append(img);
+            header.append(plusIcon);
+
+            main.appendChild(varContent);
+            // content in the documentation
+            varContent.appendChild(docContent);
+            const docContainer = document.createElement("div");
+            const docBtn = document.createElement("button");
+            const docText = document.createElement("span");
+            const docName = document.createElement("a");
+            const docCaret = document.createElement("i");
+            const docList = document.createElement("ul");
+            const docList_1 = document.createElement("li");
+            const docList_2 = document.createElement("li");
+            const docLink_1 = document.createElement("a");
+            const docLink_2 = document.createElement("a");
+
+            docList.id = content_id + '-answer' + '-doc';
+            docList.style.display = "none";
+            docLink_1.href = "https://precision.heart.org/documentation/AHA-COVID19-CVD-GWTG/COVID19_files/documentation/ahacovid19cvd_coded_collection_form.pdf";
+            docLink_1.target = "_blank";
+            docLink_1.append(x + " in Collection Report Form (Placeholder)");
+            docLink_2.href = "https://precision.heart.org/documentation/AHA-COVID19-CVD-GWTG/COVID19_files/documentation/ahacovid19cvd_registry_collection_instructions.pdf";
+            docLink_2.target = "_blank";
+            docLink_2.append(x + " in Registry Collection Instructions (Placeholder)");
+
+            docCaret.className = "fa fa-caret-right";
+            docCaret.id = content_id + '-caret' + '-doc';
+            docBtn.className = "collapsible faq-question";
+            docBtn.onclick = function() {toggle(docList.id, docCaret.id)};
+            docContainer.className = 'faq-container';
+
+            docName.appendChild(docCaret);
+            docText.append("Documentation");
+            docName.appendChild(docText);
+            docBtn.appendChild(docName);
+            docContainer.appendChild(docBtn);
+            docList_1.appendChild(docLink_1);
+            docList_2.appendChild(docLink_2);
+            docList.appendChild(docList_1);
+            docList.appendChild(docList_2);
+            docContainer.appendChild(docList);
+            docContent.appendChild(docContainer);
+
+            // content in the data table
+            varContent.appendChild(dataContent);
+            const dataContainer = document.createElement("div");
+            const dataBtn = document.createElement("button");
+            const dataText = document.createElement("span");
+            const dataName = document.createElement("a");
+            const dataCaret = document.createElement("i");
+            const dataDisplay = document.createElement("div");
+            const dataTable = document.createElement("div");
+            const dataTableContent = document.createElement("table");
+            const dataTableHead = document.createElement("thead");
+            const dataTableHeader = document.createElement("tr");
+            const dataTableHeader_1 = document.createElement("th");
+            const dataTableHeader_2 = document.createElement("th");
+            const dataTableContentBody = document.createElement("div");
+            const dataTableContentBodyData = document.createElement("table");
+            const dataTableContentBodyTBody = document.createElement("tbody");
+            const dataTableContentBodyTr = document.createElement("tr");
+            const dataTableContentBodyTd = document.createElement("td");
+            
+            dataDisplay.id = content_id + '-answer' + '-table';
+            dataDisplay.className = "content faq-answer";
+            dataDisplay.style.display = "none";
+            // dataDisplay.style.height = "400px";
+            // dataTable.style.height = "400px";
+            // dataTableContentBody.style.height = "400px";
+
+            dataCaret.className = "fa fa-caret-right";
+            dataCaret.id = content_id + '-caret' + '-table';
+            dataBtn.className = "collapsible faq-question";
+            dataBtn.onclick = function() {toggle(dataDisplay.id, dataCaret.id)};
+            dataContainer.className = "faq-container";
+
+            dataName.appendChild(dataCaret);
+            dataText.append("Summary Statistics");
+            dataName.appendChild(dataText);
+            dataBtn.appendChild(dataName);
+            dataContainer.appendChild(dataBtn);
+            dataContainer.appendChild(dataDisplay);
+            dataContent.appendChild(dataContainer);
+
+            dataTable.className = "clusterize";
+            dataTableHeader_1.append("Key");
+            dataTableHeader_2.append("Value");
+            dataTableContentBody.id = content_id + '-scrollArea';
+            dataTableContentBody.className = "clusterize-scroll";
+            dataTableContentBodyTBody.id = content_id + '-contentArea';
+            dataTableContentBodyTBody.className = "clusterize-content";
+            dataTableContentBodyTr.className = "clusterize-no-data";
+            dataTableContentBodyTd.append("Loading Data...");
+
+            dataTableContentBodyTr.appendChild(dataTableContentBodyTd);
+            dataTableContentBodyTBody.appendChild(dataTableContentBodyTr);
+            dataTableContentBodyData.appendChild(dataTableContentBodyTBody);
+            dataTableContentBody.appendChild(dataTableContentBodyData);
+
+            dataTableHeader.appendChild(dataTableHeader_1);
+            dataTableHeader.appendChild(dataTableHeader_2);
+            dataTableHead.appendChild(dataTableHeader)
+            dataTableContent.appendChild(dataTableHeader);
+
+            dataTable.appendChild(dataTableContent);
+            dataTable.appendChild(dataTableContentBody);
+            dataDisplay.appendChild(dataTable);
+            
+            // testing clusterize
+            var dataElements = Object.entries(data_dict[x]);
+            var clusterize = new Clusterize({
+                                    rows: dataElements.map(function(row) {
+                                                    return "<tr>" +
+                                                        row.map(function(col) {
+                                                        return '<td>' + col + '</td>';
+                                                        }).join(" ") +
+                                                    "</tr>"
+                                                    }),
+                                    scrollId: content_id + '-scrollArea',
+                                    contentId: content_id + '-contentArea'
+                                });
+            
+            // content in the plot
+            varContent.appendChild(plotContent);
+            const plotContainer = document.createElement("div");
+            const plotBtn = document.createElement("button");
+            const plotText = document.createElement("span");
+            const plotName = document.createElement("a");
+            const plotCaret = document.createElement("i");
+            const plotVis = document.createElement("div");
+
+            plotVis.id = content_id + '-answer' + '-plot';
+            plotVis.className = "content faq-answer";
+            plotVis.style.display = "none";
+            // plotVis.style.width = "700px";
+            plotVis.style.height = "400px";
+
+            plotCaret.className = "fa fa-caret-right";
+            plotCaret.id = content_id + '-caret' + '-plot';
+            plotBtn.className = "collapsible faq-question";
+            plotBtn.onclick = function() {toggle(plotVis.id, plotCaret.id)};
+            plotContainer.className = "faq-container"
+
+            plotName.appendChild(plotCaret);
+            plotText.append("Plot");
+            plotName.appendChild(plotText);
+            plotBtn.appendChild(plotName);
+            plotContainer.appendChild(plotBtn);
+            plotContainer.appendChild(plotVis);
+            plotContent.appendChild(plotContainer);
+
+            // draw the chart under div=plotVis.id 
+            var chart = anychart.vertical();
+            if (plot_dict[x]["plot_type"] == "box") {
+                var series = chart.box(plot_dict[x]["plot_data"]);
+            }
+            else if (plot_dict[x]["plot_type"] == "bar") {
+                var series = chart.bar(plot_dict[x]["plot_data"]);
+            }
+            chart.title('Data Distribution');
+            chart.container(plotVis.id);
+            chart.draw();
+        })
+    };
+</script>
+<div id="footer-container"></div>
+</body>
+</html>

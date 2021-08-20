@@ -15,6 +15,7 @@
 
     <!--    style sheets-->
     <link rel="stylesheet" href="/documentation/css/aha_styling.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/inactive.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/documentation/css/search.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/documentation/css/aha_navbar.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/documentation/css/main-pmp-docs.css" type="text/css" media="screen"/>
@@ -36,6 +37,7 @@
     <script>
         jQuery(function($) {
             $('.aha_pmp_header').load('/documentation/components/aha_pmp_header.html');
+            $('.workspace-passwords').load('/documentation/components/workspace_passwords.html');
             $('.pmp-docs-navbar').load('/documentation/components/pmp_docs_navbar.html');
             // $('.pmp-navbar').load('components/pmp_navbar.html');
         });
@@ -49,22 +51,22 @@
 <div class="aha_pmp_header"></div>
 <div class="pmp-docs-navbar"></div>
 
-<div id="main" class="main-nav" style="margin:1% 2%;">
+<div id="main" class="main-nav" style="margin:5% 2%; padding:2%">
 
-    <div id="quick-links" style="margin-top:6%; margin-bottom:0">
+    <div id="quick-links">
         <span style="color:#6D6E71; font-size:14px; margin-bottom: 1px;">Quick Links</span>
         <script>
             const quickLinkContent= [
                 {
                     "btntype": "link",
                     "className": "btn secondary-btn",
-                    "label": "Explore COVID19 Data",
+                    "label": "<span style=\"background-color: yellow;\">Explore COVID19 Data</span>",
                     "link": "search-data-documentation.html"
                 },
                 {
                     "btntype": "dropdown",
                     "className": "btn secondary-btn",
-                    "label": "COVID19 Data Usage",
+                    "label": "<span style=\"background-color: yellow;\">COVID19 Data Usage</span>",
                     "menu": [
                         {
                             "label": "<img src='https://www.r-project.org/logo/Rlogo.png' alt='drawing' style='width:17%; vertical-align:middle; padding-right:5px; padding-bottom: 5px;'>  R",
@@ -123,13 +125,42 @@
             quickLinksDiv.appendChild(quickLinkBtns);
         </script>
     </div>
-    <div id="registry-logo-info" class="row container-fluid" style="padding:2% 0">
-        <div class="col-lg-4" style="padding:1% 2%;">
-            <img alt="AHA-Resus-logo" src="https://www.heart.org/-/media/images/professional/quality-improvement/qi-program-logos/get-with-the-guidelines-resus-program-logo-box.jpg?h=293&la=en&mw=440&w=440&hash=6DF67594808E49932F658009374A881F048886F5" class="img-fluid" style="max-height:325px;">
+    <div id="resus-registry-info" class="cards-section">
+        <div class="card">
+            <div class="card-content data-resource-card">
+                <img alt="AHA-Resus-logo" src="https://www.heart.org/-/media/images/professional/quality-improvement/qi-program-logos/get-with-the-guidelines-resus-program-logo-box.jpg?h=293&la=en&mw=440&w=440&hash=6DF67594808E49932F658009374A881F048886F5" >
+            </div>
         </div>
-        <div class="col-lg-8" style="padding: 1% 2%;">
-            <div style="margin-left:1%;">
-                <h4>About the GWTG<sup>&#174</sup> Resuscitation Registry Data</h4>
+        <div class="card-section">
+            <div class="card">
+                <div class="card-content dataset-stat-card">
+                    <h5 class="red-header">Collection Dates</h5>
+                    <h3> XXX - June 2021</h3>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content dataset-stat-card">
+                    <h5 class="red-header">Total Records</h5>
+                    <h3>451,792</h3>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content dataset-stat-card">
+                    <h5 class="red-header">PMP Data Location</h5>
+                    <code>/mnt/workspace/GWTG/Resus</code>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content dataset-stat-card">
+                    <h5 class="red-header">Total Registry Sites</h5>
+                    <h3>XXX</h3>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="padding: 1% 2%;">
+            <div class="card-content about-card">
+                <h3><span style="color:#C10E21">About the Registry: </span>
+                    <span style="font-weight: normal"><i>GWTG<span style="font-size: 1.35rem"><sup>&#174</sup></span> Resuscitation</i></span></h3>
                 <p>The Get With the Guidelines<sup>&#174</sup> Resuscitation Registry is a voluntary quality improvement registry. Information and documentation regarding the registry data,
                     data usage are provided in the workspace as well as on this site. <span style="background-color: yellow;">SOMETHING ABOUT ADULT vs. PEDIATRIC? CPA vs. MET? </span>
                 </p>
@@ -148,7 +179,7 @@
     </div>
     <div id="intro">
         <button class="collapsible" onclick="return toggle('intro-content', 'intro-plus')">
-            <a class="section-header red-header" href="#">
+            <a class="section-header red-header shadowed-header" href="#">
                 <h2><i class="fa fa-running" style="font-size: larger"></i>Getting Started with GWTG<sup>&#174</sup> Data in the PMP</h2>
                 <i id="intro-plus" class="fas fa-plus"></i>
             </a>
@@ -158,12 +189,12 @@
             <h4>Root Directory and Resus Data Location</h4>
             <ul>
                 <li>The Resus Registry Data is located in <code>/mnt/workspace/GWTG/Resus</code></li>
-                <li>The root path in the workspace is <code>/mnt/workspace</code>. This is the default directory for the
-                    Jupyter Home Page JupyterLab, R Studio and SAS Studio.
-                </li>
             </ul>
             <h4>Software</h4>
             <ul>
+                <li>The root path in the workspace is <code>/mnt/workspace</code>. This is the default directory for the
+                    Jupyter Home Page JupyterLab, R Studio and SAS Studio.
+                </li>
                 <li>The <a href="/documentation/user-guide/index.html#transfer" target="_blank">Transfer Data Section of the PMP User-Guide</a>
                     provides information regarding uploading files to the workspace or getting files out of the workspace.
                 </li>
@@ -201,7 +232,7 @@
 
     const docCardsContent = {
         // "row_1": {
-        //     "cardClassName": "card data-doc-cards",
+        //     "cardClassName": "card dataset-doc-card",
         //     "contentClassName": "card-content",
         //     "icon": "fa fa-search-location",
         //     "header": "Data  Exploration",
@@ -215,7 +246,7 @@
         // },
         "row_2":
             {
-                "cardClassName": "card data-doc-cards",
+                "cardClassName": "card dataset-doc-card",
                 "contentClassName": "card-content",
                 "icon": "fa fa-file-invoice",
                 "header":"Dictionaries and Coding",
@@ -241,7 +272,7 @@
             },
         "row_3":
             {
-                "cardClassName": "card data-doc-cards",
+                "cardClassName": "card dataset-doc-card",
                 "contentClassName": "card-content",
                 "icon": "fa fa-notes-medical",
                 "header":"Registry Collection",
@@ -256,7 +287,7 @@
                         "link": "Resus_files/documentation/V12_gwtgresus_cpa_adult_collection_instructions.pdf"
                     },
                     {
-                        "cardClassName": "card data-doc-cards",
+                        "cardClassName": "card dataset-doc-card",
                         "contentClassName": "card-content",
                         "btntype": "link",
                         "className": "btn primary-btn",
@@ -269,7 +300,7 @@
     const usageCardsContent = {
         "row_1":
             {
-                "cardClassName": "card data-doc-cards",
+                "cardClassName": "card dataset-doc-card",
                 "contentClassName": "card-content",
                 "icon": "fa fa-laptop-code",
                 "header": "Data Usage",
@@ -298,7 +329,7 @@
             },
         // "row_2":
         //     {
-        //         "cardClassName": "card data-doc-cards",
+        //         "cardClassName": "card dataset-doc-card",
         //         "contentClassName": "card-content",
         //         "icon": "fa fa-lightbulb",
         //         "header":"Tips and Guidelines",
@@ -330,7 +361,7 @@
         //     },
         "row_3":
             {
-                "cardClassName": "card data-doc-cards",
+                "cardClassName": "card dataset-doc-card",
                 "contentClassName": "card-content",
                 "icon": "fa fa-question-circle ",
                 "header": "Need Help?",

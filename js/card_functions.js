@@ -31,10 +31,9 @@ function createCardContent(cardContent) {
             window.location.href = cardContent.link;
         };
     }
-    if (typeof cardContent.warningMsg !== 'undefined') {
-        content.insertAdjacentHTML("beforeend", cardContent.warningMsg);
+    if (typeof cardContent.message !== 'undefined') {
+        content.insertAdjacentHTML("beforeend", cardContent.message);
     }
-    console.log(content)
 
     return(content)
 }

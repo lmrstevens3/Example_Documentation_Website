@@ -8,6 +8,11 @@
     margin-top:4.6rem;
 }
 
+#main {
+    margin-top: 4.75rem;
+    min-width: 350px;
+}
+
 .title-container{
     top:12rem;
     margin-left:0;
@@ -68,10 +73,9 @@ a.anchor {
 
 .content img {
     border: 0.1em solid #000000;
-    width:75%;
 }
 
-.content .note{
+.content .note {
     line-height:1.5;
     font-style:italic;
     font-weight: bold;
@@ -79,7 +83,7 @@ a.anchor {
 }
 
 .content {
-    margin:1% 1%;
+    margin:1%;
     padding-left:1em;
     overflow: scroll;
     display: none;

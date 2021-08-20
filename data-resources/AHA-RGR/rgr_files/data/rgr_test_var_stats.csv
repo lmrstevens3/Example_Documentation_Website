@@ -1,0 +1,72 @@
+var,measure,value
+sex_at_birth,Female,10435 (99.21%)
+sex_at_birth,Male,71 (0.67%)
+sex_at_birth,Intersex,12 (0.12%)
+age_at_enrollment,N,10518
+age_at_enrollment,min,18.0000
+age_at_enrollment,Q1,41.0000
+age_at_enrollment,mean,48.6174
+age_at_enrollment,median,49.0000
+age_at_enrollment,Q3,56.0000
+age_at_enrollment,max,86.0000
+age_at_enrollment,non_0_min,18.0000
+age_at_enrollment,SD,11.8459
+age_at_enrollment,IQR,0.0000
+age_at_enrollment,NULL/NA,0.0000
+age_at_enrollment,Percent NULL/NA,0.0000
+heart_attack_stroke,No,9316 (88.57%)
+heart_attack_stroke,I've had a heart attack in the last 10 years,670 (6.37%)
+heart_attack_stroke,I've had a stroke in the last 10 years,249 (2.36%)
+heart_attack_stroke,I don't know,202 (1.92%)
+heart_attack_stroke,I've had both a heart attack and a stroke in the last 10 years,81 (0.77%)
+state,TX,732 (6.96%)
+state,CA,679 (6.45%)
+state,OH,641 (6.09%)
+state,FL,538 (5.11%)
+state,NY,500 (4.75%)
+state,NC,439 (4.17%)
+state,IL,429 (4.07%)
+state,MO,415 (3.94%)
+state,MI,404 (3.84%)
+state,PA,404 (3.84%)
+state,WA,328 (3.11%)
+state,VA,303 (2.88%)
+state,NJ,301 (2.86%)
+state,IN,299 (2.84%)
+state,TN,298 (2.83%)
+state,GA,259 (2.46%)
+state,WI,238 (2.26%)
+state,MN,226 (2.14%)
+state,SC,211 (2.00%)
+state,MA,190 (1.80%)
+state,KY,182 (1.73%)
+state,MD,171 (1.62%)
+state,AZ,167 (1.58%)
+state,AL,160 (1.52%)
+state,IA,148 (1.40%)
+state,LA,147 (1.39%)
+state,OR,145 (1.37%)
+state,CO,144 (1.36%)
+state,AR,138 (1.31%)
+state,KS,128 (1.21%)
+state,OK,121 (1.15%)
+state,NE,117 (1.11%)
+state,MS,103 (0.98%)
+state,CT,101 (0.96%)
+state,UT,87 (0.82%)
+state,NM,67 (0.63%)
+state,NV,63 (0.60%)
+state,ME,61 (0.58%)
+state,ID,55 (0.53%)
+state,NH,48 (0.45%)
+state,WV,47 (0.44%)
+state,SD,35 (0.33%)
+state,DE,35 (0.33%)
+state,VT,31 (0.29%)
+state,ND,30 (0.28%)
+state,MT,29 (0.27%)
+state,WY,29 (0.27%)
+state,RI,26 (0.24%)
+state,HI,25 (0.23%)
+state,AK,23 (0.21%)
+state,DC,18 (0.17%)

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/documentation/css/aha_affiliate_footer.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/documentation/css/aha_navbar.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/documentation/css/aha_styling.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/inactive.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/documentation/css/search.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/documentation/css/main-pmp-docs.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/documentation/css/cards.css" type="text/css" media="screen"/>
@@ -45,79 +46,84 @@
 <body>
 <div class="aha_pmp_header"></div>
 <!--<div class="pmp-navbar"></div>-->
-<div class="pmp-docs-navbar"></div>
+<div class="pmp-docs-navbar" style="margin-bottom: 3%"></div>
+<br>
 
 
-<div id="main" class="main-nav" style="margin:5% 2%;">
+<div id="main">
 
 <!--    <button type="button" class="collapsible" onclick="return toggle('gwtgCards', 'gwtg_angle')">-->
 <!--        <a class="section-header red-header">-->
 <!--            <h3 style="border-bottom: #979797 1px solid;">Research Goes Red | Project Baseline <i id="gwtg_angle" class="fa fa-angle-down"></i></h3>-->
 <!--        </a>-->
 <!--    </button>-->
-    <h2 style="border-top: #979797 1px solid; width: 90%; padding:1%; color:#C10E21;">Get With The Guidelines</h2>
-    <div id="gwtgCards"></div>
+    <h2 style="border-top: #979797 1px solid; width: 90%; padding:1%; color:#C10E21;">
+        Get With The Guidelines &nbsp;
+        <i id="gwtg_angle" class="fa fa-angle-double-down"></i>
+    </h2>
+    <div id="gwtgCards" class="content" style="display:block"></div>
 <!--    <button type="button" class="collapsible" onclick="return toggle('rgrCards', 'rgr_angle')">-->
 <!--        <a class="section-header">-->
 <!--            <h3>Upload Files to the PMP <i id="rgr_angle" class="fa fa-angle-down"></i></h3>-->
 <!--        </a>-->
 <!--    </button>-->
-    <button type="button" class="collapsible" onclick="return toggle('rgrCards', 'rgr_angle')" style="display:block">
+    <button type="button" class="collapsible" onclick="return toggle('rgrCards', 'rgr_angle')">
         <h2 style="border-top: #979797 1px solid; width: 90%; padding:1%; color:#C10E21; text-align: left;" >
-            <i id="rgr_angle" class="fa fa-angle-double-down"></i>Research Goes Red | Project Baseline
+            Research Goes Red | Project Baseline&nbsp;
+            <i id="rgr_angle" class="fa fa-angle-double-down"> </i>
         </h2>
     </button>
-    <div id="rgrCards"></div>
+    <div id="rgrCards" class="content" style="display:block"></div>
 
 </div>
 <script>
     const rgrCardsContent = [
         {
             "cardClassName": "card",
-            "contentClassName": "card-content card", //height: 100%;
+            "contentClassName": "card-content data-resource-card",
             "link": "/documentation/data-resources/AHA-RGR/index.html",
-            "content": "<img style='padding: 7% 2%; border: 0.5em solid #b3b3b3;' src ='https://lh3.googleusercontent.com/hc4Vk0q5VuFTcXqZ0gm1lPHkn9DX0J7KDRliIR36vn4-a6r6sJvs4q0oih7AJk_H3t0SeDoV0Gui5qcZvG8V9bJDrKQFKZqJo5Fz=w2048-rw-v1' alt='RGR-VPB logo'>"
+            "content": "<span style='margin:0 -15% 8rem -15%; padding:3% 0'><img style='transform: translate(0, 50%)' src ='https://lh3.googleusercontent.com/hc4Vk0q5VuFTcXqZ0gm1lPHkn9DX0J7KDRliIR36vn4-a6r6sJvs4q0oih7AJk_H3t0SeDoV0Gui5qcZvG8V9bJDrKQFKZqJo5Fz=w2048-rw-v1' alt='RGR-VPB logo'></span>"
         }
     ]
     const gwtgCardsContent = [
-        //{ 'header': "<span>Get With The Guidelines &174;<i class='fa fa-angle-down'></i></span>",
-        // 'datasets_content': [
-            {
-                "cardClassName": "card",
-                "contentClassName": "card", //height: 100%;
-                "link": "/documentation/data-resources/AHA-COVID19-CVD-GWTG/index.html",
-                "content": "<img style='border:none; padding:21% 2%;' src ='images/AHA_COVID-19_LOGO_CMYK.jpg' alt='COVID19 GWTG logo'></span>"
-            },
-            {
-                "cardClassName": "card",
-                "contentClassName": "card-content card", ////
-                "link": "/documentation/data-resources/AHA-GWTG-Resus/index.html",
-                "content": "<img src ='https://www.heart.org/-/media/images/professional/quality-improvement/qi-program-logos/get-with-the-guidelines-resus-program-logo-box.jpg?h=293&la=en&mw=440&w=440&hash=6DF67594808E49932F658009374A881F048886F5' alt='GWTG Resus logo'>"
-            },
-            {
-                "cardClassName": "card",
-                "contentClassName": "card inactive",
-                "link": "#",
-                "content": "<img src='https://www.heart.org/-/media/images/professional/quality-improvement/qi-program-logos/get-with-the-guidelines-hf-program-logo-box.jpg?h=293&la=en&mw=440&w=440&hash=94B81A9BC6A24473C17278CA6431F5ADD442040C' alt='GWTG HF logo'>",
-                "warningMsg": "<div class='coming-soon'>Coming soon</div>"
-            },
-            {
-                "cardClassName": "card",
-                "contentClassName": "card",
-                "link": "#",
-                "content": "<img style='height:100%' src='https://www.heart.org/-/media/images/professional/quality-improvement/qi-program-logos/get-with-the-guidelines-cad-program-logo-box.jpg?h=293&la=en&mw=440&w=440&hash=DD760660E6E6BAD6C29E1B0527062DFF4E7284ED' alt='GWTG CAD logo'>"
-            }
-        // ]}
+
+        {
+            "cardClassName": "card",
+            "contentClassName": "card-content data-resource-card",
+            "link": "/documentation/data-resources/AHA-COVID19-CVD-GWTG/index.html",
+            "content": "<img style='margin-bottom:8rem; padding:0 3%; transform: translate(0, 50%)' src ='images/AHA_COVID-19_LOGO_CMYK.jpg' alt='COVID19 GWTG logo'>"
+        },
+        {
+            "cardClassName": "card",
+            "contentClassName": "card-content data-resource-card inactive",
+            "link": "#",
+            "content": "<img src='https://www.heart.org/-/media/images/professional/quality-improvement/qi-program-logos/get-with-the-guidelines-hf-program-logo-box.jpg?h=293&la=en&mw=440&w=440&hash=94B81A9BC6A24473C17278CA6431F5ADD442040C' alt='GWTG HF logo'>",
+            "message": "<div class='ribbon-wrapper-green'><span class=\"ribbon-green\">Coming soon</span></div>"
+        },
+        {
+            "cardClassName": "card",
+            "contentClassName": "card-content data-resource-card inactive",
+            "link": "/documentation/data-resources/AHA-GWTG-Resus/index.html",
+            "content": "<img src ='https://www.heart.org/-/media/images/professional/quality-improvement/qi-program-logos/get-with-the-guidelines-resus-program-logo-box.jpg?h=293&la=en&mw=440&w=440&hash=6DF67594808E49932F658009374A881F048886F5' alt='GWTG Resus logo'>",
+            "message": "<div class='ribbon-wrapper-green'><span class=\"ribbon-green\">Coming soon</span></div>"
+        },
+        {
+            "cardClassName": "card",
+            "contentClassName": "card-content data-resource-card inactive",
+            "link": "/documentation/data-resources/AHA-GWTG-Resus/index.html",
+            "content": "<img src='https://www.heart.org/-/media/images/professional/quality-improvement/qi-program-logos/get-with-the-guidelines-cad-program-logo-box.jpg?h=293&la=en&mw=440&w=440&hash=DD760660E6E6BAD6C29E1B0527062DFF4E7284ED' alt='GWTG CAD logo'>",
+            "message": "<div class='ribbon-wrapper-green'><span class=\"ribbon-green\">Coming soon</span></div>"
+        }
     ];
 
-    const gwtgdiv = document.getElementById("gwtgCards");
-    const gwtgCardRow = createRowDiv("dataset-card-set");
+    const gwtgDiv = document.getElementById("gwtgCards");
+    const gwtgCardRow = createRowDiv("cards-section");
     createCards(gwtgCardsContent, gwtgCardRow);
-    gwtgdiv.appendChild(gwtgCardRow);
-    const rgrdiv = document.getElementById("rgrCards");
-    const rgrCardRow = createRowDiv("dataset-card-set collapsible-content");
+    gwtgDiv.appendChild(gwtgCardRow);
+    const rgrDiv = document.getElementById("rgrCards");
+    const rgrCardRow = createRowDiv("cards-section");
     createCards(rgrCardsContent, rgrCardRow);
-    rgrdiv.appendChild(rgrCardRow);
+    rgrDiv.appendChild(rgrCardRow);
 </script>
 <!--<script>-->
 <!--    faqContent.forEach(function (x) {-->

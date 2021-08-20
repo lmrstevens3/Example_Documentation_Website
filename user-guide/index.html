@@ -13,6 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="/documentation/css/aha_styling.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/inactive.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/documentation/css/search.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/documentation/css/aha_navbar.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/documentation/css/main-pmp-docs.css" type="text/css" media="screen"/>
@@ -28,8 +29,6 @@
     <script type="text/javascript" src="/documentation/js/button_dropdown_functions.js"></script>
     <script type="text/javascript" src="/documentation/js/side_bar_functions.js"></script>
 
-    <script src="//code.jquery.com/jquery.min.js"></script>
-    <script src="//static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js"></script>
     <script>
         jQuery(function($) {
             // console.log('ready');
@@ -81,7 +80,7 @@
                         <ul>
                             <li><a href="#download"
                                    onclick="return toggle_sub('access_cont', 'access_plus', true, 'download_cont','download_caret')">
-                                Public Download</a></li>
+                                Download to Workspace</a></li>
                             <li><a href="#repo"
                                    onclick="return toggle_sub('access_cont', 'access_plus', true, 'repo_cont', 'repo_caret')">
                                 Repositories</a></li>
@@ -353,7 +352,7 @@
                 owner's User ID (which is normally their email address). To update the workspace name, click on the
                 name and complete the form in the pop-up.
             </p>
-            <img src="images/workspace%20name.png" alt="drawing" style="width:30%; border:0.1em solid #000000; float:top;">
+            <img src="images/workspace%20name.png" alt="drawing" style="width:40%; margin: 1%; float:top;">
         </div>
         <button type="button" class="collapsible" onclick="return toggle('portal_menu_cont', 'portal_menu_caret')">
             <a class="anchor" id="portal_menu"></a>

@@ -1,59 +1,46 @@
 
 
-.dataset-card-set {
+
+
+
+
+.cards-section {
     display: flex;
     flex-wrap: wrap;
-    gap: 1em;
     justify-content: space-between;
-    margin: 3%;
+    gap: 0.25rem;
+    column-gap: 0.5rem;
+    margin-right: 5%;
 }
 
 
-
-.dataset-card-set .card {
-    flex: 0 0 calc(33% - 0.5em);
-    align-self: stretch;
-    max-height: 400px;
-    max-width: 400px;
-}
-
-
-
-
-/*cards */
 .card {
-    position: relative;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
     word-wrap: break-word;
     background-clip: border-box;
+    background-color: transparent;
     border: 1px solid rgba(149, 7, 27, 0.12);
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
     border-radius: 0;
-}
-div.coming-soon {
-    display: none;
-}
-
-.inactive div.coming-soon {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0,0,0,.75);
-    display: flex;
+    justify-content: space-around;
+    margin:1% 0 2% 0;
 }
 
+.card .data-resource-card, .card .docs-home-card, .card .dataset-doc-card {
+    min-width: 300px;
+}
+
+.card-content, .card-content img {
+    max-width: 100%;
+    max-height: 100%;
+}
 
 
-
-.card h2, .card h3 {
+.card-content h2, .card-content h3 {
     font-family: Montserrat,Helvetica Neue,Arial,sans-serif;
     line-height: 1.2;
     font-weight: 600;
-    margin: 2% 0;
+
 }
 
 
@@ -66,69 +53,101 @@ div.coming-soon {
     line-height: 1.5;
 }
 .card-content p {
-    margin:8%;
+    margin:3%;
 }
 
 .docs-home-card {
-    text-align:center;
-    justify-content: space-around;
-    margin:0.5em;
+    text-align: center;
+    align-self: center;
     width:100%;
     border-radius: .25rem;
-    border: 1px solid rgba(149, 7, 27, 0.12);
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    margin:2%;
+    padding: 2%;
+    min-width:300px;
+
 }
 
-.docs-home-main-card {
-    /*height:35rem;*/
-    padding-top:5%;
-    margin:3% 2%;
-}
-
-.docs-home-sm-card div {
-    margin-bottom:2%;
-}
-
-.docs-home-main-card i.fa {
+.docs-home-card i.fa {
     margin-bottom:5%;
     color:#C10E21;
-}
+    text-align: left;
 
-.docs-home-sm-card h3 {
-    font-size: 1.5rem;
 
 }
 
-.data-doc-cards {
-    justify-content: space-around;
-    margin: 1rem 0;
-    /*width:100%;*/
-    /*!*padding-left: 1%;*!*/
+.data-resource-card {
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: column;
+    /*flex: 0 0 calc(33% - 0.5rem);*/
+    max-width: 450px;
+    max-height: 400px;
+    min-width: 300px;
+    min-height: 200px;
+}
+
+.data-resource-card img {
+    display: flex;
+    flex-wrap:wrap;
+    flex:0 0 0.5rem;
+    max-width: 100%;
+    max-height: 100%;
+    border: none;
+    background: transparent;
     height: 100%;
-    overflow: scroll;
+    width:100%;
+}
+
+
+
+.dataset-doc-card {
+    height: 100%;
+    overflow: auto;
     align-content: center;
     background: url("/documentation/data-resources/images/molecules_data_sm.png") repeat-y;
-    padding-left:60px;
+    padding: 2% 5% 2% 4.25rem;
     border: 1px solid rgba(149, 7, 27, 0.12);
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-}
-
-.data-doc-cards .card-content {
     text-align: left;
     font-size: 1.2em;
-    margin: 5% 2%;
-
+    margin: 2%;
 }
 
-.data-doc-cards i.fa {
+.dataset-doc-card .card-content i.fa {
     margin: 0 0.25em 0.25em .25em;
     vertical-align: center;
-    color:#C10E21;
     font-size:xx-large;
+    display: inline;
 }
 
-.data-doc-cards h3, .data-doc-cards i.fa {
-    display:inline-block;
+.dataset-doc-card .card-content h3, .dataset-doc-card .card-content i.fa {
+    display:inline-flex;
     color: #C10E21;
     margin-left: 0.25em;
 }
+
+.dataset-stat-card {
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: column;
+    flex: 0 1 calc(50% - 0.5rem);
+    max-width: 300px;
+    max-height: 150px;
+    min-width: 250px;
+    min-height: 0;
+    text-align: center;
+    padding:1%;
+    justify-content: left;
+}
+
+
+.about-card {
+    text-align: center;
+    align-self: center;
+    width:100%;
+    border-radius: .25rem;
+    margin:2%;
+    padding: 2%;
+    max-width:500px;
+}
+

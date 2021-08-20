@@ -5,6 +5,7 @@
     display:inline-block;
     width:100%;
     padding: 1% 1% 0 1%;
+    min-width:300px;
 }
 
 .section-header h2, .section-header  h3 {
@@ -28,15 +29,15 @@ h2 .fa-plus, h2 .fa-minus {
     display:inline-block;
 }
 
-/*.section-header:hover  {*/
-/*    border-bottom: 2px solid #E11127;*/
-/*    text-decoration-line: underline;*/
-/*}*/
 
 
 .collapsible .section-header:hover a, .collapsible .section-header:hover i,
 .collapsible .section-header:hover h2, .collapsible .section-header:hover h3 {
-    color: #E11127;
+    color: #e11127;
+}
+
+.collapsible .section-header:hover {
+    border: 3px solid rgba(225, 17, 39, 0.75);
 }
 
 .collapsible .grey-header:hover,.collapsible .red-header:focus, .collapsible .red-header:hover {
@@ -46,9 +47,13 @@ h2 .fa-plus, h2 .fa-minus {
 
 .red-header {
     color:#C10E21;
+}
+
+.shadowed-header {
     border-bottom: 2px solid #e9ecef;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    width:100%;
     padding:5px 10px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1)
 }
 
 .grey-header {

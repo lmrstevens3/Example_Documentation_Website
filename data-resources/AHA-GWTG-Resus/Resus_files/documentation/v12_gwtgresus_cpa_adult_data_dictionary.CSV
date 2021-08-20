@@ -1,0 +1,382 @@
+CRFSECTION,VARNUM,NAME,TYPE,FORMAT,LABEL
+,,,,,
+,,VAS_IVIO,1,YNM10FMT,
+0,0,ABCDEFGHIJLKMNOPQRSTUVWXYZABCDEFG,,ABCDEFGHIJLKMNOPQRSTUVWXYZABCDEFG,NONSENSE VARIABLE FOR LENGTH
+0,1,ADM_ID_FAN,1,,Admission ID for Analysis
+0,2,PAT_ID,1,,
+0,3,SITE_ID_FAN,1,,Site ID for analysis (site IDs believed to refer to same facility combined)
+0,4,SITE_ID,1,,Site/Facility/Hospital ID
+0,5,EVENT_ID,1,,CPA Numeric EVENT_ID V10
+0,6,EVTSEQN,1,,Order of event in Admission
+0,7,FORMVER,1,FORM,Data entry form version: DI or PMT
+1,8,INCL_CRI,1,YN12FMT,1:Yes Did pt receive chest compress OR defib during evt? V10
+1,9,NEO_EVENT,1,YN12FMT,Neonatal delivery event? V10
+1,10,EVT_DT,1,MMDDYY10,CPA Event Date V10
+1,11,EVT_DTM,1,DATETIME20,CPA Event DateTime V10
+1,12,EVT_YR,1,,Event Year
+2.1,13,ICU_PRI,1,YN12FMT,Prior ICUDischarge V10
+2.1,14,ICU_DT,1,MMDDYY10,Prior24h ICUDischargeDate V10
+2.1,15,PAC_PRI,1,YN12FMT,Prior24h PACUDischarge V10
+2.1,16,ED_PRI,1,YN12FMT,Prior24h EDDischarge V10
+2.1,17,SED_PRI,1,YN12FMT,Prior24h Sedation V10
+2.2,,ACTIVEINFEC,1,TIME8,
+2.2,,ACTIVEINFECOPT,1,TIME8,
+2.2,18,OOH_ARREST,1,YN12FMT,Did patient have an out-of-hospital arrest leading to this admit? 1:Yes 2:No/ND V10
+2.2,19,PREC_X,1,YNM10FMT,PREC_None V10
+2.2,20,PREC_O,1,YNM10FMT,PREC_AcuteCNSNonStrokeEvent V10
+2.2,21,PREC_N,1,YNM10FMT,PREC_AcuteStroke V10
+2.2,22,PREC_M,1,YNM10FMT,PREC_BaselineDepressionInCNS Function V10
+2.2,23,PREC_2,1,YNM10FMT,PREC_CardiacMalformAcyanotic V10
+2.2,24,PREC_3,1,YNM10FMT,PREC_CardiacMalformCyanotic V10
+2.2,25,PREC_4,1,YNM10FMT,PREC_CongenitalMalformNonCardiac V10
+2.2,26,PREC_A,1,YNM10FMT,PREC_CHFThisAdmission V10
+2.2,27,PREC_B,1,YNM10FMT,PREC_CHFPriorAdmission V10
+2.2,28,PREC_K,1,YNM10FMT,PREC_DiabetesMellitus V10
+2.2,29,PREC_I,1,YNM10FMT,PREC_HepaticInsufficiency V10
+2.2,30,PREC_F,1,YNM10FMT,PREC_HypotensionHypoperfusion V10
+2.2,31,PREC_S,1,YNM10FMT,PREC_MajorTrauma V10
+2.2,32,PREC_T,1,YNM10FMT,PREC_Metastatic/HematologicMalignancy V10
+2.2,33,PREC_J,1,YNM10FMT,PREC_MetabolicElectrolyteAbn V10
+2.2,34,PREC_C,1,YNM10FMT,PREC_MI_ThisAdmission V10
+2.2,35,PREC_D,1,YNM10FMT,PREC_MI_Prior2ThisAdmission V10
+2.2,36,PREC_P,1,YNM10FMT,PREC_Pneumonia V10
+2.2,37,PREC_H,1,YNM10FMT,PREC_RenalInsufficiency V10
+2.2,38,PREC_G,1,YNM10FMT,PREC_RespiratoryInsufficiency V10
+2.2,39,PREC_Q,1,YNM10FMT,PREC_Septicemia (historic) V10
+2.2,40,PREC_5,1,YNM10FMT,PREC_RecentlyDeliveredOrPregnant V10
+2.2,41,PREC_6,1,YNM10FMT,PREC_Sepsis V10
+2.2,42,PREC_NMISS,1,,
+2.2,44,NOACTIVEINFEC,1,YNM10FMT,None-Active or Suspected bacterial or viral infection V12
+2.2,45,ACTIVEINFEC_3,1,YNM10FMT,Bacterial infection
+2.2,46,ACTIVEINFEC_2,1,YNM10FMT,Emerging Infectious Disease
+2.2,47,ACTIVEINFECOPT_1,1,YNM10FMT,SARS-COV-1
+2.2,48,ACTIVEINFECOPT_2,1,YNM10FMT,SARS-COV-2 (COVID-19)
+2.2,49,ACTIVEINFECOPT_3,1,YNM10FMT,MERS
+2.2,50,ACTIVEINFECOPT_5,1,YNM10FMT,Other Emerging Infectious Disease
+2.2,51,ACTIVEINFEC_6,1,YNM10FMT,Influenza
+2.2,52,ACTIVEINFEC_5,1,YNM10FMT,Seasonal Cold
+2.2,53,ACTIVEINFEC_7,1,YNM10FMT,Other Viral Infection
+2.2,224.5,PPE_PERSONAL,1,YN12FMT,Additional Personal Protective Equipment (PPE) Donned By The Responders
+2.2,224.5,PREC_7,1,YNM10FMT,History of vaping or e-cigarette use in the past 12 months
+2.3,43,IPA_NONE,1,YNM10FMT,InterventionInPlace_A_None V10
+2.3,44,IPA_VENT,1,YNM10FMT,"IIP_A_AssistedOrMechanicalVent (historic variable, populated with new elements) V10"
+2.3,45,IPA_AV,1,YNM10FMT,IIP_A_AssistedVent V10
+2.3,46,IPA_BVM,1,YNM10FMT,IIP_A_BagValveMask V10
+2.3,47,IPA_CPAP,1,YNM10FMT,IIP_A_MaskandorNCPAP V10
+2.3,48,IPA_MTB,1,YNM10FMT,IIP_A_Mouth2Barrier V10
+2.3,49,IPA_MTM,1,YNM10FMT,IIP_A_Mouth2Mouth V10
+2.3,50,IPA_LMA,1,YNM10FMT,IIP_A_LaryngealMaskAirway V10
+2.3,51,IPA_VOTH,1,YNM10FMT,IIP_A_NonInvVentOther V10
+2.3,52,IPA_MV,1,YNM10FMT,IIP_A_MechanicalVent V10
+2.3,53,IPA_ET,1,YNM10FMT,IIP_A_EndotrachealTube V10
+2.3,54,IPA_TT,1,YNM10FMT,IIP_A_TracheostomyTube V10
+2.3,55,IPA_NEOAV,1,YNM10FMT,IIP_A_NewlyBorn AssistedVent V10
+2.3,56,IPA_NEOBVM,1,YNM10FMT,IIP_A_NewlyBorn BagValveMask V10
+2.3,57,IPA_NEOCPAP,1,YNM10FMT,IIP_A_NewlyBorn MaskandorNCPAP V10
+2.3,58,IPA_NEOMTB,1,YNM10FMT,IIP_A_NewlyBorn Mouth2Barrier V10
+2.3,59,IPA_NEOMTM,1,YNM10FMT,IIP_A_NewlyBorn Mouth2Mouth V10
+2.3,60,IPA_NEOLMA,1,YNM10FMT,IIP_A_NewlyBorn LaryngealMaskAirway V10
+2.3,61,IPA_NEOMV,1,YNM10FMT,IIP_A_NewlyBorn MechanicalVent V10
+2.3,62,IPA_NEOET,1,YNM10FMT,IIP_A_NewlyBorn EndotrachealTube V10
+2.3,63,IPA_NEOTT,1,YNM10FMT,IIP_A_NewlyBorn TracheostomyTube V10
+2.3,64,IPA_CATH,1,YNM10FMT,IIP_A_IntraArterialCatheter V10
+2.3,65,IPA_AIR,1,YNM10FMT,IIP_A_InvasiveAirway V10
+2.3,66,IPA_NEOSED,1,YNM10FMT,IIP_A_NewlyBorn ConsciousProcSed V10
+2.3,67,IPA_NEOETCO2,1,YNM10FMT,IIP_A_NewlyBorn ETCO2Mon V10
+2.3,68,IPA_NEOSOX,1,YNM10FMT,IIP_A_NewlyBorn SupplemOxygen V10
+2.3,69,IPA_ECG,1,YNM10FMT,IIP_A_ECGMonitor V10
+2.3,70,IPA_PULS,1,YNM10FMT,IIP_A_PulseOximeter V10
+2.3,71,IPA_VACC,1,YNM10FMT,IIP_A_VascularAccess_Any V10
+2.3,72,IPA_NEOVASCT,1,NEOVASC,IIP_A_NewlyBorn VascularAccess_Type V10
+2.3,73,IPA_VACT,1,YNM10FMT,IIP_A_VasoActiveAgent_Any V10
+2.3,74,IPB_NONE,1,YNM10FMT,IIP_B_None V10
+2.3,75,IPB_AAR,1,YNM10FMT,IIP_B_Antiarrhythmic_Any_IVIO V10
+2.3,76,IPB_SEDA,1,YNM10FMT,IIP_B_ConsciousSedation V10
+2.3,77,IPB_DIAL,1,YNM10FMT,IIP_B_DialysisOrExtraCorporealTrxts V10
+2.3,78,IPB_ICD,1,YNM10FMT,IIP_B_ImplantableCardiacDefibrillator(ICD) V10
+2.3,79,IPB_ETCO2,1,YNM10FMT,IIP_B_EndTidalCO2Monitoring V10
+2.3,80,IPB_OXY,1,YNM10FMT,IIP_B_SupplementalOxygen V10
+2.3,81,IPB_ECMO,1,YNM10FMT,IIP_B_ExtracorporealMembraneOxygenation V10
+2.3,224.5,INIOCI,1,EPIVIA,IV/IO continuous infusion
+2.3,224.5,VASOPRESSOR,1,YNNA123F,Any vasoactive agent in place
+3.1,82,AGE_CPAY,1,,"Age at CPA, Years"
+3.1,83,SUBJ_TY,1,SUBJTY,SubjectType V10
+3.1,84,ILL_CAT,1,ILLCAT,IllnessCategory V10
+3.1,85,EVT_LOC,1,EVTLOC,EventLocation V10
+3.1,86,WITNESS,1,YN12FMT,Witnessed V10
+3.1,87,HSP_ACT,1,YN12FMT,HospitalWideRespActivated V10
+3.1,224.5,NEORT_CYEAR,1,,Year neonatal resusication team activated V12
+4.1,88,NEORT,1,YNM10FMT,Neonatal resuscitation team activated? V10
+4.1,89,NEORT_DT,1,MMDDYY10,Date neonatal resusication team activated V10
+4.1,90,NEORT_DTM,1,DATETIME20,Date-time neonatal resusication team activated V10
+4.1,91,PUL_SEQ,1,PULSEQ,PulseSequence V10
+4.1,92,CMP,1,CMP,Compressions
+4.1,93,CMP_STD,1,YNM10FMT,Compressions_Standard V10
+4.1,94,CMP_AUTO,1,YNM10FMT,Compressions_AutomaticCompressor V10
+4.1,95,CMP_IAC,1,YNM10FMT,Compressions_IACCPR V10
+4.1,96,CMP_OPEN,1,YNM10FMT,Compressions_OpenChest V10
+4.1,97,CMP_UNK,1,YNM10FMT,Compressions_UnkNotDoc V10
+4.1,98,CMP_DT,1,MMDDYY10,Compress Date V10
+4.1,99,CMP_DTM,1,DATETIME20,Compress DateTime V10
+4.1,100,PUL_RHY,1,PULRHY,PulseRhythm V10
+4.1,101,PLS_DT,1,MMDDYY10,Pulseless Date V10
+4.1,102,PLS_DTM,1,DATETIME20,Pulseless DateTime V10
+4.1,103,PLS_RHY,1,PLSRHY,FirstPulselessRhythm V10
+4.1,104,NEO_DETECTHR,1,YNN123FMT,Neonate does patient have a detectable heart rate? V10
+4.1,105,NEO_DETECTHR_BPM,1,NEOHR,"Neonate if Hr detectable, what was it V10"
+4.1,106,NEO_RHYTHM,1,NEORHY,Neonate first documented monitored rhythm V10
+4.1,107,NEO_COMPMETHOD1,1,YNM10FMT,Neo Compression Method 1: Two Thumb Encircling Hands V10
+4.1,108,NEO_COMPMETHOD2,1,YNM10FMT,Neo Compression Method 2: Two Finger Technique V10
+4.1,109,NEO_COMPMETHOD3,1,YNM10FMT,Neo Compression Method 3: Not Documented V10
+4.1,110,NEO_COMPMETHOD4,1,,
+4.1,111,NEO_COMPVENT1,1,YNM10FMT,Neo Comp to Vent Ratio 1: 3:1 V10
+4.1,112,NEO_COMPVENT2,1,YNM10FMT,Neo Comp to Vent Ratio 2: 15:2 V10
+4.1,113,NEO_COMPVENT3,1,YNM10FMT,Neo Comp to Vent Ratio 3: Asynchronous V10
+4.1,114,NEO_COMPVENT4,1,YNM10FMT,Neo Comp to Vent Ratio 4: Not Documented V10
+4.2,115,AED,1,AED,AutomatedExtDefib(AED) Applied? V10
+4.2,116,AED_DT,1,MMDDYY10,AEDApplied Date V10
+4.2,117,AED_DTM,1,DATETIME20,AEDApplied DateTime V10
+4.2,118,VFPVT,1,YN12FMT,VentFib/PulselessVentTach atAnyTime? V10
+4.2,119,VFPV_DT,1,MMDDYY10,VFpVT Date V10
+4.2,120,VFPV_DTM,1,DATETIME20,VFpVTDateTime V10
+4.2,121,DEFIB,1,CMP,DefibrillationShockProvided? V10
+4.2,122,DEFIBNUM,1,,Total # shocks V10
+4.3,123,VEN_X,1,YNM10FMT,Ventil_None V10
+4.3,124,VEN_Z,1,YNM10FMT,Ventil_UnkNotDocumented V10
+4.3,125,VEN_C,1,YNM10FMT,Ventil_BagValveMask V10
+4.3,126,VEN_G,1,YNM10FMT,Ventil_MaskNasalCPAPBiPAP V10
+4.3,127,VEN_B,1,YNM10FMT,Ventil_Mouth2BarrierDevice V10
+4.3,128,VEN_A,1,YNM10FMT,Ventil_Mouth2Mouth V10
+4.3,129,VEN_L,1,YNM10FMT,Ventil_ETT V10
+4.3,130,VEN_M,1,YNM10FMT,Ventil_LMA V10
+4.3,131,VEN_Q,1,YNM10FMT,Ventil_TrachTube V10
+4.3,132,VEN_Y,1,YNM10FMT,Ventil_Other V10
+4.3,133,TUBE,1,YN12FMT,EndotTube or Trach Tube Inserted/Reinserted? V10
+4.3,134,TUBE_DT,1,MMDDYY10,InvAirway Date V10
+4.3,135,TUBE_DTM,1,DATETIME20,InvAirway DateTime V10
+4.3,136,CON_D,1,YNM10FMT,ConfirmMethod_EsophagealDetectorDevice V10
+4.3,137,CON_A,1,YNM10FMT,ConfirmMethod_ExpiredCO2Detector V10
+4.3,138,CON_B,1,YNM10FMT,ConfirmMethod_FlexibleFiberopticLaryngoscope V10
+4.3,139,CON_F,1,YNM10FMT,ConfirmMethod_WaveformCapnography V10
+4.3,140,CON_G,1,YNM10FMT,ConfirmMethod_Capnometry V10
+4.3,141,CON_Y,1,YNM10FMT,ConfirmMethod_Other V10
+4.3,142,CON_X,1,YNM10FMT,ConfirmMethod_None/NotDoc V10
+4.3,142.5,CON_Z,1,YNM10FMT,ConfirmMethod_PerformedMethodUnk V12
+4.3,143,BAGMASK,1,BAGMASK4F,Was Bag Mask ventilation initiated during the event? V10
+4.3,144,BAGMASKDTND,1,,Bag Mask ventilation initiation date ND V10
+4.3,145,NEO_LMAINS,1,NEOLMAINS4F,Laryngeal Mask Airway (LMA) inserted/re-inserted V10
+4.3,146,NEO_LMAINSND,1,,Laryngeal Mask Airway (LMA) Time ND V10
+4.3,147,NEO_PULSEOX,1,NEOPULSEOX4F,Pulse Oximetry Placed V10
+4.3,148,NEO_PULSEOXND,1,,Pulse Oximetry Time ND V10
+4.3,149,BAGMASK_DTM,1,DATETIME20,Bag Mask ventilation initiation date/time V10
+4.3,150,BAGMASK_DT,1,MMDDYY10,Bag Mask ventilation initiation date V10
+4.3,151,NEO_LMAINS_DTM,1,DATETIME20,Laryngeal Mask Airway (LMA) Date/Time V10
+4.3,152,NEO_LMAINS_DT,1,MMDDYY10,Laryngeal Mask Airway (LMA) Date V10
+4.3,153,NEO_PULSEOX_DTM,1,DATETIME20,Pulse Oximetry Date/Time V10
+4.3,154,NEO_PULSEOX_DT,1,MMDDYY10,Pulse Oximetry Date V10
+4.3,224.5,INV_DT,1,MMDDYY10,Date and Time Invasive Airway Inserted if not already in place and/or Re-inserted d
+4.3,224.5,INV_DTM,1,DATETIME20,Date and Time Invasive Airway Inserted if not already in place and/or Re-inserted d
+5.1,,VASVIA_DT,1,MMDDYY10,VasoVia_IVIODose FIRST Date V12
+5.1,,VASVIA_DTM,1,DATETIME20,VasoVia_IVIODose FIRST DateTime V12
+5.1,155,EPINEPH,1,YN12FMT,EpinephrineBolus V10
+5.1,156,EPIB_DT,1,MMDDYY10,Epi First IVIO Bolus Dose Date V10
+5.1,157,EPIB_DTM,1,DATETIME20,Epi First IVIO Bolus Dose DateTime V10
+5.1,158,EPI_TOTD,1,,"Ephenphrine, #Doses V10"
+5.1,159,EPI_TOTDUNK,1,,"Ephenphrine, #Doses Unk/NotDoc PMT V10"
+5.1,160,EPIB_ND,1,,
+5.1,161,NEO_BOLUS,1,YNNA123F,Neonate: Was any Epinephrine BOLUS administered? V10
+5.1,162,NOBOLUS5MIN,1,YNM10FMT,If IV/IO Epinephrine was not administered within the first five minutes of the even
+5.1,164,NOBOLUS5MIN_MED1,1,YNM10FMT,No Epi Medical Reason 1: Patient Already Receiving Vasopressor V10
+5.1,165,NOBOLUS5MIN_MED2,1,YNM10FMT,No Epi Medical Reason 2: Spontanious ROC Within 5Min V10
+5.1,166,NOBOLUS5MIN_MED3,1,YNM10FMT,No Epi Medical Reason 3: Medication Allergy V10
+5.1,167,NOBOLUS5MIN_PAT,1,YN12FMT,Initial Refusal (e.g. family refused) V12
+5.1,167,NOBOLUS5MIN_HOS1,1,YNM10FMT,No Epi Hospital Reason 1: In-hospital Time Delay V10
+5.1,168,NOBOLUS5MIN_HOS2,1,YNM10FMT,No Epi Hospital Reason 2: No Route to Deliver Medication V10
+5.1,169,NOBOLUS5MIN_HOS3,1,YNM10FMT,No Epi Hospital Reason 3: Other V10
+5.1,224.5,NOBOLUS5MIN_HOS_OTH,1,,Bolus Not Admin 5 Mins - Hospital Other V12
+5.2,170,RX_NONE,1,YNM10FMT,Drug_None V10
+5.2,171,RX_ANTI,1,YNM10FMT,Drug_AnyAntiarrhythmic V10
+5.2,172,RX_ADENO,1,YNM10FMT,Drug_Adenosine V10
+5.2,173,RX_AMIOD,1,YNM10FMT,Drug_Amiodarone V10
+5.2,174,RX_LIDO,1,YNM10FMT,Drug_Lidocaine V10
+5.2,175,RX_PROCA,1,YNM10FMT,Drug_Procainamide V10
+5.2,176,RX_ANTO,1,YNM10FMT,Drug_OthAntiarrhythmic V10
+5.2,177,RX_ANYVA,1,YNM10FMT,Drug_AnyVasopres other than Epi|Vasopres Bolus V10
+5.2,178,RX_DOBUT,1,YNM10FMT,Drug_Dobutamine V10
+5.2,179,RX_DOPA,1,YNM10FMT,Drug_Dopamine V10
+5.2,180,RX_NOREP,1,YNM10FMT,Drug_Norepinephrine V10
+5.2,181,RX_PHENY,1,YNM10FMT,Drug_Phenylephrine V10
+5.2,182,RX_EPIIO,1,YNM10FMT,Drug_Epineprhine IVIO continuous V10
+5.2,183,RX_VASIO,1,YNM10FMT,Drug_VasopressionIVIO V10
+5.2,184,RX_VASO,1,YNM10FMT,Drug_OthVasopressor V10
+5.2,185,RX_ATRO,1,YNM10FMT,Drug_Atropine V10
+5.2,186,RX_CACLG,1,YNM10FMT,Drug_CalcChlorideCalciumGluco V10
+5.2,187,RX_DEX,1,YNM10FMT,Drug_DextroseBolus V10
+5.2,188,RX_MAGNE,1,YNM10FMT,Drug_MagnesiumSulfate V10
+5.2,189,RX_REVER,1,YNM10FMT,Drug_ReversalAgent V10
+5.2,190,RX_BICAR,1,YNM10FMT,Drug_SodiumBicarbonate V10
+5.2,191,RX_OTH,1,YNM10FMT,Drug_Other V10
+5.2,192,RX_NEOFLUID,1,YNM10FMT,Neonate: Fluid bolus for volume expansion V10
+5.2,193,RX_NEOALB,1,YNM10FMT,Neonate: Albumin V10
+5.2,194,RX_NEOLAC,1,YNM10FMT,Neonate: Lactate Ringers V10
+5.2,195,RX_NEOSAL,1,YNM10FMT,Neonate: Normal Saline V10
+5.2,196,RX_NEOONEG,1,YNM10FMT,Neonate: O-Negative Blood V10
+5.2,224.5,VAS_TOTD,1,8,Total Number of Doses V12
+5.2,224.5,VENT_ENDOTUBE,1,YNM10FMT,Endotracheal Tube (ET) V12
+5.2,224.5,VENT_LMA,1,YNM10FMT,Laryngeal Mask Airway (LMA) V12
+5.2,224.5,VENT_TR,1,YNM10FMT,
+5.2,224.5,VENT_TRACH,1,YNM10FMT,Tracheostomy Tube V12
+5.2,224.5,VEN_K,1,YNM10FMT,
+5.2,224.5,VFPV_ND,1,NODOC,Date/Time 1st VF of pulseless VT not documented V12
+5.3,197,NRX_NONE,1,YNM10FMT,NonDrug_None V10
+5.3,198,NRX_BYPA,1,YNM10FMT,NonDrug_CardiopulmonaryBypass V10
+5.3,199,NRX_TUBE,1,YNM10FMT,NonDrug_ChestTubeInserted V10
+5.3,200,NRX_NEED,1,YNM10FMT,NonDrug_NeedleThoracostomy V10
+5.3,201,NRX_PACE,1,YNM10FMT,NonDrug_PacemakerTranscutaneous V10
+5.3,202,NRX_PAC2,1,YNM10FMT,NonDrug_PacemakerTransvenous|Epicardial V10
+5.3,203,NRX_CENT,1,YNM10FMT,NonDrug_Pericardiocentesis V10
+5.3,204,NRX_OTH,1,YNM10FMT,NonDrug_Other V10
+5.3,205,NRX_NEOPARA,1,YNM10FMT,Neonate: Paracentesis V10
+6.1,206,ROC,1,YN12FMT,Any ReturnOfCirculation(Pulse)? V10
+6.1,207,ROC_DT,1,MMDDYY10,First Return of Circulation Date V10
+6.1,208,ROC_DTM,1,DATETIME20,First Return of Circulation DateTime V10
+6.1,209,RES_REND,1,REASEND,ReasonResusEnded V10
+6.1,210,REND_DT,1,MMDDYY10,Resus Ended Date V10
+6.1,211,REND_DTM,1,DATETIME20,Resus Enedd DateTime V10
+6.2,212,T_MAX_C,1,,"HighestTemp during 1st24h After ROC, deg C V10"
+6.2,213,T_MAXST,1,TEMP_SITE,Site of HighestTemp during 1st24h V10
+6.2,214,T_MAX_DT,1,MMDDYY10,Date of HighestTemp during 1st24h After ROC V10
+6.2,215,T_MAX_DTM,1,DATETIME20,Date-Time of HighestTemp during 1st24h After ROC V10
+7.1,216,CPRGUIDE_NONE,1,YNM10FMT,No monitoring or guiding of CPR V10
+7.1,217,CO2_MON,1,YNNA123F,Monitor/guide: WaveformCapnog / EndTidalCO2? V10
+7.1,218,DIASTMON,1,YNNA123F,Monitor/guide: ArterialWaveForm/DiastolPress? V10
+7.1,219,CPRMECH,1,YNNA123F,Monitor/guide: CPR Mechanics Device? V10
+7.1,220,CPRCOACH,1,YN12FMT,Monitor/guide: CPR Quality Coach? V10
+7.1,221,METRONOME,1,YN12FMT,Monitor/guide: Metronome? V10
+7.1,222,OTH_MON,1,YN12FMT,Monitor/guide: Other Device or Technology? V10
+7.1,223,AVGCOMPRATE,1,,Average compression rate / minute V10
+7.1,224,AVGCD_MM,1,,"Average compression depth, mm V10"
+7.1,224.5,DEFIBNUMUNK,1,YNM10FMT,Total # shocks Unk/NotDoc PMT V12
+7.1,224.5,LONGPRE_ND,1,NODOC,Longest Pre-shock Pause ND
+7.1,225,COMPFRACTION,1,,Compression fraction V10
+7.1,226,COMPPER,1,,Percent of Chest Compressions with Complete Release V10
+7.1,227,AVGVENT,1,,Average Ventilation Rate /minute V10
+7.1,228,LONGPRE,1,,Longest Pre-shock Pause (seconds) V10
+7.1,229,TEAMDEBRIEF,1,YNN123FMT,Was a team debriefing on the quality of CPR provided completed after the event? V10
+7.2,230,EVT_NOTDOC,1,YNM10FMT,1:No/NotDoc Resus-related Events and Issues V10
+7.2,231,NOT_FOL,1,YNM10FMT,UniversalPrecautions NotFollowed ByAllTeamMembers V10
+7.2,232,NO_TLSIG,1,YNM10FMT,SignatureOfCodeTeam:eader NotOnCodeSheet V10
+7.2,233,NO_OTHSI,1,YNM10FMT,OtherSignatures NotOnCodeSheet V10
+7.2,234,NO_ECG,1,YNM10FMT,Initial ECT RhythmNotDocumented V10
+7.2,235,NO_MEDRT,1,YNM10FMT,MedicationRoute(s)NotDocumented V10
+7.2,236,NOT_COMP,1,YNM10FMT,IncompleteDocumentation V10
+7.2,237,NO_OTH,1,YNM10FMT,OtherDocumentationIssue V10
+7.2,238,AL_DELAY,1,YNM10FMT,AlertingHosp-WideResusResponse:Delay V10
+7.2,239,AL_PAGER,1,YNM10FMT,AlertingHosp-WideResusResponse:PagerIssue V10
+7.2,240,AL_OTH,1,YNM10FMT,AlertingHosp-WideResusResponse:Oth V10
+7.2,241,AW_ASP,1,YNM10FMT,Airway:AspirationRelatedToProvisionOfAirway V10
+7.2,242,AW_DELAY,1,YNM10FMT,Airway:Delay V10
+7.2,243,AW_MISPL,1,YNM10FMT,Airway:DelayedRecognitionAirway Mis|DisPlacement V10
+7.2,244,AW_FAIL,1,YNM10FMT,"Airway:IntubationAttempted,NotAchieved V10"
+7.2,245,AW_MUPLT,1,YNM10FMT,Airway:MultipleIntubationAttempts V10
+7.2,246,AW_NUMB,1,,Airway:Number MultipleIntubationAttempts V10
+7.2,247,AW_NUMBUNK,1,YNM10FMT,Airway:Number MultipleIntubationAttempts Unk/NotDoc V10
+7.2,248,AW_OTH,1,YNM10FMT,Airway:Oth V10
+7.2,249,VA_DELAY,1,YNM10FMT,VascularAccess:Delay V10
+7.2,250,VA_ARTER,1,YNM10FMT,VascularAccess:InadvertentArterialCannulation V10
+7.2,251,VA_INFIL,1,YNM10FMT,VascularAccess:Infiltration|Disconnection V10
+7.2,252,VA_OTH,1,YNM10FMT,VascularAccess:Oth V10
+7.2,253,CC_DELAY,1,YNM10FMT,ChestCompress:Delay V10
+7.2,254,CC_NOBOA,1,YNM10FMT,ChestCompress:NoBoard V10
+7.2,255,CC_OTH,1,YNM10FMT,ChestCompress:Oth V10
+7.2,256,DEF_WREN,1,YNM10FMT,Defib:EnergyLevelLower|HigherThanRec V10
+7.2,257,DEF_DLY1,1,YNM10FMT,"DefibInitial delay,PersonnelNotAvailable V10"
+7.2,258,DEF_DLY2,1,YNM10FMT,"Defib:Initial delay,DefibrillatorAccess V10"
+7.2,259,DEF_DLY3,1,YNM10FMT,"Defib:Intial delay,Pad|paddlePlacement V10"
+7.2,260,DEF_MALF,1,YNM10FMT,Defib:EquipmentMalfunction V10
+7.2,261,DEF_GIV,1,YNM10FMT,"Defib:Given,NotIndicated V10"
+7.2,262,DEF_NOTG,1,YNM10FMT,"Defib:Indicated,NotGiven V10"
+7.2,263,DEF_OTH,1,YNM10FMT,Defib:Oth V10
+7.2,264,RX_DELAY,1,YNM10FMT,Medications:Delay V10
+7.2,265,RX_ROUTE,1,YNM10FMT,Medications:Route V10
+7.2,266,RX_DOSE,1,YNM10FMT,Medications:Dose V10
+7.2,267,RX_SELEC,1,YNM10FMT,Medications:Selection V10
+7.2,268,MED_OTH,1,YNM10FMT,Medications:Oth V10
+7.2,269,TL_WHO,1,YNM10FMT,TeamLeadership:DelayIdentifyingLeader V10
+7.2,270,TL_EQUIP,1,YNM10FMT,TeamLeadership:KnowledgeOfEquipment V10
+7.2,271,TL_MEDS,1,YNM10FMT,TeamLeadership:KnowledgeOfMeds|Protocols V10
+7.2,272,TL_ROLES,1,YNM10FMT,TeamLeadership:KnowledgeOfRoles V10
+7.2,273,TL_OVERS,1,YNM10FMT,TeamLeadership:TeamOversight V10
+7.2,274,TL_TOBIG,1,YNM10FMT,TeamLeadership:TooManyTeamMembers V10
+7.2,275,TL_OTH,1,YNM10FMT,TeamLead:Other V10
+7.2,276,PD_ALS,1,YNM10FMT,ProtocolDeviation:ALS/PALS V10
+7.2,277,PD_NRP,1,YNM10FMT,ProtocolDeviation:NRP V10
+7.2,278,PD_OTH,1,YNM10FMT,ProtocolDeviation:Oth V10
+7.2,279,EQ_AVAIL,1,YNM10FMT,Equipment:Availability V10
+7.2,280,EQ_FUNC,1,YNM10FMT,Equipment:Function V10
+7.2,281,EQ_OTH,1,YNM10FMT,Equipment:Oth V10
+7.2,282,INDEXEVENT,1,YN12FMT,Was this cardiac arrest event the patient's index (first) event
+8.1,282,MAT_COMP1,1,YNM10FMT,Maternal Complications: Not Documented V10
+8.1,283,MAT_COMP2,1,YNM10FMT,Maternal Complications: None V10
+8.1,284,MAT_COMP3,1,YNM10FMT,Maternal Complications: Alcohol Use V10
+8.1,285,MAT_COMP4,1,YNM10FMT,Maternal Complications: Chorioamnionitis V10
+8.1,286,MAT_COMP5,1,YNM10FMT,Maternal Complications: Cocaine/Crack use V10
+8.1,287,MAT_COMP6,1,YNM10FMT,Maternal Complications: Gestational Diabetes V10
+8.1,288,MAT_COMP7,1,YNM10FMT,Maternal Complications: Diabetes V10
+8.1,289,MAT_COMP8,1,YNM10FMT,Maternal Complications: Ecamplsia V10
+8.1,290,MAT_COMP9,1,YNM10FMT,Maternal Complications: GHTN V10
+8.1,291,MAT_COMP10,1,YNM10FMT,Maternal Complications: Hypertensive disease V10
+8.1,292,MAT_COMP11,1,YNM10FMT,Maternal Complications: Magnesium exposure V10
+8.1,293,MAT_COMP12,1,YNM10FMT,Maternal Complications: Major trauma V10
+8.1,294,MAT_COMP13,1,YNM10FMT,Maternal Complications: Maternal Group B Strep (Positive) V10
+8.1,295,MAT_COMP14,1,YNM10FMT,Maternal Complications: Maternal infection V10
+8.1,296,MAT_COMP15,1,YNM10FMT,Maternal Complications: Methamphetamine/ICE use V10
+8.1,297,MAT_COMP16,1,YNM10FMT,Maternal Complications: Narcotic given to mother within 4 hours of delivery V10
+8.1,298,MAT_COMP17,1,YNM10FMT,Maternal Complications: Narcotics addiction and/or on methadone maintenance V10
+8.1,299,MAT_COMP18,1,YNM10FMT,Maternal Complications: Obstetrical hemorrhage V10
+8.1,300,MAT_COMP19,1,YNM10FMT,Maternal Complications: Pre-eclampsia V10
+8.1,301,MAT_COMP20,1,YNM10FMT,Maternal Complications: Prior Cesarean V10
+8.1,302,MAT_COMP21,1,YNM10FMT,Maternal Complications: UTI V10
+8.1,303,MAT_COMP22,1,YNM10FMT,Maternal Complications: Other V10
+8.1,304,MAT_RECCUR,1,MATRECENTCURRENT4F,Recently delivered or currently pregnant V10
+8.1,305,MAT_NFETUS,1,MATNUMFETUS4F,Number of fetuses V10
+8.1,306,MAT_GRAV,1,,Total # of pregnancies (gravida) V10
+8.1,307,MAT_PAR,1,,Total # of deliveries (parity) V10
+8.1,308,MAT_LLUD,1,MATLLUD4F,Left lateral uterine displacement: V10
+8.1,309,MAT_LLUDMETH,1,MATLLUDMETHOD4F,Maternal LLUD method V10
+8.1,310,MAT_NEO,1,MATNEONATAL4F,Neonatal outcome V10
+8.1,311,MAT_1MIN,1,,1 minute Apgar score V10
+8.1,312,MAT_5MIN,1,,5 minute Apgar score V10
+8.1,313,MAT_CPANB,1,MATCPANEWBORN4F,CPA event completed for the newborn V10
+8.1,314,MAT_1MINUNK,1,,1 minute Apgar not known/not doc V10
+8.1,315,MAT_5MINUNK,1,,5 minute Apgar not knownm/not doc V10
+8.1,316,MAT_DELIVERYND,1,,Delivery Date/Time ND V10
+8.1,317,MAT_DUEDATEND,1,,EDC/Due Date ND V10
+8.1,318,MAT_LLUDTIMEND,1,,LLUD time not documented V10
+8.1,319,MAT_DEL_DTM,1,DATETIME20,Delivery date/time V10
+8.1,320,MAT_DEL_DT,1,MMDDYY10,Delivery date V10
+8.1,321,MAT_DUE_DT,1,MMDDYY10,EDC/Due date V10
+8.1,322,MAT_GRAVUNK,1,,Gravida not documented V10
+8.1,323,MAT_PARUNK,1,,Parity not documented V10
+8.1,324,MAT_DELMODE,1,MATDELIVERYMODE4F,Maternal delivery mode V10
+8.1,325,MAT_LLUD_DTM,1,DATETIME20,LLUD date/time V10
+8.1,326,MAT_LLUD_DT,1,MMDDYY10,LLUD date V10
+8.1,327,MAT_UNDEL,1,MATUNDELIVERED4F,Neonatal outcome undelivered V10
+8.1,328,MAT_GESAGE,1,,
+99,331,INDEX_EVT,1,YN10SIMP,"1:Yes, 0:No, First CPA event in Admission"
+99,332,NPLSSEQ,1,,
+99,333,INDEX_PLS,1,YN10SIMP,"1:Yes, 0:No, First Pulseless CPA event in Admission"
+99,334,DUR_EVTM,1,,Event Duration (minutes)
+99,335,EVT_HR,1,,Hour of event
+99,336,DYSU1SA7,1,DOW,"Day of Week (1=Sun, ,7=Sat)"
+99,337,WEEKEND,1,YN10SIMP,"1:Yes, 0:No, Weekend (Fri 11pm - Mon 7am) event"
+99,338,TOD,1,TODF,"Time of Day (1=Daytime, 2=Nighttime)"
+99,339,HOLIDAY,1,YN10SIMP,"1:Yes, 0:No, Event occurred on US Holiday?"
+99,340,WEHOL,1,YN10SIMP,"1:Yes, 0:No, Weekend or holiday event?"
+99,341,SURV_EVT,1,YN10SIMP,"1:Yes, 0:No, survived CPA event"
+99,342,SURV_ALL,1,YN10SIMP,"1:Yes, 0:No, survived All CPA events in Admission"
+99,343,SURV_24H,1,YN10SIMP,"1:Yes, 0:No, survived 24h from start of index CPA event"
+99,344,SURV_DIS,1,YN10SIMP,"1:Yes, 0:No, survived to discharge"
+99,345,RHYCARD1,1,RHYCARD,Cardiac Rhythm when need for chest compress/defib was first identified
+99,346,RHYUTSTN,1,RHYCARD,Cardiac Rhythm when first documented pulseless
+99,347,FLAGMISS,1,,1: Observation is systematically missing all pre-existing conditions or interventio

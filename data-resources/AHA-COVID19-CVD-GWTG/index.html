@@ -15,6 +15,7 @@
 
     <!--    style sheets-->
     <link rel="stylesheet" href="/documentation/css/aha_styling.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/inactive.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/documentation/css/search.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/documentation/css/aha_navbar.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/documentation/css/main-pmp-docs.css" type="text/css" media="screen"/>
@@ -50,11 +51,8 @@
 <body>
 <div class="aha_pmp_header"></div>
 <div class="pmp-docs-navbar"></div>
-<div class="title-container" style="margin-top:5%;">
-    <h2><i>AHA COVID-19 CVD Registry Data and the Precision Medicine Platform (PMP)</i></h2>
-    <h4>August 01, 2020 - Version 0.1</h4>
-</div>
-<div id="main" class="main-nav" style="margin:1% 2%;">
+
+<div id="main" class="main-nav" style="margin:5% 2%;">
 
     <div id="quick-links" style="margin-top:0; margin-bottom:1%">
         <span style="color:#6D6E71; font-size:14px; margin-bottom: 1px;">Quick Links</span>
@@ -128,34 +126,72 @@
             quickLinksDiv.appendChild(quickLinkBtns);
         </script>
     </div>
+    <div class="cards-section">
+        <div class="card">
+            <div class="card-content data-resource-card">
+                <img style='margin-bottom:5rem; padding:0 3%; transform: translate(0, 50%)' src ='/documentation/data-resources/images/AHA_COVID-19_LOGO_CMYK.jpg' alt='COVID19 GWTG logo'>
+            </div>
+        </div>
+        <div class="card-section">
+            <div class="card">
+                <div class="card-content dataset-stat-card">
+                    <h5 class="red-header">Collection Dates</h5>
+                    <h3> 01/2020-05/2021</h3>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content dataset-stat-card">
+                    <h5 class="red-header">Total Records</h5>
+                    <h3>8920</h3>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content dataset-stat-card">
+                    <h5 class="red-header">PMP Data Location</h5>
+                    <code>/mnt/workspace/GWTG/COVID19</code>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content dataset-stat-card">
+                    <h5 class="red-header">Total Registry Sites</h5>
+                    <h3>122</h3>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content about-card">
+                <h4 class="red-header">About the AHA COVID19 CVD Registry Data</h4>
+                <p>The COVID19 CVD Registry is a voluntary quality improvement registry, powered by AHA's Get With
+                        the
+                        Guidelines<sup>&#174</sup>.This data was collected from <b>122 hospitals and is comprised of 8920 records and 431
+                        measures.</b>
+                        The registry entry criteria instruct hospitals to enter all patients >=18 years old who are
+                        hospitalized with an active COVID-19 infection.
+                    </p>
+            </div>
+    </div>
+    </div>
     <div id="intro">
         <button class="collapsible" onclick="return toggle('intro-content', 'intro-plus')">
-            <a class="section-header red-header" href="#">
-                <h2><i class="fa fa-running" style="font-size: larger"></i>Getting Started</h2>
+            <a class="section-header red-header shadowed-header" href="#">
+                <h2><i class="fa fa-running" style="font-size: larger"></i>Getting Started in the PMP</h2>
                 <i id="intro-plus" class="fas fa-plus"></i>
             </a>
         </button>
         <div id="intro-content" class="content" style="padding:1%;">
-            <h4>About the AHA COVID19 CVD Registry Data</h4>
-            <ul>
-                <li>The COVID19 CVD Registry is a voluntary quality improvement registry, powered by AHA's Get With the
-                    Guidelines<sup>&#174</sup>. Information and documentation regarding the registry data, quality checks,
-                    data usage, as well as guidelines for analysis and publication are provided in the workspace as well as on this site.
-                </li>
-                <li>This data was collected from <b>88 hospitals and is comprised of 8920 records and 431 measures.</b> The
-                    registry entry criteria instruct hospitals to enter all patients >=18 years old who are hospitalized
-                    with an active COVID-19 infection.
-                </li>
-            </ul>
+
             <h4>Root Directory and COVID-19 CVD Data Location</h4>
             <ul>
-                <li>The COVID-19 Registry Data is located in <code>/mnt/workspace/GWTG/COVID-19</code></li>
-                <li>The root path in the workspace is <code>/mnt/workspace</code>. This is the default directory for the
-                    Jupyter Home Page JupyterLab, R Studio and SAS Studio.
-                </li>
+                <li>The COVID-19 Registry Data is located in <code>/mnt/workspace/GWTG/COVID-19</code>.
+                    Information and documentation regarding the registry data, quality
+                    checks, data usage, as well as guidelines for analysis and publication are provided in this location
+                    workspace as well as on this site.</li>
             </ul>
             <h4>Software</h4>
             <ul>
+                <li>The root path in the workspace is <code>/mnt/workspace</code>. This is the default directory for the
+                    Jupyter Home Page JupyterLab, R Studio and SAS Studio.
+                </li>
                 <li>The <a href="/documentation/user-guide/index.html#transfer" target="_blank">Transfer Data Section of the PMP User-Guide</a>
                     provides information regarding uploading files to the workspace or getting files out of the workspace.
                 </li>
@@ -196,7 +232,7 @@
 
     const docCardsContent = {
         "row_1": {
-            "cardClassName": "card data-doc-cards",
+            "cardClassName": "card  dataset-doc-card",
             "contentClassName": "card-content",
             "icon": "fa fa-search-location",
             "header": "Data Exploration",
@@ -210,7 +246,7 @@
         },
         "row_2":
             {
-                "cardClassName": "card data-doc-cards",
+                "cardClassName": "card dataset-doc-card",
                 "contentClassName": "card-content",
                 "icon": "fa fa-file-invoice",
                 "header":"Dictionary & Coding",
@@ -235,7 +271,7 @@
             },
         "row_3":
             {
-                "cardClassName": "card data-doc-cards",
+                "cardClassName": "card dataset-doc-card",
                 "contentClassName": "card-content",
                 "icon": "fa fa-notes-medical",
                 "header":"Registry Collection",
@@ -250,7 +286,7 @@
                         "link": "COVID19_files/documentation/ahacovid19cvd_registry_collection_instructions.pdf"
                     },
                     {
-                        "cardClassName": "card data-doc-cards",
+                        "cardClassName": "card dataset-doc-card",
                         "contentClassName": "card-content",
                         "btntype": "link",
                         "className": "btn primary-btn",
@@ -263,7 +299,7 @@
     const usageCardsContent = {
         "row_1":
             {
-                "cardClassName": "card data-doc-cards",
+                "cardClassName": "card dataset-doc-card",
                 "contentClassName": "card-content",
                 "icon": "fa fa-laptop-code",
                 "header": "Data Usage",
@@ -292,7 +328,7 @@
             },
         "row_2":
             {
-                "cardClassName": "card data-doc-cards",
+                "cardClassName": "card dataset-doc-card",
                 "contentClassName": "card-content",
                 "icon": "fa fa-lightbulb",
                 "header":"Tips and Guidelines",
@@ -324,7 +360,7 @@
             },
         "row_3":
             {
-                "cardClassName": "card data-doc-cards",
+                "cardClassName": "card dataset-doc-card",
                 "contentClassName": "card-content",
                 "icon": "fa fa-question-circle ",
                 "header": "Need Help?",

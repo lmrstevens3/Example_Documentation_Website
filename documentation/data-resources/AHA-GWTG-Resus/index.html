@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PMP AHA Resus GWTG Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--    bootstrap and icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <!--    style sheets-->
+    
+    <link rel="stylesheet" href="/documentation/css/inactive.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/search.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_navbar.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/main-pmp-docs.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/headers.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/side_bar.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/collapsible.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/cards.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/main-pmp-datasets.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_styling.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_pmp_header.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/documentation/css/aha_affiliate_footer.css" type="text/css" media="screen"/>
+
+    <script type="text/javascript" src="/documentation/js/toggle_functions.js"></script>
+    <script type="text/javascript" src="/documentation/js/button_dropdown_functions.js"></script>
+    <script type="text/javascript" src="/documentation/js/card_functions.js"></script>
+
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js"></script>
+
+    <script>
+        jQuery(function($) {
+            $('.aha_pmp_header').load('/documentation/components/aha_pmp_header.html');
+            $('.workspace-passwords').load('/documentation/components/workspace_passwords.html');
+            $('.pmp-docs-navbar').load('/documentation/components/pmp_docs_navbar.html');
+            // $('.pmp-navbar').load('components/pmp_navbar.html');
+        });
+        $.get("/documentation/components/aha_pmp_footer.html", function (data) {
+            $("#footer-container").replaceWith(data);
+        });
+    </script>
+
+</head>
+<body>
+<div class="aha_pmp_header"></div>
+<div class="pmp-docs-navbar"></div>
+
+<div id="main" class="main-nav" style="margin:5% 2%; padding:2%">
+
+    <div id="quick-links">
+        <span style="color:#6D6E71; font-size:14px; margin-bottom: 1px;">Quick Links</span>
+        <script>
+            const quickLinkContent= [
+/*                 {
+                    "btntype": "link",
+                    "className": "btn secondary-btn",
+                    "label": "Explore Resus Data",
+                    "link": "search-data-documentation.html"
+                }, */
+                {
+                    "btntype": "dropdown",
+                    "className": "btn secondary-btn",
+                    "label": "Resus Data Usage",
+                    "menu": [
+                        {
+                            "label": "<img src='https://www.r-project.org/logo/Rlogo.png' alt='drawing' style='width:17%; vertical-align:middle; padding-right:5px; padding-bottom: 5px;'>  R",
+                            "link": "Resus_files/Usage_and_Examples/R/R_gwtg_resus_data_usage.html",
+                            "target": "_blank"
+                        },
+                        {
+                            "label": "<img src='https://www.python.org/static/opengraph-icon-200x200.png' alt='drawing' style='width:20%; vertical-align:middle; padding-right:5px; padding-bottom: 5px;'>Python",
+                            "link": "Resus_files/Usage_and_Examples/Python/Python_gwtg_resus_data_usage.html",
+                            "target": "_blank"
+                        },
+                        {
+                            "label": "<img src='https://www.automateexcel.com/excel/wp-content/uploads/2018/04/icon-shortcuts-sas.png' alt='drawing' style='width:15%; vertical-align:middle; padding-right:5px; padding-bottom: 5px;'> SAS",
+                            "link": "Resus_files/Usage_and_Examples/SAS/SAS_gwtg_resus_data_usage.html",
+                            "target": "_blank"
+                        }
+                    ]
+                },
+                {
+                    "btntype": "link",
+                    "className": "btn secondary-btn",
+                    "label": "Upload Files to PMP",
+                    "link": "/documentation/user-guide/index.html#transfer"
+                },
+                {
+                    "btntype": "link",
+                    "className": "btn secondary-btn",
+                    "label": "Get Files out of PMP",
+                    "link": "/documentation/user-guide/index.html#transfer"
+                },
+                {
+                    "btntype": "link",
+                    "className": "btn secondary-btn ",
+                    "label": "FAQ",
+                    "link": "/documentation/PMP-FAQ.html"
+                },
+                {
+                    "btntype": "dropdown",
+                    "className": "btn secondary-btn",
+                    "label": "Contact ",
+                    "menu": [
+                        {
+                            "label": "Contact Us",
+                            "link": "https://precision.heart.org/contact",
+                            "target": "_blank"
+                        },
+                        {
+                            "label": "Technical Support",
+                            "link": "https://precision.heart.org/technical-support",
+                            "target": "_blank"
+                        }
+                    ]
+                }];
+            const quickLinksDiv = document.getElementById("quick-links");
+            const quickLinkBtns = createButtons(quickLinkContent);
+            quickLinksDiv.appendChild(quickLinkBtns);
+        </script>
+    </div>
+    <div id="resus-registry-info" class="cards-section">
+        <div style = "margin-top: 50px;">
+            <div class="card-content data-resource-card">
+                <img  alt="AHA-Resus-logo" src="https://www.heart.org/-/media/images/professional/quality-improvement/qi-program-logos/get-with-the-guidelines-resus-program-logo-box.jpg?h=293&la=en&mw=440&w=440&hash=6DF67594808E49932F658009374A881F048886F5" >
+            </div>
+        </div>
+        <div class="card-section" style="margin-top: 50px; float:left">
+            <h3 class="grey-header text-center">CPA</h3>
+            <div class="card">
+                <div class="card-content dataset-stat-card">
+                    <h5 class="red-header">Collection Dates</h5>
+                    <h3> 2000 - 2021</h3>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content dataset-stat-card">
+                    <h5 class="red-header">Total Records</h5>
+                    <h3>520,523</h3>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content dataset-stat-card">
+                    <h5 class="red-header">PMP Data Location</h5>
+                    <code>/mnt/workspace/GWTG/Resus</code>
+                </div>
+            </div>
+            <div class="card">
+<!--                 <div class="card-content dataset-stat-card">
+                    <h5 class="red-header">Total Registry Sites</h5>
+                    <h3>XXX</h3>
+                </div> -->
+            </div>
+            
+        </div>
+        <div id="resus-registry-info-MET" class="cards-section"  style="float:left">            
+            <div style = "margin-top: 50px;">
+                <h3 class="grey-header text-center">MET</h3> 
+                <div class="card">
+                    <div class="card-content dataset-stat-card">
+                        <h5 class="red-header">Collection Dates</h5>
+                        <h3> 2005 - 2021</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content dataset-stat-card">
+                        <h5 class="red-header">Total Records</h5>
+                        <h3>809,632</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content dataset-stat-card">
+                        <h5 class="red-header">PMP Data Location</h5>
+                        <code>/mnt/workspace/GWTG/Resus</code>
+                    </div>
+                </div>
+                <div class="card">
+<!--                     <div class="card-content dataset-stat-card">
+                        <h5 class="red-header">Total Registry Sites</h5>
+                        <h3>XXX</h3>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="card" style="padding: 1% 2%;">
+            <div class="card-content about-card">
+                <h3><span style="color:#C10E21">About the Registry: </span>
+                    <span style="font-weight: normal"><i>GWTG<span style="font-size: 1.35rem"><sup>&#174</sup></span> Resuscitation</i></span></h3>
+                <p>The Get With the Guidelines<sup>&#174</sup> Resuscitation Registry is a voluntary quality improvement registry. Information and documentation regarding the registry data,
+                    data usage are provided in the workspace as well as on this site. 
+                </p>
+                <p>This data was collected from 2000 and 2005 for CPA and MET respectively and is comprised of 451,792 records and 317 measures.</b></span> The
+                    registry entry criteria instruct hospitals to enter all patients who meet the following:
+                <ol>
+                    <li>Experience a cardiopulmonary resuscitation event, defined as either pulselessness or a pulse with inadequate
+                        perfusion requiring Chest and/or Defibrillation of ventricular fibrillation or pulseless ventricular tachycardia.</li>
+                    <li>The event elicits EITHER a hospital-wide (e.g., for general inpatient area) or unit-based (ICU, ED, OR, PACU,
+                        delivery room, etc.) emergency response by acute care facility personnel.</li>
+                </ol>
+                </p>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <div id="intro">
+        <button class="collapsible" onclick="return toggle('intro-content', 'intro-plus')">
+            <a class="section-header red-header shadowed-header" href="#">
+                <h2><i class="fa fa-running" style="font-size: larger"></i>Getting Started with GWTG<sup>&#174</sup> Data in the PMP</h2>
+                <i id="intro-plus" class="fas fa-plus"></i>
+            </a>
+        </button>
+        <div id="intro-content" class="content" style="padding:1%;">
+            <h4>About the GWTG<sup>&#174</sup> Resuscitation Registry Data</h4>
+            <h4>Root Directory and Resus Data Location</h4>
+            <ul>
+                <li>The Resus Registry Data is located in <code>/mnt/workspace/GWTG/Resus</code></li>
+            </ul>
+            <h4>Software</h4>
+            <ul>
+                <li>The root path in the workspace is <code>/mnt/workspace</code>. This is the default directory for the
+                    Jupyter Home Page JupyterLab, R Studio and SAS Studio.
+                </li>
+                <li>The <a href="/documentation/user-guide/index.html#transfer" target="_blank">Transfer Data Section of the PMP User-Guide</a>
+                    provides information regarding uploading files to the workspace or getting files out of the workspace.
+                </li>
+                <li>The terminal and a variety of languages including R, Python, bash, and SAS can
+                    be accessed through Jupyter and JupyterLab. A comprehensive list of pre-installed packages and software can be found on the
+                    <a href="https://precision.heart.org/workspace/about" target="_blank">About Workspaces</a> page. The workspace is <b>fully customizable</b> and tools such as MATLAB are available
+                    <a href ='https://precision.heart.org/contact'>upon request</a>.
+                </li>
+                <li>R and SAS require a log in
+                    <button id="passwords-plus" class="fa fa-angle-down" onclick="toggle('workspace-passwords', 'passwords-plus')"></button>
+                    <div class="workspace-passwords" style="display:block;"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="cards-header-row" class="row container-fluid" style="padding:1%">
+        <div class="col-lg-6">
+            <div class="section-header red-header grey-header shadowed-header">
+                <i class="fa fa-book-open fa-2x"></i><h2>Data Documentation</h2>
+            </div>
+            <div id="docCards"></div>
+        </div>
+        <div class="col-lg-6">
+            <div class="section-header red-header grey-header">
+                <i class="fa fa-chalkboard-teacher fa-2x"></i><h2>Usage and Examples</h2>
+            </div>
+            <div id="usageCards"></div>
+        </div>
+    </div>
+
+</div>
+<script>
+    const docCardsDiv = document.getElementById("docCards");
+    const usageCardsDiv = document.getElementById("usageCards");
+
+    const docCardsContent = {
+/*           "row_1": {
+             "cardClassName": "card dataset-doc-card",
+             "contentClassName": "card-content",
+             "icon": "fa fa-search-location",
+             "header": "Data  Exploration",
+             "content": "Interactively explore all variables in the data and their accompanying documentation.",
+             "btnContent": [{
+                 "btntype": "link",
+                 "className": "btn primary-btn",
+                 "label": "Explore Resus Data",
+                 "link": "search-data-documentation.html"
+            }]
+        },  */
+        "row_2":
+            {
+                "cardClassName": "card dataset-doc-card",
+                "contentClassName": "card-content",
+                "icon": "fa fa-file-invoice",
+                "header":"Dictionaries and Coding",
+                "content": "<p>PDFs describing variable definitions, formats, and coding are in the " +
+                    "<code>GWTG/Resus/V12_08-20/documentation</code> folder within the workspace and can also be viewed using the " +
+                    "buttons below.</p>",
+                    // "The documentation contained in these files is also available " +
+                    // "using the <a href='variable_documentation_R/covid_Documentation_DTdatatable_example.html' target='_blank'>Explore and Discover website</a> described above.",
+                "btnContent": [
+                    {
+                        "btntype": "dropdown",
+                        "className": "btn primary-btn",
+                        "label": "Data Dictionaries",
+                        "menu": [
+/*                             {
+                               "label" : "ARC",
+                               "target" : "_blank"
+                            }, */
+/*                             {
+                                "label" : "DEFIB",
+                                "target" : "_blank"
+                            }, */
+/*                             {
+                                "label" : "PCAC",
+                                "target" : "_blank"
+                            }, */
+                            {
+                                "label" : "CPA",
+                                "link" : "Resus_files/documentation/v12_gwtgresus_cpa_adult_data_dictionary.pdf",
+                                "target": "_blank"
+                            },
+                            {
+                                "label" : "MET",
+                                "link": "Resus_files/documentation/met_duration.pdf",
+                                "target": "_blank"
+                            }
+                        ]
+                        
+                    },
+                    {
+                        "btntype": "link",
+                        "className": "btn primary-btn",
+                        "label": "Coding Manual",
+                        "link": "Resus_files/documentation/v12_gwtgresus_cpa_adult_coding.rtf"
+                    }
+                ]
+            },
+        "row_3":
+            {
+                "cardClassName": "card dataset-doc-card",
+                "contentClassName": "card-content",
+                "icon": "fa fa-notes-medical",
+                "header":"Registry Collection",
+                "content": "<p>The <code>v12_gwtgresus_cpa_adult_collection_instructions</code> pdf contains " +
+                    "registry data collection criterion, definitions, and protocols for entry and collected measures. " +
+                    "This file can is also available in the <code>GWTG/Resus/V12_08-20/documentation</code> workspace folder.</p>",
+                "btnContent": [
+                    {
+                        "btntype": "link",
+                        "className": "btn primary-btn",
+                        "label": "Collection Instructions",
+                        "link": "Resus_files/documentation/V12_gwtgresus_cpa_adult_collection_instructions.pdf"
+                    },
+                    {
+                        "cardClassName": "card dataset-doc-card",
+                        "contentClassName": "card-content",
+                        "btntype": "dropdown",
+                        "className": "btn primary-btn",
+                        "label": "Collection Forms",
+                        "menu" : [
+/*                             {
+                                "label" : "ARC",
+                                "target": "_blank"
+                            }, */
+                            {
+                                "label" : "CPA",
+                                "link" : "Resus_files/documentation/gwtg_r_cpa_crf_June2020.pdf",
+                                "target": "_blank"
+                            },
+                            {
+                                "label" : "MET",
+                                "link" : "Resus_files/documentation/gwtg_r_met_crf.pdf",
+                                "target": "_blank"
+                            },
+/*                             {
+                                "label" : "NEO",
+                                "target": "_blank"
+                            },
+                            {
+                                "label" : "PCAC",
+                                "target": "_blank"
+                            }, */
+                        ]
+                    }
+                ]
+            }
+    };
+    const usageCardsContent = {
+        "row_1":
+            {
+                "cardClassName": "card dataset-doc-card",
+                "contentClassName": "card-content",
+                "icon": "fa fa-laptop-code",
+                "header": "Data Usage",
+                "content": "<p>The Resus registry data is available in the <code>GWTG/Resus/V12_08-20/data</code> folder. " +
+                    "Examples for how to load and use the data in SAS, R, and Python are available in " +
+                    "the <code>GWTG/Resus/V12_08-20/usage_and_examples</code> folder and can also be accessed via the buttons below.</p>",
+                "btnContent": [
+                    {
+                        "btntype": "link",
+                        "className": "btn primary-btn",
+                        "label": "<img src='https://www.r-project.org/logo/Rlogo.png' alt='drawing' style='width:35px; vertical-align:middle; padding-right:5px;'>  R",
+                        "link": "Resus_files/Usage_and_Examples/R/R_gwtg_resus_data_usage.html"
+                    },
+                    { 
+                        "btntype": "link",
+                        "className": "btn primary-btn",
+                        "label": "<img src='https://www.python.org/static/opengraph-icon-200x200.png' alt='drawing' style='width:30px; vertical-align:middle; padding-right:5px;'>Python",
+                        "link": "Resus_files/Usage_and_Examples/Python/Python_gwtg_resus_data_usage.html"
+                    },
+                    {
+                        "btntype": "link",
+                        "className": "btn primary-btn",
+                        "label": "<img src='https://www.automateexcel.com/excel/wp-content/uploads/2018/04/icon-shortcuts-sas.png' alt='drawing' style='width:30px; vertical-align:middle; padding-right:5px;'>SAS",
+                        "link": "Resus_files/Usage_and_Examples/SAS/SAS_gwtg_resus_data_usage.html"
+                    }]
+            },
+        // "row_2":
+        //     {
+        //         "cardClassName": "card dataset-doc-card",
+        //         "contentClassName": "card-content",
+        //         "icon": "fa fa-lightbulb",
+        //         "header":"Tips and Guidelines",
+        //         "content": "The Analysis Guide includes common criteria and filters " +
+        //             "to apply when using the COVID Registry data in analyses. You will also find general guidelines " +
+        //             "regarding quality checks and missing values. The Manuscript Guide and NDA-DUA contains" +
+        //             " guidelines and recommendations for data use and authorship. In the workspace, guideline files are " +
+        //             "available in <code>GWTG/COVID19/analysis_manuscript_guidelines</code>.",
+        //         "btnContent": [
+        //             {
+        //                 "btntype": "link",
+        //                 "className": "btn primary-btn",
+        //                 "label": "Analysis Guide",
+        //                 "link": "COVID19_files/analysis_manuscript_guidelines/ahacovid19cvd_analysis_guidelines.html"
+        //             },
+        //             {
+        //                 "btntype": "link",
+        //                 "className": "btn primary-btn",
+        //                 "label": "Manuscript Guide",
+        //                 "link": "COVID19_files/analysis_manuscript_guidelines/AHA_COVID-19_Registry_Author_Reference_Guide.pdf"
+        //             },
+        //             {
+        //                 "btntype": "link",
+        //                 "className": "btn primary-btn",
+        //                 "label": "NDA-DUA",
+        //                 "link": "COVID19_files/analysis_manuscript_guidelines/AHA_GWTG_COVID-19_PMP_NDA-DUA.pdf"
+        //             }
+        //         ]
+        //     },
+        "row_3":
+            {
+                "cardClassName": "card dataset-doc-card",
+                "contentClassName": "card-content",
+                "icon": "fa fa-question-circle ",
+                "header": "Need Help?",
+                "content":
+                    "<p><ul>" +
+                    "<li>For PMP questions, check out the FAQ and PMP User Guide</li>" +
+                    "<li>For technical problems or installation issues, file a ticket with " +
+                    "<a href ='https://precision.heart.org/technical-support'>Technical Support</a></li>" +
+                    "<li>For data questions, account questions, and additional PMP or analysis support, please " +
+                    "<a href ='https://precision.heart.org/contact'>Contact Us.</li>" +
+                    "</ul></p>",
+                "btnContent": [
+                    {
+                        "btntype": "link",
+                        "className": "btn primary-btn",
+                        "label": "PMP FAQ",
+                        "link": "/documentation/PMP-FAQ.html"
+                    },
+                    {
+                        "btntype": "link",
+                        "className": "btn primary-btn",
+                        "label": "PMP User Guide",
+                        "link": "/documentation/user-guide/index.html"
+                    }
+                ]
+            }
+    };
+    createCards(docCardsContent, docCardsDiv, "row container-fluid")
+    createCards(usageCardsContent, usageCardsDiv, "row container-fluid")
+</script>
+
+<div id="footer-container"></div>
+</body>
+</html>
+
